@@ -57,14 +57,14 @@
 		6003F5B9195388D20070C39A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6003F5BB195388D20070C39A /* Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tests.m; sourceTree = "<group>"; };
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
-		67D435DD8F2BDC3DC31D94DB /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		67D435DD8F2BDC3DC31D94DB /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		7025E4FFDBE263C6AE11BB5D /* Pods-NTESQuickLogin_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NTESQuickLogin_Tests.release.xcconfig"; path = "Target Support Files/Pods-NTESQuickLogin_Tests/Pods-NTESQuickLogin_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		76FEFC98BB0AEA625DAF3CF5 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		76FEFC98BB0AEA625DAF3CF5 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8ECA9C6E4BB49B4FADBA1CBC /* Pods-NTESQuickLogin_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NTESQuickLogin_Example.debug.xcconfig"; path = "Target Support Files/Pods-NTESQuickLogin_Example/Pods-NTESQuickLogin_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		B102C0F014D0D61296A445C7 /* Pods-NTESQuickLogin_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NTESQuickLogin_Tests.debug.xcconfig"; path = "Target Support Files/Pods-NTESQuickLogin_Tests/Pods-NTESQuickLogin_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		C72F48456E0473CADE1B1BD5 /* NTESQuickLogin.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = NTESQuickLogin.podspec; path = ../NTESQuickLogin.podspec; sourceTree = "<group>"; };
+		C72F48456E0473CADE1B1BD5 /* NTESQuickLogin.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = NTESQuickLogin.podspec; path = ../NTESQuickLogin.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		D28E650237469B5DF2749B93 /* Pods_NTESQuickLogin_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NTESQuickLogin_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6CD40F749876F39747A55D1 /* Pods_NTESQuickLogin_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NTESQuickLogin_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -193,7 +193,6 @@
 				B102C0F014D0D61296A445C7 /* Pods-NTESQuickLogin_Tests.debug.xcconfig */,
 				7025E4FFDBE263C6AE11BB5D /* Pods-NTESQuickLogin_Tests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -208,7 +207,7 @@
 				6003F586195388D20070C39A /* Sources */,
 				6003F587195388D20070C39A /* Frameworks */,
 				6003F588195388D20070C39A /* Resources */,
-				3EF75DAC2955F94488A18018 /* [CP] Embed Pods Frameworks */,
+				DE417AE8EC2A3D7E573E326C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -248,6 +247,9 @@
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = luolihao123456;
 				TargetAttributes = {
+					6003F589195388D20070C39A = {
+						DevelopmentTeam = XB333SWTAF;
+					};
 					6003F5AD195388D20070C39A = {
 						TestTargetID = 6003F589195388D20070C39A;
 					};
@@ -258,6 +260,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -295,24 +298,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		3EF75DAC2955F94488A18018 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-NTESQuickLogin_Example/Pods-NTESQuickLogin_Example-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/NTESQuickLogin/NTESQuickLogin.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NTESQuickLogin.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-NTESQuickLogin_Example/Pods-NTESQuickLogin_Example-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		713416152C7075AF59C5D0C9 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -355,6 +340,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DE417AE8EC2A3D7E573E326C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-NTESQuickLogin_Example/Pods-NTESQuickLogin_Example-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/NTESQuickLogin/NTESQuickLogin.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/NTESQuickLogin.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-NTESQuickLogin_Example/Pods-NTESQuickLogin_Example-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -494,6 +497,7 @@
 			baseConfigurationReference = 8ECA9C6E4BB49B4FADBA1CBC /* Pods-NTESQuickLogin_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = XB333SWTAF;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NTESQuickLogin/NTESQuickLogin-Prefix.pch";
 				INFOPLIST_FILE = "NTESQuickLogin/NTESQuickLogin-Info.plist";
@@ -510,6 +514,7 @@
 			baseConfigurationReference = 5756DB07038906BD487E9880 /* Pods-NTESQuickLogin_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = XB333SWTAF;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NTESQuickLogin/NTESQuickLogin-Prefix.pch";
 				INFOPLIST_FILE = "NTESQuickLogin/NTESQuickLogin-Info.plist";
