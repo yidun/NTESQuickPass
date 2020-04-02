@@ -25,11 +25,12 @@ it, simply add the following line to your Podfile:
 ```ruby
 pod 'NTESQuickLogin'
 ```
-### 注：如果无法导入最新版本，pod update 升级本地的pod库
+### 注：如果无法导入最新版本，pod update  或者 pod update —no-repo-update升级本地的pod库
 
 ### 3.如果需要安装指定版本则使用以下方式（以2.0.1版本为例）：
 ```ruby
-pod ‘NTESQuickLogin,  ‘2.0.1’
+pod 'NTESQuickLogin',  '2.0.1' 版本号指定为 2.0.1
+pod 'NTESQuickLogin', '~> 2.0.1' 版本号可以是2.0.1，可以是2.0.2,但必须小于3
 ```
 
 ## Author
