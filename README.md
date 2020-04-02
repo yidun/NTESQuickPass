@@ -19,7 +19,7 @@ it, simply add the following line to your Podfile:
 ### 1.需配置网易易盾 Pod 私有仓库，在 Podfile 中添加 source 
 
 * source 'https://github.com/CocoaPods/Specs.git'
-* source 'https://github.com/yidun/NTESQuickPass.git'
+* source 'https://github.com/yidun/NTESQuickPassSpec.git'
 
 ### 2.Cocoapods 导入
 ```ruby
