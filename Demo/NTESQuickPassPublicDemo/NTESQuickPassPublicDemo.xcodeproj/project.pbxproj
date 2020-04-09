@@ -18,6 +18,7 @@
 		BF7BEC9320D2198E00822DAA /* NTESQPLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF7BEC9220D2198E00822DAA /* NTESQPLoginViewController.m */; };
 		BF7BEC9620D219A200822DAA /* NTESQPLoginSuccessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF7BEC9520D219A200822DAA /* NTESQPLoginSuccessViewController.m */; };
 		CA5CB829243EEF7800B37A8B /* NTESQuickPass.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA5CB828243EEF7700B37A8B /* NTESQuickPass.framework */; };
+		CA5CB830243F13F800B37A8B /* UIColor+NTESQuickPass.m in Sources */ = {isa = PBXBuildFile; fileRef = CA5CB82E243F13F800B37A8B /* UIColor+NTESQuickPass.m */; };
 		CA5FC005242B2EA1006122D2 /* TYRZSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA5FC004242B2EA1006122D2 /* TYRZSDK.framework */; };
 		CA5FC013242B2ED1006122D2 /* NTESQLHomePageView.m in Sources */ = {isa = PBXBuildFile; fileRef = CA5FC00A242B2ED1006122D2 /* NTESQLHomePageView.m */; };
 		CA5FC014242B2ED1006122D2 /* NTESQLHomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA5FC00C242B2ED1006122D2 /* NTESQLHomePageViewController.m */; };
@@ -82,6 +83,8 @@
 		BF7BEC9420D219A200822DAA /* NTESQPLoginSuccessViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NTESQPLoginSuccessViewController.h; sourceTree = "<group>"; };
 		BF7BEC9520D219A200822DAA /* NTESQPLoginSuccessViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NTESQPLoginSuccessViewController.m; sourceTree = "<group>"; };
 		CA5CB828243EEF7700B37A8B /* NTESQuickPass.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NTESQuickPass.framework; path = SDK/NTESQuickPass.framework; sourceTree = "<group>"; };
+		CA5CB82E243F13F800B37A8B /* UIColor+NTESQuickPass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+NTESQuickPass.m"; sourceTree = "<group>"; };
+		CA5CB82F243F13F800B37A8B /* UIColor+NTESQuickPass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+NTESQuickPass.h"; sourceTree = "<group>"; };
 		CA5FC004242B2EA1006122D2 /* TYRZSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TYRZSDK.framework; sourceTree = "<group>"; };
 		CA5FC009242B2ED1006122D2 /* NTESQLHomePageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTESQLHomePageView.h; sourceTree = "<group>"; };
 		CA5FC00A242B2ED1006122D2 /* NTESQLHomePageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTESQLHomePageView.m; sourceTree = "<group>"; };
@@ -239,6 +242,7 @@
 		BF7BEC8C20D218AD00822DAA /* home */ = {
 			isa = PBXGroup;
 			children = (
+				CA5CB82D243F13F800B37A8B /* Util */,
 				CA5FC00B242B2ED1006122D2 /* Controller */,
 				CA5FC010242B2ED1006122D2 /* Model */,
 				CA5FC008242B2ED1006122D2 /* View */,
@@ -270,6 +274,15 @@
 			path = view;
 			sourceTree = "<group>";
 		};
+		CA5CB82D243F13F800B37A8B /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				CA5CB82F243F13F800B37A8B /* UIColor+NTESQuickPass.h */,
+				CA5CB82E243F13F800B37A8B /* UIColor+NTESQuickPass.m */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
 		CA5FC008242B2ED1006122D2 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -293,8 +306,8 @@
 		CA5FC010242B2ED1006122D2 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				CA5FC011242B2ED1006122D2 /* NTESQLHomePageCustomUIModel.m */,
 				CA5FC012242B2ED1006122D2 /* NTESQLHomePageCustomUIModel.h */,
+				CA5FC011242B2ED1006122D2 /* NTESQLHomePageCustomUIModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -474,6 +487,7 @@
 				BF7BEC6120D204A700822DAA /* main.m in Sources */,
 				BF7BEC9620D219A200822DAA /* NTESQPLoginSuccessViewController.m in Sources */,
 				CA5FC013242B2ED1006122D2 /* NTESQLHomePageView.m in Sources */,
+				CA5CB830243F13F800B37A8B /* UIColor+NTESQuickPass.m in Sources */,
 				BF7BEC5320D204A400822DAA /* AppDelegate.m in Sources */,
 				CA5FC015242B2ED1006122D2 /* NTESQPHomePageViewController.m in Sources */,
 				CA5FC016242B2ED1006122D2 /* NTESQLHomePageCustomUIModel.m in Sources */,

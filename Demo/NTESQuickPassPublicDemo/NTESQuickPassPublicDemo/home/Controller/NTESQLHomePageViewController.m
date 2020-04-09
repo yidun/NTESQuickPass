@@ -57,7 +57,7 @@
     self.shouldQL = [[NTESQuickLoginManager sharedInstance] shouldQuickLogin];
     
     if (self.shouldQL) {
-        [[NTESQuickLoginManager sharedInstance] registerWithBusinessID:@"易盾分配的业务方ID" timeout:3*1000 configURL:nil extData:nil completion:^(NSDictionary * _Nullable params, BOOL success) {
+        [[NTESQuickLoginManager sharedInstance] registerWithBusinessID:QL_BUSINESSID timeout:3*1000 configURL:nil extData:nil completion:^(NSDictionary * _Nullable params, BOOL success) {
             if (success) {
                 self.token = [params objectForKey:@"token"];
                 self.precheckSuccess = YES;

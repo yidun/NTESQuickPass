@@ -7,6 +7,7 @@
 //
 
 #import "NTESQLHomePageCustomUIModel.h"
+#import "UIColor+NTESQuickPass.h"
 
 @implementation NTESQLHomePageCustomUIModel
 
@@ -14,7 +15,7 @@
     
     NTESQuickLoginModel *model = [[NTESQuickLoginModel alloc] init];
     model.presentDirectionType = NTESPresentDirectionPush;
-    model.backgroundColor = [UIColor whiteColor];
+    model.backgroundColor = [UIColor ntes_colorWithDynamicProviderWithWhiteColor:[UIColor whiteColor] andDarkColor:[UIColor blackColor]];
     model.authWindowPop = NTESAuthWindowPopFullScreen;
     model.closePopImg = [UIImage imageNamed:@"checkedBox"];
     model.faceOrientation = UIInterfaceOrientationPortrait;
@@ -22,7 +23,7 @@
     model.navTextFont = [UIFont systemFontOfSize:18];
     model.navTextColor = [UIColor redColor];
     model.navReturnImgLeftMargin = 6;
-    model.navBgColor = [UIColor blueColor];
+    model.navBgColor = [UIColor ntes_colorWithDynamicProviderWithWhiteColor:[UIColor blueColor] andDarkColor:[UIColor whiteColor]];
     model.navText = @"易盾登录";
     model.navTextHidden = NO;
     model.navReturnImg = [UIImage imageNamed:@"back-1"];
@@ -57,22 +58,11 @@
     model.logBtnHeight = 44;
     model.logBtnEnableImg = [UIImage imageNamed:@"login_able"];
 
-    UIButton *wechatButton = [[UIButton alloc] init];
-    wechatButton.backgroundColor = [UIColor redColor];
-    [wechatButton setBackgroundImage:[UIImage imageNamed:@"checkedBox"] forState:UIControlStateNormal];
-    UIButton *paypalButton = [[UIButton alloc] init];
-    [paypalButton setBackgroundImage:[UIImage imageNamed:@"checkedBox"] forState:UIControlStateNormal];
-    paypalButton.backgroundColor = [UIColor redColor];
-    UIButton *qqButton = [[UIButton alloc] init];
-    [qqButton setBackgroundImage:[UIImage imageNamed:@"checkedBox"] forState:UIControlStateNormal];
-    qqButton.backgroundColor = [UIColor redColor];
-
     model.appPrivacyText = @"登录即同意《默认》和《用户隐私协议》";
     model.appFPrivacyText = @"《用户隐私协议》";
     model.appFPrivacyURL = @"http://www.baidu.com";
     model.appSPrivacyText = @"《用户服务条款》";
     model.appSPrivacyURL = @"http://www.baidu.com";
-//    model.appPrivacyOriginLeftMargin = 200;
     model.appFPrivacyTitleText = @"hhahha";
  
     model.uncheckedImg = [UIImage imageNamed:@"checkBox"];
