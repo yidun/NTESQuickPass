@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "NTESQuickPass"
-  spec.version      = "0.0.1"
+  spec.version      = "0.0.2"
   spec.summary      = "NTESQuickPass."
 
   # This description is used to generate tags and improve search results.
@@ -107,6 +107,11 @@ Pod::Spec.new do |spec|
   # spec.resources = "Resources/*.png"
 
   # spec.preserve_paths = "FilesToSave", "MoreFilesToSave"
+  
+  spec.resource_bundles = {
+       'NTESQuickPass' => ['Assets/sdk_oauth.bundle','Assets/TYRZResource.bundle','Assets/NTESQuickPassResource.bundle']
+   }
+
 
 
   # ――― Project Linking ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
