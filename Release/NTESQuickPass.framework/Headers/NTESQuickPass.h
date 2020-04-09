@@ -17,3 +17,4 @@ FOUNDATION_EXPORT const unsigned char NTESQuickPassVersionString[];
 
 #import "NTESQuickPassManager.h"
 #import "NTESQuickLoginManager.h"
+#import "NTESQuickLoginModel.h"

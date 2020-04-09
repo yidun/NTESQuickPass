@@ -6,7 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "NTESQuickLoginCustomModel.h"
+#import "NTESQuickLoginModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -46,7 +46,7 @@ typedef void(^NTESQLAuthorizeHandler)(NSDictionary *resultDic);
 *
 *  @说明  授权登录界面model
 */
-@property (nonatomic, strong) NTESQuickLoginCustomModel *model;
+@property (nonatomic, strong) NTESQuickLoginModel *model;
 
 /**
  *  @abstract   单例
@@ -108,7 +108,7 @@ typedef void(^NTESQLAuthorizeHandler)(NSDictionary *resultDic);
 *
 *  @param      model   登录界面model，必传
 */
-- (void)setupModel:(NTESQuickLoginCustomModel *)model;
+- (void)setupModel:(NTESQuickLoginModel *)model;
 
 /**
  *  @abstract   联通、移动 - 授权登录（取号接口），⚠️注意：此方法需嵌套在getPhoneNumberCompletion的回调中使用，且在setupCMModel:或setupCUModel:之后调用

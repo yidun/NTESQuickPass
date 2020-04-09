@@ -21,17 +21,19 @@ NTESQuickLogin is available through [CocoaPods](https://cocoapods.org). To insta
 it, simply add the following line to your Podfile:
 
 
-### 1.Cocoapods 导入
+## 1.Cocoapods 集成
+#### 执行pod repo update更新。
+#### Podfile 里面添加以下代码：
 ```ruby
-pod 'NTESQuickPass'
-```
-### 注：如果无法导入最新版本，pod  repo update  升级本地的pod库
+# 以下两种版本选择方式示例
 
-### 3.如果需要安装指定版本则使用以下方式（以2.0.1版本为例）：
-```ruby
-pod 'NTESQuickPass',  '2.0.1' 版本号指定为 2.0.1
-pod 'NTESQuickPass', '~> 2.0.1' 版本号可以是2.0.1，可以是2.0.2,但必须小于3
+# 集成最新版SDK:
+pod 'NTESQuickPass'
+
+# 集成指定SDK，具体版本号可先执行 pod search NTESQuickPass，根据返回的版本信息自行决定:
+pod 'NTESQuickPass', '~> 2.1.0'
 ```
+### 保存并执行pod install即可，若未执行pod repo update，请执行pod install --repo-update
 
 ## Author
 
@@ -46,3 +48,4 @@ luolihao123456, luolihao123456@163.com
 | 1.5.2 | 2019.12.6 | 1. 联通 - 可选是否需要授权页的关闭回调；<br>2. 联通 - 授权页隐私协议中可插入自定义分割字符；<br>3. 优化SDK内部流程调用方式；<br>4. SDK接入demo优化；
 | 2.0.0 | 2020.3.25 | 1. 统一移动、联通、电信三网的登录界面, 并增加了弹窗模式；
 | 2.0.1 | 2020.3.27 | 1. 增加了customViewBlock属性，可在控制器上自定义控件 <br>2.增加了customNavBlock属性，可在导航栏上自定义控件；
+| 2.1.0 | 2020.4.9 | 1.背景图片支持GIF与视频设置 <br>2.适配暗黑模式。<br>3.支持pod集成。

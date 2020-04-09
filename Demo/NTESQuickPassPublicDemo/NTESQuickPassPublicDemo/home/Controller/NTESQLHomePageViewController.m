@@ -247,7 +247,7 @@
 
 /// 授权页面自定义
 - (void)setCustomUI {
-    NTESQuickLoginCustomModel *model = [NTESQLHomePageCustomUIModel configCustomUIModel];
+    NTESQuickLoginModel *model = [NTESQLHomePageCustomUIModel configCustomUIModel];
     model.currentVC = self;
     
 //    model.customViewBlock = ^(UIView * _Nullable customView) {

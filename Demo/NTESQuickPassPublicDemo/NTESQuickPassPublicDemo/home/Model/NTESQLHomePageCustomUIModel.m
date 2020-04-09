@@ -10,9 +10,9 @@
 
 @implementation NTESQLHomePageCustomUIModel
 
-+ (NTESQuickLoginCustomModel *)configCustomUIModel {
++ (NTESQuickLoginModel *)configCustomUIModel {
     
-    NTESQuickLoginCustomModel *model = [[NTESQuickLoginCustomModel alloc] init];
+    NTESQuickLoginModel *model = [[NTESQuickLoginModel alloc] init];
     model.presentDirectionType = NTESPresentDirectionPush;
     model.backgroundColor = [UIColor whiteColor];
     model.authWindowPop = NTESAuthWindowPopFullScreen;
@@ -56,7 +56,6 @@
     model.logBtnUsableBGColor = [UIColor blueColor];
     model.logBtnHeight = 44;
     model.logBtnEnableImg = [UIImage imageNamed:@"login_able"];
-    model.logBtnDisableImg = [UIImage imageNamed:@"login_disable"];
 
     UIButton *wechatButton = [[UIButton alloc] init];
     wechatButton.backgroundColor = [UIColor redColor];
@@ -81,6 +80,7 @@
     model.privacyState = NO;
     model.checkedHidden = NO;
     model.isOpenSwipeGesture = NO;
+    model.popBackgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.7];
 
     if (@available(iOS 13.0, *)) {
        model.currentStatusBarStyle = UIStatusBarStyleDarkContent;
