@@ -64,7 +64,16 @@
     model.appSPrivacyText = @"《用户服务条款》";
     model.appSPrivacyURL = @"http://www.baidu.com";
     model.appFPrivacyTitleText = @"hhahha";
- 
+    
+    if (model.authWindowPop == NTESAuthWindowPopFullScreen) {
+        if (model.faceOrientation == UIInterfaceOrientationPortrait) {
+            model.localVideoFileName = @"video_portrait.mp4";
+        } else {
+            model.localVideoFileName = @"video_landscape.mp4";
+        }
+        model.isRepeatPlay = YES;
+    }
+   
     model.uncheckedImg = [UIImage imageNamed:@"checkBox"];
     model.checkedImg = [UIImage imageNamed:@"checkedBox"];
     model.privacyState = NO;

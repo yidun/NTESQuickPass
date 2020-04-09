@@ -24,6 +24,8 @@
 		CA5FC014242B2ED1006122D2 /* NTESQLHomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA5FC00C242B2ED1006122D2 /* NTESQLHomePageViewController.m */; };
 		CA5FC015242B2ED1006122D2 /* NTESQPHomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA5FC00F242B2ED1006122D2 /* NTESQPHomePageViewController.m */; };
 		CA5FC016242B2ED1006122D2 /* NTESQLHomePageCustomUIModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CA5FC011242B2ED1006122D2 /* NTESQLHomePageCustomUIModel.m */; };
+		CAA68173243F5354001BD642 /* video_landscape.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = CAA68171243F5354001BD642 /* video_landscape.mp4 */; };
+		CAA68174243F5354001BD642 /* video_portrait.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = CAA68172243F5354001BD642 /* video_portrait.mp4 */; };
 		DC56CB5C2201A3CF00D7B973 /* libc++.1.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = DC56CB5B2201A3CF00D7B973 /* libc++.1.tbd */; };
 		DC56CB5E2201A3EB00D7B973 /* libz.1.2.8.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = DC56CB5D2201A3EB00D7B973 /* libz.1.2.8.tbd */; };
 		DC8C849822C3184E006C8683 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC8C849722C3184D006C8683 /* CoreFoundation.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
@@ -94,6 +96,8 @@
 		CA5FC00F242B2ED1006122D2 /* NTESQPHomePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTESQPHomePageViewController.m; sourceTree = "<group>"; };
 		CA5FC011242B2ED1006122D2 /* NTESQLHomePageCustomUIModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTESQLHomePageCustomUIModel.m; sourceTree = "<group>"; };
 		CA5FC012242B2ED1006122D2 /* NTESQLHomePageCustomUIModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTESQLHomePageCustomUIModel.h; sourceTree = "<group>"; };
+		CAA68171243F5354001BD642 /* video_landscape.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video_landscape.mp4; sourceTree = "<group>"; };
+		CAA68172243F5354001BD642 /* video_portrait.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video_portrait.mp4; sourceTree = "<group>"; };
 		DC56CB5B2201A3CF00D7B973 /* libc++.1.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.1.tbd"; path = "usr/lib/libc++.1.tbd"; sourceTree = SDKROOT; };
 		DC56CB5D2201A3EB00D7B973 /* libz.1.2.8.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.1.2.8.tbd; path = usr/lib/libz.1.2.8.tbd; sourceTree = SDKROOT; };
 		DC8C849722C3184D006C8683 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
@@ -195,6 +199,7 @@
 		BF7BEC5020D204A400822DAA /* NTESQuickPassPublicDemo */ = {
 			isa = PBXGroup;
 			children = (
+				CAA68170243F5344001BD642 /* Resources */,
 				DCA6620D2214123200B29D37 /* Request */,
 				BF7BECB920D2969800822DAA /* view */,
 				BF7BEC8D20D218F200822DAA /* login */,
@@ -310,6 +315,15 @@
 				CA5FC011242B2ED1006122D2 /* NTESQLHomePageCustomUIModel.m */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		CAA68170243F5344001BD642 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				CAA68171243F5354001BD642 /* video_landscape.mp4 */,
+				CAA68172243F5354001BD642 /* video_portrait.mp4 */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		DCA6620D2214123200B29D37 /* Request */ = {
@@ -434,8 +448,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				DCECF9EC228D75E800DC7E28 /* sdk_oauth.bundle in Resources */,
+				CAA68173243F5354001BD642 /* video_landscape.mp4 in Resources */,
 				DCD4421C22A66673005AE167 /* TYRZResource.bundle in Resources */,
 				BF7BEC5E20D204A700822DAA /* LaunchScreen.storyboard in Resources */,
+				CAA68174243F5354001BD642 /* video_portrait.mp4 in Resources */,
 				DCEC422D2202EC5B00698D3B /* Assets.xcassets in Resources */,
 				BF7BEC5920D204A400822DAA /* Main.storyboard in Resources */,
 			);
