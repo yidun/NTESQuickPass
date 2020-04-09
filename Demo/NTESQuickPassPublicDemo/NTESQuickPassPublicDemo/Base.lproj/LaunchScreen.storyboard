@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="EHf-IW-A2E">
+            <objects>
+                <viewController id="01J-lp-oVM" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hSX-f7-QgQ"/>
+                        <viewControllerLayoutGuide type="bottom" id="fC4-Cy-inH"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launchImage" translatesAutoresizingMaskIntoConstraints="NO" id="vNV-e5-L5i">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="yidun_logo" translatesAutoresizingMaskIntoConstraints="NO" id="3li-vR-TJV">
+                                <rect key="frame" x="25" y="35" width="135" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="22.5" id="GYx-KP-89k"/>
+                                    <constraint firstAttribute="width" constant="135" id="SKx-c7-nvv"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="© 1997-2018 网易公司" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PCO-Jw-XzG">
+                                <rect key="frame" x="134" y="640" width="107.5" height="12"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="本机校验服务 - 体验demo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jXY-tk-YNe">
+                                <rect key="frame" x="128.5" y="626" width="120" height="12"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="本机校验服务-体验DEMO" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wng-dO-dkA">
+                                <rect key="frame" x="50.5" y="249" width="274" height="29"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="由此开启本机校验新时代..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bqR-r2-KHH">
+                                <rect key="frame" x="108.5" y="283" width="158" height="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="3li-vR-TJV" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" constant="35" id="DJJ-b1-18l"/>
+                            <constraint firstItem="3li-vR-TJV" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" constant="25" id="GBj-II-xQA"/>
+                            <constraint firstItem="vNV-e5-L5i" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="I0Z-po-aa6"/>
+                            <constraint firstItem="jXY-tk-YNe" firstAttribute="bottom" secondItem="PCO-Jw-XzG" secondAttribute="top" constant="-2" id="OaJ-QD-BRc"/>
+                            <constraint firstItem="wng-dO-dkA" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="-70" id="Og4-Zm-0zB"/>
+                            <constraint firstAttribute="right" secondItem="vNV-e5-L5i" secondAttribute="right" id="QeW-vz-O2a"/>
+                            <constraint firstItem="PCO-Jw-XzG" firstAttribute="bottom" secondItem="Ze5-6b-2t3" secondAttribute="bottom" constant="-15" id="WGv-3n-FD2"/>
+                            <constraint firstItem="vNV-e5-L5i" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="Wic-0c-lTj"/>
+                            <constraint firstAttribute="bottom" secondItem="vNV-e5-L5i" secondAttribute="bottom" id="ZG4-ft-plr"/>
+                            <constraint firstItem="wng-dO-dkA" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="exn-9t-6Y9"/>
+                            <constraint firstItem="bqR-r2-KHH" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="fxM-6o-55Q"/>
+                            <constraint firstItem="PCO-Jw-XzG" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="hie-R3-997"/>
+                            <constraint firstItem="jXY-tk-YNe" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" constant="1" id="ltl-s2-2vF"/>
+                            <constraint firstItem="bqR-r2-KHH" firstAttribute="top" secondItem="wng-dO-dkA" secondAttribute="bottom" constant="5" id="qcJ-Of-MAt"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="52" y="374.66266866566718"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="launchImage" width="375" height="667"/>
+        <image name="yidun_logo" width="135" height="22"/>
+    </resources>
+</document>

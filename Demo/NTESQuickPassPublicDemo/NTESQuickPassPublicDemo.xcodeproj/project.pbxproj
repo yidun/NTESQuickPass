@@ -1,0 +1,826 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BF66140B20EDC08000F09D77 /* NTESQPVerifyingPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF66140A20EDC08000F09D77 /* NTESQPVerifyingPopView.m */; };
+		BF7BEC5320D204A400822DAA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BF7BEC5220D204A400822DAA /* AppDelegate.m */; };
+		BF7BEC5620D204A400822DAA /* NTESBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF7BEC5520D204A400822DAA /* NTESBaseViewController.m */; };
+		BF7BEC5920D204A400822DAA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF7BEC5720D204A400822DAA /* Main.storyboard */; };
+		BF7BEC5E20D204A700822DAA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF7BEC5C20D204A700822DAA /* LaunchScreen.storyboard */; };
+		BF7BEC6120D204A700822DAA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BF7BEC6020D204A700822DAA /* main.m */; };
+		BF7BEC6B20D204A800822DAA /* NTESQuickPassPublicDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BF7BEC6A20D204A800822DAA /* NTESQuickPassPublicDemoTests.m */; };
+		BF7BEC7620D204A800822DAA /* NTESQuickPassPublicDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = BF7BEC7520D204A800822DAA /* NTESQuickPassPublicDemoUITests.m */; };
+		BF7BEC9320D2198E00822DAA /* NTESQPLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF7BEC9220D2198E00822DAA /* NTESQPLoginViewController.m */; };
+		BF7BEC9620D219A200822DAA /* NTESQPLoginSuccessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF7BEC9520D219A200822DAA /* NTESQPLoginSuccessViewController.m */; };
+		CA543ACD242DE52D004C5530 /* NTESQuickPass.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA543ACC242DE52D004C5530 /* NTESQuickPass.framework */; };
+		CA5FC005242B2EA1006122D2 /* TYRZSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA5FC004242B2EA1006122D2 /* TYRZSDK.framework */; };
+		CA5FC013242B2ED1006122D2 /* NTESQLHomePageView.m in Sources */ = {isa = PBXBuildFile; fileRef = CA5FC00A242B2ED1006122D2 /* NTESQLHomePageView.m */; };
+		CA5FC014242B2ED1006122D2 /* NTESQLHomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA5FC00C242B2ED1006122D2 /* NTESQLHomePageViewController.m */; };
+		CA5FC015242B2ED1006122D2 /* NTESQPHomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA5FC00F242B2ED1006122D2 /* NTESQPHomePageViewController.m */; };
+		CA5FC016242B2ED1006122D2 /* NTESQLHomePageCustomUIModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CA5FC011242B2ED1006122D2 /* NTESQLHomePageCustomUIModel.m */; };
+		DC56CB5C2201A3CF00D7B973 /* libc++.1.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = DC56CB5B2201A3CF00D7B973 /* libc++.1.tbd */; };
+		DC56CB5E2201A3EB00D7B973 /* libz.1.2.8.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = DC56CB5D2201A3EB00D7B973 /* libz.1.2.8.tbd */; };
+		DC8C849822C3184E006C8683 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC8C849722C3184D006C8683 /* CoreFoundation.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		DCA5695323338444006AA8AA /* EAccountApiSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCA5695223338444006AA8AA /* EAccountApiSDK.framework */; };
+		DCA6620A2212C79300B29D37 /* NTESQLServiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DCA662092212C79300B29D37 /* NTESQLServiceViewController.m */; };
+		DCA662102214129B00B29D37 /* NTESDemoHttpRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = DCA6620F2214129B00B29D37 /* NTESDemoHttpRequest.m */; };
+		DCD4421C22A66673005AE167 /* TYRZResource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = DCD4421B22A66673005AE167 /* TYRZResource.bundle */; };
+		DCEC42202202933400698D3B /* NTESQLLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DCEC421F2202933400698D3B /* NTESQLLoginViewController.m */; };
+		DCEC422D2202EC5B00698D3B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DCEC422A2202EC5B00698D3B /* Assets.xcassets */; };
+		DCECF9EB228D75E800DC7E28 /* OAuth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCECF9E9228D75E800DC7E28 /* OAuth.framework */; };
+		DCECF9EC228D75E800DC7E28 /* sdk_oauth.bundle in Resources */ = {isa = PBXBuildFile; fileRef = DCECF9EA228D75E800DC7E28 /* sdk_oauth.bundle */; };
+		F2204C4852E46E6CCBC84386 /* libPods-NTESQuickPassPublicDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E692FEFA580DF8B22EB7DDF /* libPods-NTESQuickPassPublicDemo.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BF7BEC6720D204A800822DAA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BF7BEC4620D204A400822DAA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BF7BEC4D20D204A400822DAA;
+			remoteInfo = NTESQuickPassPublicDemo;
+		};
+		BF7BEC7220D204A800822DAA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BF7BEC4620D204A400822DAA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BF7BEC4D20D204A400822DAA;
+			remoteInfo = NTESQuickPassPublicDemo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		6AA02F0C44F1E6D3D4BC705B /* Pods-NTESQuickPassPublicDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NTESQuickPassPublicDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-NTESQuickPassPublicDemo/Pods-NTESQuickPassPublicDemo.release.xcconfig"; sourceTree = "<group>"; };
+		6E692FEFA580DF8B22EB7DDF /* libPods-NTESQuickPassPublicDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NTESQuickPassPublicDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9C18E995F36E5BD850F466F3 /* Pods-NTESQuickPassPublicDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NTESQuickPassPublicDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NTESQuickPassPublicDemo/Pods-NTESQuickPassPublicDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		BF66140920EDC08000F09D77 /* NTESQPVerifyingPopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NTESQPVerifyingPopView.h; sourceTree = "<group>"; };
+		BF66140A20EDC08000F09D77 /* NTESQPVerifyingPopView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NTESQPVerifyingPopView.m; sourceTree = "<group>"; };
+		BF7BEC4E20D204A400822DAA /* NTESQuickPassPublicDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NTESQuickPassPublicDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF7BEC5120D204A400822DAA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		BF7BEC5220D204A400822DAA /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		BF7BEC5420D204A400822DAA /* NTESBaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NTESBaseViewController.h; sourceTree = "<group>"; };
+		BF7BEC5520D204A400822DAA /* NTESBaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NTESBaseViewController.m; sourceTree = "<group>"; };
+		BF7BEC5820D204A400822DAA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BF7BEC5A20D204A700822DAA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BF7BEC5D20D204A700822DAA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		BF7BEC5F20D204A700822DAA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BF7BEC6020D204A700822DAA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		BF7BEC6620D204A800822DAA /* NTESQuickPassPublicDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NTESQuickPassPublicDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF7BEC6A20D204A800822DAA /* NTESQuickPassPublicDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NTESQuickPassPublicDemoTests.m; sourceTree = "<group>"; };
+		BF7BEC6C20D204A800822DAA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BF7BEC7120D204A800822DAA /* NTESQuickPassPublicDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NTESQuickPassPublicDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF7BEC7520D204A800822DAA /* NTESQuickPassPublicDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NTESQuickPassPublicDemoUITests.m; sourceTree = "<group>"; };
+		BF7BEC7720D204A800822DAA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BF7BEC8720D20FC700822DAA /* NTESQPDemoDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NTESQPDemoDefines.h; sourceTree = "<group>"; };
+		BF7BEC9120D2198E00822DAA /* NTESQPLoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NTESQPLoginViewController.h; sourceTree = "<group>"; };
+		BF7BEC9220D2198E00822DAA /* NTESQPLoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NTESQPLoginViewController.m; sourceTree = "<group>"; };
+		BF7BEC9420D219A200822DAA /* NTESQPLoginSuccessViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NTESQPLoginSuccessViewController.h; sourceTree = "<group>"; };
+		BF7BEC9520D219A200822DAA /* NTESQPLoginSuccessViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NTESQPLoginSuccessViewController.m; sourceTree = "<group>"; };
+		CA543ACC242DE52D004C5530 /* NTESQuickPass.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = NTESQuickPass.framework; sourceTree = "<group>"; };
+		CA5FC004242B2EA1006122D2 /* TYRZSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TYRZSDK.framework; sourceTree = "<group>"; };
+		CA5FC009242B2ED1006122D2 /* NTESQLHomePageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTESQLHomePageView.h; sourceTree = "<group>"; };
+		CA5FC00A242B2ED1006122D2 /* NTESQLHomePageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTESQLHomePageView.m; sourceTree = "<group>"; };
+		CA5FC00C242B2ED1006122D2 /* NTESQLHomePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTESQLHomePageViewController.m; sourceTree = "<group>"; };
+		CA5FC00D242B2ED1006122D2 /* NTESQPHomePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTESQPHomePageViewController.h; sourceTree = "<group>"; };
+		CA5FC00E242B2ED1006122D2 /* NTESQLHomePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTESQLHomePageViewController.h; sourceTree = "<group>"; };
+		CA5FC00F242B2ED1006122D2 /* NTESQPHomePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTESQPHomePageViewController.m; sourceTree = "<group>"; };
+		CA5FC011242B2ED1006122D2 /* NTESQLHomePageCustomUIModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTESQLHomePageCustomUIModel.m; sourceTree = "<group>"; };
+		CA5FC012242B2ED1006122D2 /* NTESQLHomePageCustomUIModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTESQLHomePageCustomUIModel.h; sourceTree = "<group>"; };
+		DC56CB5B2201A3CF00D7B973 /* libc++.1.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.1.tbd"; path = "usr/lib/libc++.1.tbd"; sourceTree = SDKROOT; };
+		DC56CB5D2201A3EB00D7B973 /* libz.1.2.8.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.1.2.8.tbd; path = usr/lib/libz.1.2.8.tbd; sourceTree = SDKROOT; };
+		DC8C849722C3184D006C8683 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		DCA5695223338444006AA8AA /* EAccountApiSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EAccountApiSDK.framework; path = SDK/EAccountApiSDK.framework; sourceTree = "<group>"; };
+		DCA662082212C79300B29D37 /* NTESQLServiceViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NTESQLServiceViewController.h; sourceTree = "<group>"; };
+		DCA662092212C79300B29D37 /* NTESQLServiceViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NTESQLServiceViewController.m; sourceTree = "<group>"; };
+		DCA6620E2214129B00B29D37 /* NTESDemoHttpRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NTESDemoHttpRequest.h; sourceTree = "<group>"; };
+		DCA6620F2214129B00B29D37 /* NTESDemoHttpRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NTESDemoHttpRequest.m; sourceTree = "<group>"; };
+		DCD4421B22A66673005AE167 /* TYRZResource.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = TYRZResource.bundle; path = SDK/TYRZResource.bundle; sourceTree = "<group>"; };
+		DCEC421E2202933400698D3B /* NTESQLLoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NTESQLLoginViewController.h; sourceTree = "<group>"; };
+		DCEC421F2202933400698D3B /* NTESQLLoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NTESQLLoginViewController.m; sourceTree = "<group>"; };
+		DCEC422A2202EC5B00698D3B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DCECF9E9228D75E800DC7E28 /* OAuth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OAuth.framework; path = SDK/OAuth.framework; sourceTree = "<group>"; };
+		DCECF9EA228D75E800DC7E28 /* sdk_oauth.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = sdk_oauth.bundle; path = SDK/sdk_oauth.bundle; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BF7BEC4B20D204A400822DAA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC8C849822C3184E006C8683 /* CoreFoundation.framework in Frameworks */,
+				CA543ACD242DE52D004C5530 /* NTESQuickPass.framework in Frameworks */,
+				DC56CB5E2201A3EB00D7B973 /* libz.1.2.8.tbd in Frameworks */,
+				DC56CB5C2201A3CF00D7B973 /* libc++.1.tbd in Frameworks */,
+				DCA5695323338444006AA8AA /* EAccountApiSDK.framework in Frameworks */,
+				DCECF9EB228D75E800DC7E28 /* OAuth.framework in Frameworks */,
+				CA5FC005242B2EA1006122D2 /* TYRZSDK.framework in Frameworks */,
+				F2204C4852E46E6CCBC84386 /* libPods-NTESQuickPassPublicDemo.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF7BEC6320D204A800822DAA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF7BEC6E20D204A800822DAA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4D25D12E8D8E91D2CDFB22E0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9C18E995F36E5BD850F466F3 /* Pods-NTESQuickPassPublicDemo.debug.xcconfig */,
+				6AA02F0C44F1E6D3D4BC705B /* Pods-NTESQuickPassPublicDemo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		9030C3D043DE84465318FE6F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CA543ACC242DE52D004C5530 /* NTESQuickPass.framework */,
+				CA5FC004242B2EA1006122D2 /* TYRZSDK.framework */,
+				DCA5695223338444006AA8AA /* EAccountApiSDK.framework */,
+				DC8C849722C3184D006C8683 /* CoreFoundation.framework */,
+				DCD4421B22A66673005AE167 /* TYRZResource.bundle */,
+				DC56CB5D2201A3EB00D7B973 /* libz.1.2.8.tbd */,
+				DC56CB5B2201A3CF00D7B973 /* libc++.1.tbd */,
+				6E692FEFA580DF8B22EB7DDF /* libPods-NTESQuickPassPublicDemo.a */,
+				DCECF9E9228D75E800DC7E28 /* OAuth.framework */,
+				DCECF9EA228D75E800DC7E28 /* sdk_oauth.bundle */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BF7BEC4520D204A400822DAA = {
+			isa = PBXGroup;
+			children = (
+				BF7BEC5020D204A400822DAA /* NTESQuickPassPublicDemo */,
+				BF7BEC6920D204A800822DAA /* NTESQuickPassPublicDemoTests */,
+				BF7BEC7420D204A800822DAA /* NTESQuickPassPublicDemoUITests */,
+				BF7BEC4F20D204A400822DAA /* Products */,
+				4D25D12E8D8E91D2CDFB22E0 /* Pods */,
+				9030C3D043DE84465318FE6F /* Frameworks */,
+				DCEC42252202EC2C00698D3B /* Recovered References */,
+			);
+			sourceTree = "<group>";
+		};
+		BF7BEC4F20D204A400822DAA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BF7BEC4E20D204A400822DAA /* NTESQuickPassPublicDemo.app */,
+				BF7BEC6620D204A800822DAA /* NTESQuickPassPublicDemoTests.xctest */,
+				BF7BEC7120D204A800822DAA /* NTESQuickPassPublicDemoUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BF7BEC5020D204A400822DAA /* NTESQuickPassPublicDemo */ = {
+			isa = PBXGroup;
+			children = (
+				DCA6620D2214123200B29D37 /* Request */,
+				BF7BECB920D2969800822DAA /* view */,
+				BF7BEC8D20D218F200822DAA /* login */,
+				BF7BEC8C20D218AD00822DAA /* home */,
+				BF7BEC8B20D2145B00822DAA /* baseVC */,
+				BF7BEC8720D20FC700822DAA /* NTESQPDemoDefines.h */,
+				BF7BEC5120D204A400822DAA /* AppDelegate.h */,
+				BF7BEC5220D204A400822DAA /* AppDelegate.m */,
+				DCEC422A2202EC5B00698D3B /* Assets.xcassets */,
+				BF7BEC5720D204A400822DAA /* Main.storyboard */,
+				BF7BEC5C20D204A700822DAA /* LaunchScreen.storyboard */,
+				BF7BEC5F20D204A700822DAA /* Info.plist */,
+				BF7BEC6020D204A700822DAA /* main.m */,
+			);
+			path = NTESQuickPassPublicDemo;
+			sourceTree = "<group>";
+		};
+		BF7BEC6920D204A800822DAA /* NTESQuickPassPublicDemoTests */ = {
+			isa = PBXGroup;
+			children = (
+				BF7BEC6A20D204A800822DAA /* NTESQuickPassPublicDemoTests.m */,
+				BF7BEC6C20D204A800822DAA /* Info.plist */,
+			);
+			path = NTESQuickPassPublicDemoTests;
+			sourceTree = "<group>";
+		};
+		BF7BEC7420D204A800822DAA /* NTESQuickPassPublicDemoUITests */ = {
+			isa = PBXGroup;
+			children = (
+				BF7BEC7520D204A800822DAA /* NTESQuickPassPublicDemoUITests.m */,
+				BF7BEC7720D204A800822DAA /* Info.plist */,
+			);
+			path = NTESQuickPassPublicDemoUITests;
+			sourceTree = "<group>";
+		};
+		BF7BEC8B20D2145B00822DAA /* baseVC */ = {
+			isa = PBXGroup;
+			children = (
+				BF7BEC5420D204A400822DAA /* NTESBaseViewController.h */,
+				BF7BEC5520D204A400822DAA /* NTESBaseViewController.m */,
+			);
+			path = baseVC;
+			sourceTree = "<group>";
+		};
+		BF7BEC8C20D218AD00822DAA /* home */ = {
+			isa = PBXGroup;
+			children = (
+				CA5FC00B242B2ED1006122D2 /* Controller */,
+				CA5FC010242B2ED1006122D2 /* Model */,
+				CA5FC008242B2ED1006122D2 /* View */,
+			);
+			path = home;
+			sourceTree = "<group>";
+		};
+		BF7BEC8D20D218F200822DAA /* login */ = {
+			isa = PBXGroup;
+			children = (
+				BF7BEC9120D2198E00822DAA /* NTESQPLoginViewController.h */,
+				BF7BEC9220D2198E00822DAA /* NTESQPLoginViewController.m */,
+				DCEC421E2202933400698D3B /* NTESQLLoginViewController.h */,
+				DCEC421F2202933400698D3B /* NTESQLLoginViewController.m */,
+				DCA662082212C79300B29D37 /* NTESQLServiceViewController.h */,
+				DCA662092212C79300B29D37 /* NTESQLServiceViewController.m */,
+				BF7BEC9420D219A200822DAA /* NTESQPLoginSuccessViewController.h */,
+				BF7BEC9520D219A200822DAA /* NTESQPLoginSuccessViewController.m */,
+			);
+			path = login;
+			sourceTree = "<group>";
+		};
+		BF7BECB920D2969800822DAA /* view */ = {
+			isa = PBXGroup;
+			children = (
+				BF66140920EDC08000F09D77 /* NTESQPVerifyingPopView.h */,
+				BF66140A20EDC08000F09D77 /* NTESQPVerifyingPopView.m */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		CA5FC008242B2ED1006122D2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CA5FC009242B2ED1006122D2 /* NTESQLHomePageView.h */,
+				CA5FC00A242B2ED1006122D2 /* NTESQLHomePageView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CA5FC00B242B2ED1006122D2 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				CA5FC00D242B2ED1006122D2 /* NTESQPHomePageViewController.h */,
+				CA5FC00C242B2ED1006122D2 /* NTESQLHomePageViewController.m */,
+				CA5FC00E242B2ED1006122D2 /* NTESQLHomePageViewController.h */,
+				CA5FC00F242B2ED1006122D2 /* NTESQPHomePageViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		CA5FC010242B2ED1006122D2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CA5FC011242B2ED1006122D2 /* NTESQLHomePageCustomUIModel.m */,
+				CA5FC012242B2ED1006122D2 /* NTESQLHomePageCustomUIModel.h */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DCA6620D2214123200B29D37 /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				DCA6620E2214129B00B29D37 /* NTESDemoHttpRequest.h */,
+				DCA6620F2214129B00B29D37 /* NTESDemoHttpRequest.m */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		DCEC42252202EC2C00698D3B /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				BF7BEC5A20D204A700822DAA /* Assets.xcassets */,
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BF7BEC4D20D204A400822DAA /* NTESQuickPassPublicDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BF7BEC7A20D204A800822DAA /* Build configuration list for PBXNativeTarget "NTESQuickPassPublicDemo" */;
+			buildPhases = (
+				F9DA8716097FE878374FED0C /* [CP] Check Pods Manifest.lock */,
+				BF7BEC4A20D204A400822DAA /* Sources */,
+				BF7BEC4B20D204A400822DAA /* Frameworks */,
+				BF7BEC4C20D204A400822DAA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NTESQuickPassPublicDemo;
+			productName = NTESQuickPassPublicDemo;
+			productReference = BF7BEC4E20D204A400822DAA /* NTESQuickPassPublicDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BF7BEC6520D204A800822DAA /* NTESQuickPassPublicDemoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BF7BEC7D20D204A800822DAA /* Build configuration list for PBXNativeTarget "NTESQuickPassPublicDemoTests" */;
+			buildPhases = (
+				BF7BEC6220D204A800822DAA /* Sources */,
+				BF7BEC6320D204A800822DAA /* Frameworks */,
+				BF7BEC6420D204A800822DAA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BF7BEC6820D204A800822DAA /* PBXTargetDependency */,
+			);
+			name = NTESQuickPassPublicDemoTests;
+			productName = NTESQuickPassPublicDemoTests;
+			productReference = BF7BEC6620D204A800822DAA /* NTESQuickPassPublicDemoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		BF7BEC7020D204A800822DAA /* NTESQuickPassPublicDemoUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BF7BEC8020D204A800822DAA /* Build configuration list for PBXNativeTarget "NTESQuickPassPublicDemoUITests" */;
+			buildPhases = (
+				BF7BEC6D20D204A800822DAA /* Sources */,
+				BF7BEC6E20D204A800822DAA /* Frameworks */,
+				BF7BEC6F20D204A800822DAA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BF7BEC7320D204A800822DAA /* PBXTargetDependency */,
+			);
+			name = NTESQuickPassPublicDemoUITests;
+			productName = NTESQuickPassPublicDemoUITests;
+			productReference = BF7BEC7120D204A800822DAA /* NTESQuickPassPublicDemoUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BF7BEC4620D204A400822DAA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0930;
+				ORGANIZATIONNAME = "Xu Ke";
+				TargetAttributes = {
+					BF7BEC4D20D204A400822DAA = {
+						CreatedOnToolsVersion = 9.3;
+					};
+					BF7BEC6520D204A800822DAA = {
+						CreatedOnToolsVersion = 9.3;
+						TestTargetID = BF7BEC4D20D204A400822DAA;
+					};
+					BF7BEC7020D204A800822DAA = {
+						CreatedOnToolsVersion = 9.3;
+						TestTargetID = BF7BEC4D20D204A400822DAA;
+					};
+				};
+			};
+			buildConfigurationList = BF7BEC4920D204A400822DAA /* Build configuration list for PBXProject "NTESQuickPassPublicDemo" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BF7BEC4520D204A400822DAA;
+			productRefGroup = BF7BEC4F20D204A400822DAA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BF7BEC4D20D204A400822DAA /* NTESQuickPassPublicDemo */,
+				BF7BEC6520D204A800822DAA /* NTESQuickPassPublicDemoTests */,
+				BF7BEC7020D204A800822DAA /* NTESQuickPassPublicDemoUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BF7BEC4C20D204A400822DAA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DCECF9EC228D75E800DC7E28 /* sdk_oauth.bundle in Resources */,
+				DCD4421C22A66673005AE167 /* TYRZResource.bundle in Resources */,
+				BF7BEC5E20D204A700822DAA /* LaunchScreen.storyboard in Resources */,
+				DCEC422D2202EC5B00698D3B /* Assets.xcassets in Resources */,
+				BF7BEC5920D204A400822DAA /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF7BEC6420D204A800822DAA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF7BEC6F20D204A800822DAA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		F9DA8716097FE878374FED0C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-NTESQuickPassPublicDemo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BF7BEC4A20D204A400822DAA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF7BEC5620D204A400822DAA /* NTESBaseViewController.m in Sources */,
+				BF7BEC6120D204A700822DAA /* main.m in Sources */,
+				BF7BEC9620D219A200822DAA /* NTESQPLoginSuccessViewController.m in Sources */,
+				CA5FC013242B2ED1006122D2 /* NTESQLHomePageView.m in Sources */,
+				BF7BEC5320D204A400822DAA /* AppDelegate.m in Sources */,
+				CA5FC015242B2ED1006122D2 /* NTESQPHomePageViewController.m in Sources */,
+				CA5FC016242B2ED1006122D2 /* NTESQLHomePageCustomUIModel.m in Sources */,
+				BF7BEC9320D2198E00822DAA /* NTESQPLoginViewController.m in Sources */,
+				CA5FC014242B2ED1006122D2 /* NTESQLHomePageViewController.m in Sources */,
+				DCA6620A2212C79300B29D37 /* NTESQLServiceViewController.m in Sources */,
+				DCEC42202202933400698D3B /* NTESQLLoginViewController.m in Sources */,
+				DCA662102214129B00B29D37 /* NTESDemoHttpRequest.m in Sources */,
+				BF66140B20EDC08000F09D77 /* NTESQPVerifyingPopView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF7BEC6220D204A800822DAA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF7BEC6B20D204A800822DAA /* NTESQuickPassPublicDemoTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF7BEC6D20D204A800822DAA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF7BEC7620D204A800822DAA /* NTESQuickPassPublicDemoUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BF7BEC6820D204A800822DAA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BF7BEC4D20D204A400822DAA /* NTESQuickPassPublicDemo */;
+			targetProxy = BF7BEC6720D204A800822DAA /* PBXContainerItemProxy */;
+		};
+		BF7BEC7320D204A800822DAA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BF7BEC4D20D204A400822DAA /* NTESQuickPassPublicDemo */;
+			targetProxy = BF7BEC7220D204A800822DAA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		BF7BEC5720D204A400822DAA /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BF7BEC5820D204A400822DAA /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		BF7BEC5C20D204A700822DAA /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BF7BEC5D20D204A700822DAA /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BF7BEC7820D204A800822DAA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		BF7BEC7920D204A800822DAA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BF7BEC7B20D204A800822DAA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9C18E995F36E5BD850F466F3 /* Pods-NTESQuickPassPublicDemo.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = XB333SWTAF;
+				ENABLE_BITCODE = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/SDK",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = NTESQuickPassPublicDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-all_load",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.netease.NTESQuickPassPublicDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BF7BEC7C20D204A800822DAA /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6AA02F0C44F1E6D3D4BC705B /* Pods-NTESQuickPassPublicDemo.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = 569GNZ5392;
+				ENABLE_BITCODE = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/SDK",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = NTESQuickPassPublicDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-all_load",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.netease.NTESQuickPassPublicDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = enterpriseForWildCard;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		BF7BEC7E20D204A800822DAA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QR44GS97KP;
+				INFOPLIST_FILE = NTESQuickPassPublicDemoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.netease.NTESQuickPassPublicDemoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NTESQuickPassPublicDemo.app/NTESQuickPassPublicDemo";
+			};
+			name = Debug;
+		};
+		BF7BEC7F20D204A800822DAA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QR44GS97KP;
+				INFOPLIST_FILE = NTESQuickPassPublicDemoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.netease.NTESQuickPassPublicDemoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NTESQuickPassPublicDemo.app/NTESQuickPassPublicDemo";
+			};
+			name = Release;
+		};
+		BF7BEC8120D204A800822DAA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QR44GS97KP;
+				INFOPLIST_FILE = NTESQuickPassPublicDemoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.netease.NTESQuickPassPublicDemoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = NTESQuickPassPublicDemo;
+			};
+			name = Debug;
+		};
+		BF7BEC8220D204A800822DAA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QR44GS97KP;
+				INFOPLIST_FILE = NTESQuickPassPublicDemoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.netease.NTESQuickPassPublicDemoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = NTESQuickPassPublicDemo;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BF7BEC4920D204A400822DAA /* Build configuration list for PBXProject "NTESQuickPassPublicDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BF7BEC7820D204A800822DAA /* Debug */,
+				BF7BEC7920D204A800822DAA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BF7BEC7A20D204A800822DAA /* Build configuration list for PBXNativeTarget "NTESQuickPassPublicDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BF7BEC7B20D204A800822DAA /* Debug */,
+				BF7BEC7C20D204A800822DAA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BF7BEC7D20D204A800822DAA /* Build configuration list for PBXNativeTarget "NTESQuickPassPublicDemoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BF7BEC7E20D204A800822DAA /* Debug */,
+				BF7BEC7F20D204A800822DAA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BF7BEC8020D204A800822DAA /* Build configuration list for PBXNativeTarget "NTESQuickPassPublicDemoUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BF7BEC8120D204A800822DAA /* Debug */,
+				BF7BEC8220D204A800822DAA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BF7BEC4620D204A400822DAA /* Project object */;
+}
