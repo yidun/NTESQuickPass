@@ -363,7 +363,7 @@ NS_ASSUME_NONNULL_BEGIN
 /*窗口模式下，自动隐藏系统导航栏*/
 @property (nonatomic, assign) NTESAuthWindowPop authWindowPop;
 
-/*窗口模式的背景颜色，默认为透明的*/
+/*窗口模式下，背景颜色的设置*/
 @property (nonatomic, strong) UIColor *popBackgroundColor;
 
 /**自定义窗口宽-缩放系数(屏幕宽乘以系数) 竖屏状态下默认是0.8，横屏状态下默认是0.5 */

@@ -360,11 +360,11 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark ----------------------弹窗:(温馨提示:由于受屏幕影响，小屏幕（5S,5E,5）需要改动字体和另自适应和布局)--------------------
 #pragma mark --------------------------窗口模式（居中弹窗, 底部半屏弹窗）
 
+/*窗口模式下，设置弹窗的背景颜色2*/
+@property (nonatomic, strong) UIColor *popBackgroundColor;
+
 /*窗口模式下，自动隐藏系统导航栏*/
 @property (nonatomic, assign) NTESAuthWindowPop authWindowPop;
-
-/*窗口模式的背景颜色，默认为透明的*/
-@property (nonatomic, strong) UIColor *popBackgroundColor;
 
 /**自定义窗口宽-缩放系数(屏幕宽乘以系数) 竖屏状态下默认是0.8，横屏状态下默认是0.5 */
 @property (nonatomic, assign) CGFloat scaleW;
