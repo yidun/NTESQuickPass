@@ -17,7 +17,7 @@
 		BF7BEC7620D204A800822DAA /* NTESQuickPassPublicDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = BF7BEC7520D204A800822DAA /* NTESQuickPassPublicDemoUITests.m */; };
 		BF7BEC9320D2198E00822DAA /* NTESQPLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF7BEC9220D2198E00822DAA /* NTESQPLoginViewController.m */; };
 		BF7BEC9620D219A200822DAA /* NTESQPLoginSuccessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF7BEC9520D219A200822DAA /* NTESQPLoginSuccessViewController.m */; };
-		CA5CB829243EEF7800B37A8B /* NTESQuickPass.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA5CB828243EEF7700B37A8B /* NTESQuickPass.framework */; };
+		CA378B28244402690027DF06 /* NTESQuickPass.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA378B27244402690027DF06 /* NTESQuickPass.framework */; };
 		CA5CB830243F13F800B37A8B /* UIColor+NTESQuickPass.m in Sources */ = {isa = PBXBuildFile; fileRef = CA5CB82E243F13F800B37A8B /* UIColor+NTESQuickPass.m */; };
 		CA5FC005242B2EA1006122D2 /* TYRZSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA5FC004242B2EA1006122D2 /* TYRZSDK.framework */; };
 		CA5FC013242B2ED1006122D2 /* NTESQLHomePageView.m in Sources */ = {isa = PBXBuildFile; fileRef = CA5FC00A242B2ED1006122D2 /* NTESQLHomePageView.m */; };
@@ -84,7 +84,7 @@
 		BF7BEC9220D2198E00822DAA /* NTESQPLoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NTESQPLoginViewController.m; sourceTree = "<group>"; };
 		BF7BEC9420D219A200822DAA /* NTESQPLoginSuccessViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NTESQPLoginSuccessViewController.h; sourceTree = "<group>"; };
 		BF7BEC9520D219A200822DAA /* NTESQPLoginSuccessViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NTESQPLoginSuccessViewController.m; sourceTree = "<group>"; };
-		CA5CB828243EEF7700B37A8B /* NTESQuickPass.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NTESQuickPass.framework; path = SDK/NTESQuickPass.framework; sourceTree = "<group>"; };
+		CA378B27244402690027DF06 /* NTESQuickPass.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NTESQuickPass.framework; path = SDK/NTESQuickPass.framework; sourceTree = "<group>"; };
 		CA5CB82E243F13F800B37A8B /* UIColor+NTESQuickPass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+NTESQuickPass.m"; sourceTree = "<group>"; };
 		CA5CB82F243F13F800B37A8B /* UIColor+NTESQuickPass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+NTESQuickPass.h"; sourceTree = "<group>"; };
 		CA5FC004242B2EA1006122D2 /* TYRZSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TYRZSDK.framework; sourceTree = "<group>"; };
@@ -120,7 +120,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC8C849822C3184E006C8683 /* CoreFoundation.framework in Frameworks */,
-				CA5CB829243EEF7800B37A8B /* NTESQuickPass.framework in Frameworks */,
+				CA378B28244402690027DF06 /* NTESQuickPass.framework in Frameworks */,
 				DC56CB5E2201A3EB00D7B973 /* libz.1.2.8.tbd in Frameworks */,
 				DC56CB5C2201A3CF00D7B973 /* libc++.1.tbd in Frameworks */,
 				DCA5695323338444006AA8AA /* EAccountApiSDK.framework in Frameworks */,
@@ -159,7 +159,7 @@
 		9030C3D043DE84465318FE6F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				CA5CB828243EEF7700B37A8B /* NTESQuickPass.framework */,
+				CA378B27244402690027DF06 /* NTESQuickPass.framework */,
 				CA5FC004242B2EA1006122D2 /* TYRZSDK.framework */,
 				DCA5695223338444006AA8AA /* EAccountApiSDK.framework */,
 				DC8C849722C3184D006C8683 /* CoreFoundation.framework */,

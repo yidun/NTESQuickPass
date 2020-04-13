@@ -55,7 +55,7 @@
 - (void)registerQuickLogin {
     // 在使用一键登录之前，请先调用shouldQuickLogin方法，判断当前上网卡的网络环境和运营商是否可以一键登录
     self.shouldQL = [[NTESQuickLoginManager sharedInstance] shouldQuickLogin];
-    
+    NSString *should = [[NTESQuickLoginManager sharedInstance] getSDKVersion];
     if (self.shouldQL) {
         [[NTESQuickLoginManager sharedInstance] registerWithBusinessID:QL_BUSINESSID timeout:3*1000 configURL:nil extData:nil completion:^(NSDictionary * _Nullable params, BOOL success) {
             if (success) {
@@ -250,16 +250,16 @@
     NTESQuickLoginModel *model = [NTESQLHomePageCustomUIModel configCustomUIModel];
     model.currentVC = self;
     
-//    model.customViewBlock = ^(UIView * _Nullable customView) {
-//        UIView *bottom = [[UIView alloc] initWithFrame:CGRectMake(0, 300, self.view.bounds.size.width, 100)];
-//        bottom.backgroundColor = [UIColor redColor];
-//        [customView addSubview:bottom];
-//    };
-//    model.customNavBlock = ^(UIView * _Nullable customNavView) {
-//        UIView *bottom = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 30)];
-//        bottom.backgroundColor = [UIColor redColor];
-//        [customNavView addSubview:bottom];
-//    };
+    model.customViewBlock = ^(UIView * _Nullable customView) {
+        UIView *bottom = [[UIView alloc] initWithFrame:CGRectMake(0, 300, self.view.bounds.size.width, 100)];
+        bottom.backgroundColor = [UIColor whiteColor];
+        [customView addSubview:bottom];
+    };
+    model.customNavBlock = ^(UIView * _Nullable customNavView) {
+        UIView *bottom = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 64)];
+        bottom.backgroundColor = [UIColor redColor];
+        [customNavView addSubview:bottom];
+    };
     [[NTESQuickLoginManager sharedInstance] setupModel:model];
     
 }
