@@ -81,16 +81,18 @@
 }
 
 - (void)setupLine {
-    CGFloat navHeight = (IS_IPHONEX_SET ? 44.f : 20.f) + 44;
-    UIView *lineView = [[UIView alloc] init];
-    self.lineView = lineView;
-    lineView.backgroundColor = [UIColor ntes_colorWithHexString:@"#C5C5C7"];
-    [self.view addSubview:lineView];
-    [lineView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.equalTo(self.view);
-        make.top.equalTo(self.view).mas_offset(navHeight);
-        make.height.mas_equalTo(1);
-    }];
+    if ([NTESQuickLoginManager sharedInstance].getCarrier != 3) {
+        CGFloat navHeight = (IS_IPHONEX_SET ? 44.f : 20.f) + 44;
+        UIView *lineView = [[UIView alloc] init];
+        self.lineView = lineView;
+        lineView.backgroundColor = [UIColor ntes_colorWithHexString:@"#C5C5C7"];
+        [self.view addSubview:lineView];
+        [lineView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.right.equalTo(self.view);
+            make.top.equalTo(self.view).mas_offset(navHeight);
+            make.height.mas_equalTo(1);
+        }];
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated {

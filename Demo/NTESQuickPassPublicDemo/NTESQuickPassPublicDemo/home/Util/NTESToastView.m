@@ -8,12 +8,13 @@
 
 #import "NTESToastView.h"
 #import "NTESQPDemoDefines.h"
+#import <Masonry.h>
 
 @implementation NTESToastView
 
 + (void)showNotice:(NSString *)notice {
     
-    UILabel *noticeLabel = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2 - 60, SCREEN_HEIGHT/2, 120, 120)];
+    UILabel *noticeLabel = [[UILabel alloc] init];
     noticeLabel.backgroundColor = RGBA(0, 0, 0, .8);
     noticeLabel.font = [UIFont systemFontOfSize:12];
     noticeLabel.textColor = [UIColor whiteColor];
@@ -22,6 +23,10 @@
     UIWindow *window = [[[UIApplication sharedApplication] windows] lastObject];
     [window addSubview:noticeLabel];
     noticeLabel.text = notice;
+    [noticeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.centerX.equalTo(window);
+        make.height.mas_equalTo(30);
+    }];
        
     [noticeLabel.layer setMasksToBounds:YES];
     [noticeLabel.layer setCornerRadius:2]; //设置矩形四个圆角半径

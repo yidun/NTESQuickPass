@@ -352,8 +352,8 @@
 		CA55A68224480CFD0015D630 /* login */ = {
 			isa = PBXGroup;
 			children = (
-				CA55A68424480CFD0015D630 /* NTESQLLoginViewController.m */,
 				CA55A68624480CFD0015D630 /* NTESQPLoginViewController.h */,
+				CA55A68424480CFD0015D630 /* NTESQLLoginViewController.m */,
 				CA55A68724480CFD0015D630 /* NTESQLServiceViewController.h */,
 				CA55A68324480CFD0015D630 /* NTESQLServiceViewController.m */,
 				CA55A68524480CFD0015D630 /* NTESQPLoginSuccessViewController.h */,
