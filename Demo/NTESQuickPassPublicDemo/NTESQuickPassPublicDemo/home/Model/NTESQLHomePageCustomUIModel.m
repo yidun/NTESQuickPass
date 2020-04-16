@@ -15,72 +15,68 @@
     
     NTESQuickLoginModel *model = [[NTESQuickLoginModel alloc] init];
     model.presentDirectionType = NTESPresentDirectionPush;
-    model.backgroundColor = [UIColor ntes_colorWithDynamicProviderWithWhiteColor:[UIColor whiteColor] andDarkColor:[UIColor blackColor]];
-    model.authWindowPop = NTESAuthWindowPopFullScreen;
+    model.backgroundColor = [UIColor whiteColor];
+//    model.authWindowPop = NTESAuthWindowPopFullScreen;
+//    model.navText = @"免密登录";
+    model.navTextColor = [UIColor blueColor];
+    model.navBgColor = [UIColor whiteColor];
     model.closePopImg = [UIImage imageNamed:@"checkedBox"];
     model.faceOrientation = UIInterfaceOrientationPortrait;
-    model.navBarHidden = NO;
-    model.navTextFont = [UIFont systemFontOfSize:18];
-    model.navTextColor = [UIColor redColor];
-    model.navReturnImgLeftMargin = 6;
-    model.navBgColor = [UIColor ntes_colorWithDynamicProviderWithWhiteColor:[UIColor blueColor] andDarkColor:[UIColor whiteColor]];
-    model.navText = @"易盾登录";
-    model.navTextHidden = NO;
-    model.navReturnImg = [UIImage imageNamed:@"back-1"];
+    model.navBarHidden = YES;
+    model.authWindowPop = NTESAuthWindowPopCenter;
 
    /// logo
-    model.logoImg = [UIImage imageNamed:@"logo1"];
-    model.logoWidth = 50;
-    model.logoHeight = 100;
-    model.logoOffsetX = 0;
-    model.logoOffsetX = 0;
+    model.logoImg = [UIImage imageNamed:@"login_logo-1"];
+    model.logoWidth = 52;
+    model.logoHeight = 52;
+    model.logoOffsetTopY = 148;
     model.logoHidden = NO;
 
    /// 手机号码
-    model.numberColor = [UIColor blackColor];
-    model.numberFont = [UIFont systemFontOfSize:12];
+    model.numberColor = [UIColor whiteColor];
+    model.numberFont = [UIFont fontWithName:@"PingFangSC-Semibold" size:18];
     model.numberOffsetX = 0;
-    model.numberOffsetTopY = 0;
+    model.numberOffsetTopY = 210;
     model.numberHeight = 27;
 
    ///  品牌
-    model.brandColor = [UIColor redColor];
-    model.brandFont = [UIFont systemFontOfSize:12];
+    model.brandColor = [UIColor whiteColor];
+    model.brandFont = [UIFont fontWithName:@"PingFangSC-Regular" size:12];
     model.brandWidth = 200;
+    model.brandBackgroundColor = [UIColor clearColor];
     model.brandHeight = 20;
+    model.brandOffsetTopY = 239;
     model.brandOffsetX = 0;
-    model.brandOffsetX = 0;
+
+    /// 登录按钮
     model.logBtnTextFont = [UIFont systemFontOfSize:14];
-    model.logBtnTextColor = [UIColor redColor];
-    model.logBtnRadius = 12;
-    model.logBtnText = @"本机登录";
+//    model.logBtnEnableImg = [UIImage imageNamed:@"logo"];
+    model.logBtnTextColor = [UIColor whiteColor];
+    model.logBtnOffsetTopY = 285;
+    model.logBtnText = @"确定登录";
+    model.logBtnRadius = 8;
     model.logBtnUsableBGColor = [UIColor blueColor];
     model.logBtnHeight = 44;
-    model.logBtnEnableImg = [UIImage imageNamed:@"login_able"];
 
-    model.appPrivacyText = @"登录即同意《默认》和《用户隐私协议》";
-    model.appFPrivacyText = @"《用户隐私协议》";
-    model.appFPrivacyURL = @"http://www.baidu.com";
-    model.appSPrivacyText = @"《用户服务条款》";
-    model.appSPrivacyURL = @"http://www.baidu.com";
-    model.appFPrivacyTitleText = @"hhahha";
-    
-    if (model.authWindowPop == NTESAuthWindowPopFullScreen) {
-        if (model.faceOrientation == UIInterfaceOrientationPortrait) {
-            model.localVideoFileName = @"video_portrait.mp4";
-        } else {
-            model.localVideoFileName = @"video_landscape.mp4";
-        }
-        model.isRepeatPlay = YES;
-    }
-   
+    /// 隐私协议
+    model.appPrivacyText = @"登录即同意《默认》并授权NTESQuick PassPublicDemo 获得本机号码";
+//    model.appFPrivacyText = @"用户隐私协议";
+//    model.appFPrivacyURL = @"http://www.baidu.com";
+//    model.appSPrivacyText = @"《用户服务条款》";
+//    model.appSPrivacyURL = @"http://www.baidu.com";
+//    model.appFPrivacyTitleText = @"hhahha";
     model.uncheckedImg = [UIImage imageNamed:@"checkBox"];
     model.checkedImg = [UIImage imageNamed:@"checkedBox"];
-    model.privacyState = NO;
+    model.privacyState = YES;
     model.checkedHidden = NO;
     model.isOpenSwipeGesture = NO;
-    model.popBackgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.7];
+    model.appPrivacyOriginBottomMargin = 63;
 
+    model.privacyColor = [UIColor ntes_colorWithHexString:@"#FFFFFF"];
+    model.privacyFont = [UIFont fontWithName:@"PingFangSC-Regular" size:11];
+    model.protocolColor = [UIColor ntes_colorWithHexString:@"#FFFFFF"];
+
+    model.closePopImg = [UIImage imageNamed:@"ic_close"];
     if (@available(iOS 13.0, *)) {
        model.currentStatusBarStyle = UIStatusBarStyleDarkContent;
        model.otherStatusBarStyle = UIStatusBarStyleDarkContent;

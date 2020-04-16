@@ -15,6 +15,8 @@
 #import "NTESQPVerifyingPopView.h"
 #import "NTESQPLoginSuccessViewController.h"
 #import "NTESDemoHttpRequest.h"
+#import "UIColor+NTESQuickPass.h"
+#import "NTESToastView.h"
 
 /**
  *    服务协议跳转页面地址：
@@ -50,51 +52,134 @@
 
 @property (nonatomic, assign) NSInteger carrierType;
 
+@property (nonatomic, strong) UIImageView *phoneImageView;
+@property (nonatomic, strong) UIImageView *codeImageView;
+
+@property (nonatomic, strong) UIView *customBottomView;
+@property (nonatomic, strong) UIButton *closeButton;
+
+@property (nonatomic, strong) UIView *lineView;
+
 @end
 
 @implementation NTESQLLoginViewController
 
-- (instancetype)init
-{
+- (instancetype)init {
     if (self = [super init]) {
-        self.showQuickPassBottomView = NO;
         self.carrierType = [[NTESQuickLoginManager sharedInstance] getCarrier];
     }
     return self;
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
+
     [self customInitSubViews];
+    
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(didChangeScreenRotate:) name:UIApplicationDidChangeStatusBarFrameNotification object:nil];
 }
 
-- (void)customInitSubViews
-{
-    [self shouldHideBottomView:YES];
-    [self __initThemeLabel];
-    [self __initPhoneLabel];
-    [self __initActivityIndicator];
-    [self __initQuickLoginButton];
-    [self __initCustomBottomView];
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
     
-    if (self.carrierType == 1) {
-        [self.activityIndicator startAnimating];
-        [self.quickLoginButton setUserInteractionEnabled:NO];
-        [self.quickLoginButton setAlpha:0.7];
+    [NTESToastView showNotice:@"一键登录失败，自动降级为手机短信校验"];
+}
+
+- (void)didChangeScreenRotate:(NSNotification *)notification {
+    if ([[UIDevice currentDevice] orientation] == UIInterfaceOrientationLandscapeLeft) {
+        _model.faceOrientation = UIInterfaceOrientationLandscapeLeft;
+    } else if ([[UIDevice currentDevice] orientation] == UIInterfaceOrientationLandscapeRight) {
+        _model.faceOrientation = UIInterfaceOrientationLandscapeRight;
+    } else if ([[UIDevice currentDevice] orientation] == UIInterfaceOrientationPortrait) {
+       _model.faceOrientation = UIInterfaceOrientationPortrait;
+    }
+    
+    [self updateView];
+    
+    if (_model.authWindowPop != NTESAuthWindowPopCenter) {
+        CGFloat navHeight;
+        if ([[UIDevice currentDevice] orientation] == UIInterfaceOrientationPortrait
+              || [[UIDevice currentDevice] orientation] == UIInterfaceOrientationPortraitUpsideDown) {
+            navHeight = (IS_IPHONEX_SET ? 44.f : 20.f) + 44;
+        } else {
+            navHeight = 44;
+        }
+        if (self.lineView) {
+            [self.lineView removeFromSuperview];
+            self.lineView = nil;
+        }
+          
+        UIView *lineView = [[UIView alloc] init];
+        self.lineView = lineView;
+        lineView.backgroundColor = [UIColor ntes_colorWithHexString:@"#C5C5C7"];
+        [self.view addSubview:lineView];
+        [lineView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.right.equalTo(self.view);
+            make.top.equalTo(self.view).mas_offset(navHeight);
+            make.height.mas_equalTo(1);
+       }];
     }
 }
 
-- (void)__initThemeLabel
-{
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+
+    if (_model.authWindowPop == NTESAuthWindowPopCenter) {
+        [self.navigationController setNavigationBarHidden:YES animated:NO];
+        self.lineView.hidden = YES;
+    } else {
+        [self.navigationController setNavigationBarHidden:NO animated:NO];
+         self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
+    }
+       
+    UILabel *titleView = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 44)];
+    titleView.text = @"易盾一键登录";
+    titleView.font = [UIFont systemFontOfSize:17];
+    titleView.textColor = [UIColor ntes_colorWithHexString:@"#333333"];
+    self.navigationItem.titleView = titleView;
+        
+    UIImageView *backImageView = [[UIImageView alloc] init];
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(leftBarButtonItemDidTipped)];
+    [backImageView addGestureRecognizer:tap];
+    backImageView.userInteractionEnabled = YES;
+    backImageView.image = [UIImage imageNamed:@"back"];
+    backImageView.frame = CGRectMake(0, 0, 18, 18);
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backImageView];
+}
+
+- (void)leftBarButtonItemDidTipped {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)customInitSubViews {
+//    [self shouldHideBottomView:YES];
+    [self __initThemeLabel];
+    [self __initPhoneLabel];
+    [self __initQuickLoginButton];
+    [self __initCustomBottomView];
+    
+//    if (self.carrierType == 1) {
+//        [self.quickLoginButton setUserInteractionEnabled:NO];
+//        [self.quickLoginButton setAlpha:0.7];
+//    }
+}
+
+- (void)__initThemeLabel {
     if (!_themeLabel) {
         _themeLabel = [[UILabel alloc] init];
-        _themeLabel.font = [UIFont systemFontOfSize:24.0*KHeightScale];
-        _themeLabel.text = self.themeTitle;
-        [self.view addSubview:_themeLabel];
+        _themeLabel.font = [UIFont fontWithName:@"PingFangSC-Semibold" size:24];
+        _themeLabel.text = @"注册/登录";
+        _themeLabel.textColor = [UIColor ntes_colorWithHexString:@"#333333"];
+        [self.customBottomView addSubview:_themeLabel];
+        NTESAuthWindowPop authWindowPop = self.model.authWindowPop;
         [_themeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(self.view).offset(118.5*KHeightScale);
-            make.left.equalTo(self.view).offset(34*KWidthScale);
+            if (authWindowPop == NTESAuthWindowPopCenter) {
+                make.top.equalTo(self.customBottomView).mas_offset(30);
+                make.right.equalTo(self.customBottomView.mas_centerX).mas_offset(-20);
+            } else {
+                make.top.equalTo(self.customBottomView).mas_offset(IS_IPHONE_X ? 124 : 104);
+                make.right.equalTo(self.customBottomView.mas_centerX).mas_offset(-40);
+            }
         }];
     }
 }
@@ -104,10 +189,10 @@
     if (!_phoneLabel) {
         _phoneLabel = [[UILabel alloc] init];
         _phoneLabel.font = [UIFont systemFontOfSize:20.0*KHeightScale];
-        [self.view addSubview:_phoneLabel];
+        [self.customBottomView addSubview:_phoneLabel];
         [_phoneLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(self.themeLabel.mas_bottom).offset(56.5*KHeightScale);
-            make.centerX.equalTo(self.view);
+            make.centerX.equalTo(self.customBottomView);
         }];
     }
 }
@@ -117,39 +202,48 @@
     if (!_activityIndicator) {
         _activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
         [_activityIndicator setColor:[UIColor blueColor]];
-        [self.view addSubview:_activityIndicator];
+        [self.customBottomView addSubview:_activityIndicator];
         [_activityIndicator mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.center.equalTo(self.view);
+            make.center.equalTo(self.customBottomView);
             make.width.equalTo(@200);
             make.height.equalTo(@200);
         }];
     }
 }
 
-- (void)__initQuickLoginButton
-{
+- (void)__initQuickLoginButton {
     if (!_quickLoginButton) {
+        NTESAuthWindowPop authWindowPop = self.model.authWindowPop;
         _quickLoginButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        NSString *title = [_themeTitle isEqualToString:loginTitle] ? quickLoginButtonTitle : quickRegisterButtonTitle;
+        NSString *title = @"注册/登录";
         [_quickLoginButton setTitle:title forState:UIControlStateNormal];
         [_quickLoginButton setTitle:title forState:UIControlStateHighlighted];
-        [_quickLoginButton setTitleColor:UIColorFromHex(0xffffff) forState:UIControlStateNormal];
-        [_quickLoginButton setTitleColor:UIColorFromHex(0xffffff) forState:UIControlStateHighlighted];
-        _quickLoginButton.titleLabel.font = [UIFont systemFontOfSize:15.0f*KHeightScale];
-        _quickLoginButton.layer.cornerRadius = 44.0*KHeightScale/2;
+        [_quickLoginButton setTitleColor:[UIColor ntes_colorWithHexString:@"#FFFFFF"] forState:UIControlStateNormal];
+        [_quickLoginButton setTitleColor:[UIColor ntes_colorWithHexString:@"#FFFFFF"] forState:UIControlStateHighlighted];
+        _quickLoginButton.titleLabel.font = [UIFont systemFontOfSize:16.0f];
+        _quickLoginButton.layer.cornerRadius = 8;
         _quickLoginButton.layer.masksToBounds = YES;
         [_quickLoginButton addTarget:self action:@selector(authorizeLoginButtonClick) forControlEvents:UIControlEventTouchUpInside];
-        [self.view addSubview:_quickLoginButton];
+        [self.customBottomView addSubview:_quickLoginButton];
+        
         [_quickLoginButton mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(self.phoneLabel.mas_bottom).offset(32*KHeightScale);
-            make.centerX.equalTo(self.view);
-            make.height.equalTo(@(44*KHeightScale));
-            make.width.equalTo(@(307*KWidthScale));
+            make.top.equalTo(self.phoneLabel.mas_bottom).offset(30);
+            make.centerX.equalTo(self.customBottomView);
+            make.height.equalTo(@(44));
+            if (authWindowPop == NTESAuthWindowPopCenter) {
+                make.width.equalTo(@(235));
+            } else {
+                make.width.equalTo(@(295));
+            }
         }];
         
         CAGradientLayer *gradientLayer = [CAGradientLayer layer];
-        gradientLayer.frame = CGRectMake(0, 0, 307*KWidthScale, 44*KHeightScale);
-        gradientLayer.colors = @[(id)UIColorFromHex(0xAC5FF9).CGColor, (id)UIColorFromHex(0x7846F1).CGColor];
+        if (authWindowPop == NTESAuthWindowPopCenter) {
+            gradientLayer.frame = CGRectMake(0, 0, 235, 44);
+        } else {
+            gradientLayer.frame = CGRectMake(0, 0, 295, 44);
+        }
+        gradientLayer.colors = @[(id)[UIColor ntes_colorWithHexString:@"#5F83FE"].CGColor, (id)[UIColor ntes_colorWithHexString:@"#324DFF"].CGColor];
         gradientLayer.startPoint = CGPointMake(0.0, 0.5);
         gradientLayer.endPoint = CGPointMake(1.0, 0.5);
         [_quickLoginButton.layer insertSublayer:gradientLayer atIndex:0];
@@ -160,13 +254,13 @@
 {
     if (!_bottomView) {
         _bottomView = [[UIView alloc] init];
-        [self.view addSubview:_bottomView];
-        CGFloat bottomWhiteHeight = IS_IPHONE_X ? -44 : -20;
+        [self.customBottomView addSubview:_bottomView];
+        CGFloat bottomWhiteHeight = -20;
         [_bottomView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.bottom.equalTo(self.view).offset(bottomWhiteHeight);
+            make.bottom.equalTo(self.customBottomView).offset(bottomWhiteHeight);
             make.width.equalTo(@(168*KWidthScale));
             make.height.equalTo(@(16.5*KHeightScale));
-            make.centerX.equalTo(self.view);
+            make.centerX.equalTo(self.customBottomView);
         }];
         
         UILabel *agreeLabel = [[UILabel alloc] init];
@@ -180,6 +274,7 @@
         }];
         
         UIButton *agreeButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        
         NSString *agreeTitle = CMService;
         switch (self.carrierType) {
             case 1:
@@ -208,32 +303,30 @@
     }
 }
 
-- (void)getPhoneNumber
-{
+- (void)getPhoneNumber {
     if (self.carrierType == 1) {
         [[NTESQuickLoginManager sharedInstance] getPhoneNumberCompletion:^(NSDictionary * _Nonnull resultDic) {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self.activityIndicator stopAnimating];
-                NSNumber *boolNum = [resultDic objectForKey:@"success"];
-                BOOL success = [boolNum boolValue];
-                if (success) {
-                    self.phoneLabel.text = [resultDic objectForKey:@"securityPhone"];
-                    [self.quickLoginButton setUserInteractionEnabled:YES];
-                    [self.quickLoginButton setAlpha:1.0];
-                } else {
-#ifdef TEST_MODE_QA
-                    [self showToastWithMsg:[NSString stringWithFormat:@"code:%@\ndesc:%@",  [resultDic objectForKey:@"resultCode"], [resultDic objectForKey:@"desc"]]];
-#endif
-                    [self updateView];
-                }
-            });
-        }];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self.activityIndicator stopAnimating];
+                    NSNumber *boolNum = [resultDic objectForKey:@"success"];
+                    BOOL success = [boolNum boolValue];
+                    if (success) {
+                        self.phoneLabel.text = [resultDic objectForKey:@"securityPhone"];
+                        [self.quickLoginButton setUserInteractionEnabled:YES];
+                        [self.quickLoginButton setAlpha:1.0];
+                    } else {
+        #ifdef TEST_MODE_QA
+                        [self showToastWithMsg:[NSString stringWithFormat:@"code:%@\ndesc:%@",  [resultDic objectForKey:@"resultCode"], [resultDic objectForKey:@"desc"]]];
+        #endif
+                        [self updateView];
+                    }
+                });
+            }];
     }
 }
 
-- (void)authorizeLoginButtonClick
-{
-    [NTESQPVerifyingPopView showVerifyingFromView:self.view title:verifyingQLText];
+- (void)authorizeLoginButtonClick {
+    [NTESQPVerifyingPopView showVerifyingFromView:self.customBottomView title:verifyingQLText];
     [[NTESQuickLoginManager sharedInstance] CTAuthorizeLoginCompletion:^(NSDictionary * _Nonnull resultDic) {
         dispatch_async(dispatch_get_main_queue(), ^{
             NSNumber *boolNum = [resultDic objectForKey:@"success"];
@@ -243,15 +336,16 @@
                 [self startCheckAuthorize];
             } else {
                 [NTESQPVerifyingPopView hideVerifyingView];
+#ifdef TEST_MODE_QA
                 [self showToastWithMsg:[NSString stringWithFormat:@"code:%@\ndesc:%@",  [resultDic objectForKey:@"resultCode"], [resultDic objectForKey:@"desc"]]];
+#endif
                 [self updateView];
             }
         });
     }];
 }
 
-- (void)startCheckAuthorize
-{
+- (void)startCheckAuthorize {
     NSDictionary *dict = @{
                            @"accessToken":self.accessToken?:@"",
                            @"token":self.token?:@"",
@@ -272,15 +366,16 @@
             if (data) {
                 [self parseCheckObject:data];
             } else {
+#ifdef TEST_MODE_QA
                 [self showToastWithMsg:[NSString stringWithFormat:@"服务器错误-%ld", (long)statusCode]];
+#endif
                 [self updateView];
             }
         });
     }];
 }
 
-- (void)parseCheckObject:(NSData *)data
-{
+- (void)parseCheckObject:(NSData *)data {
     NSError *jsonSerializationError;
     
     NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&jsonSerializationError];
@@ -300,25 +395,30 @@
                     if (phoneNum.length > 0) {
                         [self verifySuccess];
                     } else {
+#ifdef TEST_MODE_QA
                         [self showToastWithMsg:@"一键登录失败"];
+#endif
                         [self updateView];
                     }
                 }
             } else if ([code integerValue] == 1003){
                 [self updateView];
             } else {
+#ifdef TEST_MODE_QA
                 [self showToastWithMsg:[NSString stringWithFormat:@"错误，code=%@", code]];
+#endif
                 [self updateView];
             }
         }
     } else {
+#ifdef TEST_MODE_QA
         [self showToastWithMsg:@"返回数据格式错误"];
+#endif
         [self updateView];
     }
 }
 
-- (void)sendMessage
-{
+- (void)sendMessage {
     // 电信
 //    self.phoneTextField.text = @"15356683517";
     // 移动
@@ -341,8 +441,7 @@
     }];
 }
 
-- (void)parseSMSObject:(NSData *)data
-{
+- (void)parseSMSObject:(NSData *)data {
     NSError *jsonSerializationError;
     
     NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&jsonSerializationError];
@@ -364,8 +463,7 @@
     }
 }
 
-- (void)startTime:(UIButton *)button
-{
+- (void)startTime:(UIButton *)button {
     __block int timeout = 60;
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     dispatch_source_t timeNew = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, queue);
@@ -375,15 +473,17 @@
             dispatch_source_cancel(timeNew);
             dispatch_async(dispatch_get_main_queue(), ^{
                 [button setTitle:@"重新发送" forState:UIControlStateNormal];
-                [button setTitleColor:UIColorFromHex(0x0062ff) forState:UIControlStateNormal];
                 button.userInteractionEnabled = YES;
+                button.layer.borderColor = [UIColor ntes_colorWithHexString:@"#324DFF"].CGColor;
+                [button setTitleColor:[UIColor ntes_colorWithHexString:@"#324DFF"] forState:UIControlStateNormal];
             });
         } else {
             NSString *strTime = [NSString stringWithFormat:@"%d", timeout];
             dispatch_async(dispatch_get_main_queue(), ^{
-                [button setTitle:[NSString stringWithFormat:@"（%@秒）", strTime] forState:UIControlStateNormal];
-                [button setTitleColor:UIColorFromHex(0x000000) forState:UIControlStateNormal];
+                [button setTitle:[NSString stringWithFormat:@"%@s", strTime] forState:UIControlStateNormal];
+                [button setTitleColor:[UIColor ntes_colorWithHexString:@"#666666"] forState:UIControlStateNormal];
                 button.userInteractionEnabled = NO;
+                button.layer.borderColor = [UIColor clearColor].CGColor;
             });
             timeout--;
         }
@@ -391,8 +491,8 @@
     dispatch_resume(timeNew);
 }
 
-- (void)verifySMSCode
-{
+/// 点击按钮验证手机号和密码
+- (void)verifySMSCode {
     if (self.phoneTextField.text.length < 11) {
         [self showToastWithMsg:@"请输入11位手机号"];
         return;
@@ -433,7 +533,13 @@
     NTESQPLoginSuccessViewController *vc = [[NTESQPLoginSuccessViewController alloc] init];
     vc.themeTitle = self.themeTitle;
     vc.type = NTESQuickLoginType;
-    [self.navigationController pushViewController:vc animated:YES];
+    vc.model = self.model;
+    if (_model.authWindowPop == NTESAuthWindowPopCenter) {
+        [self dismissViewControllerAnimated:YES completion:nil];
+        [[UIApplication sharedApplication].delegate.window.rootViewController presentViewController:vc animated:YES completion:nil];
+    } else {
+        [self.navigationController pushViewController:vc animated:YES];
+    }
 }
 
 - (void)showService
@@ -456,90 +562,187 @@
 
 - (void)showToastWithMsg:(NSString *)msg
 {
-    if (@available(iOS 8.0, *)) {
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示"
-                                                                       message:msg
-                                                                preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction *action = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:nil];
-        [alert addAction:action];
-        [self presentViewController:alert animated:NO completion:nil];
-        
-    } else {
-        // Fallback on earlier versions
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:msg delegate:nil cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
-        [alert show];
-    }
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:msg delegate:nil cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
+    [alert show];
 }
 
-- (void)updateView
-{
+- (void)updateView {
     [self.phoneLabel removeFromSuperview];
     
-    self.phoneTextField = [[UITextField alloc] init];
-    self.phoneTextField.placeholder = @"请输入手机号";
-    self.phoneTextField.font = [UIFont systemFontOfSize:15.0*KHeightScale];
-    [self.view addSubview:self.phoneTextField];
+    CGFloat authWindowCenterOriginY = self.model.authWindowCenterOriginY;
+    CGFloat authWindowCenterOriginX = self.model.authWindowCenterOriginX;
+    int popCenterCornerRadius = self.model.popCenterCornerRadius;
+    int popBottomCornerRadius = self.model.popBottomCornerRadius;
+    NTESAuthWindowPop authWindowPop = self.model.authWindowPop;
+ 
+    if (popCenterCornerRadius <= 0) {
+        popCenterCornerRadius = 16;
+    }
+    if (popBottomCornerRadius <= 0) {
+        popBottomCornerRadius = 16;
+    }
+    
+    if (_customBottomView == nil) {
+        _customBottomView = [[UIView alloc] init];
+    }
+    _customBottomView.layer.cornerRadius = popCenterCornerRadius;
+    _customBottomView.layer.masksToBounds = YES;
+    _customBottomView.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:_customBottomView];
+    if (authWindowPop == NTESAuthWindowPopCenter) {
+        UIButton *closeButton = [UIButton buttonWithType:UIButtonTypeSystem];
+        [closeButton addTarget:self action:@selector(closeButtonDidTipped) forControlEvents:UIControlEventTouchUpInside];
+        [closeButton setImage:[[UIImage imageNamed:@"ic_close"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] forState:UIControlStateNormal];
+        self.closeButton = closeButton;
+        [_customBottomView addSubview:closeButton];
+        [closeButton mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.size.mas_equalTo(CGSizeMake(20, 20));
+            make.right.equalTo(self.customBottomView).mas_offset(-10);
+            make.top.equalTo(self.customBottomView).mas_offset(10);
+        }];
+        self.view.backgroundColor = [UIColor clearColor];
+        [_customBottomView mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.centerX.equalTo(self.view).mas_offset(authWindowCenterOriginX);
+            make.centerY.equalTo(self.view).mas_offset(authWindowCenterOriginY);
+            make.size.mas_offset(CGSizeMake(285, 315));
+        }];
+    } else {
+        self.view.backgroundColor = [UIColor whiteColor];
+        [_customBottomView mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.edges.equalTo(self.view);
+        }];
+    }
+ 
+    if (!_phoneImageView) {
+       _phoneImageView = [[UIImageView alloc] init];
+       _phoneImageView.image = [UIImage imageNamed:@"ic_phone"];
+       [self.customBottomView addSubview:_phoneImageView];
+       [_phoneImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+          make.top.equalTo(self.themeLabel.mas_bottom).offset(60);
+          make.left.equalTo(self.themeLabel);
+          make.size.mas_equalTo(CGSizeMake(14, 14));
+       }];
+    }
+    
+    if (self.phoneTextField == nil) {
+        self.phoneTextField = [[UITextField alloc] init];
+    }
+    self.phoneTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"手机号" attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:15],NSForegroundColorAttributeName : [UIColor ntes_colorWithHexString:@"#999999"]}];
+    self.phoneTextField.font = [UIFont systemFontOfSize:15.0];
+    self.phoneTextField.textColor = [UIColor ntes_colorWithHexString:@"#333333"];
+    [self.customBottomView addSubview:self.phoneTextField];
     [self.phoneTextField mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.themeLabel);
-        make.right.equalTo(self.view).offset(-154*KWidthScale);
-        make.top.equalTo(self.themeLabel.mas_bottom).offset(39.5*KHeightScale);
+        make.left.equalTo(self.phoneImageView.mas_right).mas_offset(11);
+        make.right.equalTo(self.customBottomView).offset(-154);
+        make.centerY.equalTo(self.phoneImageView);
     }];
     
-    self.timeButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [self.view addSubview:self.timeButton];
-    self.timeButton.titleLabel.font = [UIFont systemFontOfSize:15.0*KHeightScale];
-    [self.timeButton setTitle:@"发送验证码" forState:UIControlStateNormal];
-    [self.timeButton setTitleColor:UIColorFromHex(0x0062ff) forState:UIControlStateNormal];
+    if (self.timeButton == nil) {
+         self.timeButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    }
+    self.timeButton.layer.cornerRadius = 3;
+    self.timeButton.layer.masksToBounds = YES;
+    [self.customBottomView addSubview:self.timeButton];
+    self.timeButton.titleLabel.font = [UIFont systemFontOfSize:12.0];
+    self.timeButton.layer.borderColor = [UIColor ntes_colorWithHexString:@"#324DFF"].CGColor;
+    self.timeButton.layer.borderWidth = 1;
+    [self.timeButton setTitle:@"获取验证码" forState:UIControlStateNormal];
+    [self.timeButton setTitleColor:[UIColor ntes_colorWithHexString:@"#324DFF"] forState:UIControlStateNormal];
     [self.timeButton addTarget:self action:@selector(sendMessage) forControlEvents:UIControlEventTouchUpInside];
-    [self.timeButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerY.equalTo(self.phoneTextField);
-        make.width.equalTo(@(120*KWidthScale));
-        make.height.equalTo(@(21*KHeightScale));
-        make.right.equalTo(self.view).offset(-34*KWidthScale);
+    self.timeButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
+    [self.timeButton mas_remakeConstraints:^(MASConstraintMaker *make) {
+       make.centerY.equalTo(self.phoneTextField);
+       make.width.equalTo(@(80));
+       make.height.equalTo(@(28));
+        if (authWindowPop == NTESAuthWindowPopCenter) {
+            make.right.equalTo(self.customBottomView).offset(-30);
+        } else {
+            make.right.equalTo(self.customBottomView.mas_centerX).offset(150);
+        }
     }];
     
-    self.firstSeparateLine = [[UIView alloc] init];
+    if (self.firstSeparateLine == nil) {
+        self.firstSeparateLine = [[UIView alloc] init];
+    }
     [self.firstSeparateLine setBackgroundColor:UIColorFromHex(0xe2e2e2)];
-    [self.view addSubview:self.firstSeparateLine];
+    [self.customBottomView addSubview:self.firstSeparateLine];
     [self.firstSeparateLine mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.themeLabel);
-        make.right.equalTo(self.view).offset(-34*KWidthScale);
-        make.top.equalTo(self.phoneTextField.mas_bottom).offset(11.5*KHeightScale);
+        if (authWindowPop == NTESAuthWindowPopCenter) {
+            make.right.equalTo(self.customBottomView).mas_offset(-30);
+        } else {
+            make.right.equalTo(self.customBottomView.mas_centerX).mas_offset(150);
+        }
+        make.top.equalTo(self.phoneTextField.mas_bottom).offset(11.5);
         make.height.equalTo(@0.5);
     }];
     
-    self.verifyCodeTextField = [[UITextField alloc] init];
-    self.verifyCodeTextField.placeholder = @"请输入验证码";
-    self.verifyCodeTextField.font = [UIFont systemFontOfSize:15.0*KHeightScale];
-    [self.view addSubview:self.verifyCodeTextField];
+    if (!_codeImageView) {
+          _codeImageView = [[UIImageView alloc] init];
+          _codeImageView.image = [UIImage imageNamed:@"ic_namb"];
+          [self.customBottomView addSubview:_codeImageView];
+          [_codeImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+             make.top.equalTo(self.firstSeparateLine.mas_bottom).offset(20);
+             make.left.equalTo(self.themeLabel);
+             make.size.mas_equalTo(CGSizeMake(14, 14));
+          }];
+       }
+    
+    if (self.verifyCodeTextField == nil) {
+        self.verifyCodeTextField = [[UITextField alloc] init];
+    }
+    self.verifyCodeTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"验证码" attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:15],NSForegroundColorAttributeName : [UIColor ntes_colorWithHexString:@"#999999"]}];
+    self.verifyCodeTextField.font = [UIFont systemFontOfSize:15.0];
+    self.verifyCodeTextField.textColor = [UIColor ntes_colorWithHexString:@"#333333 "];
+    [self.customBottomView addSubview:self.verifyCodeTextField];
     [self.verifyCodeTextField mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.themeLabel);
-        make.right.equalTo(self.view).offset(-34*KWidthScale);
-        make.top.equalTo(self.firstSeparateLine.mas_bottom).offset(19.5*KHeightScale);
+        make.left.equalTo(self.codeImageView.mas_right).mas_offset(11);
+        make.right.equalTo(self.customBottomView).offset(-34);
+        make.centerY.equalTo(self.codeImageView);
     }];
     
-    self.secondSeparateLine = [[UIView alloc] init];
+    if (self.secondSeparateLine == nil) {
+        self.secondSeparateLine = [[UIView alloc] init];
+    }
     [self.secondSeparateLine setBackgroundColor:UIColorFromHex(0xe2e2e2)];
-    [self.view addSubview:self.secondSeparateLine];
+    [self.customBottomView addSubview:self.secondSeparateLine];
     [self.secondSeparateLine mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.verifyCodeTextField);
-        make.right.equalTo(self.verifyCodeTextField);
-        make.top.equalTo(self.verifyCodeTextField.mas_bottom).offset(11.5*KHeightScale);
+        make.left.equalTo(self.themeLabel);
+        if (authWindowPop == NTESAuthWindowPopCenter) {
+            make.right.equalTo(self.customBottomView).mas_offset(-30);
+        } else {
+            make.right.equalTo(self.customBottomView.mas_centerX).mas_offset(150);
+        }
+        make.top.equalTo(self.verifyCodeTextField.mas_bottom).offset(11.5);
         make.height.equalTo(@0.5);
     }];
     
     [self.quickLoginButton removeTarget:self action:@selector(authorizeLoginButtonClick) forControlEvents:UIControlEventTouchUpInside];
-    [self.quickLoginButton setTitle:self.themeTitle forState:UIControlStateNormal];
-    [self.quickLoginButton setTitle:self.themeTitle forState:UIControlStateHighlighted];
+    [self.quickLoginButton setTitle:@"注册/登录" forState:UIControlStateNormal];
+    [self.quickLoginButton setTitle:@"注册/登录" forState:UIControlStateHighlighted];
     [self.quickLoginButton addTarget:self action:@selector(verifySMSCode) forControlEvents:UIControlEventTouchUpInside];
-    [self.quickLoginButton mas_remakeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.secondSeparateLine.mas_bottom).offset(31.5*KHeightScale);
-        make.left.equalTo(self.verifyCodeTextField);
-        make.right.equalTo(self.verifyCodeTextField);
-        make.height.equalTo(@(44*KHeightScale));
+    [self.customBottomView addSubview:self.quickLoginButton];
+     [_quickLoginButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.secondSeparateLine.mas_bottom).offset(30);
+        make.centerX.equalTo(self.customBottomView);
+        make.height.equalTo(@(44));
+         if (authWindowPop == NTESAuthWindowPopCenter) {
+             make.width.equalTo(@(235));
+         } else {
+             make.width.equalTo(@(295));
+         }
     }];
     
     [self.bottomView removeFromSuperview];
+}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    [self.view endEditing:YES];
+}
+
+
+- (void)closeButtonDidTipped {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

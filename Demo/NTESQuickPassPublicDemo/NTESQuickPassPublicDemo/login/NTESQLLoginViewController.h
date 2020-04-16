@@ -8,12 +8,19 @@
 
 #import <UIKit/UIKit.h>
 #import "NTESBaseViewController.h"
+#import <NTESQuickPass/NTESQuickPass.h>
 
-@interface NTESQLLoginViewController : NTESBaseViewController
+typedef void(^SuccessHandle)(void);
+
+@interface NTESQLLoginViewController : UIViewController
+
+@property (nonatomic, strong) NTESQuickLoginModel *model;
 
 @property (nonatomic, copy) NSString *themeTitle;
 
 @property (nonatomic, copy) NSString *token;
+
+@property (nonatomic, copy) SuccessHandle successHandle;
 
 - (void)updateView;
 

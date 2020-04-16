@@ -7,8 +7,11 @@
 //
 
 #import "AppDelegate.h"
-#import "NTESQPHomePageViewController.h"
 #import "NTESQLHomePageViewController.h"
+#import "NTESNavigationController.h"
+#import "NTESQLGuidePageController.h"
+#import "NTESQPDemoDefines.h"
+
 
 @interface AppDelegate ()
 
@@ -22,12 +25,20 @@
 //    [NSThread sleepForTimeInterval:1.0];
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    self.window.backgroundColor = [UIColor whiteColor];
-    
-    NTESQLHomePageViewController *vc = [[NTESQLHomePageViewController alloc] init];
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
-    self.window.rootViewController = nav;
-    [self.window makeKeyWindow];
+       self.window.backgroundColor = [UIColor whiteColor];
+       
+       NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+       if (![userDefaults boolForKey:IS_NO_FIRST_OPEN]) {
+           [userDefaults setBool:YES forKey:IS_NO_FIRST_OPEN];
+           NTESQLGuidePageController *vc = [[NTESQLGuidePageController alloc] init];
+           self.window.rootViewController = vc;
+           [self.window makeKeyWindow];
+       } else {
+           NTESQLHomePageViewController *vc = [[NTESQLHomePageViewController alloc] init];
+           NTESNavigationController *nav = [[NTESNavigationController alloc] initWithRootViewController:vc];
+           self.window.rootViewController = nav;
+           [self.window makeKeyWindow];
+       }
     
     return YES;
 }

@@ -11,7 +11,7 @@
 
 //#define TEST_MODE
 
-//#define TEST_MODE_QA
+#define TEST_MODE_QA
 
 #ifdef TEST_MODE
 #define QL_BUSINESSID                @"3cc9408f47414f03a75947c108e60034"
@@ -27,6 +27,8 @@
 #define API_LOGIN_TOKEN_QPCHECK      @"https://ye.dun.163yun.com/api/login/token"
 #define API_LOGIN_CODE_CHECK         @"https://ye.dun.163yun.com/api/login/code"
 #define API_LOGIN_SMS_SEND           @"https://ye.dun.163yun.com/api/sms/send"
+#define API_LOGIN_GET_CONFIG         @"http://ye-test.dun.163yun.com/ios_config.json"
+
 #endif
 
 #define CMServiceHTML                @"https://wap.cmpassport.com/resources/html/contract.html"
@@ -48,26 +50,30 @@
 #define SCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
 #define SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
 
-#define IS_IPHONE_X (SCREEN_HEIGHT == 812.0f ? YES : NO)
+#define IS_IPHONE_X (([[UIApplication sharedApplication] statusBarFrame].size.height == 44) ? YES : NO)
+
+#define DT_IS_IPHONEX_XS   (SCREEN_HEIGHT == 812.f)  //是否是iPhoneX、iPhoneXS
+#define DT_IS_IPHONEXR_XSMax   (SCREEN_HEIGHT == 896.f)  //是否是iPhoneXR、iPhoneX Max
+#define IS_IPHONEX_SET  (DT_IS_IPHONEX_XS||DT_IS_IPHONEXR_XSMax)  //是否是iPhoneX系列手机
 
 #define KWidthScale ((SCREEN_WIDTH) / 375.0)
-#define KHeightScale (IS_IPHONE_X ? ((SCREEN_HEIGHT) / 812.0) : ((SCREEN_HEIGHT) / 667.0))
+#define KHeightScale ((SCREEN_HEIGHT) / 667.0)
 
 #define UIColorFromHexA(hexValue, a)     [UIColor colorWithRed:(((hexValue & 0xFF0000) >> 16))/255.0f green:(((hexValue & 0xFF00) >> 8))/255.0f blue:((hexValue & 0xFF))/255.0f alpha:a]
 #define UIColorFromHex(hexValue)        UIColorFromHexA(hexValue, 1.0f)
 
 #define bottomPassText              @"本机校验服务 - 体验demo"
 #define bottomLoginText             @"一键登录服务 - 体验demo"
-#define bottomCopyRightText         @"© 1997-2019 网易公司"
-#define homePageTitle               @"欢迎体验，"
+#define bottomCopyRightText         @"© 1997-2020 网易公司"
+#define homePageTitle               @"网易易盾"
 #define quickPassTitle              @"本机校验DEMO"
-#define quickLoginTitle             @"一键登录DEMO"
+#define quickLoginTitle             @"不拿用户数据，不做数据营销，安全可靠"
 #define changeToQuickPass           @"点击切换至本机校验DEMO"
 #define changeToQuickLogin          @"点击切换至一键登录DEMO"
 #define registerTitle               @"注册"
 #define loginTitle                  @"登录"
-#define nextTitle                   @"下一步"
-#define backToRoot                  @"返回DEMO"
+#define nextTitle                   @"注册/登录"
+#define backToRoot                  @"返回首页"
 #define verifyingQPText             @"本机校验中..."
 #define verifyingQLText             @"一键登录中..."
 #define quickLoginButtonTitle       @"本机号码一键登录"
@@ -76,6 +82,12 @@
 #define CMService                   @"《中国移动认证服务条款》"
 #define CTService                   @"《中国电信认证服务条款》"
 
+#define IS_NO_FIRST_OPEN                   @"IS_NO_FIRST_OPEN"
+
 #import <Masonry/Masonry.h>
 
+#define RGBA(r,g,b,a) [UIColor colorWithRed:r/255.0f green:g/255.0f blue:b/255.0f alpha:a]
+
 #endif /* NTESQPDefines_h */
+
+

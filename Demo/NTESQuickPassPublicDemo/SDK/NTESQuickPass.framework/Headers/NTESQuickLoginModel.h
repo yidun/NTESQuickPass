@@ -13,7 +13,6 @@ typedef void(^AuthCustomNavBlock)(UIView * _Nullable customNavView);
 typedef void(^AuthLoadingViewBlock)(UIView *_Nullable customLoadingView);
 typedef void(^AuthPrograssHUDBlock)(UIView *_Nullable prograssHUDBlock);
 
-
 /// 复选框相对隐私条款的位置
 typedef NS_ENUM(NSInteger, NSCheckBoxAlignment) {
     NSCheckBoxAlignmentTop      = 0,    // top aligned
@@ -277,7 +276,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**登录按钮的高度，默认44*/
 @property (nonatomic, assign) CGFloat logBtnHeight;
 
-#pragma mark - 隐私条款
+#pragma mark - 复选框
 
 /**复选框未选中时图片*/
 @property (nonatomic, strong) UIImage *uncheckedImg;
@@ -288,26 +287,19 @@ NS_ASSUME_NONNULL_BEGIN
 /**复选框大小（只能正方形) 默认 12*/
 @property (nonatomic, assign) CGFloat checkboxWH;
 
-/**隐私条款check框默认状态 默认:NO */
+/**复选框默认状态 默认:NO */
 @property (nonatomic, assign) BOOL privacyState;
 
-/**隐私条款check框是否隐藏  默认:NO */
+/**复选框是否隐藏  默认:NO */
 @property (nonatomic, assign) BOOL checkedHidden;
 
-/**隐私条款check框 可相对协议顶对齐、中对齐、下对齐 默认顶对齐*/
+/**复选框可相对协议顶对齐、中对齐、下对齐 默认顶对齐*/
 @property (nonatomic, assign) NSCheckBoxAlignment checkBoxAlignment;
 
-/**check框距离隐私条款的边距 默认 8*/
+/**复选框距离隐私条款的边距 默认 8*/
 @property (nonatomic, assign) CGFloat checkBoxMargin;
 
-/**隐私条款距离屏幕左边的距离 默认 60*/
-@property (nonatomic, assign) CGFloat appPrivacyOriginLeftMargin;
-
-/**隐私条款距离屏幕右边的距离 默认 40*/
-@property (nonatomic, assign) CGFloat appPrivacyOriginRightMargin;
-
-/**隐私条款距离屏幕的距离 默认 40*/
-@property (nonatomic, assign) CGFloat appPrivacyOriginBottomMargin;
+#pragma mark - 隐私条款
 
 /**隐私的内容模板：
    全句可自定义但必须保留"《默认》"字段表明SDK默认协议,否则设置不生效
@@ -338,33 +330,38 @@ NS_ASSUME_NONNULL_BEGIN
 /**开发者隐私条款《第二个协议》的导航栏标题，默认为《第二个协议》*/
 @property (nonatomic, copy) NSString *appSPrivacyTitleText;
 
-/**隐私条款文字内容的方向:默认是居左
- */
+/**隐私条款文字内容的方向:默认是居左*/
 @property (nonatomic, assign) NSTextAlignment appPrivacyAlignment;
 
-/**隐私条款名称颜色
- */
+/**开发者隐私条款的颜色*/
 @property (nonatomic, strong) UIColor *privacyColor;
 
-/**隐私条款字体的大小
- */
+/**开发者隐私条款字体的大小 */
 @property (nonatomic, strong) UIFont *privacyFont;
 
-/**协议条款协议名称颜色
-*/
+/**开发者隐私条款中协议名称颜色*/
 @property (nonatomic, strong) UIColor *protocolColor;
-//
-///**隐私条款Y偏移量(注:此属性为与屏幕底部的距离)*/
-//@property (nonatomic,strong) NSNumber * privacyOffsetY;
+
+/**隐私条款距离屏幕左边的距离 默认 60*/
+@property (nonatomic, assign) CGFloat appPrivacyOriginLeftMargin;
+
+/**隐私条款距离屏幕右边的距离 默认 40*/
+@property (nonatomic, assign) CGFloat appPrivacyOriginRightMargin;
+
+/**隐私条款距离屏幕的距离 默认 40*/
+@property (nonatomic, assign) CGFloat appPrivacyOriginBottomMargin;
+
+/**用户协议界面，导航栏返回图标，默认用导航栏返回图标 */
+@property (nonatomic, strong) UIImage *privacyNavReturnImg;
 
 #pragma mark ----------------------弹窗:(温馨提示:由于受屏幕影响，小屏幕（5S,5E,5）需要改动字体和另自适应和布局)--------------------
 #pragma mark --------------------------窗口模式（居中弹窗, 底部半屏弹窗）
 
-/*窗口模式下，设置弹窗的背景颜色2*/
-@property (nonatomic, strong) UIColor *popBackgroundColor;
-
 /*窗口模式下，自动隐藏系统导航栏*/
 @property (nonatomic, assign) NTESAuthWindowPop authWindowPop;
+
+/*窗口模式的背景颜色*/
+@property (nonatomic, strong) UIColor *popBackgroundColor;
 
 /**自定义窗口宽-缩放系数(屏幕宽乘以系数) 竖屏状态下默认是0.8，横屏状态下默认是0.5 */
 @property (nonatomic, assign) CGFloat scaleW;

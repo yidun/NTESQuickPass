@@ -15,6 +15,7 @@
     NSMutableURLRequest *requestM = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
     requestM.timeoutInterval = 10;
     requestM.HTTPMethod = httpMethod;
+    requestM.cachePolicy = NSURLRequestReloadIgnoringLocalCacheData;
     if (jsonData) {
         [requestM setHTTPBody:jsonData];
         [requestM setValue:@"application/json" forHTTPHeaderField:@"content-type"];

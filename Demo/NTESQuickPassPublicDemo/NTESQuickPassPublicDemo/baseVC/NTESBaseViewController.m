@@ -54,7 +54,7 @@
     _bottomCopyRightLabel.font = [UIFont systemFontOfSize:10.0*KHeightScale];
     _bottomCopyRightLabel.textColor = UIColorFromHex(0x999999);
     [self.view addSubview:_bottomCopyRightLabel];
-    CGFloat bottomWhiteHeight = IS_IPHONE_X ? -44 : -20;
+    CGFloat bottomWhiteHeight = -20;
     [_bottomCopyRightLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.view);
         make.bottom.equalTo(self.view.mas_bottom).offset(bottomWhiteHeight);

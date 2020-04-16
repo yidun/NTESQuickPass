@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "NTESBaseViewController.h"
 
-@interface NTESQPLoginViewController : NTESBaseViewController
+@interface NTESQPLoginViewController : UIViewController
 
 @property (nonatomic, copy) NSString *themeTitle;
 

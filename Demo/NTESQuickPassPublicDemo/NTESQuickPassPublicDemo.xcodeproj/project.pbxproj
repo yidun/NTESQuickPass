@@ -7,33 +7,40 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		BF66140B20EDC08000F09D77 /* NTESQPVerifyingPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF66140A20EDC08000F09D77 /* NTESQPVerifyingPopView.m */; };
 		BF7BEC5320D204A400822DAA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BF7BEC5220D204A400822DAA /* AppDelegate.m */; };
-		BF7BEC5620D204A400822DAA /* NTESBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF7BEC5520D204A400822DAA /* NTESBaseViewController.m */; };
 		BF7BEC5920D204A400822DAA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF7BEC5720D204A400822DAA /* Main.storyboard */; };
 		BF7BEC5E20D204A700822DAA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF7BEC5C20D204A700822DAA /* LaunchScreen.storyboard */; };
 		BF7BEC6120D204A700822DAA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BF7BEC6020D204A700822DAA /* main.m */; };
 		BF7BEC6B20D204A800822DAA /* NTESQuickPassPublicDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BF7BEC6A20D204A800822DAA /* NTESQuickPassPublicDemoTests.m */; };
 		BF7BEC7620D204A800822DAA /* NTESQuickPassPublicDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = BF7BEC7520D204A800822DAA /* NTESQuickPassPublicDemoUITests.m */; };
-		BF7BEC9320D2198E00822DAA /* NTESQPLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF7BEC9220D2198E00822DAA /* NTESQPLoginViewController.m */; };
-		BF7BEC9620D219A200822DAA /* NTESQPLoginSuccessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF7BEC9520D219A200822DAA /* NTESQPLoginSuccessViewController.m */; };
-		CA378B28244402690027DF06 /* NTESQuickPass.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA378B27244402690027DF06 /* NTESQuickPass.framework */; };
-		CA5CB830243F13F800B37A8B /* UIColor+NTESQuickPass.m in Sources */ = {isa = PBXBuildFile; fileRef = CA5CB82E243F13F800B37A8B /* UIColor+NTESQuickPass.m */; };
+		CA55A69724480CFE0015D630 /* NTESToastView.m in Sources */ = {isa = PBXBuildFile; fileRef = CA55A66424480CFC0015D630 /* NTESToastView.m */; };
+		CA55A69824480CFE0015D630 /* UIColor+NTESQuickPass.m in Sources */ = {isa = PBXBuildFile; fileRef = CA55A66524480CFC0015D630 /* UIColor+NTESQuickPass.m */; };
+		CA55A69924480CFE0015D630 /* NTESQLFindCurrentVCEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = CA55A66924480CFC0015D630 /* NTESQLFindCurrentVCEntity.m */; };
+		CA55A69A24480CFE0015D630 /* NTESQLHomePageNetworkEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = CA55A66B24480CFC0015D630 /* NTESQLHomePageNetworkEntity.m */; };
+		CA55A69B24480CFE0015D630 /* NTESQLHomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA55A66E24480CFC0015D630 /* NTESQLHomePageViewController.m */; };
+		CA55A69C24480CFE0015D630 /* NTESQLHomePageCustomUIModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CA55A67124480CFC0015D630 /* NTESQLHomePageCustomUIModel.m */; };
+		CA55A69D24480CFE0015D630 /* NTESQLHomePagePortraitBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = CA55A67724480CFC0015D630 /* NTESQLHomePagePortraitBottomView.m */; };
+		CA55A69E24480CFE0015D630 /* NTESQLHomePagePortraitView.m in Sources */ = {isa = PBXBuildFile; fileRef = CA55A67824480CFD0015D630 /* NTESQLHomePagePortraitView.m */; };
+		CA55A69F24480CFE0015D630 /* NTESQLHomePageLandscapeView.m in Sources */ = {isa = PBXBuildFile; fileRef = CA55A67B24480CFD0015D630 /* NTESQLHomePageLandscapeView.m */; };
+		CA55A6A024480CFE0015D630 /* NTESQLNavigationView.m in Sources */ = {isa = PBXBuildFile; fileRef = CA55A67D24480CFD0015D630 /* NTESQLNavigationView.m */; };
+		CA55A6A124480CFE0015D630 /* NTESQLGuidePageController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA55A67F24480CFD0015D630 /* NTESQLGuidePageController.m */; };
+		CA55A6A324480CFE0015D630 /* NTESQLServiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA55A68324480CFD0015D630 /* NTESQLServiceViewController.m */; };
+		CA55A6A424480CFE0015D630 /* NTESQLLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA55A68424480CFD0015D630 /* NTESQLLoginViewController.m */; };
+		CA55A6A524480CFE0015D630 /* NTESQPLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA55A68824480CFD0015D630 /* NTESQPLoginViewController.m */; };
+		CA55A6A624480CFE0015D630 /* NTESQPLoginSuccessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA55A68924480CFD0015D630 /* NTESQPLoginSuccessViewController.m */; };
+		CA55A6A724480CFE0015D630 /* NTESDemoHttpRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = CA55A68D24480CFE0015D630 /* NTESDemoHttpRequest.m */; };
+		CA55A6A824480CFE0015D630 /* NTESQPVerifyingPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = CA55A68F24480CFE0015D630 /* NTESQPVerifyingPopView.m */; };
+		CA55A6A924480CFE0015D630 /* NTESNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA55A69324480CFE0015D630 /* NTESNavigationController.m */; };
+		CA55A6AA24480CFE0015D630 /* NTESBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA55A69524480CFE0015D630 /* NTESBaseViewController.m */; };
+		CA55A6AF24480E530015D630 /* NTESQuickPass.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA55A6AE24480E530015D630 /* NTESQuickPass.framework */; };
+		CA55A6B9244810170015D630 /* video_landscape.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = CA55A6B7244810170015D630 /* video_landscape.mp4 */; };
+		CA55A6BA244810170015D630 /* video_portrait.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = CA55A6B8244810170015D630 /* video_portrait.mp4 */; };
 		CA5FC005242B2EA1006122D2 /* TYRZSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA5FC004242B2EA1006122D2 /* TYRZSDK.framework */; };
-		CA5FC013242B2ED1006122D2 /* NTESQLHomePageView.m in Sources */ = {isa = PBXBuildFile; fileRef = CA5FC00A242B2ED1006122D2 /* NTESQLHomePageView.m */; };
-		CA5FC014242B2ED1006122D2 /* NTESQLHomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA5FC00C242B2ED1006122D2 /* NTESQLHomePageViewController.m */; };
-		CA5FC015242B2ED1006122D2 /* NTESQPHomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA5FC00F242B2ED1006122D2 /* NTESQPHomePageViewController.m */; };
-		CA5FC016242B2ED1006122D2 /* NTESQLHomePageCustomUIModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CA5FC011242B2ED1006122D2 /* NTESQLHomePageCustomUIModel.m */; };
-		CAA68173243F5354001BD642 /* video_landscape.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = CAA68171243F5354001BD642 /* video_landscape.mp4 */; };
-		CAA68174243F5354001BD642 /* video_portrait.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = CAA68172243F5354001BD642 /* video_portrait.mp4 */; };
 		DC56CB5C2201A3CF00D7B973 /* libc++.1.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = DC56CB5B2201A3CF00D7B973 /* libc++.1.tbd */; };
 		DC56CB5E2201A3EB00D7B973 /* libz.1.2.8.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = DC56CB5D2201A3EB00D7B973 /* libz.1.2.8.tbd */; };
 		DC8C849822C3184E006C8683 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC8C849722C3184D006C8683 /* CoreFoundation.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		DCA5695323338444006AA8AA /* EAccountApiSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCA5695223338444006AA8AA /* EAccountApiSDK.framework */; };
-		DCA6620A2212C79300B29D37 /* NTESQLServiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DCA662092212C79300B29D37 /* NTESQLServiceViewController.m */; };
-		DCA662102214129B00B29D37 /* NTESDemoHttpRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = DCA6620F2214129B00B29D37 /* NTESDemoHttpRequest.m */; };
 		DCD4421C22A66673005AE167 /* TYRZResource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = DCD4421B22A66673005AE167 /* TYRZResource.bundle */; };
-		DCEC42202202933400698D3B /* NTESQLLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DCEC421F2202933400698D3B /* NTESQLLoginViewController.m */; };
 		DCEC422D2202EC5B00698D3B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DCEC422A2202EC5B00698D3B /* Assets.xcassets */; };
 		DCECF9EB228D75E800DC7E28 /* OAuth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCECF9E9228D75E800DC7E28 /* OAuth.framework */; };
 		DCECF9EC228D75E800DC7E28 /* sdk_oauth.bundle in Resources */ = {isa = PBXBuildFile; fileRef = DCECF9EA228D75E800DC7E28 /* sdk_oauth.bundle */; };
@@ -61,13 +68,9 @@
 		6AA02F0C44F1E6D3D4BC705B /* Pods-NTESQuickPassPublicDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NTESQuickPassPublicDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-NTESQuickPassPublicDemo/Pods-NTESQuickPassPublicDemo.release.xcconfig"; sourceTree = "<group>"; };
 		6E692FEFA580DF8B22EB7DDF /* libPods-NTESQuickPassPublicDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NTESQuickPassPublicDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C18E995F36E5BD850F466F3 /* Pods-NTESQuickPassPublicDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NTESQuickPassPublicDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NTESQuickPassPublicDemo/Pods-NTESQuickPassPublicDemo.debug.xcconfig"; sourceTree = "<group>"; };
-		BF66140920EDC08000F09D77 /* NTESQPVerifyingPopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NTESQPVerifyingPopView.h; sourceTree = "<group>"; };
-		BF66140A20EDC08000F09D77 /* NTESQPVerifyingPopView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NTESQPVerifyingPopView.m; sourceTree = "<group>"; };
 		BF7BEC4E20D204A400822DAA /* NTESQuickPassPublicDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NTESQuickPassPublicDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF7BEC5120D204A400822DAA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		BF7BEC5220D204A400822DAA /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		BF7BEC5420D204A400822DAA /* NTESBaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NTESBaseViewController.h; sourceTree = "<group>"; };
-		BF7BEC5520D204A400822DAA /* NTESBaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NTESBaseViewController.m; sourceTree = "<group>"; };
 		BF7BEC5820D204A400822DAA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BF7BEC5A20D204A700822DAA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BF7BEC5D20D204A700822DAA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -80,35 +83,53 @@
 		BF7BEC7520D204A800822DAA /* NTESQuickPassPublicDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NTESQuickPassPublicDemoUITests.m; sourceTree = "<group>"; };
 		BF7BEC7720D204A800822DAA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BF7BEC8720D20FC700822DAA /* NTESQPDemoDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NTESQPDemoDefines.h; sourceTree = "<group>"; };
-		BF7BEC9120D2198E00822DAA /* NTESQPLoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NTESQPLoginViewController.h; sourceTree = "<group>"; };
-		BF7BEC9220D2198E00822DAA /* NTESQPLoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NTESQPLoginViewController.m; sourceTree = "<group>"; };
-		BF7BEC9420D219A200822DAA /* NTESQPLoginSuccessViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NTESQPLoginSuccessViewController.h; sourceTree = "<group>"; };
-		BF7BEC9520D219A200822DAA /* NTESQPLoginSuccessViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NTESQPLoginSuccessViewController.m; sourceTree = "<group>"; };
-		CA378B27244402690027DF06 /* NTESQuickPass.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NTESQuickPass.framework; path = SDK/NTESQuickPass.framework; sourceTree = "<group>"; };
-		CA5CB82E243F13F800B37A8B /* UIColor+NTESQuickPass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+NTESQuickPass.m"; sourceTree = "<group>"; };
-		CA5CB82F243F13F800B37A8B /* UIColor+NTESQuickPass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+NTESQuickPass.h"; sourceTree = "<group>"; };
+		CA55A66424480CFC0015D630 /* NTESToastView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTESToastView.m; sourceTree = "<group>"; };
+		CA55A66524480CFC0015D630 /* UIColor+NTESQuickPass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+NTESQuickPass.m"; sourceTree = "<group>"; };
+		CA55A66624480CFC0015D630 /* NTESQLFindCurrentVCEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTESQLFindCurrentVCEntity.h; sourceTree = "<group>"; };
+		CA55A66724480CFC0015D630 /* NTESToastView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTESToastView.h; sourceTree = "<group>"; };
+		CA55A66824480CFC0015D630 /* UIColor+NTESQuickPass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+NTESQuickPass.h"; sourceTree = "<group>"; };
+		CA55A66924480CFC0015D630 /* NTESQLFindCurrentVCEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTESQLFindCurrentVCEntity.m; sourceTree = "<group>"; };
+		CA55A66B24480CFC0015D630 /* NTESQLHomePageNetworkEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTESQLHomePageNetworkEntity.m; sourceTree = "<group>"; };
+		CA55A66C24480CFC0015D630 /* NTESQLHomePageNetworkEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTESQLHomePageNetworkEntity.h; sourceTree = "<group>"; };
+		CA55A66E24480CFC0015D630 /* NTESQLHomePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTESQLHomePageViewController.m; sourceTree = "<group>"; };
+		CA55A66F24480CFC0015D630 /* NTESQLHomePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTESQLHomePageViewController.h; sourceTree = "<group>"; };
+		CA55A67124480CFC0015D630 /* NTESQLHomePageCustomUIModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTESQLHomePageCustomUIModel.m; sourceTree = "<group>"; };
+		CA55A67224480CFC0015D630 /* NTESQLHomePageCustomUIModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTESQLHomePageCustomUIModel.h; sourceTree = "<group>"; };
+		CA55A67424480CFC0015D630 /* NTESQLNavigationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTESQLNavigationView.h; sourceTree = "<group>"; };
+		CA55A67624480CFC0015D630 /* NTESQLHomePagePortraitView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTESQLHomePagePortraitView.h; sourceTree = "<group>"; };
+		CA55A67724480CFC0015D630 /* NTESQLHomePagePortraitBottomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTESQLHomePagePortraitBottomView.m; sourceTree = "<group>"; };
+		CA55A67824480CFD0015D630 /* NTESQLHomePagePortraitView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTESQLHomePagePortraitView.m; sourceTree = "<group>"; };
+		CA55A67924480CFD0015D630 /* NTESQLHomePagePortraitBottomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTESQLHomePagePortraitBottomView.h; sourceTree = "<group>"; };
+		CA55A67B24480CFD0015D630 /* NTESQLHomePageLandscapeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTESQLHomePageLandscapeView.m; sourceTree = "<group>"; };
+		CA55A67C24480CFD0015D630 /* NTESQLHomePageLandscapeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTESQLHomePageLandscapeView.h; sourceTree = "<group>"; };
+		CA55A67D24480CFD0015D630 /* NTESQLNavigationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTESQLNavigationView.m; sourceTree = "<group>"; };
+		CA55A67F24480CFD0015D630 /* NTESQLGuidePageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTESQLGuidePageController.m; sourceTree = "<group>"; };
+		CA55A68024480CFD0015D630 /* NTESQLGuidePageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTESQLGuidePageController.h; sourceTree = "<group>"; };
+		CA55A68324480CFD0015D630 /* NTESQLServiceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTESQLServiceViewController.m; sourceTree = "<group>"; };
+		CA55A68424480CFD0015D630 /* NTESQLLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTESQLLoginViewController.m; sourceTree = "<group>"; };
+		CA55A68524480CFD0015D630 /* NTESQPLoginSuccessViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTESQPLoginSuccessViewController.h; sourceTree = "<group>"; };
+		CA55A68624480CFD0015D630 /* NTESQPLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTESQPLoginViewController.h; sourceTree = "<group>"; };
+		CA55A68724480CFD0015D630 /* NTESQLServiceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTESQLServiceViewController.h; sourceTree = "<group>"; };
+		CA55A68824480CFD0015D630 /* NTESQPLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTESQPLoginViewController.m; sourceTree = "<group>"; };
+		CA55A68924480CFD0015D630 /* NTESQPLoginSuccessViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTESQPLoginSuccessViewController.m; sourceTree = "<group>"; };
+		CA55A68A24480CFD0015D630 /* NTESQLLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTESQLLoginViewController.h; sourceTree = "<group>"; };
+		CA55A68C24480CFE0015D630 /* NTESDemoHttpRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTESDemoHttpRequest.h; sourceTree = "<group>"; };
+		CA55A68D24480CFE0015D630 /* NTESDemoHttpRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTESDemoHttpRequest.m; sourceTree = "<group>"; };
+		CA55A68F24480CFE0015D630 /* NTESQPVerifyingPopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTESQPVerifyingPopView.m; sourceTree = "<group>"; };
+		CA55A69024480CFE0015D630 /* NTESQPVerifyingPopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTESQPVerifyingPopView.h; sourceTree = "<group>"; };
+		CA55A69224480CFE0015D630 /* NTESBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTESBaseViewController.h; sourceTree = "<group>"; };
+		CA55A69324480CFE0015D630 /* NTESNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTESNavigationController.m; sourceTree = "<group>"; };
+		CA55A69424480CFE0015D630 /* NTESNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTESNavigationController.h; sourceTree = "<group>"; };
+		CA55A69524480CFE0015D630 /* NTESBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTESBaseViewController.m; sourceTree = "<group>"; };
+		CA55A6AE24480E530015D630 /* NTESQuickPass.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NTESQuickPass.framework; path = SDK/NTESQuickPass.framework; sourceTree = "<group>"; };
+		CA55A6B7244810170015D630 /* video_landscape.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video_landscape.mp4; sourceTree = "<group>"; };
+		CA55A6B8244810170015D630 /* video_portrait.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video_portrait.mp4; sourceTree = "<group>"; };
 		CA5FC004242B2EA1006122D2 /* TYRZSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TYRZSDK.framework; sourceTree = "<group>"; };
-		CA5FC009242B2ED1006122D2 /* NTESQLHomePageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTESQLHomePageView.h; sourceTree = "<group>"; };
-		CA5FC00A242B2ED1006122D2 /* NTESQLHomePageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTESQLHomePageView.m; sourceTree = "<group>"; };
-		CA5FC00C242B2ED1006122D2 /* NTESQLHomePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTESQLHomePageViewController.m; sourceTree = "<group>"; };
-		CA5FC00D242B2ED1006122D2 /* NTESQPHomePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTESQPHomePageViewController.h; sourceTree = "<group>"; };
-		CA5FC00E242B2ED1006122D2 /* NTESQLHomePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTESQLHomePageViewController.h; sourceTree = "<group>"; };
-		CA5FC00F242B2ED1006122D2 /* NTESQPHomePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTESQPHomePageViewController.m; sourceTree = "<group>"; };
-		CA5FC011242B2ED1006122D2 /* NTESQLHomePageCustomUIModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTESQLHomePageCustomUIModel.m; sourceTree = "<group>"; };
-		CA5FC012242B2ED1006122D2 /* NTESQLHomePageCustomUIModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTESQLHomePageCustomUIModel.h; sourceTree = "<group>"; };
-		CAA68171243F5354001BD642 /* video_landscape.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video_landscape.mp4; sourceTree = "<group>"; };
-		CAA68172243F5354001BD642 /* video_portrait.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video_portrait.mp4; sourceTree = "<group>"; };
 		DC56CB5B2201A3CF00D7B973 /* libc++.1.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.1.tbd"; path = "usr/lib/libc++.1.tbd"; sourceTree = SDKROOT; };
 		DC56CB5D2201A3EB00D7B973 /* libz.1.2.8.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.1.2.8.tbd; path = usr/lib/libz.1.2.8.tbd; sourceTree = SDKROOT; };
 		DC8C849722C3184D006C8683 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		DCA5695223338444006AA8AA /* EAccountApiSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EAccountApiSDK.framework; path = SDK/EAccountApiSDK.framework; sourceTree = "<group>"; };
-		DCA662082212C79300B29D37 /* NTESQLServiceViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NTESQLServiceViewController.h; sourceTree = "<group>"; };
-		DCA662092212C79300B29D37 /* NTESQLServiceViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NTESQLServiceViewController.m; sourceTree = "<group>"; };
-		DCA6620E2214129B00B29D37 /* NTESDemoHttpRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NTESDemoHttpRequest.h; sourceTree = "<group>"; };
-		DCA6620F2214129B00B29D37 /* NTESDemoHttpRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NTESDemoHttpRequest.m; sourceTree = "<group>"; };
 		DCD4421B22A66673005AE167 /* TYRZResource.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = TYRZResource.bundle; path = SDK/TYRZResource.bundle; sourceTree = "<group>"; };
-		DCEC421E2202933400698D3B /* NTESQLLoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NTESQLLoginViewController.h; sourceTree = "<group>"; };
-		DCEC421F2202933400698D3B /* NTESQLLoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NTESQLLoginViewController.m; sourceTree = "<group>"; };
 		DCEC422A2202EC5B00698D3B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DCECF9E9228D75E800DC7E28 /* OAuth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OAuth.framework; path = SDK/OAuth.framework; sourceTree = "<group>"; };
 		DCECF9EA228D75E800DC7E28 /* sdk_oauth.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = sdk_oauth.bundle; path = SDK/sdk_oauth.bundle; sourceTree = "<group>"; };
@@ -120,7 +141,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC8C849822C3184E006C8683 /* CoreFoundation.framework in Frameworks */,
-				CA378B28244402690027DF06 /* NTESQuickPass.framework in Frameworks */,
+				CA55A6AF24480E530015D630 /* NTESQuickPass.framework in Frameworks */,
 				DC56CB5E2201A3EB00D7B973 /* libz.1.2.8.tbd in Frameworks */,
 				DC56CB5C2201A3CF00D7B973 /* libc++.1.tbd in Frameworks */,
 				DCA5695323338444006AA8AA /* EAccountApiSDK.framework in Frameworks */,
@@ -159,7 +180,7 @@
 		9030C3D043DE84465318FE6F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				CA378B27244402690027DF06 /* NTESQuickPass.framework */,
+				CA55A6AE24480E530015D630 /* NTESQuickPass.framework */,
 				CA5FC004242B2EA1006122D2 /* TYRZSDK.framework */,
 				DCA5695223338444006AA8AA /* EAccountApiSDK.framework */,
 				DC8C849722C3184D006C8683 /* CoreFoundation.framework */,
@@ -199,12 +220,13 @@
 		BF7BEC5020D204A400822DAA /* NTESQuickPassPublicDemo */ = {
 			isa = PBXGroup;
 			children = (
-				CAA68170243F5344001BD642 /* Resources */,
-				DCA6620D2214123200B29D37 /* Request */,
-				BF7BECB920D2969800822DAA /* view */,
-				BF7BEC8D20D218F200822DAA /* login */,
-				BF7BEC8C20D218AD00822DAA /* home */,
-				BF7BEC8B20D2145B00822DAA /* baseVC */,
+				CA55A6AD24480D0F0015D630 /* Resources */,
+				CA55A69124480CFE0015D630 /* baseVC */,
+				CA55A67E24480CFD0015D630 /* GuidePage */,
+				CA55A65F24480CFC0015D630 /* home */,
+				CA55A68224480CFD0015D630 /* login */,
+				CA55A68B24480CFE0015D630 /* Request */,
+				CA55A68E24480CFE0015D630 /* view */,
 				BF7BEC8720D20FC700822DAA /* NTESQPDemoDefines.h */,
 				BF7BEC5120D204A400822DAA /* AppDelegate.h */,
 				BF7BEC5220D204A400822DAA /* AppDelegate.m */,
@@ -235,104 +257,149 @@
 			path = NTESQuickPassPublicDemoUITests;
 			sourceTree = "<group>";
 		};
-		BF7BEC8B20D2145B00822DAA /* baseVC */ = {
+		CA55A65F24480CFC0015D630 /* home */ = {
 			isa = PBXGroup;
 			children = (
-				BF7BEC5420D204A400822DAA /* NTESBaseViewController.h */,
-				BF7BEC5520D204A400822DAA /* NTESBaseViewController.m */,
-			);
-			path = baseVC;
-			sourceTree = "<group>";
-		};
-		BF7BEC8C20D218AD00822DAA /* home */ = {
-			isa = PBXGroup;
-			children = (
-				CA5CB82D243F13F800B37A8B /* Util */,
-				CA5FC00B242B2ED1006122D2 /* Controller */,
-				CA5FC010242B2ED1006122D2 /* Model */,
-				CA5FC008242B2ED1006122D2 /* View */,
+				CA55A66324480CFC0015D630 /* Util */,
+				CA55A66A24480CFC0015D630 /* Network */,
+				CA55A66D24480CFC0015D630 /* Controller */,
+				CA55A67024480CFC0015D630 /* Model */,
+				CA55A67324480CFC0015D630 /* View */,
 			);
 			path = home;
 			sourceTree = "<group>";
 		};
-		BF7BEC8D20D218F200822DAA /* login */ = {
+		CA55A66324480CFC0015D630 /* Util */ = {
 			isa = PBXGroup;
 			children = (
-				BF7BEC9120D2198E00822DAA /* NTESQPLoginViewController.h */,
-				BF7BEC9220D2198E00822DAA /* NTESQPLoginViewController.m */,
-				DCEC421E2202933400698D3B /* NTESQLLoginViewController.h */,
-				DCEC421F2202933400698D3B /* NTESQLLoginViewController.m */,
-				DCA662082212C79300B29D37 /* NTESQLServiceViewController.h */,
-				DCA662092212C79300B29D37 /* NTESQLServiceViewController.m */,
-				BF7BEC9420D219A200822DAA /* NTESQPLoginSuccessViewController.h */,
-				BF7BEC9520D219A200822DAA /* NTESQPLoginSuccessViewController.m */,
-			);
-			path = login;
-			sourceTree = "<group>";
-		};
-		BF7BECB920D2969800822DAA /* view */ = {
-			isa = PBXGroup;
-			children = (
-				BF66140920EDC08000F09D77 /* NTESQPVerifyingPopView.h */,
-				BF66140A20EDC08000F09D77 /* NTESQPVerifyingPopView.m */,
-			);
-			path = view;
-			sourceTree = "<group>";
-		};
-		CA5CB82D243F13F800B37A8B /* Util */ = {
-			isa = PBXGroup;
-			children = (
-				CA5CB82F243F13F800B37A8B /* UIColor+NTESQuickPass.h */,
-				CA5CB82E243F13F800B37A8B /* UIColor+NTESQuickPass.m */,
+				CA55A66724480CFC0015D630 /* NTESToastView.h */,
+				CA55A66424480CFC0015D630 /* NTESToastView.m */,
+				CA55A66624480CFC0015D630 /* NTESQLFindCurrentVCEntity.h */,
+				CA55A66924480CFC0015D630 /* NTESQLFindCurrentVCEntity.m */,
+				CA55A66824480CFC0015D630 /* UIColor+NTESQuickPass.h */,
+				CA55A66524480CFC0015D630 /* UIColor+NTESQuickPass.m */,
 			);
 			path = Util;
 			sourceTree = "<group>";
 		};
-		CA5FC008242B2ED1006122D2 /* View */ = {
+		CA55A66A24480CFC0015D630 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				CA5FC009242B2ED1006122D2 /* NTESQLHomePageView.h */,
-				CA5FC00A242B2ED1006122D2 /* NTESQLHomePageView.m */,
+				CA55A66C24480CFC0015D630 /* NTESQLHomePageNetworkEntity.h */,
+				CA55A66B24480CFC0015D630 /* NTESQLHomePageNetworkEntity.m */,
 			);
-			path = View;
+			path = Network;
 			sourceTree = "<group>";
 		};
-		CA5FC00B242B2ED1006122D2 /* Controller */ = {
+		CA55A66D24480CFC0015D630 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				CA5FC00D242B2ED1006122D2 /* NTESQPHomePageViewController.h */,
-				CA5FC00C242B2ED1006122D2 /* NTESQLHomePageViewController.m */,
-				CA5FC00E242B2ED1006122D2 /* NTESQLHomePageViewController.h */,
-				CA5FC00F242B2ED1006122D2 /* NTESQPHomePageViewController.m */,
+				CA55A66F24480CFC0015D630 /* NTESQLHomePageViewController.h */,
+				CA55A66E24480CFC0015D630 /* NTESQLHomePageViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		CA5FC010242B2ED1006122D2 /* Model */ = {
+		CA55A67024480CFC0015D630 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				CA5FC012242B2ED1006122D2 /* NTESQLHomePageCustomUIModel.h */,
-				CA5FC011242B2ED1006122D2 /* NTESQLHomePageCustomUIModel.m */,
+				CA55A67224480CFC0015D630 /* NTESQLHomePageCustomUIModel.h */,
+				CA55A67124480CFC0015D630 /* NTESQLHomePageCustomUIModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
 		};
-		CAA68170243F5344001BD642 /* Resources */ = {
+		CA55A67324480CFC0015D630 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				CAA68171243F5354001BD642 /* video_landscape.mp4 */,
-				CAA68172243F5354001BD642 /* video_portrait.mp4 */,
+				CA55A67524480CFC0015D630 /* Portrait */,
+				CA55A67A24480CFD0015D630 /* landscape */,
+				CA55A67424480CFC0015D630 /* NTESQLNavigationView.h */,
+				CA55A67D24480CFD0015D630 /* NTESQLNavigationView.m */,
 			);
-			path = Resources;
+			path = View;
 			sourceTree = "<group>";
 		};
-		DCA6620D2214123200B29D37 /* Request */ = {
+		CA55A67524480CFC0015D630 /* Portrait */ = {
 			isa = PBXGroup;
 			children = (
-				DCA6620E2214129B00B29D37 /* NTESDemoHttpRequest.h */,
-				DCA6620F2214129B00B29D37 /* NTESDemoHttpRequest.m */,
+				CA55A67624480CFC0015D630 /* NTESQLHomePagePortraitView.h */,
+				CA55A67824480CFD0015D630 /* NTESQLHomePagePortraitView.m */,
+				CA55A67924480CFD0015D630 /* NTESQLHomePagePortraitBottomView.h */,
+				CA55A67724480CFC0015D630 /* NTESQLHomePagePortraitBottomView.m */,
+			);
+			path = Portrait;
+			sourceTree = "<group>";
+		};
+		CA55A67A24480CFD0015D630 /* landscape */ = {
+			isa = PBXGroup;
+			children = (
+				CA55A67C24480CFD0015D630 /* NTESQLHomePageLandscapeView.h */,
+				CA55A67B24480CFD0015D630 /* NTESQLHomePageLandscapeView.m */,
+			);
+			path = landscape;
+			sourceTree = "<group>";
+		};
+		CA55A67E24480CFD0015D630 /* GuidePage */ = {
+			isa = PBXGroup;
+			children = (
+				CA55A67F24480CFD0015D630 /* NTESQLGuidePageController.m */,
+				CA55A68024480CFD0015D630 /* NTESQLGuidePageController.h */,
+			);
+			path = GuidePage;
+			sourceTree = "<group>";
+		};
+		CA55A68224480CFD0015D630 /* login */ = {
+			isa = PBXGroup;
+			children = (
+				CA55A68424480CFD0015D630 /* NTESQLLoginViewController.m */,
+				CA55A68624480CFD0015D630 /* NTESQPLoginViewController.h */,
+				CA55A68724480CFD0015D630 /* NTESQLServiceViewController.h */,
+				CA55A68324480CFD0015D630 /* NTESQLServiceViewController.m */,
+				CA55A68524480CFD0015D630 /* NTESQPLoginSuccessViewController.h */,
+				CA55A68924480CFD0015D630 /* NTESQPLoginSuccessViewController.m */,
+				CA55A68A24480CFD0015D630 /* NTESQLLoginViewController.h */,
+				CA55A68824480CFD0015D630 /* NTESQPLoginViewController.m */,
+			);
+			path = login;
+			sourceTree = "<group>";
+		};
+		CA55A68B24480CFE0015D630 /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				CA55A68C24480CFE0015D630 /* NTESDemoHttpRequest.h */,
+				CA55A68D24480CFE0015D630 /* NTESDemoHttpRequest.m */,
 			);
 			path = Request;
+			sourceTree = "<group>";
+		};
+		CA55A68E24480CFE0015D630 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				CA55A68F24480CFE0015D630 /* NTESQPVerifyingPopView.m */,
+				CA55A69024480CFE0015D630 /* NTESQPVerifyingPopView.h */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		CA55A69124480CFE0015D630 /* baseVC */ = {
+			isa = PBXGroup;
+			children = (
+				CA55A69224480CFE0015D630 /* NTESBaseViewController.h */,
+				CA55A69324480CFE0015D630 /* NTESNavigationController.m */,
+				CA55A69424480CFE0015D630 /* NTESNavigationController.h */,
+				CA55A69524480CFE0015D630 /* NTESBaseViewController.m */,
+			);
+			path = baseVC;
+			sourceTree = "<group>";
+		};
+		CA55A6AD24480D0F0015D630 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				CA55A6B7244810170015D630 /* video_landscape.mp4 */,
+				CA55A6B8244810170015D630 /* video_portrait.mp4 */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		DCEC42252202EC2C00698D3B /* Recovered References */ = {
@@ -448,10 +515,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				DCECF9EC228D75E800DC7E28 /* sdk_oauth.bundle in Resources */,
-				CAA68173243F5354001BD642 /* video_landscape.mp4 in Resources */,
+				CA55A6B9244810170015D630 /* video_landscape.mp4 in Resources */,
 				DCD4421C22A66673005AE167 /* TYRZResource.bundle in Resources */,
 				BF7BEC5E20D204A700822DAA /* LaunchScreen.storyboard in Resources */,
-				CAA68174243F5354001BD642 /* video_portrait.mp4 in Resources */,
+				CA55A6BA244810170015D630 /* video_portrait.mp4 in Resources */,
 				DCEC422D2202EC5B00698D3B /* Assets.xcassets in Resources */,
 				BF7BEC5920D204A400822DAA /* Main.storyboard in Resources */,
 			);
@@ -499,20 +566,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BF7BEC5620D204A400822DAA /* NTESBaseViewController.m in Sources */,
+				CA55A69A24480CFE0015D630 /* NTESQLHomePageNetworkEntity.m in Sources */,
+				CA55A69824480CFE0015D630 /* UIColor+NTESQuickPass.m in Sources */,
+				CA55A6A524480CFE0015D630 /* NTESQPLoginViewController.m in Sources */,
+				CA55A6A924480CFE0015D630 /* NTESNavigationController.m in Sources */,
 				BF7BEC6120D204A700822DAA /* main.m in Sources */,
-				BF7BEC9620D219A200822DAA /* NTESQPLoginSuccessViewController.m in Sources */,
-				CA5FC013242B2ED1006122D2 /* NTESQLHomePageView.m in Sources */,
-				CA5CB830243F13F800B37A8B /* UIColor+NTESQuickPass.m in Sources */,
+				CA55A6AA24480CFE0015D630 /* NTESBaseViewController.m in Sources */,
+				CA55A6A024480CFE0015D630 /* NTESQLNavigationView.m in Sources */,
+				CA55A6A424480CFE0015D630 /* NTESQLLoginViewController.m in Sources */,
+				CA55A69924480CFE0015D630 /* NTESQLFindCurrentVCEntity.m in Sources */,
+				CA55A6A124480CFE0015D630 /* NTESQLGuidePageController.m in Sources */,
+				CA55A6A624480CFE0015D630 /* NTESQPLoginSuccessViewController.m in Sources */,
+				CA55A69C24480CFE0015D630 /* NTESQLHomePageCustomUIModel.m in Sources */,
+				CA55A69B24480CFE0015D630 /* NTESQLHomePageViewController.m in Sources */,
+				CA55A6A724480CFE0015D630 /* NTESDemoHttpRequest.m in Sources */,
+				CA55A69D24480CFE0015D630 /* NTESQLHomePagePortraitBottomView.m in Sources */,
+				CA55A69724480CFE0015D630 /* NTESToastView.m in Sources */,
+				CA55A6A824480CFE0015D630 /* NTESQPVerifyingPopView.m in Sources */,
+				CA55A69E24480CFE0015D630 /* NTESQLHomePagePortraitView.m in Sources */,
+				CA55A6A324480CFE0015D630 /* NTESQLServiceViewController.m in Sources */,
 				BF7BEC5320D204A400822DAA /* AppDelegate.m in Sources */,
-				CA5FC015242B2ED1006122D2 /* NTESQPHomePageViewController.m in Sources */,
-				CA5FC016242B2ED1006122D2 /* NTESQLHomePageCustomUIModel.m in Sources */,
-				BF7BEC9320D2198E00822DAA /* NTESQPLoginViewController.m in Sources */,
-				CA5FC014242B2ED1006122D2 /* NTESQLHomePageViewController.m in Sources */,
-				DCA6620A2212C79300B29D37 /* NTESQLServiceViewController.m in Sources */,
-				DCEC42202202933400698D3B /* NTESQLLoginViewController.m in Sources */,
-				DCA662102214129B00B29D37 /* NTESDemoHttpRequest.m in Sources */,
-				BF66140B20EDC08000F09D77 /* NTESQPVerifyingPopView.m in Sources */,
+				CA55A69F24480CFE0015D630 /* NTESQLHomePageLandscapeView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
