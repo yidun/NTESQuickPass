@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -32,18 +32,10 @@
 		CA55A6A824480CFE0015D630 /* NTESQPVerifyingPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = CA55A68F24480CFE0015D630 /* NTESQPVerifyingPopView.m */; };
 		CA55A6A924480CFE0015D630 /* NTESNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA55A69324480CFE0015D630 /* NTESNavigationController.m */; };
 		CA55A6AA24480CFE0015D630 /* NTESBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA55A69524480CFE0015D630 /* NTESBaseViewController.m */; };
-		CA55A6AF24480E530015D630 /* NTESQuickPass.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA55A6AE24480E530015D630 /* NTESQuickPass.framework */; };
 		CA55A6B9244810170015D630 /* video_landscape.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = CA55A6B7244810170015D630 /* video_landscape.mp4 */; };
 		CA55A6BA244810170015D630 /* video_portrait.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = CA55A6B8244810170015D630 /* video_portrait.mp4 */; };
-		CA5FC005242B2EA1006122D2 /* TYRZSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA5FC004242B2EA1006122D2 /* TYRZSDK.framework */; };
-		DC56CB5C2201A3CF00D7B973 /* libc++.1.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = DC56CB5B2201A3CF00D7B973 /* libc++.1.tbd */; };
-		DC56CB5E2201A3EB00D7B973 /* libz.1.2.8.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = DC56CB5D2201A3EB00D7B973 /* libz.1.2.8.tbd */; };
 		DC8C849822C3184E006C8683 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC8C849722C3184D006C8683 /* CoreFoundation.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		DCA5695323338444006AA8AA /* EAccountApiSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCA5695223338444006AA8AA /* EAccountApiSDK.framework */; };
-		DCD4421C22A66673005AE167 /* TYRZResource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = DCD4421B22A66673005AE167 /* TYRZResource.bundle */; };
 		DCEC422D2202EC5B00698D3B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DCEC422A2202EC5B00698D3B /* Assets.xcassets */; };
-		DCECF9EB228D75E800DC7E28 /* OAuth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCECF9E9228D75E800DC7E28 /* OAuth.framework */; };
-		DCECF9EC228D75E800DC7E28 /* sdk_oauth.bundle in Resources */ = {isa = PBXBuildFile; fileRef = DCECF9EA228D75E800DC7E28 /* sdk_oauth.bundle */; };
 		F2204C4852E46E6CCBC84386 /* libPods-NTESQuickPassPublicDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E692FEFA580DF8B22EB7DDF /* libPods-NTESQuickPassPublicDemo.a */; };
 /* End PBXBuildFile section */
 
@@ -121,18 +113,10 @@
 		CA55A69324480CFE0015D630 /* NTESNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTESNavigationController.m; sourceTree = "<group>"; };
 		CA55A69424480CFE0015D630 /* NTESNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTESNavigationController.h; sourceTree = "<group>"; };
 		CA55A69524480CFE0015D630 /* NTESBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTESBaseViewController.m; sourceTree = "<group>"; };
-		CA55A6AE24480E530015D630 /* NTESQuickPass.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NTESQuickPass.framework; path = SDK/NTESQuickPass.framework; sourceTree = "<group>"; };
 		CA55A6B7244810170015D630 /* video_landscape.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video_landscape.mp4; sourceTree = "<group>"; };
 		CA55A6B8244810170015D630 /* video_portrait.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video_portrait.mp4; sourceTree = "<group>"; };
-		CA5FC004242B2EA1006122D2 /* TYRZSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TYRZSDK.framework; sourceTree = "<group>"; };
-		DC56CB5B2201A3CF00D7B973 /* libc++.1.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.1.tbd"; path = "usr/lib/libc++.1.tbd"; sourceTree = SDKROOT; };
-		DC56CB5D2201A3EB00D7B973 /* libz.1.2.8.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.1.2.8.tbd; path = usr/lib/libz.1.2.8.tbd; sourceTree = SDKROOT; };
 		DC8C849722C3184D006C8683 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
-		DCA5695223338444006AA8AA /* EAccountApiSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EAccountApiSDK.framework; path = SDK/EAccountApiSDK.framework; sourceTree = "<group>"; };
-		DCD4421B22A66673005AE167 /* TYRZResource.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = TYRZResource.bundle; path = SDK/TYRZResource.bundle; sourceTree = "<group>"; };
 		DCEC422A2202EC5B00698D3B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		DCECF9E9228D75E800DC7E28 /* OAuth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OAuth.framework; path = SDK/OAuth.framework; sourceTree = "<group>"; };
-		DCECF9EA228D75E800DC7E28 /* sdk_oauth.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = sdk_oauth.bundle; path = SDK/sdk_oauth.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,12 +125,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC8C849822C3184E006C8683 /* CoreFoundation.framework in Frameworks */,
-				CA55A6AF24480E530015D630 /* NTESQuickPass.framework in Frameworks */,
-				DC56CB5E2201A3EB00D7B973 /* libz.1.2.8.tbd in Frameworks */,
-				DC56CB5C2201A3CF00D7B973 /* libc++.1.tbd in Frameworks */,
-				DCA5695323338444006AA8AA /* EAccountApiSDK.framework in Frameworks */,
-				DCECF9EB228D75E800DC7E28 /* OAuth.framework in Frameworks */,
-				CA5FC005242B2EA1006122D2 /* TYRZSDK.framework in Frameworks */,
 				F2204C4852E46E6CCBC84386 /* libPods-NTESQuickPassPublicDemo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -180,16 +158,8 @@
 		9030C3D043DE84465318FE6F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				CA55A6AE24480E530015D630 /* NTESQuickPass.framework */,
-				CA5FC004242B2EA1006122D2 /* TYRZSDK.framework */,
-				DCA5695223338444006AA8AA /* EAccountApiSDK.framework */,
 				DC8C849722C3184D006C8683 /* CoreFoundation.framework */,
-				DCD4421B22A66673005AE167 /* TYRZResource.bundle */,
-				DC56CB5D2201A3EB00D7B973 /* libz.1.2.8.tbd */,
-				DC56CB5B2201A3CF00D7B973 /* libc++.1.tbd */,
 				6E692FEFA580DF8B22EB7DDF /* libPods-NTESQuickPassPublicDemo.a */,
-				DCECF9E9228D75E800DC7E28 /* OAuth.framework */,
-				DCECF9EA228D75E800DC7E28 /* sdk_oauth.bundle */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -421,6 +391,7 @@
 				BF7BEC4A20D204A400822DAA /* Sources */,
 				BF7BEC4B20D204A400822DAA /* Frameworks */,
 				BF7BEC4C20D204A400822DAA /* Resources */,
+				67A5216EC43E9AC32561F49A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -514,9 +485,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DCECF9EC228D75E800DC7E28 /* sdk_oauth.bundle in Resources */,
 				CA55A6B9244810170015D630 /* video_landscape.mp4 in Resources */,
-				DCD4421C22A66673005AE167 /* TYRZResource.bundle in Resources */,
 				BF7BEC5E20D204A700822DAA /* LaunchScreen.storyboard in Resources */,
 				CA55A6BA244810170015D630 /* video_portrait.mp4 in Resources */,
 				DCEC422D2202EC5B00698D3B /* Assets.xcassets in Resources */,
@@ -541,6 +510,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		67A5216EC43E9AC32561F49A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-NTESQuickPassPublicDemo/Pods-NTESQuickPassPublicDemo-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-NTESQuickPassPublicDemo/Pods-NTESQuickPassPublicDemo-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-NTESQuickPassPublicDemo/Pods-NTESQuickPassPublicDemo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		F9DA8716097FE878374FED0C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -761,8 +747,8 @@
 				DEVELOPMENT_TEAM = XB333SWTAF;
 				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(PROJECT_DIR)/SDK",
-					"$(PROJECT_DIR)",
+					"\"${PODS_ROOT}/NTESQuickPass/Classes\"",
+					"$(inherited)",
 				);
 				INFOPLIST_FILE = NTESQuickPassPublicDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -786,13 +772,13 @@
 			baseConfigurationReference = 6AA02F0C44F1E6D3D4BC705B /* Pods-NTESQuickPassPublicDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = 569GNZ5392;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = XB333SWTAF;
 				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(PROJECT_DIR)/SDK",
-					"$(PROJECT_DIR)",
+					"\"${PODS_ROOT}/NTESQuickPass/Classes\"",
+					"$(inherited)",
 				);
 				INFOPLIST_FILE = NTESQuickPassPublicDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -806,7 +792,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.netease.NTESQuickPassPublicDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = enterpriseForWildCard;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
