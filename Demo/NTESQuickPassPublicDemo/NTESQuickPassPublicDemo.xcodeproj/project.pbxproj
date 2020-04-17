@@ -36,7 +36,6 @@
 		CA55A6B9244810170015D630 /* video_landscape.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = CA55A6B7244810170015D630 /* video_landscape.mp4 */; };
 		CA55A6BA244810170015D630 /* video_portrait.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = CA55A6B8244810170015D630 /* video_portrait.mp4 */; };
 		CA5FC005242B2EA1006122D2 /* TYRZSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA5FC004242B2EA1006122D2 /* TYRZSDK.framework */; };
-		CA8EC9872449746400707B0E /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CA8EC9852449724F00707B0E /* Info.plist */; };
 		DC56CB5C2201A3CF00D7B973 /* libc++.1.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = DC56CB5B2201A3CF00D7B973 /* libc++.1.tbd */; };
 		DC56CB5E2201A3EB00D7B973 /* libz.1.2.8.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = DC56CB5D2201A3EB00D7B973 /* libz.1.2.8.tbd */; };
 		DC8C849822C3184E006C8683 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC8C849722C3184D006C8683 /* CoreFoundation.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
@@ -75,6 +74,7 @@
 		BF7BEC5820D204A400822DAA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BF7BEC5A20D204A700822DAA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BF7BEC5D20D204A700822DAA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		BF7BEC5F20D204A700822DAA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BF7BEC6020D204A700822DAA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		BF7BEC6620D204A800822DAA /* NTESQuickPassPublicDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NTESQuickPassPublicDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF7BEC6A20D204A800822DAA /* NTESQuickPassPublicDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NTESQuickPassPublicDemoTests.m; sourceTree = "<group>"; };
@@ -125,7 +125,6 @@
 		CA55A6B7244810170015D630 /* video_landscape.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video_landscape.mp4; sourceTree = "<group>"; };
 		CA55A6B8244810170015D630 /* video_portrait.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video_portrait.mp4; sourceTree = "<group>"; };
 		CA5FC004242B2EA1006122D2 /* TYRZSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TYRZSDK.framework; sourceTree = "<group>"; };
-		CA8EC9852449724F00707B0E /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DC56CB5B2201A3CF00D7B973 /* libc++.1.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.1.tbd"; path = "usr/lib/libc++.1.tbd"; sourceTree = SDKROOT; };
 		DC56CB5D2201A3EB00D7B973 /* libz.1.2.8.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.1.2.8.tbd; path = usr/lib/libz.1.2.8.tbd; sourceTree = SDKROOT; };
 		DC8C849722C3184D006C8683 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
@@ -232,9 +231,9 @@
 				BF7BEC5120D204A400822DAA /* AppDelegate.h */,
 				BF7BEC5220D204A400822DAA /* AppDelegate.m */,
 				DCEC422A2202EC5B00698D3B /* Assets.xcassets */,
-				CA8EC9852449724F00707B0E /* Info.plist */,
 				BF7BEC5720D204A400822DAA /* Main.storyboard */,
 				BF7BEC5C20D204A700822DAA /* LaunchScreen.storyboard */,
+				BF7BEC5F20D204A700822DAA /* Info.plist */,
 				BF7BEC6020D204A700822DAA /* main.m */,
 			);
 			path = NTESQuickPassPublicDemo;
@@ -515,7 +514,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CA8EC9872449746400707B0E /* Info.plist in Resources */,
 				DCECF9EC228D75E800DC7E28 /* sdk_oauth.bundle in Resources */,
 				CA55A6B9244810170015D630 /* video_landscape.mp4 in Resources */,
 				DCD4421C22A66673005AE167 /* TYRZResource.bundle in Resources */,

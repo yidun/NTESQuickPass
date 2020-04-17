@@ -12,7 +12,6 @@
 
 @implementation NTESQLServiceViewController
 
-//22
 - (void)viewDidLoad {
     [super viewDidLoad];
     
