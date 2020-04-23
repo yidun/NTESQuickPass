@@ -32,6 +32,13 @@ typedef void(^NTESQLGetPhoneNumHandler)(NSDictionary *resultDic);
  */
 typedef void(^NTESQLAuthorizeHandler)(NSDictionary *resultDic);
 
+/**
+ *  @abstract   block
+ *
+ *  @说明        手动关闭授权页
+ */
+typedef void(^NTESAuthorizeCompletionHandler)(void);
+
 @interface NTESQuickLoginManager : NSObject
 
 /**
@@ -119,6 +126,10 @@ typedef void(^NTESQLAuthorizeHandler)(NSDictionary *resultDic);
  */
 - (void)CUCMAuthorizeLoginCompletion:(NTESQLAuthorizeHandler)authorizeHandler;
 
+/// 手动关闭授权页
+/// @param completionHandler 手动关闭授权页回调
+- (void)closeAuthController:(NTESAuthorizeCompletionHandler _Nullable)completionHandler;
+
 /**
  获取当前SDK版本号
  */
@@ -127,6 +138,4 @@ typedef void(^NTESQLAuthorizeHandler)(NSDictionary *resultDic);
 @end
 
 NS_ASSUME_NONNULL_END
-
-
 

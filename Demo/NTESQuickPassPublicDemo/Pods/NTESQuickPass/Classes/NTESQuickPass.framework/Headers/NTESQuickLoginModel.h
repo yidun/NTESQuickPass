@@ -13,6 +13,15 @@ typedef void(^AuthCustomNavBlock)(UIView * _Nullable customNavView);
 typedef void(^AuthLoadingViewBlock)(UIView *_Nullable customLoadingView);
 typedef void(^AuthPrograssHUDBlock)(UIView *_Nullable prograssHUDBlock);
 
+/// 授权页面点击事件的回调
+typedef void(^AuthBackActionBlock)(void);
+typedef void(^AuthLoginActionBlock)(void);
+typedef void(^AuthCheckActionBlock)(BOOL isChecked);
+typedef void(^AuthCloseActionBlock)(void);
+
+/// privacyType = 0 默认协议,  privacyType = 1 第一个协议 , privacyType = 2 第二个协议
+typedef void(^AuthPrivacyActionBlock)(int privacyType);
+
 /// 复选框相对隐私条款的位置
 typedef NS_ENUM(NSInteger, NSCheckBoxAlignment) {
     NSCheckBoxAlignmentTop      = 0,    // top aligned
@@ -64,7 +73,31 @@ NS_ASSUME_NONNULL_BEGIN
 /**授权界面自定义控件View的Block*/
 @property (nonatomic, copy) AuthCustomViewBlock customViewBlock;
 
-#pragma mark 自定义loading，toast；
+/**授权页转场动画
+ UIModalTransitionStyleCoverVertical, 下推
+ UIModalTransitionStyleFlipHorizontal,翻转
+ UIModalTransitionStyleCrossDissolve, 淡出
+ */
+@property (nonatomic,assign) UIModalTransitionStyle modalTransitionStyle;
+
+#pragma mark -------------------------- 授权页面点击事件的回调
+
+/**返回按钮点击事件回调*/
+@property (nonatomic, copy) AuthBackActionBlock backActionBlock;
+
+/**弹窗模式下关闭事件的回调*/
+@property (nonatomic, copy) AuthCloseActionBlock closeActionBlock;
+
+/**登录按钮点击事件回调*/
+@property (nonatomic, copy) AuthLoginActionBlock loginActionBlock;
+
+/**复选框点击事件回调*/
+@property (nonatomic, copy) AuthCheckActionBlock checkActionBlock;
+
+/**协议点击事件回调*/
+@property (nonatomic, copy) AuthPrivacyActionBlock privacyActionBlock;
+
+#pragma mark -------------------------- 自定义loading，toast；
 
 /**协议未勾选时，自定义弹窗样式*/
 @property (nonatomic, copy) AuthPrograssHUDBlock prograssHUDBlock;
@@ -72,7 +105,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**自定义Loading View, 点击登录按钮时，可自定义加载进度样式*/
 @property (nonatomic, copy) AuthLoadingViewBlock loadingViewBlock;
 
-#pragma mark 背景支持视频
+#pragma mark --------------------------背景支持视频
 
 /** 视频本地名称 例如xx.mp4*/
 @property (nonatomic, copy) NSString *localVideoFileName;
@@ -83,7 +116,7 @@ NS_ASSUME_NONNULL_BEGIN
 /** 网络视频的地址*/
 @property (nonatomic, copy) NSString *videoURL;
 
-#pragma mark 背景支持GIF
+#pragma mark --------------------------背景支持GIF
 
 /** GIF图片数组*/
 @property (nonatomic, nullable, copy) NSArray<UIImage *> *animationImages;
@@ -94,7 +127,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**动画重复的次数 */
 @property (nonatomic, assign) NSInteger animationRepeatCount;
 
-#pragma mark - 状态栏设置
+#pragma mark -------------------------- 状态栏设置
 
 /**一键登录界面状态栏着色样式*/
 @property (nonatomic, assign) UIStatusBarStyle currentStatusBarStyle;
@@ -102,7 +135,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**一键登录之外界面状态栏着色样式*/
 @property (nonatomic, assign) UIStatusBarStyle otherStatusBarStyle;
 
-#pragma mark - 导航栏设置
+#pragma mark -------------------------- 导航栏设置
 
 /**导航栏隐藏*/
 @property (nonatomic, assign) BOOL navBarHidden;
@@ -155,7 +188,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**导航栏上自定义控件的Block, 可在导航栏上自由的添加自己想要的控件*/
 @property (nonatomic, copy) AuthCustomNavBlock customNavBlock;
 
-#pragma mark - 图片设置
+#pragma mark -------------------------- 图片设置
 
 /**LOGO图片*/
 @property (nonatomic, strong) UIImage *logoImg;
@@ -175,7 +208,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**16、LOGO图片隐藏*/
 @property (nonatomic, assign) BOOL logoHidden;
 
-#pragma mark - 号码框设置
+#pragma mark -------------------------- 号码框设置
 
 /**手机号码字体颜色*/
 @property (nonatomic, strong) UIColor *numberColor;
@@ -204,7 +237,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**手机号码的右边描述内容， 默认为空*/
 @property (nonatomic, copy) NSString *numberRightContent;
 
-#pragma mark - 品牌设置
+#pragma mark -------------------------- 品牌设置
 
 /**认证服务品牌文字颜色*/
 @property (nonatomic, strong) UIColor *brandColor;
@@ -241,7 +274,7 @@ NS_ASSUME_NONNULL_BEGIN
 /*认证服务品牌的高度， 默认为10**/
 @property (nonatomic, assign) CGFloat brandLogoHeight;
 
- #pragma mark - 登录按钮设置
+ #pragma mark -------------------------- 登录按钮设置
 
  /**登录按钮文本*/
  @property (nonatomic, copy) NSString *logBtnText;
@@ -276,7 +309,10 @@ NS_ASSUME_NONNULL_BEGIN
 /**登录按钮的高度，默认44*/
 @property (nonatomic, assign) CGFloat logBtnHeight;
 
-#pragma mark - 复选框
+/** 按钮的渐变色数组 CGColor*/
+@property(nonatomic, nullable, copy) NSArray *colors;
+
+#pragma mark -------------------------- 复选框
 
 /**复选框未选中时图片*/
 @property (nonatomic, strong) UIImage *uncheckedImg;
@@ -299,7 +335,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**复选框距离隐私条款的边距 默认 8*/
 @property (nonatomic, assign) CGFloat checkBoxMargin;
 
-#pragma mark - 隐私条款
+#pragma mark -------------------------- 隐私条款
 
 /**隐私的内容模板：
    全句可自定义但必须保留"《默认》"字段表明SDK默认协议,否则设置不生效

@@ -21,6 +21,7 @@
 #import "NTESQPLoginViewController.h"
 #import "NTESQLNavigationView.h"
 #import "UIColor+NTESQuickPass.h"
+#import "NTESToastView.h"
 
 @interface  NTESQLHomePageViewController() <UINavigationBarDelegate, NTESQLHomePagePortraitViewDelegate, NTESQLHomePageLandscapeViewDelegate>
 
@@ -57,9 +58,17 @@
 - (void)viewWillAppear:(BOOL)animated {
     [self.navigationController setNavigationBarHidden:YES animated:YES];
     
+    [self requestModelConfig];
     [self registerQuickLogin];
     
      [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(didChangeScreenRotate:) name:UIApplicationDidChangeStatusBarFrameNotification object:nil];
+}
+
+- (void)requestModelConfig {
+    WeakSelf(self);
+    [NTESQLHomePageNetworkEntity requestModelConfig:^(NTESQuickLoginModel * _Nullable model) {
+        weakSelf.customModel = model;
+    }];
 }
 
 - (void)didChangeScreenRotate:(NSNotification *)notification {
@@ -135,23 +144,26 @@
     [[NTESQuickLoginManager sharedInstance] getPhoneNumberCompletion:^(NSDictionary * _Nonnull resultDic) {
         NSNumber *boolNum = [resultDic objectForKey:@"success"];
         BOOL success = [boolNum boolValue];
-        if (success) {
-            [weakSelf setCustomUI];
-            if ([[NTESQuickLoginManager sharedInstance] getCarrier] == 1) {
-                [weakSelf authorizeCTLoginWithText:title];
-            } else if ([[NTESQuickLoginManager sharedInstance] getCarrier] == 2) {
-                [weakSelf authorizeCMLoginWithText:title];
-            } else {
-                [weakSelf authorizeCULoginWithText:title];
-            }
-        } else {
-            [weakSelf.navigationController pushViewController:weakSelf.loginViewController animated:YES];
-            [weakSelf.loginViewController updateView];
-            
-            #ifdef TEST_MODE_QA
-            [weakSelf.loginViewController showToastWithMsg:[NSString stringWithFormat:@"code:%@\ndesc:%@",  [resultDic objectForKey:@"resultCode"], [resultDic objectForKey:@"desc"]]];
-            #endif
-        }
+        dispatch_async(dispatch_get_main_queue(), ^{
+             if (success) {
+                 [weakSelf setCustomUI];
+                 if ([[NTESQuickLoginManager sharedInstance] getCarrier] == 1) {
+                     [weakSelf authorizeCTLoginWithText:title];
+                 } else if ([[NTESQuickLoginManager sharedInstance] getCarrier] == 2) {
+                     [weakSelf authorizeCMLoginWithText:title];
+                 } else {
+                     [weakSelf authorizeCULoginWithText:title];
+                 }
+             } else {
+                 [weakSelf.navigationController pushViewController:weakSelf.loginViewController animated:YES];
+                 [weakSelf.loginViewController updateView];
+               
+                #ifdef TEST_MODE_QA
+                [weakSelf.loginViewController showToastWithMsg:[NSString stringWithFormat:@"code:%@\ndesc:%@",  [resultDic objectForKey:@"resultCode"], [resultDic objectForKey:@"desc"]]];
+                #endif
+           }
+        });
+       
     }];
 }
 
@@ -259,11 +271,11 @@
     WeakSelf(self);
     [NTESDemoHttpRequest startRequestWithURL:API_LOGIN_TOKEN_QLCHECK httpMethod:@"POST" requestData:jsonData finishBlock:^(NSData *data, NSError *error, NSInteger statusCode) {
         dispatch_async(dispatch_get_main_queue(), ^{
-            [weakSelf dismissViewControllerAnimated:YES completion:nil];
             if (data) {
                 NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
                 NSNumber *code = [dict objectForKey:@"code"];
                 
+                 [weakSelf dismissViewControllerAnimated:NO completion:nil];
                 if ([code integerValue] == 200) {
                     NSDictionary *data = [dict objectForKey:@"data"];
                     NSString *phoneNum = [data objectForKey:@"phone"];
@@ -343,6 +355,7 @@
                 [weakSelf.loginViewController showToastWithMsg:[NSString stringWithFormat:@"服务器错误-%ld", (long)statusCode]];
                 #endif
             }
+            
         });
     }];
 }
@@ -350,9 +363,9 @@
 /// 授权页面自定义
 - (void)setCustomUI {
     NTESQuickLoginModel *model = [[NTESQuickLoginModel alloc] init];
-    model.presentDirectionType = NTESPresentDirectionPush;
+    model.presentDirectionType = NTESPresentDirectionPresent;
     model.backgroundColor = [UIColor whiteColor];
-    model.authWindowPop = NTESAuthWindowPopFullScreen;
+//    model.authWindowPop = NTESAuthWindowPopCenter;
 //    model.navText = @"免密登录";
     model.navTextColor = [UIColor blueColor];
     model.navBgColor = [UIColor whiteColor];
@@ -386,17 +399,19 @@
     model.logBtnText = @"确定登录";
     model.logBtnRadius = 8;
     model.logBtnHeight = 44;
+    model.colors = @[(id)[UIColor ntes_colorWithHexString:@"#FFFFFF"].CGColor, (id)[UIColor ntes_colorWithHexString:@"#324DFF"].CGColor];
 
     /// 隐私协议
-    model.appPrivacyText = @"登录即同意《默认》并授权NTESQuick PassPublicDemo 获得本机号码";
+    model.appPrivacyText = @"登录即同意《默认》并授权NTESQuickPassPublicDemo 获得本机号码";
     model.uncheckedImg = [[UIImage imageNamed:@"login_kuang"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     model.checkedImg = [[UIImage imageNamed:@"login_kuang_gou"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     model.checkboxWH = 11;
     model.privacyState = YES;
-    model.checkedHidden = NO;
+//    model.checkedHidden = NO;
     model.isOpenSwipeGesture = NO;
     model.privacyFont = [UIFont fontWithName:@"PingFangSC-Regular" size:11];
     model.closePopImg = [UIImage imageNamed:@"ic_close"];
+    model.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     if (@available(iOS 13.0, *)) {
         model.currentStatusBarStyle = UIStatusBarStyleLightContent;
         model.otherStatusBarStyle = UIStatusBarStyleDarkContent;
@@ -406,22 +421,20 @@
     }
 
     model.currentVC = self;
-    
+
     if (_popType == 0) {/// 全屏模式
         model.authWindowPop = NTESAuthWindowPopFullScreen;
         model.numberColor = [UIColor whiteColor];
         model.brandColor = [UIColor whiteColor];
         model.privacyColor = [UIColor ntes_colorWithHexString:@"#FFFFFF"];
         model.protocolColor = [UIColor ntes_colorWithHexString:@"#FFFFFF"];
-        
+
         if (_portraitType == 0) {
            /// 全屏、竖屏模式
            model.logoOffsetTopY = 148;
            model.numberOffsetTopY = 210;
            model.brandOffsetTopY = 239;
            model.logBtnOffsetTopY = 285;
-           model.appPrivacyOriginLeftMargin = 60;
-           model.appPrivacyOriginRightMargin = 0;
            model.appPrivacyOriginBottomMargin = 63;
            model.logBtnOriginLeft = 40;
            model.logBtnOriginRight = 40;
@@ -453,15 +466,15 @@
         model.privacyColor = [UIColor ntes_colorWithHexString:@"#999999"];
         model.protocolColor = [UIColor ntes_colorWithHexString:@"#999999"];
         model.logBtnOffsetTopY = 167;
-        
+
         model.scaleW = (295) / SCREEN_WIDTH;
         model.scaleH = (315) / SCREEN_HEIGHT;
         model.popBackgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.5];
-        
+
         model.uncheckedImg = [[UIImage imageNamed:@"checkBox"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
         model.checkedImg = [[UIImage imageNamed:@"checkedBox"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     };
-    
+
     CGFloat navHeight;
     if (_portraitType == 0) {
         model.localVideoFileName = @"video_portrait.mp4";
@@ -478,23 +491,26 @@
     }
     model.isRepeatPlay = YES;
 //    self.customModel.videoURL = @"http://la-gia.shiraha.me/mp4/H264-1044x588-2MB-35s.mp4";
-    
+
     WeakSelf(self);
     model.customViewBlock = ^(UIView * _Nullable customView) {
         UILabel *otherLabel = [[UILabel alloc] init];
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(labelTapped)];
+        [otherLabel addGestureRecognizer:tap];
+        otherLabel.userInteractionEnabled = YES;
         otherLabel.text = @"其他登录方式";
         otherLabel.textAlignment = NSTextAlignmentCenter;
         otherLabel.textColor = [UIColor ntes_colorWithHexString:@"#324DFF"];
         otherLabel.font = [UIFont fontWithName:@"PingFangSC-Regular" size:12];
         [customView addSubview:otherLabel];
-        
+
         if (weakSelf.popType == 0) { /// 全屏模式
             NTESQLNavigationView *navigationView = [[NTESQLNavigationView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, navHeight)];
             navigationView.backgroundColor = [UIColor clearColor];
             [customView addSubview:navigationView];
-            
+
             otherLabel.textColor = [UIColor ntes_colorWithHexString:@"#FFFFFF"];
-            
+
             if (weakSelf.portraitType == 0) { /// 全屏、竖屏模式
                 [otherLabel mas_makeConstraints:^(MASConstraintMaker *make) {
                     make.centerX.equalTo(customView);
@@ -520,7 +536,47 @@
     };
 
     self.customModel = model;
+    self.customModel.backActionBlock = ^{
+        NSLog(@"返回按钮点击");
+    };
+
+    self.customModel.loginActionBlock = ^{
+        NSLog(@"登录按钮点击");
+    };
+
+    self.customModel.checkActionBlock = ^(BOOL isChecked) {
+        if (isChecked) {
+            NSLog(@"选中复选框");
+        } else {
+            NSLog(@"取消复选框");
+        }
+    };
+
+    self.customModel.privacyActionBlock = ^(int privacyType) {
+        if (privacyType == 0) {
+            NSLog(@"点击默认协议");
+        } else if (privacyType == 1) {
+            NSLog(@"点击客户第1个协议");
+        } else if (privacyType == 2) {
+            NSLog(@"点击客户第2个协议");
+        }
+    };
+
+    self.customModel.currentVC = self;
+//    self.customModel = model;
     [[NTESQuickLoginManager sharedInstance] setupModel:self.customModel];
+}
+
+- (void)labelTapped {
+    [[NTESQuickLoginManager sharedInstance] closeAuthController:^{
+    
+    }];;
+    NSLog(@"======");
+}
+
+- (void)btnDidTipped:(UIButton *)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController pushViewController:[[UIViewController alloc] init] animated:YES];
 }
 
 - (void)clickCustomBtn {
@@ -585,4 +641,5 @@
 }
 
 @end
+
 

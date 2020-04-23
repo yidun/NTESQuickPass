@@ -1,13 +1,40 @@
-一键登录 iOS SDK 接入指南5系
+一键登录 iOS SDK 接入指南
 ===
-## 一、SDK集成
-### 1.搭建开发环境
+## 1 SDK集成
+### 1.1 概览
+- 环境说明
 
-### 选择一 : Cocoapods 集成
+| 条目        | 说明                                                         |
+| ----------- | ------------------------------------------------------------ |
+| 适配版本    | iOS8以上                                                     |
+| 开发环境    | Xcode 11.4                                                    |
+| 网络制式    | 支持移动2G/3G/4G/5G<br>联通3G/4G/5G<br>电信4G/5G<br>2G、3G因网络环境问题，成功率低于4G。 |
+| 网络环境    | - 蜂窝网络<br>- 蜂窝网络+WIFI同开<br>- <font color=red>双卡手机，取当前发流量的卡号</font> |
 
-##### 执行pod repo update更新。
 
-##### Podfile 里面添加以下代码：
+
+- 开发说明
+
+| 条目        | 说明           |
+| ----------- | -------------- |
+| 产品流程图  | [交互时序图](http://support.dun.163.com/documents/287305921855672320?docId=288803165532508160&locale=zh-cn) |
+| SDK资源包   | [去下载](http://support.dun.163.com/documents/287305921855672320?docId=289905327964606464&locale=zh-cn)     |
+| 常见问题    | [常见问题](http://support.dun.163.com/documents/287305921855672320?docId=320640624725512192&locale=zh-cn)   |
+| SDK当前版本 | 2.1.1          |
+
+
+- 业务场景详述
+
+| 业务场景 | 说明                                                         |
+| -------- | ------------------------------------------------------------ |
+| 一键登录 | 用户无需输入手机号码，只需集成并调用SDK拉起授权页方法<br>用户确认授权后，SDK会获取token<br/>服务端携带token到运营商网关获取用户当前上网使用的流量卡号码，并返回给APP服务端 |
+| 本机校验 | 用户输入手机号码<br/>服务端携带手机号码和token去运营商网关进行校验比对<br/>返回的校验结果为：用户当前流量卡号码与服务端携带的手机号码是否一致 |
+
+### 1.2 Cocoapods 集成
+
+执行pod repo update更新。
+
+Podfile 里面添加以下代码：
 
 ```ruby
 # 以下两种版本选择方式示例
@@ -16,12 +43,12 @@
 pod 'NTESQuickPass'
 
 # 集成指定SDK，具体版本号可先执行 pod search NTESQuickPass，根据返回的版本信息自行决定:
-pod 'NTESQuickPass', '~> 2.1.0'
+pod 'NTESQuickPass', '~> 2.1.1'
 ```
 
-##### 保存并执行pod install即可，若未执行pod repo update，请执行pod install --repo-update
+保存并执行pod install即可，若未执行pod repo update，请执行pod install --repo-update
 
-### 选择二 : 手动集成
+### 1.3 手动集成
 
 * 1、导入 `NTESQuickPass.framework` 到XCode工程，直接拖拽`NTESQuickPass.framework`文件到Xcode工程内(请勾选Copy items if needed选项)
 * 2、添加依赖库，在项目设置target -> 选项卡Build Phase -> Linked Binary with Libraries添加如下依赖库： 
@@ -43,15 +70,17 @@ pod 'NTESQuickPass', '~> 2.1.0'
    (2)SDK 最低兼容系统版本 iOS 8.0以上
 
 
-## 二、SDK 使用
+## 2 SDK使用说明（Object-C）
 
-### 2.1 Object-C 工程
+### 2.1 引入
 
-* 1、在项目需要使用SDK的文件中引入QuickLogin SDK头文件，如下：
+在项目需要使用SDK的文件中引入QuickLogin SDK头文件，如下：
 
    #import <NTESQuickPass/NTESQuickPass.h>
 
-* 2、在需要使用一键登录的页面初始化 SDK，如下：
+### 2.2 初始化
+
+在需要使用一键登录的页面初始化SDK，如下：
 
    - (void)viewDidLoad {
            [super viewDidLoad];
@@ -59,12 +88,19 @@ pod 'NTESQuickPass', '~> 2.1.0'
            // sdk调用
            self.manager = [NTESQuickLoginManager sharedInstance];
        }
+<br>
+<font color=red>使用场景建议：</font>
 
-* 3、在使用一键登录之前，请先调用shouldQuickLogin方法，判断当前上网卡的网络环境和运营商是否可以一键登录，若可以一键登录，继续执行下面的步骤；否则，建议后续直接走降级方案（例如短信）
+- <font color=red>在APP启动时进行调用</font>
+- <font color=red>保证在预取号或一键登录前至少调用一次</font>
+- <font color=red>只需调用一次，多次调用不会多次初始化，与一次调用效果一致</font>
+### 2.3 运营商判断
+在使用一键登录之前，请先调用shouldQuickLogin方法，判断当前上网卡的网络环境和运营商是否可以一键登录，若可以一键登录，继续执行下面的步骤；否则，建议后续直接走降级方案（例如短信）
        
    BOOL shouldQL = [self.manager shouldQuickLogin];
 
-* 4、使用易盾提供的businessID进行初始化业务，回调中返回初始化结果，如下：
+### 2.4 业务鉴权
+使用易盾提供的businessID进行初始化业务，回调中返回初始化结果，如下：
 
    [self.manager registerWithBusinessID:@"yourBusinessID" timeout:3*1000 configURL:nil extData:nil completion:^(NSDictionary * _Nullable params, BOOL success) {
             if (success) {
@@ -74,7 +110,10 @@ pod 'NTESQuickPass', '~> 2.1.0'
             }
         }];
 
-* 5、进行一键登录前，需要调用预取号接口，获取预取号结果，如下：
+### 2.5 预取号
+
+进行一键登录前，需要调用预取号接口，获取预取号结果，如下：<br>
+**<font color = red>预取号方法回调中处理UI操作,请务必手动切换到主线程，避免出现崩溃</font>**  
 
     [[NTESQuickLoginManager sharedInstance] getPhoneNumberCompletion:^(NSDictionary * _Nonnull resultDic) {
              NSNumber *boolNum = [resultDic objectForKey:@"success"];
@@ -87,9 +126,16 @@ pod 'NTESQuickPass', '~> 2.1.0'
                  // 移动、联通预取号失败
             }
         }];
+<font color=red>使用场景建议：</font>
 
-* 6、授权认证接口
-  * 电信：登录界面（取号接口）调用该接口弹出电信运营商提供的授权页面 ，调用方式如下：
+- **<font color=red>用户处于未登录状态时，调用该方法</font>**
+- **<font color=red>已登录的用户退出当前帐号时，调用该方法</font>**
+- <font color=red>在执行一键登录的方法之前，提前调用此方法，以提升用户前端体验</font>
+- <font color=red>此方法需要1~2s的时间取得临时凭证，不要和拉起授权页方法一起串行调用</font>
+- <font color=red>不要频繁的多次调用</font>
+- <font color=red>不要在拉起授权页后调用</font>
+### 2.6 拉取授权页
+  电信：登录界面（取号接口）调用该接口弹出电信运营商提供的授权页面 ，调用方式如下：
     
           [[NTESQuickLoginManager sharedInstance] CTAuthorizeLoginCompletion:^(NSDictionary * _Nonnull resultDic) {
               NSNumber *boolNum = [resultDic objectForKey:@"success"];
@@ -100,7 +146,7 @@ pod 'NTESQuickPass', '~> 2.1.0'
                   // 取号失败
               }
           }];   
-  * 移动、联通:登录界面（取号接口）调用该接口弹出移动、联通运营商提供的授权页面，调用方式如下：
+  移动、联通:登录界面（取号接口）调用该接口弹出移动、联通运营商提供的授权页面，调用方式如下：
           
            [[NTESQuickLoginManager sharedInstance] CUCMAuthorizeLoginCompletion:^(NSDictionary * _Nonnull resultDic) {
               NSNumber *boolNum = [resultDic objectForKey:@"success"];
@@ -111,10 +157,23 @@ pod 'NTESQuickPass', '~> 2.1.0'
                    // 取号失败
               }
           }];
+<font color=red>使用场景建议：</font>
 
-* 7、移动、联通、电信授权页面UI自定义接口，调用方式如下：
+- <font color=red>在预取号成功后调用</font>
+- <font color=red>已登录状态不要调用</font>
+## 3 授权页界面修改
+### 3.1 设计规范概览
+**<font color=red>开发者不得通过任何技术手段，将授权页面的隐私栏、手机掩码号、供应商品牌内容隐藏、覆盖</font>**<br>
+**<font color=red>网易易盾与运营商会对应用授权页面进行审查，若发现上述违规行为，网易易盾有权将您的一键登录功能下线</font>**
+![iOS设计规范](https://nos.netease.com/cloud-website-bucket/58fca2df814059b54171724b7702b06f.jpg)
+![自定义展示图](https://nos.netease.com/cloud-website-bucket/410d6012173c5531b1065909c9484d36.jpg)
+
+### 3.2 授权页配置
 
          NTESQuickLoginModel *model = [[NTESQuickLoginModel alloc] init];
+         
+           //-------当前VC,注意:要用一键登录这个值必传----
+           model.currentVC = self;
            
            // -----------弹出方式设置----------
            model.presentDirectionType = NTESPresentDirectionPush;
@@ -131,7 +190,8 @@ pod 'NTESQuickPass', '~> 2.1.0'
            // -----------授权页面方向设置----------
            model.faceOrientation = UIInterfaceOrientationPortrait;
            
-           // -----------自定义控件View设置----------
+ ### 3.3 自定义控件view配置    
+                
            /**授权界面自定义控件View的Block*/
           model.customViewBlock = ^(UIView * _Nullable customView) {
               /// customView就是背景view。
@@ -139,7 +199,7 @@ pod 'NTESQuickPass', '~> 2.1.0'
                bottom.backgroundColor = [UIColor redColor];
                [customView addSubview:bottom];
            };
-           
+ ### 3.4 授权页背景
            // -----------背景支持视频----------
            /** 视频本地名称 例如xx.mp4*/
            model.localVideoFileName = @"xxx.mp4";
@@ -158,8 +218,11 @@ pod 'NTESQuickPass', '~> 2.1.0'
            model.animationImages = @[];
            
            /**动画的时长 */
-           model.animationDuration = 2;
+           model.animationDuration = 2;;
+### 3.5 导航栏设置
            
+        
+        
            // -----------导航栏设置----------
            /**导航栏隐藏*/
            model.navBarHidden = NO;
@@ -184,7 +247,7 @@ pod 'NTESQuickPass', '~> 2.1.0'
            
            /**可根据navReturnImgLeftMargin值调整返回按钮距离屏幕左边的距离 默认0 */
            model.navReturnImgLeftMargin = 6;
-
+        
            /**可根据navReturnImgBottomMargin值调整返回按钮距离屏幕底部的距离 默认0 */
            model.navReturnImgBottomMargin = 6;
            
@@ -193,7 +256,7 @@ pod 'NTESQuickPass', '~> 2.1.0'
           
           /**导航返回图标的高度 ,  默认44**/
           model.navReturnImgHeight = 44;
-
+        
           /**导航栏右侧自定义控件 传非UIBarButtonItem对象*/
           model.navControl = [UIView alloc] init];
            
@@ -204,7 +267,7 @@ pod 'NTESQuickPass', '~> 2.1.0'
                [customNavView addSubview:bottom];
            };
            
-           // -----------logo设置----------
+### 3.6 LOGO设置
            
            /**LOGO图片*/
            model.logoImg = [UIImage imageNamed:@"logo1"];
@@ -224,7 +287,7 @@ pod 'NTESQuickPass', '~> 2.1.0'
            /**LOGO图片隐藏*/
            model.logoHidden = NO;
            
-           // -----------手机号设置----------
+### 3.7 手机掩码号设置
            
            /**手机号码字体颜色*/
            model.numberColor = [UIColor blackColor];
@@ -247,7 +310,7 @@ pod 'NTESQuickPass', '~> 2.1.0'
            /**手机号码的控件的圆角*/
            model.numberCornerRadius = 4;
            
-           // -----------运营商品牌设置----------
+### 3.8 运营商品牌设置
            
            /**认证服务品牌文字颜色*/
            model.brandColor = [UIColor redColor];
@@ -273,7 +336,12 @@ pod 'NTESQuickPass', '~> 2.1.0'
            /**隐藏认证服务品牌（默认显示）*/
            model.brandHidden = NO;
            
-           // -----------登录按钮设置----------
+### 3.9 登录按钮设置
+
+**关于登录设置的建议**  
+SDK默认登录按钮会对屏幕大小进行适配，默认蓝色。  
+① 若只需要改变登录按钮颜色，采用 "model.logBtnUsableBGColor = [UIColor blueColor]"进行修改即可，按钮大小会自动适配  
+② 若按钮需求较为复杂，如渐变色、定制图片等等，采用"model.logBtnEnableImg = [UIImage imageNamed:@"login_able"];"进行图片设置。设置完成后，将model.logBtnUsableBGColor设置为透明，避免默认按钮出现自适配而出现UI视觉上的问题
            
             /**登录按钮文本*/
            model.logBtnText = @"本机登录";
@@ -289,34 +357,35 @@ pod 'NTESQuickPass', '~> 2.1.0'
            
             /**登录按钮圆角，默认8*/
            model.logBtnRadius = 12;
-           
+
             /**登录按钮背景颜色*/
            model.logBtnUsableBGColor = [UIColor blueColor];
-           
+
+            /**登录按钮可用状态下的背景图片*/
+           model.logBtnEnableImg = [UIImage imageNamed:@"login_able"];
+                    
            /**登录按钮的高度，默认44*/
            model.logBtnHeight = 44;
-           
-           /**登录按钮可用状态下的背景图片*/
-           model.logBtnEnableImg = [UIImage imageNamed:@"login_able"];
-           
+                      
            /**登录按钮的左边距 ，横屏默认40 ，竖屏默认260*/
            model.logBtnOriginLeft = 20;
            
            /**登录按钮的左边距，横屏默认40 ，竖屏默认260*/
            model.logBtnOriginRight = 20;
            
-           // -----------自定义loading，toast----------  
-           /**协议未勾选时，自定义弹窗样式*/
-           model.prograssHUDBlock = ^(UIView * _Nullable prograssHUDBlock) {
-                  
-            };
+          
+### 3.10 隐私条款设置
+**若勾选框需要展示，请务必设置勾选框的选中态图片与未选中态图片**  
+协议未勾选时，登录按钮是否可点击可以自定义设置，弹窗提示的样式也可以自定义
 
+             // -----------自定义loading，toast----------  
+           /**协议未勾选时，自定义弹窗样式*/
+           model.prograssHUDBlock = ^(UIView * _Nullable prograssHUDBlock) 
+        
             /**自定义Loading View, 点击登录按钮时，可自定义加载进度样式*/  
-            model.loadingViewBlock = ^(UIView * _Nullable customLoadingView) {
-                  
-            };
-            
-            // -----------隐私条款---------- 
+            model.loadingViewBlock = ^(UIView * _Nullable customLoadingView) 
+                        
+        // -----------隐私条款---------- 
             /**复选框未选中时图片*/
             model.uncheckedImg = [UIImage imageNamed:@"checkBox"];
             
@@ -343,6 +412,9 @@ pod 'NTESQuickPass', '~> 2.1.0'
             
             /**隐私条款距离屏幕的距离 默认 40*/
             model.appPrivacyOriginBottomMargin = 30;
+            
+            /**用户协议界面，导航栏返回图标，默认用导航栏返回图标 */
+            model.privacyNavReturnImg = [UIImage imageNamed:];
             
             /**隐私的内容模板：
               全句可自定义但必须保留"《默认》"字段表明SDK默认协议,否则设置不生效
@@ -372,7 +444,7 @@ pod 'NTESQuickPass', '~> 2.1.0'
             
             /**协议条款协议名称颜色*/
             model.protocolColor = [UIColor whiteColor];
-            
+ ### 3.11 居中弹窗模式
             // -----------弹窗:(温馨提示:由于受屏幕影响，小屏幕（5S,5E,5）需要改动字体和另自适应和布局)---------- 
             // ----窗口模式（居中弹窗, 底部半屏弹窗）---
             
@@ -409,7 +481,7 @@ pod 'NTESQuickPass', '~> 2.1.0'
              
              /**居中弹窗，视图的圆角 默认圆角为16*/
              model.popCenterCornerRadius = 18;
-             
+### 3.11 底部半屏弹窗模式             
               // ----窗口模式（底部半屏弹窗）
               /**底部弹窗，圆角的值，只可修改顶部左右二边的值 默认圆角是16*/
               model.popBottomCornerRadius = 10;
@@ -421,14 +493,47 @@ pod 'NTESQuickPass', '~> 2.1.0'
              [[NTESQuickLoginManager sharedInstance] setupModel:model];
      __备注:__  在获取accessToken成功的回调里，结合第4步获取的token字段，做下一步check接口的验证；在获取accessToken失败的回调里做客户端的下一步处理，如短信验证。    
 
-    ![规范示意图](https://nos.netease.com/cloud-website-bucket/58fca2df814059b54171724b7702b06f.jpg)
+### 3.12 授权页面点击事件的回调
 
-    ![自定义展示图](https://nos.netease.com/cloud-website-bucket/410d6012173c5531b1065909c9484d36.jpg)
+                /**返回按钮点击事件回调*/
+                self.customModel.backActionBlock = ^{
+                    NSLog(@"返回按钮点击");
+                };
+                
+                /**弹窗模式下关闭事件的回调*/
+                self.customModel.closeActionBlock = ^{
+                    NSLog(@"关闭按钮点击");
+                };
 
+                /**登录按钮点击事件回调*/
+                self.customModel.loginActionBlock = ^{
+                    NSLog(@"loginAction");
+                };
+                    
+                /**复选框点击事件回调*/
+                self.customModel.checkActionBlock = ^(BOOL isChecked) {
+                    NSLog(@"checkAction");
+                     if (isChecked) {
+                          NSLog(@"选中复选框");
+                     } else {
+                         NSLog(@"取消复选框");
+                  }
+                };
+                
+                /**协议点击事件回调*/
+                self.customModel.privacyActionBlock = ^(int privacyType) {
+                   if (privacyType == 0) {
+                          NSLog(@"点击默认协议");
+                   } else if (privacyType == 1) {
+                          NSLog(@"点击自定义第1个协议");
+                   } else if (privacyType == 2) {
+                         NSLog(@"点击自定义第1个协议");
+                   }
+                };
 
-## 三、SDK 接口
+## 4 SDK 接口
 
-* 1、回调block
+### 4.1 回调block
     
         /**
          *  @abstract   block
@@ -453,7 +558,7 @@ pod 'NTESQuickPass', '~> 2.1.0'
          */
         typedef void(^NTESQLAuthorizeHandler)(NSDictionary *resultDic);
         
-* 2、参数
+### 4.2 参数
         
         /**
          *  @abstract   属性
@@ -463,7 +568,7 @@ pod 'NTESQuickPass', '~> 2.1.0'
         @property (nonatomic, assign) NSTimeInterval timeoutInterval;
 
 
-* 3、单例
+### 4.3 单例
 
         /**
          *  @abstract   单例
@@ -472,7 +577,7 @@ pod 'NTESQuickPass', '~> 2.1.0'
          */
         + (NTESQuickLoginManager *)sharedInstance;
 
-* 4、API接口
+### 4.4 API接口
 
         /**
          *  @abstract   判断当前上网卡的网络环境和运营商是否可以一键登录（必须开启蜂窝流量，必须上网网卡为移动或者电信运营商）
@@ -525,7 +630,7 @@ pod 'NTESQuickPass', '~> 2.1.0'
          *  @param      authorizeHandler    登录授权结果回调
          */
         - (void)CTAuthorizeLoginCompletion(NTESQLAuthorizeHandler)authorizeHandler;
-    
+        
             /**
             *  @abstract
              设置授权登录界面model，⚠️注意：必须调用，此方法需嵌套在getPhoneNumberCompletion的回调中使用，且在CUCMAuthorizeLoginCompletion:之前调用
@@ -548,8 +653,15 @@ pod 'NTESQuickPass', '~> 2.1.0'
          获取当前SDK版本号
          */
         - (NSString *)getSDKVersion;    
+        /**
+         *  @abstract 手动关闭授权页
+         *
+         * @param completionHandler 手动关闭授权页回调
+         */
+        - (void)closeAuthController:(NTESAuthorizeCompletionHandler _Nullable)completionHandler;
+
         
-## 四、暗黑模式
+## 5 暗黑模式
 
         在UIColor 分类添加该方法
         
@@ -576,14 +688,16 @@ pod 'NTESQuickPass', '~> 2.1.0'
         
         /// -----------使用：⚠️（图片暗黑模式适配）授权页面背景图片暗黑模式下设置-----------
         
-        图片适配
-        打开 Assets.xcassets
+### 5.1 图片适配
+ 打开 Assets.xcassets
         把图片拖拽进去，我们可以看到这样的页面
-        
+        ![2](https://nos.netease.com/cloud-website-bucket/27da119b0002febbfea2bb78a9798641.png)
         然后我们在右侧工具栏中点击最后一栏，点击 Appearances 选择 Any, Dark，如图所示
-        
+        ![3](https://nos.netease.com/cloud-website-bucket/1b45c98141d30015d45b35e321b59a32.png)
         我们把 DarkMode 的图片拖进去，如图所示
-        
+        ![4](https://nos.netease.com/cloud-website-bucket/d9354f0f5f624e240d341eefef021d2e.png)
+
+
         
         最后我们加上 ImageView 的代码
         
@@ -592,7 +706,7 @@ pod 'NTESQuickPass', '~> 2.1.0'
 
         
         
-__注__：因出于安全考虑，为了防止一键登录接口被恶意用户刷量造成经济损失，一键登录让接入者通过自己的服务端去调用易盾check接口，通知接入者一键登录是否通过。详细介绍请开发者参考易盾一键登录服务端接口文档。        
+__注__：因出于安全考虑，为了防止一键登录接口被恶意用户刷量造成经济损失，一键登录让接入者通过自己的服务端去调用易盾check接口，通知接入者一键登录是否通过。详细介绍请开发者参考[易盾一键登录服务端接口文档](http://support.dun.163.com/documents/287305921855672320?docId=289953034527756288&locale=zh-cn)
 
 
         
