@@ -535,16 +535,15 @@
         }
     };
 
-    self.customModel = model;
-    self.customModel.backActionBlock = ^{
+    model.backActionBlock = ^{
         NSLog(@"返回按钮点击");
     };
 
-    self.customModel.loginActionBlock = ^{
+    model.loginActionBlock = ^{
         NSLog(@"登录按钮点击");
     };
 
-    self.customModel.checkActionBlock = ^(BOOL isChecked) {
+    model.checkActionBlock = ^(BOOL isChecked) {
         if (isChecked) {
             NSLog(@"选中复选框");
         } else {
@@ -552,7 +551,7 @@
         }
     };
 
-    self.customModel.privacyActionBlock = ^(int privacyType) {
+    model.privacyActionBlock = ^(int privacyType) {
         if (privacyType == 0) {
             NSLog(@"点击默认协议");
         } else if (privacyType == 1) {
@@ -562,9 +561,10 @@
         }
     };
 
-    self.customModel.currentVC = self;
+    model.currentVC = self;
+//    model.privacyNavReturnImg = [UIImage imageNamed:@"ic_namb"];
 //    self.customModel = model;
-    [[NTESQuickLoginManager sharedInstance] setupModel:self.customModel];
+    [[NTESQuickLoginManager sharedInstance] setupModel:model];
 }
 
 - (void)labelTapped {
