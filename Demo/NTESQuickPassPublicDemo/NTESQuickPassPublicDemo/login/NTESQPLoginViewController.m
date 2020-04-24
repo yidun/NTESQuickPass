@@ -188,7 +188,7 @@
     [NTESQPVerifyingPopView showVerifyingFromView:self.view title:verifyingQPText];
     WeakSelf(self);
     self.manager.timeOut = 10.0 * 1000;
-    [self.manager verifyPhoneNumber:self.phoneNumberTextField.text businessID:QP_BUSINESSID completion:^(NSDictionary * _Nullable params, NTESQPStatus status, BOOL success) {
+    [self.manager verifyPhoneNumber:self.phoneNumberTextField.text businessID:@"" completion:^(NSDictionary * _Nullable params, NTESQPStatus status, BOOL success) {
         StrongSelf(weakSelf);
         dispatch_async(dispatch_get_main_queue(), ^{
             if (status == NTESQPAccessTokenSuccess) {
@@ -243,7 +243,7 @@
         return;
     }
     
-    [NTESDemoHttpRequest startRequestWithURL:API_LOGIN_TOKEN_QPCHECK httpMethod:@"POST" requestData:jsonData finishBlock:^(NSData *data, NSError *error, NSInteger statusCode) {
+    [NTESDemoHttpRequest startRequestWithURL:@"" httpMethod:@"POST" requestData:jsonData finishBlock:^(NSData *data, NSError *error, NSInteger statusCode) {
         dispatch_async(dispatch_get_main_queue(), ^{
             [NTESQPVerifyingPopView hideVerifyingView];
             if (data) {
@@ -271,7 +271,7 @@
         return;
     }
     
-    [NTESDemoHttpRequest startRequestWithURL:API_LOGIN_CODE_CHECK httpMethod:@"POST" requestData:jsonData finishBlock:^(NSData *data, NSError *error, NSInteger statusCode) {
+    [NTESDemoHttpRequest startRequestWithURL:@"" httpMethod:@"POST" requestData:jsonData finishBlock:^(NSData *data, NSError *error, NSInteger statusCode) {
         dispatch_async(dispatch_get_main_queue(), ^{
             if (data) {
                 NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
@@ -372,7 +372,7 @@
 }
 
 - (void)sendMessage {
-    NSString *urlString = [NSString stringWithFormat:@"%@?phone=%@", API_LOGIN_SMS_SEND, self.phoneNumberTextField.text];
+    NSString *urlString = [NSString stringWithFormat:@"%@?phone=%@", @"", self.phoneNumberTextField.text];
     [NTESDemoHttpRequest startRequestWithURL:urlString httpMethod:@"GET" requestData:nil finishBlock:^(NSData *data, NSError *error, NSInteger statusCode) {
         dispatch_async(dispatch_get_main_queue(), ^{
             if (data) {

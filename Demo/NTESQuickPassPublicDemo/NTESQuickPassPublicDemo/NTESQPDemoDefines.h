@@ -13,27 +13,6 @@
 
 #define TEST_MODE_QA
 
-#ifdef TEST_MODE
-#define QL_BUSINESSID                @"3cc9408f47414f03a75947c108e60034"
-#define QP_BUSINESSID                @"35d60d532b4f4c4c84f3e243c1989a27"
-#define API_LOGIN_TOKEN_QLCHECK      @"http://eredar-server-test.nis.netease.com/api/login/oneclick"
-#define API_LOGIN_TOKEN_QPCHECK      @"http://eredar-server-test.nis.netease.com/api/login/token"
-#define API_LOGIN_CODE_CHECK         @"http://eredar-server-test.nis.netease.com/api/login/code"
-#define API_LOGIN_SMS_SEND           @"http://eredar-server-test.nis.netease.com/api/sms/send"
-#else
-#define QL_BUSINESSID                @"b55f3c7d4729455c9c3fb23872065401"
-#define QP_BUSINESSID                @"1412f24fcadc4f1e9b11590221a3e4eb"
-#define API_LOGIN_TOKEN_QLCHECK      @"https://ye.dun.163yun.com/api/login/oneclick"
-#define API_LOGIN_TOKEN_QPCHECK      @"https://ye.dun.163yun.com/api/login/token"
-#define API_LOGIN_CODE_CHECK         @"https://ye.dun.163yun.com/api/login/code"
-#define API_LOGIN_SMS_SEND           @"https://ye.dun.163yun.com/api/sms/send"
-#define API_LOGIN_GET_CONFIG         @"http://ye-test.dun.163yun.com/ios_config.json"
-
-#endif
-
-#define CMServiceHTML                @"https://wap.cmpassport.com/resources/html/contract.html"
-#define CTServiceHTML                @"https://e.189.cn/sdk/agreement/detail.do?hidetop=true"
-
 #define NUMBER_OF_NONCE              32
 #define VERSION                      @"v1"
 #define RANGE_TABLE                  @"kot8AB45jF6CDaUVWubcdKLZefgMpNOxyz01PQRnTvw23XYhiG7rsEqJHI9Slm"

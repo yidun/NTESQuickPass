@@ -360,7 +360,7 @@
         return;
     }
     
-    [NTESDemoHttpRequest startRequestWithURL:API_LOGIN_TOKEN_QLCHECK httpMethod:@"POST" requestData:jsonData finishBlock:^(NSData *data, NSError *error, NSInteger statusCode) {
+    [NTESDemoHttpRequest startRequestWithURL:@"" httpMethod:@"POST" requestData:jsonData finishBlock:^(NSData *data, NSError *error, NSInteger statusCode) {
         dispatch_async(dispatch_get_main_queue(), ^{
             [NTESQPVerifyingPopView hideVerifyingView];
             if (data) {
@@ -429,7 +429,7 @@
         [self showToastWithMsg:@"请输入11位手机号"];
         return;
     }
-    NSString *urlString = [NSString stringWithFormat:@"%@?phone=%@", API_LOGIN_SMS_SEND, self.phoneTextField.text];
+    NSString *urlString = [NSString stringWithFormat:@"%@?phone=%@", @"", self.phoneTextField.text];
     [NTESDemoHttpRequest startRequestWithURL:urlString httpMethod:@"GET" requestData:nil finishBlock:^(NSData *data, NSError *error, NSInteger statusCode) {
         dispatch_async(dispatch_get_main_queue(), ^{
             if (data) {
@@ -510,7 +510,7 @@
         return;
     }
     
-    [NTESDemoHttpRequest startRequestWithURL:API_LOGIN_CODE_CHECK httpMethod:@"POST" requestData:jsonData finishBlock:^(NSData *data, NSError *error, NSInteger statusCode) {
+    [NTESDemoHttpRequest startRequestWithURL:@"" httpMethod:@"POST" requestData:jsonData finishBlock:^(NSData *data, NSError *error, NSInteger statusCode) {
         dispatch_async(dispatch_get_main_queue(), ^{
             if (data) {
                 NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
@@ -547,14 +547,14 @@
     NTESQLServiceViewController *vc = [[NTESQLServiceViewController alloc] init];
     switch (self.carrierType) {
         case 1:
-            vc.serviceHTML = CTServiceHTML;
+//            vc.serviceHTML = CTServiceHTML;
             break;
         case 2:
-            vc.serviceHTML = CMServiceHTML;
+//            vc.serviceHTML = CMServiceHTML;
         case 3:
             break;
         default:
-            vc.serviceHTML = CMServiceHTML;
+//            vc.serviceHTML = CMServiceHTML;
             break;
     }
     [self.navigationController pushViewController:vc animated:YES];

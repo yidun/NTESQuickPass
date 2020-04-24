@@ -15,7 +15,7 @@
 @implementation NTESQLHomePageNetworkEntity
 
 + (void)requestModelConfig:(successHandle)successHandle {
-   [NTESDemoHttpRequest startRequestWithURL:API_LOGIN_GET_CONFIG httpMethod:@"GET" requestData:nil finishBlock:^(NSData *data, NSError *error, NSInteger statusCode) {
+   [NTESDemoHttpRequest startRequestWithURL:@"" httpMethod:@"GET" requestData:nil finishBlock:^(NSData *data, NSError *error, NSInteger statusCode) {
 //       if (data) {
 //          NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
 //           NTESQuickLoginModel *customModel = [NTESQuickLoginModel mj_objectWithKeyValues:dict];
