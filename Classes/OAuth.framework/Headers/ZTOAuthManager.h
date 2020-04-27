@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#import "ZOAUResultListener.h"
 #import "ZOAUCustomModel.h"
 #import "ZOAuthManager.h"
 
@@ -40,7 +39,7 @@
 
 
 /**
- 中断取号登录流程
+ 中断取号登录流程 （旧版本方法，不推荐使用）
  1.取消取号请求
  2.如果已经拉起授权页时，取消授权页显示
  @param tryToCancelRequest 取消取号请求
@@ -88,7 +87,7 @@
 //自定义跳转
 -(void)setLoginSuccessPage:(UIViewController *)uiController;
 
-
+//（旧版本方法，不推荐使用）
 //释放SDK内部单例对象（免密登录：授权页销毁时自动释放；认证：获取到授权码后自动释放）
 -(void)ZOAURelease;
 

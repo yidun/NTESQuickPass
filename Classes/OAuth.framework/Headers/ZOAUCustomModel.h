@@ -1,33 +1,43 @@
-
 #import <UIKit/UIKit.h>
 
 typedef NS_ENUM(NSUInteger, ControllerType) {
     PushController,
     PresentController
 };
+typedef NS_ENUM(NSUInteger, ServiceType) {
+    ServiceTypeMobile,
+    ServiceTypeOAuth,
+};
+typedef NS_ENUM(NSUInteger, OAuthViewType) {
+    OAuthViewByCU,
+    OAuthViewByCT,
+};
+
+typedef void (^resultListener)(NSDictionary *data);
 
 @interface ZOAUCustomModel : NSObject
-
 
 //MARK:授权页*************
 
 /**授权页背景颜色*/
 @property (nonatomic,strong) UIColor *backgroundColor;
-/**背景图片*/
+/**授权页背景图片*/
 @property(nonatomic,strong)UIImage * bgImage;
 /**授权页弹出方式 默认使用PUSH*/
 @property (nonatomic,assign) ControllerType controllerType;
 /**授权页销毁是否交由app处理 如果想自己控制授权页的收起 设置为YES 默认是NO*/
 @property (nonatomic,assign) BOOL destroyCrollerBySelf;
-/** 授权页销毁时是否自动释放SDK内部的单例对象（默认为自动释放）*/
+/**授权页销毁时是否自动释放SDK内部的单例对象（默认为自动释放）*/
 @property (nonatomic,assign) BOOL isAutoRelease;
-/** 是否在授权页WillDisappear时销毁单例（默认为NO,请按需使用）；
+/**是否在授权页WillDisappear时销毁单例（默认为NO,请按需使用）；
  如果您确认使用此属性，并设置为YES，授权页会在页面销毁前销毁SDK单例对象*/
 @property (nonatomic,assign) BOOL isAutoReleaseEarlier;
 /**SDK会直接使用您的设置值，如果不传默认指定UIModalPresentationFullScreen*/
 @property (nonatomic,assign) UIModalPresentationStyle modalPresentationStyle;
-/**是否取消授权页关闭时的回调  默认YES*/
+/**是否取消授权页关闭时的回调  默认YES（默认关闭10108回调）*/
 @property (nonatomic,assign)BOOL ifStopListeningAuthPageClosed;
+/**状态栏设置*/
+@property(nonatomic,assign)BOOL statusBarHidden;
 
 
 //MARK:导航栏设置*************
@@ -80,6 +90,8 @@ typedef NS_ENUM(NSUInteger, ControllerType) {
 @property (nonatomic,assign) CGFloat logoHeight;
 /**LOGO图片偏移量*/
 @property (nonatomic,assign) CGFloat logoOffsetY;
+/**是否隐藏LOGO 默认NO*/
+@property (nonatomic,assign) BOOL ifHiddenLOGO;
 
 
 //MARK:应用名称设置************
@@ -138,6 +150,11 @@ typedef NS_ENUM(NSUInteger, ControllerType) {
 @property (nonatomic,assign) CGFloat logBtnLeading;
 /**登录按钮高度 (<=0无效)*/
 @property (nonatomic,assign) CGFloat logBtnHeight;
+/**登录按钮背景图片 (可用状态)*/
+@property (nonatomic,strong) UIImage * logBtnImageSelected;
+/**登录按钮背景图片 (不可用状态)*/
+@property (nonatomic,strong) UIImage * logBtnImageDeselected;
+
 
 
 
@@ -165,7 +182,7 @@ typedef NS_ENUM(NSUInteger, ControllerType) {
 /**隐藏复选框（默认显示）*/
 @property (nonatomic,assign) BOOL checkBoxHidden;
 /**复选框默认值（默认不选中）*/
-@property (nonatomic,assign) BOOL checkBoxValue;
+//@property (nonatomic,assign) BOOL checkBoxValue;删除
 /**复选框宽度（宽度=高度） <=0无效 */
 @property(nonatomic,assign)CGFloat checkBoxWidth;
 /**复选框选中时图片*/
@@ -194,21 +211,27 @@ typedef NS_ENUM(NSUInteger, ControllerType) {
 @property (nonatomic,assign) CGFloat checkBoxOffsetY;
 /**隐私条款文本的对齐方式； 默认居中*/
 @property(nonatomic,assign)NSTextAlignment privacyTextAlignment;
-/**隐私条款和@“并授权***”之间的内容，默认为空
- 可以使用此属性添加换行符或者其他纯文本内容 （隐私条款和复选框默认整体居中）*/
-@property(nonatomic,copy)NSString * stringAfterPrivacy;
-//登录即同意(stringBeforeDefaultPrivacyText)中国联通认证服务协议(stringBeforeAppFPrivacyText)协议1(stringBeforeAppSPrivacyText)协议2(stringAfterPrivacy)并授权xxx获得本机号码
-//默认为空
+//(stringBeforeDefaultPrivacyText)(defaultPrivacyName)(stringBeforeAppFPrivacyText)协议1(stringBeforeAppSPrivacyText)协议2(stringAfterPrivacy)3863(stringAfterAppName)
+//默认为@"登录即同意"
 @property(nonatomic,copy)NSString * stringBeforeDefaultPrivacyText;
 //默认为@“和”
 @property(nonatomic,copy)NSString * stringBeforeAppFPrivacyText;
 //默认为@“以及”
 @property(nonatomic,copy)NSString * stringBeforeAppSPrivacyText;
+/**默认为"并授权"*/
+@property(nonatomic,copy)NSString * stringAfterPrivacy;
+/**默认为"获得本机号码"*/
+@property(nonatomic,copy)NSString * stringAfterAppName;
+
 /**隐私条款和复选框的整体左右偏移 （按需使用）
  默认边距最小是20
  使用规则：最小边距=20+（privacyGapToScreen）
  （隐私条款和复选框默认整体居中）*/
 @property(nonatomic,assign)CGFloat privacyMinimumGapToScreen;
+
+
+//授权页默认协议文本 默认@“中国联通认证服务协议”
+@property(nonatomic,copy)NSString * defaultPrivacyName;
 
 
 //MARK:loading设置************
@@ -242,5 +265,15 @@ typedef NS_ENUM(NSUInteger, ControllerType) {
 
 /**提示的偏移 = 0无效*/
 @property (nonatomic,assign) CGFloat tipOffsetY;
+
+//MARK: 横屏设置************
+@property (nonatomic,assign) UIInterfaceOrientation interfaceOrientation;
+
+
+//MARK: 转场动画************
+@property(nonatomic,strong)CATransition * presentTransition;
+@property(nonatomic,strong)CATransition * dismissTransition;
+@property(nonatomic,assign)UIModalTransitionStyle modalTransitionStyle;
+
 
 @end
