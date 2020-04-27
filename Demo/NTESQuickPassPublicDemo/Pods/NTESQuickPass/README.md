@@ -31,7 +31,7 @@ it, simply add the following line to your Podfile:
 pod 'NTESQuickPass'
 
 # 集成指定SDK，具体版本号可先执行 pod search NTESQuickPass，根据返回的版本信息自行决定:
-pod 'NTESQuickPass', '~> 2.1.1'
+pod 'NTESQuickPass', '~> 2.1.2'
 ```
 ### 保存并执行pod install即可，若未执行pod repo update，请执行pod install --repo-update
 
@@ -50,3 +50,4 @@ luolihao123456, luolihao123456@163.com
 | 2.0.1 | 2020.3.27 | 1. 增加了customViewBlock属性，可在控制器上自定义控件 <br>2.增加了customNavBlock属性，可在导航栏上自定义控件；
 | 2.1.0 | 2020.4.10 | 1.授权页背景支持GIF与视频 <br>2.支持Cocopods集成方式。<br>3.适配iOS13 暗黑模式。<br>4.协议checkbox未勾选时登录按钮设计优化。
 | 2.1.1 | 2020.4.16 | 1. 运营商协议页面返回按钮支持单独自定义 <br>2. 优化双卡切换后的取号成功率 <br>3. 其他文案细节优化。
+| 2.1.2 | 2020.4.23 | 1. 运营商协议详情返回图标支持自定义。 <br>2.  增加授权页事件监听。 <br>3. 授权支持设置动画。<br>4. 更新联通SDK。<br>5. 增加手动关闭授权页功能。

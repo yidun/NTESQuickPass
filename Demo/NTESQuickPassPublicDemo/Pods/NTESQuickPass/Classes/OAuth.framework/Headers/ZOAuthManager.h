@@ -9,6 +9,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+
 @interface ZOAuthManager : NSObject
 
 /**
@@ -21,5 +22,13 @@
 //是否使用SHA256验签  默认NO
 + (void) useSchemeBInSecurityModule:(BOOL)schemeB;
 
+//获取SDK版本信息
++ (NSString *)getVersionInfo;
+
+//设置UA
++ (void)setUAString:(NSString *)UAString;
+
+//删除保存在本地的UA
++ (void)removeUAString;
 
 @end
