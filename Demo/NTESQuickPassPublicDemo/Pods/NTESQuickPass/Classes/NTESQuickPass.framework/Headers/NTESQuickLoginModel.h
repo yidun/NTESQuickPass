@@ -15,7 +15,7 @@ typedef void(^AuthPrograssHUDBlock)(UIView *_Nullable prograssHUDBlock);
 
 /// 授权页面点击事件的回调
 typedef void(^AuthBackActionBlock)(void);
-typedef void(^AuthLoginActionBlock)(void);
+typedef void(^AuthLoginActionBlock)(BOOL isChecked);
 typedef void(^AuthCheckActionBlock)(BOOL isChecked);
 typedef void(^AuthCloseActionBlock)(void);
 
@@ -80,7 +80,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic,assign) UIModalTransitionStyle modalTransitionStyle;
 
-#pragma mark -------------------------- 授权页面点击事件的回调
+#pragma mark --------------------------授权页面点击事件的回调
 
 /**返回按钮点击事件回调*/
 @property (nonatomic, copy) AuthBackActionBlock backActionBlock;
@@ -97,7 +97,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**协议点击事件回调*/
 @property (nonatomic, copy) AuthPrivacyActionBlock privacyActionBlock;
 
-#pragma mark -------------------------- 自定义loading，toast；
+#pragma mark 自定义loading，toast；
 
 /**协议未勾选时，自定义弹窗样式*/
 @property (nonatomic, copy) AuthPrograssHUDBlock prograssHUDBlock;

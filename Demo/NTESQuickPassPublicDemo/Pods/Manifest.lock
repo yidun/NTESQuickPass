@@ -1,6 +1,6 @@
 PODS:
   - Masonry (1.0.2)
-  - NTESQuickPass (2.1.3)
+  - NTESQuickPass (2.1.4)
 
 DEPENDENCIES:
   - Masonry (~> 1.0.2)
@@ -13,7 +13,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
-  NTESQuickPass: 654317078420d645acb398894c471335fcaa0af5
+  NTESQuickPass: a06cc8ca0fe7772626ba71d7e6c522a561613cfb
 
 PODFILE CHECKSUM: 162135db722919f68b67f2367c4da664f514c88b
 
