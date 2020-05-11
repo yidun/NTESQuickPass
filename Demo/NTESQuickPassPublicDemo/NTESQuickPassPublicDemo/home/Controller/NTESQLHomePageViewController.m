@@ -593,9 +593,9 @@
 
 /// 竖屏全屏登录按钮点击
 - (void)loginButtonWithFullScreenDidTipped:(UIButton *)sender {
-    [self getPhoneNumberWithText:registerTitle];  /// 0-全屏
     self.popType = 0;
     self.portraitType = 0;
+    [self getPhoneNumberWithText:registerTitle];  /// 0-全屏
 //    self.customModel.faceOrientation = UIInterfaceOrientationPortrait;
 }
 
