@@ -327,7 +327,7 @@
 
 - (void)authorizeLoginButtonClick {
     [NTESQPVerifyingPopView showVerifyingFromView:self.customBottomView title:verifyingQLText];
-    [[NTESQuickLoginManager sharedInstance] CTAuthorizeLoginCompletion:^(NSDictionary * _Nonnull resultDic) {
+    [[NTESQuickLoginManager sharedInstance] CUCMCTAuthorizeLoginCompletion:^(NSDictionary * _Nonnull resultDic) {
         dispatch_async(dispatch_get_main_queue(), ^{
             NSNumber *boolNum = [resultDic objectForKey:@"success"];
             BOOL success = [boolNum boolValue];
