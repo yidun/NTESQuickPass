@@ -16,6 +16,7 @@
  *               NTESQPAccessTokenSuccess获取accessToken成功
  *               NTESQPAccessTokenFailure获取accessToken失败
  *               NTESQPAccessTokenTimeout获取accessToken超时
+ *
  */
 typedef NS_ENUM(NSInteger, NTESQPStatus) {
     NTESQPPhoneNumInvalid = 1,

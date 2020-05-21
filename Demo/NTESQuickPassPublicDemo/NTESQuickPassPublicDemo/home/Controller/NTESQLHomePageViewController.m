@@ -119,7 +119,7 @@
     
     if (self.shouldQL) {
         WeakSelf(self);
-        [[NTESQuickLoginManager sharedInstance] registerWithBusinessID:@"" timeout:3*1000 configURL:nil extData:nil completion:^(NSDictionary * _Nullable params, BOOL success) {
+        [[NTESQuickLoginManager sharedInstance] registerWithBusinessID:@"b55f3c7d4729455c9c3fb23872065401" timeout:3*1000 configURL:nil extData:nil completion:^(NSDictionary * _Nullable params, BOOL success) {
             if (success) {
                 weakSelf.token = [params objectForKey:@"token"];
                 weakSelf.precheckSuccess = YES;
@@ -460,15 +460,15 @@
         model.brandOffsetTopY = 121;
         model.logBtnOffsetTopY = 167;
         model.appPrivacyOriginBottomMargin = 20;
-        model.authWindowPop = NTESAuthWindowPopCenter;
+        model.authWindowPop = NTESAuthWindowPopBottom;
         model.appPrivacyOriginLeftMargin = 49;
         model.appPrivacyOriginRightMargin = 30;
         model.privacyColor = [UIColor ntes_colorWithHexString:@"#999999"];
         model.protocolColor = [UIColor ntes_colorWithHexString:@"#999999"];
         model.logBtnOffsetTopY = 167;
-
-        model.scaleW = (295) / SCREEN_WIDTH;
-        model.scaleH = (315) / SCREEN_HEIGHT;
+//
+//        model.scaleW = (295) / SCREEN_WIDTH;
+//        model.scaleH = (315) / SCREEN_HEIGHT;
         model.popBackgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.5];
 
         model.uncheckedImg = [[UIImage imageNamed:@"checkBox"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
@@ -539,9 +539,9 @@
         NSLog(@"返回按钮点击");
     };
 
-    model.loginActionBlock = ^{
-        NSLog(@"登录按钮点击");
-    };
+//    model.loginActionBlock = ^{
+//        NSLog(@"登录按钮点击");
+//    };
 
     model.checkActionBlock = ^(BOOL isChecked) {
         if (isChecked) {

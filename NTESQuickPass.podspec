@@ -15,7 +15,7 @@ Pod::Spec.new do |spec|
   #  summary should be tweet-length, and the description more in depth.
 
   spec.name         = "NTESQuickPass"
-  spec.version      = "2.1.4"
+  spec.version      = "2.1.5"
   spec.summary      = "NTESQuickPass."
 
   # This description is used to generate tags and improve search results.
@@ -120,14 +120,14 @@ Pod::Spec.new do |spec|
   #
 
   # spec.framework  = "SomeFramework"
-  # spec.frameworks = "SomeFramework", "AnotherFramework"
 
   # spec.library   = "iconv"
   # spec.libraries = "iconv", "xml2"
   
   spec.vendored_frameworks = ["Classes/TYRZSDK.framework","Classes/OAuth.framework","Classes/EAccountApiSDK.framework","Classes/NTESQuickPass.framework"]
-  
-  spec.libraries = "c++.1"
+
+  spec.frameworks = "AssetsLibrary", "AnotherFramework"
+
 
 
   # ――― Project Settings ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
