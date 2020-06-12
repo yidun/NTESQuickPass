@@ -31,7 +31,7 @@ it, simply add the following line to your Podfile:
 pod 'NTESQuickPass'
 
 # 集成指定SDK，具体版本号可先执行 pod search NTESQuickPass，根据返回的版本信息自行决定:
-pod 'NTESQuickPass', '~> 2.1.6'
+pod 'NTESQuickPass', '~> 2.1.7'
 ```
 ### 保存并执行pod install即可，若未执行pod repo update，请执行pod install --repo-update
 
@@ -54,4 +54,5 @@ luolihao123456, luolihao123456@163.com
 | 2.1.3 | 2020.4.27 | 1.修复联通授权页动画设置BUG。
 | 2.1.4 | 2020.5.11 |  1. 更新联通SDK，提升性能。 <br> 2. 一键登录按钮回调细化。
 | 2.1.6 | 2020.5.21 |  1. 优化取号接口调用方式。 <br> 2. 更新联通SDK，修复已知问题。
+| 2.1.7 | 2020.6.12 |  1. 增加生命周期回调功能。 <br> 2. 运营商协议栏自定义功能优化。<br> 3. 状态栏文字支持颜色自定义。
    
