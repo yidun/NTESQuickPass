@@ -23,7 +23,7 @@
 #import "UIColor+NTESQuickPass.h"
 #import "NTESToastView.h"
 
-@interface  NTESQLHomePageViewController() <UINavigationBarDelegate, NTESQLHomePagePortraitViewDelegate, NTESQLHomePageLandscapeViewDelegate>
+@interface  NTESQLHomePageViewController() <UINavigationBarDelegate, NTESQLHomePagePortraitViewDelegate, NTESQLHomePageLandscapeViewDelegate,NTESQuickLoginManagerDelegate>
 
 @property (nonatomic, copy) NSString *token;
 @property (nonatomic, copy) NSString *accessToken;
@@ -112,10 +112,10 @@
 - (void)registerQuickLogin {
     // 在使用一键登录之前，请先调用shouldQuickLogin方法，判断当前上网卡的网络环境和运营商是否可以一键登录
     self.shouldQL = [[NTESQuickLoginManager sharedInstance] shouldQuickLogin];
-    
+    [NTESQuickLoginManager sharedInstance].delegate = self;
     if (self.shouldQL) {
         WeakSelf(self);
-        [[NTESQuickLoginManager sharedInstance] registerWithBusinessID:@"" timeout:3*1000 configURL:nil extData:nil completion:^(NSDictionary * _Nullable params, BOOL success) {
+        [[NTESQuickLoginManager sharedInstance] registerWithBusinessID:@"b55f3c7d4729455c9c3fb23872065401" timeout:3*1000 configURL:nil extData:nil completion:^(NSDictionary * _Nullable params, BOOL success) {
             if (success) {
                 weakSelf.token = [params objectForKey:@"token"];
                 weakSelf.precheckSuccess = YES;
@@ -317,6 +317,32 @@
     self.customModel = [[NTESQLHomePageCustomUIModel getInstance] configCustomUIModel:self.popType withType:self.portraitType faceOrientation:self.faceOrientation];
     self.customModel.currentVC = self;
     [[NTESQuickLoginManager sharedInstance] setupModel:self.customModel];
+}
+
+#pragma - NTESQuickLoginManagerDelegate
+
+- (void)authViewDealloc {
+    NSLog(@"授权页面销毁了");
+}
+
+- (void)authViewDidLoad {
+    NSLog(@"授权页面初始化");
+}
+
+- (void)authViewWillAppear {
+    NSLog(@"授权页面将要出现");
+}
+
+- (void)authViewDidAppear {
+    NSLog(@"授权页面已经出现");
+}
+
+- (void)authViewWillDisappear {
+    NSLog(@"授权页面将要消失");
+}
+
+- (void)authViewDidDisappear {
+    NSLog(@"授权页面已经消失");
 }
 
 #pragma - 竖屏全屏按钮点击的代理

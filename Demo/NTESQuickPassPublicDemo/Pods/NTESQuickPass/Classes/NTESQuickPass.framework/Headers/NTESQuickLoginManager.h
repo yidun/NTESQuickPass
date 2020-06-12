@@ -10,6 +10,40 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@protocol NTESQuickLoginManagerDelegate <NSObject>
+
+/**
+*  @说明        加载授权页。
+*/
+- (void)authViewDidLoad;
+
+/**
+*  @说明        授权页将要出现。
+*/
+- (void)authViewWillAppear;
+
+/**
+*  @说明        授权页已经出现。
+*/
+- (void)authViewDidAppear;
+
+/**
+*  @说明        授权页将要消失。
+*/
+- (void)authViewWillDisappear;
+
+/**
+*  @说明        授权页已经消失。
+*/
+- (void)authViewDidDisappear;
+
+/**
+*  @说明        授权页销毁。
+*/
+- (void)authViewDealloc;
+
+@end
+
 /**
  *  @abstract   block
  *
@@ -40,6 +74,13 @@ typedef void(^NTESQLAuthorizeHandler)(NSDictionary *resultDic);
 typedef void(^NTESAuthorizeCompletionHandler)(void);
 
 @interface NTESQuickLoginManager : NSObject
+
+/**
+*  @abstract   属性
+*
+*  @说明  授权页面的 delegate,
+*/
+@property (nonatomic, weak) id<NTESQuickLoginManagerDelegate> delegate;
 
 /**
  *  @abstract   属性
@@ -111,7 +152,7 @@ typedef void(^NTESAuthorizeCompletionHandler)(void);
 - (void)setupModel:(NTESQuickLoginModel *)model;
 
 /**
- *  @abstract   联通、移动 、电信 授权登录（取号接口），⚠️注意：此方法需嵌套在getPhoneNumberCompletion的回调中使用，且在setupCMModel:或setupCUModel:之后调用
+ *  @abstract   联通、移动 - 授权登录（取号接口），⚠️注意：此方法需嵌套在getPhoneNumberCompletion的回调中使用，且在setupCMModel:或setupCUModel:之后调用
  *
  *  @param      authorizeHandler    登录授权结果回调，包含认证成功和认证失败，认证失败情况包括取号失败、用户取消登录（点按返回按钮）和切换登录方式，可根据code码做后续自定义操作
  *                                  取消登录:移动返回code码200020，联通返回10104

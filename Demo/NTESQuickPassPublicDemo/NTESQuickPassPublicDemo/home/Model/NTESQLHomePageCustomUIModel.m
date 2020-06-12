@@ -60,7 +60,7 @@
     model.colors = @[(id)[UIColor ntes_colorWithHexString:@"#FFFFFF"].CGColor, (id)[UIColor ntes_colorWithHexString:@"#324DFF"].CGColor];
 
         /// 隐私协议
-    model.appPrivacyText = @"登录即同意《默认》并授权NTESQuickPassPublicDemo 获得本机号码";
+    model.appPrivacyText = @"登录即同意《默认》并授权NTESQuickPass PublicDemo 获得本机号码";
     model.uncheckedImg = [[UIImage imageNamed:@"login_kuang"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     model.checkedImg = [[UIImage imageNamed:@"login_kuang_gou"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     model.checkboxWH = 11;
@@ -71,10 +71,10 @@
     model.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     
     if (@available(iOS 13.0, *)) {
-        model.currentStatusBarStyle = UIStatusBarStyleLightContent;
+        model.currentStatusBarStyle = UIStatusBarStyleDarkContent;
         model.otherStatusBarStyle = UIStatusBarStyleDarkContent;
     } else {
-        model.currentStatusBarStyle = UIStatusBarStyleLightContent;
+        model.currentStatusBarStyle = UIStatusBarStyleDefault;
         model.otherStatusBarStyle = UIStatusBarStyleDefault;
     }
 

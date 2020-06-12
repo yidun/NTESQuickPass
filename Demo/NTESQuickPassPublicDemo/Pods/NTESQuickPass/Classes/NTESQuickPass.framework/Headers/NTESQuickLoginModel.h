@@ -173,8 +173,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**导航栏右侧自定义控件 传非UIBarButtonItem对象*/
 @property (nonatomic, strong) id navControl;
 
-/**可根据navControlReftMargin值调整导航栏右边按钮距离屏幕右边的距离 默认15 */
-@property (nonatomic, assign) CGFloat navControlLeftMargin;
+/**可根据navControlRightMargin值调整导航栏右边按钮距离屏幕右边的距离 默认15 */
+@property (nonatomic, assign) CGFloat navControlRightMargin;
 
 /**可根据navControlBottomMargin值调整导航栏右边按钮距离屏幕底部的距离 默认0 */
 @property (nonatomic, assign) CGFloat navControlBottomMargin;
@@ -344,6 +344,9 @@ NS_ASSUME_NONNULL_BEGIN
    展示：  登录并同意中国移动条款协议和易盾协议1、网易协议2登录并支持一键登录
  */
 @property (nonatomic, copy) NSString *appPrivacyText;
+
+/**是否隐藏"《默认》" 两边的《》，默认不隐藏*/
+@property (nonatomic, assign) BOOL shouldHiddenPrivacyMarks;
 
 /**开发者隐私条款协议名称（第一个协议）*/
 @property (nonatomic, copy) NSString *appFPrivacyText;
