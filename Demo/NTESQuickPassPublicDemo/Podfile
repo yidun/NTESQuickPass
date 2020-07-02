@@ -4,5 +4,5 @@ source 'https://github.com/CocoaPods/Specs.git'
 
 target 'NTESQuickPassPublicDemo' do
 pod 'Masonry', '~> 1.0.2'
-pod 'NTESQuickPass', '2.1.7'
+pod 'NTESQuickPass', '2.1.8'
 end
