@@ -13,6 +13,7 @@
 - (void)loginButtonWithFullScreenDidTipped:(UIButton *_Nullable)sender;
 - (void)loginButtonWithPopScreenDidTipped:(UIButton *_Nullable)sender;
 - (void)loginButtonWithLocalPhoneDidTipped:(UIButton *_Nonnull)sender;
+- (void)loginSafeButtonDidTipped:(UIButton *_Nonnull)sender;
 
 @end
 

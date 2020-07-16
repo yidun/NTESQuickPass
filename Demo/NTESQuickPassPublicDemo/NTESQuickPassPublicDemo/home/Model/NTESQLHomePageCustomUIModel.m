@@ -23,14 +23,15 @@
                              faceOrientation:(UIInterfaceOrientation)faceOrientation {
     
     NTESQuickLoginModel *model = [[NTESQuickLoginModel alloc] init];
-    model.presentDirectionType = NTESPresentDirectionPresent;
-    model.backgroundColor = [UIColor whiteColor];
+    model.presentDirectionType = NTESPresentDirectionPush;
+//    model.backgroundColor = [UIColor whiteColor];
     model.navTextColor = [UIColor blueColor];
     model.navBgColor = [UIColor whiteColor];
     model.closePopImg = [UIImage imageNamed:@"checkedBox"];
-    model.faceOrientation = UIInterfaceOrientationPortrait;
+    model.faceOrientation = faceOrientation;
     model.navBarHidden = YES;
-    model.authWindowPop = NTESAuthWindowPopCenter;
+    model.authWindowPop = NTESAuthWindowPopFullScreen;
+    model.popBackgroundColor = [UIColor redColor];
 
     /// logo
     model.logoImg = [UIImage imageNamed:@"login_logo-1"];
@@ -61,6 +62,7 @@
 
         /// 隐私协议
     model.appPrivacyText = @"登录即同意《默认》并授权NTESQuickPass PublicDemo 获得本机号码";
+    model.shouldHiddenPrivacyMarks = YES;
     model.uncheckedImg = [[UIImage imageNamed:@"login_kuang"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     model.checkedImg = [[UIImage imageNamed:@"login_kuang_gou"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     model.checkboxWH = 11;
@@ -78,7 +80,7 @@
         model.otherStatusBarStyle = UIStatusBarStyleDefault;
     }
 
-    if (popType == 0) {/// 全屏模式
+    if (popType == 0 || popType == 2) {/// 全屏模式
         model.authWindowPop = NTESAuthWindowPopFullScreen;
         model.numberColor = [UIColor whiteColor];
         model.brandColor = [UIColor whiteColor];
@@ -134,7 +136,7 @@
     CGFloat navHeight;
     if (portraitType == 0) {
         model.localVideoFileName = @"video_portrait.mp4";
-        model.faceOrientation = UIInterfaceOrientationPortrait;
+        model.faceOrientation = faceOrientation;
         navHeight = (IS_IPHONEX_SET ? 44.f : 20.f) + 44;
     } else {
         navHeight = 44;
@@ -142,11 +144,11 @@
             model.logBtnOffsetTopY = 195;
         }
         model.faceOrientation = faceOrientation;
-        model.loginDidDisapperfaceOrientation = faceOrientation;
         model.localVideoFileName = @"video_landscape.mp4";
     }
     model.isRepeatPlay = YES;
     model.customViewBlock = ^(UIView * _Nullable customView) {
+//        customView.backgroundColor = [UIColor blackColor];
         UILabel *otherLabel = [[UILabel alloc] init];
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(labelTapped)];
         [otherLabel addGestureRecognizer:tap];
@@ -157,7 +159,7 @@
         otherLabel.font = [UIFont fontWithName:@"PingFangSC-Regular" size:12];
         [customView addSubview:otherLabel];
 
-        if (popType == 0) { /// 全屏模式
+        if (popType == 0 || popType == 2) { /// 全屏模式
             NTESQLNavigationView *navigationView = [[NTESQLNavigationView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, navHeight)];
             navigationView.backgroundColor = [UIColor clearColor];
             [customView addSubview:navigationView];
@@ -188,38 +190,39 @@
     };
 
     model.backActionBlock = ^{
-        [NTESToastView showNotice:@"返回按钮点击"];
-        NSLog(@"backAction");
+        NSLog(@"backAction===返回按钮点击");
     };
 
     model.loginActionBlock = ^(BOOL isChecked) {
         NSLog(@"loginAction");
         if (isChecked) {
-            [NTESToastView showNotice:@"复选框已勾选"];
+            NSLog(@"loginAction====复选框已勾选");
         } else {
-            [NTESToastView showNotice:@"复选框未勾选"];
+            NSLog(@"loginAction====复选框未勾选");
         }
     };
 
     model.checkActionBlock = ^(BOOL isChecked) {
         NSLog(@"checkAction");
         if (isChecked) {
-            [NTESToastView showNotice:@"选中复选框"];
+            NSLog(@"checkAction===选中复选框");
         } else {
-            [NTESToastView showNotice:@"取消复选框"];
+            NSLog(@"checkAction===取消复选框");
         }
     };
 
     model.privacyActionBlock = ^(int privacyType) {
         if (privacyType == 0) {
-            [NTESToastView showNotice:@"点击默认协议"];
+            NSLog(@"点击默认协议");
         } else if (privacyType == 1) {
-            [NTESToastView showNotice:@"点击客户第1个协议"];
+            NSLog(@"点击客户第1个协议");
         } else if (privacyType == 2) {
-            [NTESToastView showNotice:@"点击客户第2个协议"];
+            NSLog(@"点击客户第2个协议");
         }
         NSLog(@"privacyAction");
     };
+    model.privacyColor = [UIColor redColor];
+//    model.statusBarHidden = YES;
     return model;
 }
 
@@ -230,3 +233,4 @@
 }
 
 @end
+

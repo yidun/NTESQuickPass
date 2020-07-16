@@ -1,20 +1,24 @@
 PODS:
   - Masonry (1.0.2)
-  - NTESQuickPass (2.1.8)
+  - NTESQuickPass (2.1.9)
+  - NTESVerifyCode (3.2.5)
 
 DEPENDENCIES:
   - Masonry (~> 1.0.2)
-  - NTESQuickPass (= 2.1.8)
+  - NTESQuickPass (= 2.1.9)
+  - NTESVerifyCode
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - Masonry
     - NTESQuickPass
+    - NTESVerifyCode
 
 SPEC CHECKSUMS:
   Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
-  NTESQuickPass: 594c3369620ee491490e27d39d6adb26080bbf4a
+  NTESQuickPass: 8431dc52737c95883cd382c2ee75664d58f39377
+  NTESVerifyCode: 02be4840bbb1292639a3df6747a26a7dbaab436a
 
-PODFILE CHECKSUM: 6e6b28ddb69c6515a8a4ccf85e867efa590c4cbe
+PODFILE CHECKSUM: 5c36df9012a8427594f7defdd86f24cc2931baa3
 
 COCOAPODS: 1.9.2

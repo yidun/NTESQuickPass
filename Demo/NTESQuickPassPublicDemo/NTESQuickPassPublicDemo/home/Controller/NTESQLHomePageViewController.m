@@ -22,8 +22,9 @@
 #import "NTESQLNavigationView.h"
 #import "UIColor+NTESQuickPass.h"
 #import "NTESToastView.h"
+#import <VerifyCode/NTESVerifyCodeManager.h>
 
-@interface  NTESQLHomePageViewController() <UINavigationBarDelegate, NTESQLHomePagePortraitViewDelegate, NTESQLHomePageLandscapeViewDelegate,NTESQuickLoginManagerDelegate>
+@interface  NTESQLHomePageViewController() <UINavigationBarDelegate, NTESQLHomePagePortraitViewDelegate, NTESQLHomePageLandscapeViewDelegate, NTESQuickLoginManagerDelegate,NTESVerifyCodeManagerDelegate>
 
 @property (nonatomic, copy) NSString *token;
 @property (nonatomic, copy) NSString *accessToken;
@@ -47,6 +48,10 @@
 @property (nonatomic, assign) BOOL shouldQL;
 @property (nonatomic, assign) BOOL precheckSuccess;
 
+@property (nonatomic, strong) NTESVerifyCodeManager *manager;
+@property (nonatomic, strong) NSData *data;
+@property (nonatomic, assign) NSInteger statusCode;
+
 @end
 
 @implementation NTESQLHomePageViewController
@@ -63,6 +68,7 @@
     [self registerQuickLogin];
     
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(didChangeScreenRotate:) name:UIApplicationDidChangeStatusBarFrameNotification object:nil];
+    
 }
 
 - (void)didChangeScreenRotate:(NSNotification *)notification {
@@ -88,6 +94,7 @@
             make.edges.equalTo(self.view);
         }];
         _portraitType = 0; /// 竖屏
+        self.faceOrientation = UIInterfaceOrientationPortrait;
     } else {
         _portraitType = 1; /// 横屏
         if (IS_DEVICE_LEFT) {
@@ -113,9 +120,10 @@
     // 在使用一键登录之前，请先调用shouldQuickLogin方法，判断当前上网卡的网络环境和运营商是否可以一键登录
     self.shouldQL = [[NTESQuickLoginManager sharedInstance] shouldQuickLogin];
     [NTESQuickLoginManager sharedInstance].delegate = self;
+    
     if (self.shouldQL) {
         WeakSelf(self);
-        [[NTESQuickLoginManager sharedInstance] registerWithBusinessID:@"b55f3c7d4729455c9c3fb23872065401" timeout:3*1000 configURL:nil extData:nil completion:^(NSDictionary * _Nullable params, BOOL success) {
+        [[NTESQuickLoginManager sharedInstance] registerWithBusinessID:@"请填写易盾的BusinessID" timeout:3*1000 configURL:nil extData:nil completion:^(NSDictionary * _Nullable params, BOOL success) {
             if (success) {
                 weakSelf.token = [params objectForKey:@"token"];
                 weakSelf.precheckSuccess = YES;
@@ -222,94 +230,107 @@
     
     WeakSelf(self);
     [NTESDemoHttpRequest startRequestWithURL:@"" httpMethod:@"POST" requestData:jsonData finishBlock:^(NSData *data, NSError *error, NSInteger statusCode) {
+        weakSelf.data = data;
+        weakSelf.statusCode = statusCode;
         dispatch_async(dispatch_get_main_queue(), ^{
-            [weakSelf dismissViewControllerAnimated:NO completion:nil];
-            if (data) {
-                NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
-                NSNumber *code = [dict objectForKey:@"code"];
-                
-                if ([code integerValue] == 200) {
-                    NSDictionary *data = [dict objectForKey:@"data"];
-                    NSString *phoneNum = [data objectForKey:@"phone"];
-                    
-                    if (phoneNum && phoneNum.length > 0) {
-                        NTESQPLoginSuccessViewController *vc = [[NTESQPLoginSuccessViewController alloc] init];
-                        vc.themeTitle = title;
-                        vc.type = NTESQuickLoginType;
-                        if (weakSelf.popType == 0) {
-                            weakSelf.customModel.authWindowPop = NTESAuthWindowPopFullScreen;
-                            vc.model = weakSelf.customModel;
-                            [weakSelf.navigationController pushViewController:vc animated:YES];
-                        } else {
-                            weakSelf.customModel.authWindowPop = NTESAuthWindowPopCenter;
-                            vc.model = weakSelf.customModel;
-                            vc.successHandle = ^{
-                                [weakSelf registerQuickLogin];
-                            };
-                            vc.modalPresentationStyle = UIModalPresentationOverFullScreen;
-                            [weakSelf presentViewController:vc animated:YES completion:nil];
-                        }
-                    } else {
-                         weakSelf.loginViewController.modalPresentationStyle = UIModalPresentationOverFullScreen;
-                        [weakSelf presentViewController:weakSelf.loginViewController animated:YES completion:nil];
-                        if (weakSelf.popType == 0) {
-                            weakSelf.customModel.authWindowPop = NTESAuthWindowPopFullScreen;
-                        } else {
-                            weakSelf.customModel.authWindowPop = NTESAuthWindowPopCenter;
-                        }
-                        weakSelf.loginViewController.model = weakSelf.customModel;
-                        [weakSelf.loginViewController updateView];
-                        
-                        #ifdef TEST_MODE_QA
-                        [weakSelf.loginViewController showToastWithMsg:@"一键登录失败"];
-                        #endif
-                    }
-                } else if ([code integerValue] == 1003){
-                    if (weakSelf.popType == 0) {
-                       weakSelf.customModel.authWindowPop = NTESAuthWindowPopFullScreen;
-                      [weakSelf.navigationController pushViewController:weakSelf.loginViewController animated:YES];
-                    } else {
-                        weakSelf.loginViewController.modalPresentationStyle = UIModalPresentationOverFullScreen;
-                        [weakSelf presentViewController:weakSelf.loginViewController animated:YES completion:nil];
-                        weakSelf.customModel.authWindowPop = NTESAuthWindowPopCenter;
-                    }
-                    weakSelf.loginViewController.model = weakSelf.customModel;
-                    [weakSelf.loginViewController updateView];
-                } else {
-                   if (weakSelf.popType == 0) {
-                       weakSelf.customModel.authWindowPop = NTESAuthWindowPopFullScreen;
-                      [weakSelf.navigationController pushViewController:weakSelf.loginViewController animated:YES];
-                    } else {
-                        weakSelf.loginViewController.modalPresentationStyle = UIModalPresentationOverFullScreen;
-                        [weakSelf presentViewController:weakSelf.loginViewController animated:YES completion:nil];
-                        weakSelf.customModel.authWindowPop = NTESAuthWindowPopCenter;
-                    }
-                    weakSelf.loginViewController.model = weakSelf.customModel;
-                    [weakSelf.loginViewController updateView];
-                    
-                    #ifdef TEST_MODE_QA
-                    [weakSelf.loginViewController showToastWithMsg:[NSString stringWithFormat:@"错误，code=%@", code]];
-                    #endif
-                }
+            if (weakSelf.popType == 2) {
+                [weakSelf verifycode];
             } else {
-                if (weakSelf.popType == 0) {
-                   weakSelf.customModel.authWindowPop = NTESAuthWindowPopFullScreen;
-                  [weakSelf.navigationController pushViewController:weakSelf.loginViewController animated:YES];
-                } else {
-                    weakSelf.loginViewController.modalPresentationStyle = UIModalPresentationOverFullScreen;
-                    [weakSelf presentViewController:weakSelf.loginViewController animated:YES completion:nil];
-                    weakSelf.customModel.authWindowPop = NTESAuthWindowPopCenter;
-                }
-                weakSelf.loginViewController.model = weakSelf.customModel;
-                [weakSelf.loginViewController updateView];
-                
-                #ifdef TEST_MODE_QA
-                [weakSelf.loginViewController showToastWithMsg:[NSString stringWithFormat:@"服务器错误-%ld", (long)statusCode]];
-                #endif
+                [weakSelf loginSuccess];
             }
-            
         });
     }];
+}
+
+- (void)loginSuccess {
+     WeakSelf(self);
+    dispatch_async(dispatch_get_main_queue(), ^{
+       [weakSelf dismissViewControllerAnimated:NO completion:nil];
+        if (weakSelf.data) {
+            NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:weakSelf.data options:NSJSONReadingAllowFragments error:nil];
+           NSNumber *code = [dict objectForKey:@"code"];
+           
+           if ([code integerValue] == 200) {
+               NSDictionary *data = [dict objectForKey:@"data"];
+               NSString *phoneNum = [data objectForKey:@"phone"];
+               
+               if (phoneNum && phoneNum.length > 0) {
+                   NTESQPLoginSuccessViewController *vc = [[NTESQPLoginSuccessViewController alloc] init];
+//                   vc.themeTitle = title;
+                   vc.type = NTESQuickLoginType;
+                   if (weakSelf.popType == 0 || weakSelf.popType == 2) {
+                       weakSelf.customModel.authWindowPop = NTESAuthWindowPopFullScreen;
+                       vc.model = weakSelf.customModel;
+                       [weakSelf.navigationController pushViewController:vc animated:YES];
+                   } else {
+                       weakSelf.customModel.authWindowPop = NTESAuthWindowPopCenter;
+                       vc.model = weakSelf.customModel;
+                       vc.successHandle = ^{
+                           [weakSelf registerQuickLogin];
+                       };
+                       vc.modalPresentationStyle = UIModalPresentationOverFullScreen;
+                       [weakSelf presentViewController:vc animated:YES completion:nil];
+                   }
+               } else {
+                    weakSelf.loginViewController.modalPresentationStyle = UIModalPresentationOverFullScreen;
+                   [weakSelf presentViewController:weakSelf.loginViewController animated:YES completion:nil];
+                   if (weakSelf.popType == 0 || weakSelf.popType == 2) {
+                       weakSelf.customModel.authWindowPop = NTESAuthWindowPopFullScreen;
+                   } else {
+                       weakSelf.customModel.authWindowPop = NTESAuthWindowPopCenter;
+                   }
+                   weakSelf.loginViewController.model = weakSelf.customModel;
+                   [weakSelf.loginViewController updateView];
+                   
+                   #ifdef TEST_MODE_QA
+                   [weakSelf.loginViewController showToastWithMsg:@"一键登录失败"];
+                   #endif
+               }
+           } else if ([code integerValue] == 1003){
+               if (weakSelf.popType == 0 || weakSelf.popType == 2) {
+                  weakSelf.customModel.authWindowPop = NTESAuthWindowPopFullScreen;
+                 [weakSelf.navigationController pushViewController:weakSelf.loginViewController animated:YES];
+               } else {
+                   weakSelf.loginViewController.modalPresentationStyle = UIModalPresentationOverFullScreen;
+                   [weakSelf presentViewController:weakSelf.loginViewController animated:YES completion:nil];
+                   weakSelf.customModel.authWindowPop = NTESAuthWindowPopCenter;
+               }
+               weakSelf.loginViewController.model = weakSelf.customModel;
+               [weakSelf.loginViewController updateView];
+           } else {
+              if (weakSelf.popType == 0 || weakSelf.popType == 2) {
+                  weakSelf.customModel.authWindowPop = NTESAuthWindowPopFullScreen;
+                 [weakSelf.navigationController pushViewController:weakSelf.loginViewController animated:YES];
+               } else {
+                   weakSelf.loginViewController.modalPresentationStyle = UIModalPresentationOverFullScreen;
+                   [weakSelf presentViewController:weakSelf.loginViewController animated:YES completion:nil];
+                   weakSelf.customModel.authWindowPop = NTESAuthWindowPopCenter;
+               }
+               weakSelf.loginViewController.model = weakSelf.customModel;
+               [weakSelf.loginViewController updateView];
+               
+               #ifdef TEST_MODE_QA
+               [weakSelf.loginViewController showToastWithMsg:[NSString stringWithFormat:@"错误，code=%@", code]];
+               #endif
+           }
+       } else {
+           if (weakSelf.popType == 0 || weakSelf.popType == 2) {
+              weakSelf.customModel.authWindowPop = NTESAuthWindowPopFullScreen;
+             [weakSelf.navigationController pushViewController:weakSelf.loginViewController animated:YES];
+           } else {
+               weakSelf.loginViewController.modalPresentationStyle = UIModalPresentationOverFullScreen;
+               [weakSelf presentViewController:weakSelf.loginViewController animated:YES completion:nil];
+               weakSelf.customModel.authWindowPop = NTESAuthWindowPopCenter;
+           }
+           weakSelf.loginViewController.model = weakSelf.customModel;
+           [weakSelf.loginViewController updateView];
+           
+           #ifdef TEST_MODE_QA
+           [weakSelf.loginViewController showToastWithMsg:[NSString stringWithFormat:@"服务器错误-%ld", (long)weakSelf.statusCode]];
+           #endif
+       }
+       
+   });
 }
 
 /// 授权页面自定义
@@ -321,20 +342,12 @@
 
 #pragma - NTESQuickLoginManagerDelegate
 
-- (void)authViewDealloc {
-    NSLog(@"授权页面销毁了");
-}
-
-- (void)authViewDidLoad {
-    NSLog(@"授权页面初始化");
-}
-
 - (void)authViewWillAppear {
-    NSLog(@"授权页面将要出现");
+    NSLog(@"授权页面将要弹出");
 }
 
 - (void)authViewDidAppear {
-    NSLog(@"授权页面已经出现");
+    NSLog(@"授权页面已经弹出");
 }
 
 - (void)authViewWillDisappear {
@@ -342,7 +355,15 @@
 }
 
 - (void)authViewDidDisappear {
-    NSLog(@"授权页面已经消失");
+     NSLog(@"授权页面已经消失");
+}
+
+- (void)authViewDidLoad {
+     NSLog(@"授权页面初始化了");
+}
+
+- (void)authViewDealloc {
+    NSLog(@"授权页面销毁了");
 }
 
 #pragma - 竖屏全屏按钮点击的代理
@@ -369,6 +390,12 @@
     [self.navigationController pushViewController:vc animated:YES];;
 }
 
+- (void)loginSafeButtonDidTipped:(UIButton *_Nonnull)sender {
+    self.popType = 2;
+    self.portraitType = 0;
+    [self getPhoneNumberWithText:registerTitle];  /// 0-全屏
+}
+
 #pragma 横屏全屏按钮点击的代理
 
 /// 横屏全屏按钮的点击
@@ -392,9 +419,84 @@
     [self.navigationController pushViewController:vc animated:YES];
 }
 
+- (void)safeButtonWithLandscapeDidTipped:(UIButton *)sender {
+    self.popType = 2;
+    self.portraitType = 1;
+    [self getPhoneNumberWithText:registerTitle];
+}
+
 - (UIStatusBarStyle)preferredStatusBarStyle {
     return UIStatusBarStyleLightContent;
 }
 
+- (void)verifycode {
+    if (!self.manager) {
+        self.manager = [NTESVerifyCodeManager getInstance];
+    }
+    _manager.delegate = self;
+    _manager.mode = NTESVerifyCodeNormal;
+    [_manager configureVerifyCode:@"请填写易盾的验证码id" timeout:7.0];
+                   // 设置语言
+    _manager.lang = NTESVerifyCodeLangCN;
+    // 设置透明度
+    _manager.alpha = 0.5;
+    // 设置颜色
+    _manager.color = [UIColor blackColor];
+                   // 设置frame
+        //           _manager.frame = CGRectNull;
+                   // 是否开启降级方案
+    _manager.openFallBack = NO;
+    _manager.fallBackCount = 10;
+                   // 是否隐藏关闭按钮
+    //               _manager.closeButtonHidden = YES;
+    //    _manager.shouldCloseByTouchBackground = YES;
+    [_manager enableLog:YES];
+    [_manager openVerifyCodeView:nil];
+}
+
+#pragma mark - NTESVerifyCodeManagerDelegate
+/**
+ * 验证码组件初始化出错
+ *
+ * @param message 错误信息
+ */
+- (void)verifyCodeInitFailed:(NSString *)message{
+    NSLog(@"收到初始化失败的回调:%@",message);
+   
+    
+}
+/**
+ * 完成验证之后的回调
+ *
+ * @param result 验证结果 BOOL:YES/NO
+ * @param validate 二次校验数据，如果验证结果为false，validate返回空
+ * @param message 结果描述信息
+ *
+ */
+- (void)verifyCodeValidateFinish:(BOOL)result validate:(NSString *)validate message:(NSString *)message{
+    NSLog(@"收到验证结果的回调:(%d,%@,%@)", result, validate, message);
+    if (result) {
+        [self loginSuccess];
+    }
+}
+/**
+ * 网络错误
+ *
+ * @param error 网络错误信息
+ */
+- (void)verifyCodeNetError:(NSError *)error{
+    //用户关闭验证后执行的方法
+    NSLog(@"收到网络错误的回调:%@(%ld)", [error localizedDescription], (long)error.code);
+    
+}
+/**
+ * 关闭验证码窗口后的回调
+ */
+- (void)verifyCodeCloseWindow{
+    //用户关闭验证后执行的方法
+    NSLog(@"收到关闭验证码视图的回调");
+}
+
 @end
+
 

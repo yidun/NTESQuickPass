@@ -13,6 +13,7 @@
 - (void)loginButtonWithLandscapeFullScreenDidTipped:(UIButton *_Nullable)sender;
 - (void)loginButtonWithLandscapePopScreenDidTipped:(UIButton *_Nullable)sender;
 - (void)loginButtonWithLandscapeLocalPhoneDidTipped:(UIButton *_Nonnull)sender;
+- (void)safeButtonWithLandscapeDidTipped:(UIButton *_Nonnull)sender;
 
 @end
 

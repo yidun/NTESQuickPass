@@ -122,7 +122,7 @@
         make.size.mas_equalTo(CGSizeMake(64, 2.5));
     }];
     
-    _bottomView = [[NTESQLHomePagePortraitBottomView alloc] initWithFrame:CGRectMake(0, SCREEN_HEIGHT - 287, SCREEN_WIDTH, 287)];
+    _bottomView = [[NTESQLHomePagePortraitBottomView alloc] initWithFrame:CGRectMake(0, SCREEN_HEIGHT - 351, SCREEN_WIDTH, 351)];
     _bottomView.delegate = self;
     _bottomView.backgroundColor = [UIColor whiteColor];
     [self addSubview:_bottomView];
@@ -170,4 +170,11 @@
     }
 }
 
+- (void)loginSafeButtonDidTipped:(UIButton *_Nonnull)sender {
+    if (_delegate && [_delegate respondsToSelector:@selector(loginSafeButtonDidTipped:)]) {
+        [_delegate loginSafeButtonDidTipped:sender];
+    }
+}
+
 @end
+

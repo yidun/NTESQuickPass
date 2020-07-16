@@ -24,6 +24,7 @@
 
 @property (nonatomic, strong) UIButton *loginFullScreenButton;
 @property (nonatomic, strong) UIButton *loginPopButton;
+@property (nonatomic, strong) UIButton *loginSafeButton;
 @property (nonatomic, strong) UILabel *contentLabel;
 
 @property (nonatomic, assign) NSInteger type;
@@ -71,7 +72,7 @@
     [self addSubview:_loginTabButton];
     [_loginTabButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self).mas_offset(leftMargin);
-        make.top.equalTo(self.logoImageView.mas_bottom).mas_offset(60);
+        make.top.equalTo(self.logoImageView.mas_bottom).mas_offset(40);
         make.size.mas_equalTo(CGSizeMake(64, 22));
     }];
     
@@ -95,7 +96,7 @@
     [self addSubview:_checkTabButton];
     [_checkTabButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(self).mas_offset(-leftMargin);
-        make.top.equalTo(self.logoImageView.mas_bottom).mas_offset(60);
+        make.top.equalTo(self.logoImageView.mas_bottom).mas_offset(40);
         make.size.mas_equalTo(CGSizeMake(64, 22));
     }];
     
@@ -141,6 +142,21 @@
         make.top.equalTo(self.loginFullScreenButton.mas_bottom).mas_offset(20);
         make.height.mas_equalTo(44);
     }];
+    
+    _loginSafeButton = [[UIButton alloc] init];
+    _loginSafeButton.layer.cornerRadius = 8;
+    _loginSafeButton.layer.masksToBounds = YES;
+    _loginSafeButton.backgroundColor = [UIColor whiteColor];
+    [_loginSafeButton addTarget:self action:@selector(safeButtonDidTipped:) forControlEvents:UIControlEventTouchUpInside];
+    [_loginSafeButton setTitle:@"一键登录 | 智能安全版" forState:UIControlStateNormal];
+    [_loginSafeButton setTitleColor:[UIColor ntes_colorWithHexString:@"#324DFF"] forState:UIControlStateNormal];
+    [self addSubview:_loginSafeButton];
+    [_loginSafeButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(self);
+        make.width.mas_equalTo(295);
+        make.top.equalTo(self.loginPopButton.mas_bottom).mas_offset(20);
+        make.height.mas_equalTo(44);
+    }];
        
     UILabel *bottomCopyRightLabel = [[UILabel alloc] init];
     bottomCopyRightLabel.text = bottomCopyRightText;
@@ -148,10 +164,10 @@
     bottomCopyRightLabel.font = [UIFont systemFontOfSize:11.0];
     bottomCopyRightLabel.textColor = [UIColor ntes_colorWithHexString:@"#B8BBCC"];
     [self addSubview:bottomCopyRightLabel];
-    CGFloat bottomWhiteHeight = 34;
+//    CGFloat bottomWhiteHeight = 34;
     [bottomCopyRightLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self);
-        make.bottom.equalTo(self).offset(-bottomWhiteHeight);
+        make.top.equalTo(self.loginSafeButton.mas_bottom).offset(5);
     }];
     
 }
@@ -164,6 +180,7 @@
     self.type = 0;
     
     _loginFullScreenButton.hidden = NO;
+    _loginSafeButton.hidden = NO;
     [_loginPopButton setTitle:@"一键登录 | 弹窗" forState:UIControlStateNormal];
     [_loginPopButton mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self);
@@ -182,6 +199,7 @@
     
     [_loginPopButton setTitle:@"本机校验" forState:UIControlStateNormal];
     _loginFullScreenButton.hidden = YES;
+    _loginSafeButton.hidden = YES;
     [_loginPopButton mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self);
         make.width.mas_equalTo(295);
@@ -210,4 +228,10 @@
      }
 }
 
+- (void)safeButtonDidTipped:(UIButton *)sender {
+    if (_delegate && [_delegate respondsToSelector:@selector(safeButtonWithLandscapeDidTipped:)]) {
+        [_delegate safeButtonWithLandscapeDidTipped:sender];
+    }
+}
 @end
+
