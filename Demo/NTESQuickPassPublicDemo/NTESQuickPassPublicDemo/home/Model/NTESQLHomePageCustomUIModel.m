@@ -73,11 +73,11 @@
     model.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     
     if (@available(iOS 13.0, *)) {
-        model.currentStatusBarStyle = UIStatusBarStyleDarkContent;
-        model.otherStatusBarStyle = UIStatusBarStyleDarkContent;
+        model.statusBarStyle = UIStatusBarStyleDarkContent;
+//        model.otherStatusBarStyle = UIStatusBarStyleDarkContent;
     } else {
-        model.currentStatusBarStyle = UIStatusBarStyleDefault;
-        model.otherStatusBarStyle = UIStatusBarStyleDefault;
+        model.statusBarStyle = UIStatusBarStyleDefault;
+//        model.otherStatusBarStyle = UIStatusBarStyleDefault;
     }
 
     if (popType == 0 || popType == 2) {/// 全屏模式
