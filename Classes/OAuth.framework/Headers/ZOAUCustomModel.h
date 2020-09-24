@@ -36,8 +36,18 @@ typedef void (^resultListener)(NSDictionary *data);
 @property (nonatomic,assign) UIModalPresentationStyle modalPresentationStyle;
 /**是否取消授权页关闭时的回调  默认YES（默认关闭10108回调）*/
 @property (nonatomic,assign)BOOL ifStopListeningAuthPageClosed;
-/**状态栏设置*/
+
+
+
+
+//MARK:授权页*************
+/**状态栏是否隐藏*/
 @property(nonatomic,assign)BOOL statusBarHidden;
+/**状态栏样式  默认为UIStatusBarStyleDefault*/
+@property(nonatomic,assign)UIStatusBarStyle statusBarStyle;
+/**授权页协议出现时的状态栏样式  默认为UIStatusBarStyleDefault*/
+@property(nonatomic,assign)UIStatusBarStyle statusBarStyleInWebView;
+
 
 
 //MARK:导航栏设置*************

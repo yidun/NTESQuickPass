@@ -79,6 +79,7 @@
 - (void) gmbc:(NSString*)accessCode mobile:(NSString *)mobile listener:(resultListener)listener;
 
 
+
 //修改UI
 -(void) customUIWithParams:(ZOAUCustomModel *)customUIParams topCustomViews:(void(^)(UIView *customView))topCustomViews bottomCustomViews:(void(^)(UIView *customView))bottomCustomViews;
 
