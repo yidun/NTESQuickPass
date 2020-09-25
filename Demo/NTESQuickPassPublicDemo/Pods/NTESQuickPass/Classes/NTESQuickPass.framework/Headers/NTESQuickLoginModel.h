@@ -130,10 +130,8 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark -------------------------- 状态栏设置
 
 /**一键登录界面状态栏着色样式*/
-@property (nonatomic, assign) UIStatusBarStyle currentStatusBarStyle;
+@property (nonatomic, assign) UIStatusBarStyle statusBarStyle;
 
-/**一键登录之外界面状态栏着色样式*/
-@property (nonatomic, assign) UIStatusBarStyle otherStatusBarStyle;
 
 #pragma mark -------------------------- 导航栏设置
 

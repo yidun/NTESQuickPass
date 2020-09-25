@@ -74,10 +74,10 @@
     
     if (@available(iOS 13.0, *)) {
         model.statusBarStyle = UIStatusBarStyleDarkContent;
-//        model.otherStatusBarStyle = UIStatusBarStyleDarkContent;
+//        model.statusBarStyle = UIStatusBarStyleDarkContent;
     } else {
         model.statusBarStyle = UIStatusBarStyleDefault;
-//        model.otherStatusBarStyle = UIStatusBarStyleDefault;
+//        model.statusBarStyle = UIStatusBarStyleLightContent;
     }
 
     if (popType == 0 || popType == 2) {/// 全屏模式

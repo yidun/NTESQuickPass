@@ -10,7 +10,7 @@
 		</data>
 		<key>Headers/NTESQuickLoginModel.h</key>
 		<data>
-		2UfwyyiUT9OdMk9RRoqVDi4vKcM=
+		taF6zHQbEGrqxqG7jidF+bRrXIQ=
 		</data>
 		<key>Headers/NTESQuickPass.h</key>
 		<data>
@@ -22,7 +22,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		co6CEAAbKgCEpY9wsPLtWgdfago=
+		73ilD5K1GeGR/qkbfyb/32voGgA=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -46,11 +46,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			2UfwyyiUT9OdMk9RRoqVDi4vKcM=
+			taF6zHQbEGrqxqG7jidF+bRrXIQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			74r1P1zyeDtrE59hClLe0eSd7LCHdmwsFpd835RmQzQ=
+			Le9YC5mqWvdCRcHol9ysAZ5TKUDY875uQbgCjM0+oVo=
 			</data>
 		</dict>
 		<key>Headers/NTESQuickPass.h</key>

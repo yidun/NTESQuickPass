@@ -122,7 +122,7 @@
         make.size.mas_equalTo(CGSizeMake(64, 2.5));
     }];
     
-    _bottomView = [[NTESQLHomePagePortraitBottomView alloc] initWithFrame:CGRectMake(0, SCREEN_HEIGHT - 351, SCREEN_WIDTH, 351)];
+    _bottomView = [[NTESQLHomePagePortraitBottomView alloc] initWithFrame:CGRectMake(0, SCREEN_HEIGHT - 351 +  (IS_IPHONEX_SET ? 0 : 70), SCREEN_WIDTH, 351 - (IS_IPHONEX_SET ? 0 : 70))];
     _bottomView.delegate = self;
     _bottomView.backgroundColor = [UIColor whiteColor];
     [self addSubview:_bottomView];

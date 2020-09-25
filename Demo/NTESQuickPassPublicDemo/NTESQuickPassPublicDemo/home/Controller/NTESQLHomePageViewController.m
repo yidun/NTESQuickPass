@@ -123,7 +123,7 @@
     
     if (self.shouldQL) {
         WeakSelf(self);
-        [[NTESQuickLoginManager sharedInstance] registerWithBusinessID:@"b55f3c7d4729455c9c3fb23872065401" timeout:3*1000 configURL:nil extData:nil completion:^(NSDictionary * _Nullable params, BOOL success) {
+        [[NTESQuickLoginManager sharedInstance] registerWithBusinessID:@"请填写自己的业务ID" timeout:3*1000 configURL:nil extData:nil completion:^(NSDictionary * _Nullable params, BOOL success) {
             if (success) {
                 weakSelf.token = [params objectForKey:@"token"];
                 weakSelf.precheckSuccess = YES;
