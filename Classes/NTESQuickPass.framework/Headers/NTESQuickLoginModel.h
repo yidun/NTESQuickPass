@@ -156,6 +156,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**导航返回图标 */
 @property (nonatomic, strong) UIImage *navReturnImg;
 
+/**是否隐藏导航返回图标 */
+@property (nonatomic, assign) BOOL shouldHiddenNavReturnImg;
+
 /**可根据navReturnImgLeftMargin值调整返回按钮距离屏幕左边的距离 默认0 */
 @property (nonatomic, assign) CGFloat navReturnImgLeftMargin;
 

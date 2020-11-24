@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "NTESQuickPass"
-  spec.version      = "2.2.3"
+  spec.version      = "3.0.1.beta"
   spec.summary      = "NTESQuickPass."
 
   # This description is used to generate tags and improve search results.
@@ -108,9 +108,7 @@ Pod::Spec.new do |spec|
 
   # spec.preserve_paths = "FilesToSave", "MoreFilesToSave"
   
-  spec.resource_bundles = {
-       'NTESQuickPass' => ['Assets/sdk_oauth.bundle','Assets/TYRZResource.bundle','Assets/NTESQuickPassResource.bundle']
-   }
+  spec.resource = "Assets/NTESResource.bundle"
 
 
 
@@ -126,7 +124,7 @@ Pod::Spec.new do |spec|
   # spec.library   = "iconv"
   # spec.libraries = "iconv", "xml2"
   
-  spec.vendored_frameworks = ["Classes/TYRZSDK.framework","Classes/OAuth.framework","Classes/EAccountApiSDK.framework","Classes/NTESQuickPass.framework"]
+  spec.vendored_frameworks = ["Classes/NTESBaseComponent.framework","Classes/NTESQuickPass.framework","Classes/WYEAccountApiSDK.framework","Classes/WYOAuth.framework","Classes/WYTYRZUISDK.framework"]
   
   spec.libraries = "c++.1"
 
