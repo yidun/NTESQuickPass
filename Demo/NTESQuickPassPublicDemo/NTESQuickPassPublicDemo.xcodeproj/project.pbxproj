@@ -759,7 +759,7 @@
 				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
-					"-all_load",
+					"-fprofile-instr-generate",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.netease.NTESQuickPassPublicDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -790,7 +790,7 @@
 				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
-					"-all_load",
+					"-fprofile-instr-generate",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.netease.NTESQuickPassPublicDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";

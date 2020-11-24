@@ -10,6 +10,13 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+typedef NS_ENUM(NSUInteger, NTESCarrierType) {
+    NTESCarrierTypeUnknown = 0,  // 未知
+    NTESCarrierTypeTelecom,      // 电信
+    NTESCarrierTypeMobile,       // 移动
+    NTESCarrierTypeUnicom        // 联通
+};
+
 @protocol NTESQuickLoginManagerDelegate <NSObject>
 
 /**
@@ -47,14 +54,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  @abstract   block
  *
- *  @说明        初始化结果的回调，返回preCheck的token信息
- */
-typedef void(^NTESQLInitHandler)(NSDictionary * _Nullable params, BOOL success);
-
-/**
- *  @abstract   block
- *
- *  @说明        运营商预取号结果的回调，包含预取号是否成功、脱敏手机号（仅电信返回脱敏手机号）、运营商结果码（请参照运营商文档中提供的错误码信息）和描述信息
+ *  @说明        运营商预取号结果的回调，包含预取号是否成功、脱敏手机号（仅电信返回脱敏手机号）、运营商结果码（请参照运营商文档中提供的错误码信息）、易盾的token和描述信息
  *              ⚠️ 联通预取号无法获取脱敏手机号，需调用pushAuthorizePage拉起授权页面显示
  */
 typedef void(^NTESQLGetPhoneNumHandler)(NSDictionary *resultDic);
@@ -109,31 +109,27 @@ typedef void(^NTESAuthorizeCompletionHandler)(void);
 - (BOOL)shouldQuickLogin;
 
 /**
- *  @abstract   获取当前上网卡的运营商，0:未知 1:电信 2.移动 3.联通
+ *  @abstract   获取当前上网卡的运营商，NTESCarrierTypeUnknown : 未知 、 NTESCarrierTypeTelecom ：电信  、NTESCarrierTypeMobile ：移动、  NTESCarrierTypeUnicom ：联通
  */
-- (NSInteger)getCarrier;
+- (NTESCarrierType)getCarrier;
 
 /**
  *  @abstract   初始化配置参数
  *
  *  @param      businessID          易盾分配的业务方ID
- *  @param      timeout             初始化接口超时时间，单位ms，不传或传0默认3000ms，最大不超过10000ms
- *  @param      initHandler         返回初始化结果
  *
  */
-- (void)registerWithBusinessID:(NSString *)businessID timeout:(NSTimeInterval)timeout completion:(NTESQLInitHandler)initHandler;
+- (void)registerWithBusinessID:(NSString *)businessID;
 
 /**
  *  @abstract   初始化配置参数
  *
- *  @param      businessID          易盾分配的业务方ID
- *  @param      timeout             初始化接口超时时间，单位ms，不传或传0默认3000ms，最大不超过10000ms
- *  @param      configURL           preCheck接口的私有化url，若传nil或@""，默认使用@"https://ye.dun.163yun.com/v1/oneclick/preCheck"
+ *  @param      businessID      易盾分配的业务方ID
+ *  @param      configURL         preCheck接口的私有化url，若传nil或@""，默认使用@"https://ye.dun.163yun.com/v1/oneclick/preCheck"
  *  @param      extData             当设置configURL时，可以增加额外参数，接入方自行处理
- *  @param      initHandler         返回初始化结果
  *
  */
-- (void)registerWithBusinessID:(NSString *)businessID timeout:(NSTimeInterval)timeout configURL:(NSString * _Nullable)configURL extData:(NSString *  _Nullable)extData completion:(NTESQLInitHandler)initHandler;
+- (void)registerWithBusinessID:(NSString *)businessID configURL:(NSString * _Nullable)configURL extData:(NSString *  _Nullable)extData;
 
 /**
  *  @abstract   移动、联通、电信 - 预取号接口，请确保在初始化成功后再调用此方法

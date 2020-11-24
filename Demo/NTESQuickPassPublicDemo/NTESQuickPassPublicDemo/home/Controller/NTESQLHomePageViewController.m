@@ -60,12 +60,12 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     [self setupViews];
+    [self registerQuickLogin];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [self.navigationController setNavigationBarHidden:YES animated:YES];
-    
-    [self registerQuickLogin];
+
     
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(didChangeScreenRotate:) name:UIApplicationDidChangeStatusBarFrameNotification object:nil];
     
@@ -120,66 +120,49 @@
     // 在使用一键登录之前，请先调用shouldQuickLogin方法，判断当前上网卡的网络环境和运营商是否可以一键登录
     self.shouldQL = [[NTESQuickLoginManager sharedInstance] shouldQuickLogin];
     [NTESQuickLoginManager sharedInstance].delegate = self;
+    [[NTESQuickLoginManager sharedInstance] registerWithBusinessID:@"b55f3c7d4729455c9c3fb23872065401"];
     
-    if (self.shouldQL) {
-        WeakSelf(self);
-        [[NTESQuickLoginManager sharedInstance] registerWithBusinessID:@"请填写自己的业务ID" timeout:3*1000 configURL:nil extData:nil completion:^(NSDictionary * _Nullable params, BOOL success) {
-            if (success) {
-                weakSelf.token = [params objectForKey:@"token"];
-                weakSelf.precheckSuccess = YES;
-                [weakSelf getPhoneNumber];
-            } else {
-                NSLog(@"precheck失败");
-                weakSelf.precheckSuccess = NO;
-            }
-        }];
-    }
+//    if (self.shouldQL) {
+//        WeakSelf(self);
+//        [[NTESQuickLoginManager sharedInstance] registerWithBusinessID:@"" timeout:3*1000 configURL:nil extData:nil completion:^(NSDictionary * _Nullable params, BOOL success) {
+//            if (success) {
+//                weakSelf.token = [params objectForKey:@"token"];
+//                weakSelf.precheckSuccess = YES;
+//                [weakSelf getPhoneNumber];
+//            } else {
+//                NSLog(@"precheck失败");
+//                weakSelf.precheckSuccess = NO;
+//            }
+//        }];
+//    }
 }
 
-- (void)getPhoneNumber {
-    WeakSelf(self);
-    [[NTESQuickLoginManager sharedInstance] getPhoneNumberCompletion:^(NSDictionary * _Nonnull resultDic) {
-        weakSelf.resultDic = resultDic;
-    }];
-}
 
 - (void)getPhoneNumberWithText:(NSString *)title {
-    if (!self.shouldQL || !self.precheckSuccess) {
-        NSLog(@"不允许一键登录");
-        return;
-    }
     self.loginViewController = [[NTESQLLoginViewController alloc] init];
     self.loginViewController.themeTitle = title;
-    self.loginViewController.token = self.token;
 
-    NSNumber *boolNum = [self.resultDic objectForKey:@"success"];
-    BOOL success = [boolNum boolValue];
     WeakSelf(self);
-    if (success) {
+    [[NTESQuickLoginManager sharedInstance] getPhoneNumberCompletion:^(NSDictionary * _Nonnull resultDic) {
+        NSNumber *boolNum = [resultDic objectForKey:@"success"];
+        weakSelf.resultDic = resultDic;
+        weakSelf.token = [resultDic objectForKey:@"token"];
+        BOOL success = [boolNum boolValue];
+        weakSelf.loginViewController.token = self.token;
         dispatch_async(dispatch_get_main_queue(), ^{
-            [weakSelf setCustomUI];
-            [weakSelf authorizeCTCMCULoginWithText:title];
-        });
-    } else {
-        [[NTESQuickLoginManager sharedInstance] getPhoneNumberCompletion:^(NSDictionary * _Nonnull resultDic) {
-            NSNumber *boolNum = [resultDic objectForKey:@"success"];
-            weakSelf.resultDic = resultDic;
-            BOOL success = [boolNum boolValue];
-            dispatch_async(dispatch_get_main_queue(), ^{
-                if (success) {
-                    [weakSelf setCustomUI];
-                    [weakSelf authorizeCTCMCULoginWithText:title];
-                } else {
-                    [weakSelf.navigationController pushViewController:weakSelf.loginViewController animated:YES];
-                    [weakSelf.loginViewController updateView];
+            if (success) {
+                [weakSelf setCustomUI];
+                [weakSelf authorizeCTCMCULoginWithText:title];
+            } else {
+                [weakSelf.navigationController pushViewController:weakSelf.loginViewController animated:YES];
+                [weakSelf.loginViewController updateView];
 
-                    #ifdef TEST_MODE_QA
-                    [weakSelf.loginViewController showToastWithMsg:[NSString stringWithFormat:@"code:%@\ndesc:%@",  [resultDic objectForKey:@"resultCode"], [resultDic objectForKey:@"desc"]]];
-                    #endif
-                   }
-              });
-          }];
-    }
+                #ifdef TEST_MODE_QA
+                [weakSelf.loginViewController showToastWithMsg:[NSString stringWithFormat:@"code:%@\ndesc:%@",  [resultDic objectForKey:@"resultCode"], [resultDic objectForKey:@"desc"]]];
+                #endif
+               }
+          });
+      }];
 }
 
 /// 授权认证接口
@@ -229,7 +212,7 @@
     }
     
     WeakSelf(self);
-    [NTESDemoHttpRequest startRequestWithURL:@"" httpMethod:@"POST" requestData:jsonData finishBlock:^(NSData *data, NSError *error, NSInteger statusCode) {
+    [NTESDemoHttpRequest startRequestWithURL:@"https://ye.dun.163yun.com/api/login/oneclick" httpMethod:@"POST" requestData:jsonData finishBlock:^(NSData *data, NSError *error, NSInteger statusCode) {
         weakSelf.data = data;
         weakSelf.statusCode = statusCode;
         dispatch_async(dispatch_get_main_queue(), ^{
