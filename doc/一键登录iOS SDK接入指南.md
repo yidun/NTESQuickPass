@@ -1,5 +1,11 @@
+
 一键登录 iOS SDK 接入指南
 ===
+## 重要更新说明
+| 版本    |更新说明                                                     |
+| ----------- | ------------------------------------------------------------ |
+| 2.2.3 | NTESQuickLoginModel 类中的 <font color=red>currentStatusBarStyle、otherStatusBarStyle</font> 合并为 <font color=red>statusBarStyle</font> |
+
 ## 1 SDK集成
 ### 1.1 概览
 - 环境说明
@@ -20,15 +26,15 @@
 | 产品流程图  | [交互时序图](http://support.dun.163.com/documents/287305921855672320?docId=288803165532508160&locale=zh-cn) |
 | SDK资源包   | [去下载](http://support.dun.163.com/documents/287305921855672320?docId=289905327964606464&locale=zh-cn)     |
 | 常见问题    | [常见问题](http://support.dun.163.com/documents/287305921855672320?docId=320640624725512192&locale=zh-cn)   |
-| SDK当前版本 | 2.1.6         |
+| SDK当前版本 | 3.0.1         |
 
 
 - 业务场景详述
 
 | 业务场景 | 说明                                                         |
 | -------- | ------------------------------------------------------------ |
-| 一键登录 | 用户无需输入手机号码，只需集成并调用SDK拉起授权页方法<br>用户确认授权后，SDK会获取token<br/>服务端携带token到运营商网关获取用户当前上网使用的流量卡号码，并返回给APP服务端 |
-| 本机校验 | 用户输入手机号码<br/>服务端携带手机号码和token去运营商网关进行校验比对<br/>返回的校验结果为：用户当前流量卡号码与服务端携带的手机号码是否一致 |
+| 一键登录 | 用户无需输入手机号码，只需集成并调用SDK拉起授权页方法<br>用户确认授权后，SDK会获取token<br/>服务端携带token到运营商网关获取用户当前上网使用的流量卡号码，并返回给APP服务端<br>（失败情况建议降级使用短信或其他登录方式，推荐使用[网易易盾短信验证码](http://support.dun.163.com/documents/2018101001?docId=210172332353966080&locale=zh-cn)）<br/> |
+| 本机校验 | 用户输入手机号码<br/>服务端携带手机号码和token去运营商网关进行校验比对<br/>返回的校验结果为：用户当前流量卡号码与服务端携带的手机号码是否一致 <br>（失败情况建议降级使用短信或其他登录方式，推荐使用[网易易盾短信验证码](http://support.dun.163.com/documents/2018101001?docId=210172332353966080&locale=zh-cn)）<br/>|
 
 ### 1.2 Cocoapods 集成
 
@@ -38,12 +44,13 @@ Podfile 里面添加以下代码：
 
 ```ruby
 # 以下两种版本选择方式示例
+source 'https://github.com/CocoaPods/Specs.git' // 指定下载源
 
 # 集成最新版SDK:
 pod 'NTESQuickPass'
 
 # 集成指定SDK，具体版本号可先执行 pod search NTESQuickPass，根据返回的版本信息自行决定:
-pod 'NTESQuickPass', '~> 2.1.6'
+pod 'NTESQuickPass', '3.0.1'
 ```
 
 保存并执行pod install即可，若未执行pod repo update，请执行pod install --repo-update
@@ -52,15 +59,15 @@ pod 'NTESQuickPass', '~> 2.1.6'
 
 * 1、导入 `NTESQuickPass.framework` 到XCode工程，直接拖拽`NTESQuickPass.framework`文件到Xcode工程内(请勾选Copy items if needed选项)
 * 2、添加依赖库，在项目设置target -> 选项卡Build Phase -> Linked Binary with Libraries添加如下依赖库： 
-	* `TYRZSDK.framework`
-	* `EAccountApiSDK.framework`
-	* `OAuth.framework`
+	* `WYTYRZUISDK.framework`
+	* `WYEAccountApiSDK.framework`
+	* `WYOAuth.framework`
+	* `NTESBaseComponent.framework`
 	* `libz.1.2.8.tbd`
 	* `libc++.1.tbd`
 	*	如需支持iOS8.0系统，需添加`CoreFoundation.framework`，并将`CoreFoundation.framework`的status改为optional
 * 3、在项目设置target -> 选项卡Build Phase -> Copy Bundle Resources添加依赖bundle：
-	* `sdk_oauth.bundle`
-	* `TYRZResource.bundle`
+	* `NTESResource.bundle`
 * 4、在Xcode中找到`TARGETS-->Build Setting-->Linking-->Other Linker Flags`在这个选项中需要添加 `-ObjC`
 
    __备注:__  
@@ -101,7 +108,7 @@ import <NTESQuickPass/NTESQuickPass.h>
 
 ### 2.4 业务鉴权
 使用易盾提供的businessID进行初始化业务，回调中返回初始化结果，如下：
-
+ <font color=red>3.0版本之前</font>
    [self.manager registerWithBusinessID:@"yourBusinessID" timeout:3*1000 configURL:nil extData:nil completion:^(NSDictionary * _Nullable params, BOOL success) {
             if (success) {
              	// 初始化成功，获取token
@@ -109,6 +116,11 @@ import <NTESQuickPass/NTESQuickPass.h>
             	// 初始化失败
             }
         }];
+ <font color=red>3.0版本之后</font>
+      - (void)viewDidLoad {
+      [self.manager registerWithBusinessID:@"yourBusinessID"]
+ }
+
 
 ### 2.5 预取号
 
@@ -119,6 +131,8 @@ import <NTESQuickPass/NTESQuickPass.h>
     	 	NSNumber *boolNum = [resultDic objectForKey:@"success"];
             BOOL success = [boolNum boolValue];
             if (success) {
+                [[NTESQuickLoginManager sharedInstance] setupModel:]
+                // 设置授权登录界面model。注意：必须调用，此方法需嵌套在getPhoneNumberCompletion的回调中使用，且在CUCMAuthorizeLoginCompletion:之前调用。
             	// 电信获取脱敏手机号成功 需在此回调中拉去授权登录页面
             	// 移动、联通无脱敏手机号，需在此回调中拉去授权登录页面
             } else {
@@ -131,12 +145,12 @@ import <NTESQuickPass/NTESQuickPass.h>
 - **<font color=red>用户处于未登录状态时，调用该方法</font>**
 - **<font color=red>已登录的用户退出当前帐号时，调用该方法</font>**
 - <font color=red>在执行一键登录的方法之前，提前调用此方法，以提升用户前端体验</font>
-- <font color=red>此方法需要1~2s的时间取得临时凭证，不要和拉起授权页方法一起串行调用</font>
+- <font color=red>此方法需要1~2s的时间取得临时凭证</font>
 - <font color=red>不要频繁的多次调用</font>
 - <font color=red>不要在拉起授权页后调用</font>
 
 ### 2.6 拉取授权页  
-  移动、联通、电信:登录界面（取号接口）调用该接口弹出移动、联通运营商提供的授权页面，调用方式如下：
+  移动、联通、电信:登录界面（取号接口）调用该接口弹出移动、联通、电信运营商提供的授权页面，调用方式如下：
   		
   		 [[NTESQuickLoginManager sharedInstance] CUCMCTAuthorizeLoginCompletion:^(NSDictionary * _Nonnull resultDic) {
   	        NSNumber *boolNum = [resultDic objectForKey:@"success"];
@@ -152,6 +166,38 @@ import <NTESQuickPass/NTESQuickPass.h>
 - <font color=red>在预取号成功后调用</font>
 - <font color=red>已登录状态不要调用</font>
 
+### 2.7 授权页生命周期回调
+
+    /**
+	*  @说明        加载授权页。
+	*/
+	- (void)authViewDidLoad
+
+	/**
+	*  @说明        授权页将要出现。
+	*/
+	- (void)authViewWillAppear
+
+	/**
+	*  @说明        授权页已经出现。
+	*/
+	- (void)authViewDidAppear
+
+	/**
+	*  @说明        授权页将要消失。
+	*/
+	- (void)authViewWillDisappear
+
+	/**
+	*  @说明        授权页已经消失。
+	*/
+	- (void)authViewDidDisappear
+
+	/**
+	*  @说明        授权页销毁。
+	*/
+	- (void)authViewDealloc
+
 ## 3 授权页界面修改 (Object-C)
 ### 3.1 设计规范概览
 **<font color=red>开发者不得通过任何技术手段，将授权页面的隐私栏、手机掩码号、供应商品牌内容隐藏、覆盖</font>**<br>
@@ -159,7 +205,7 @@ import <NTESQuickPass/NTESQuickPass.h>
 ![iOS设计规范](https://nos.netease.com/cloud-website-bucket/58fca2df814059b54171724b7702b06f.jpg)
 ![自定义展示图](https://nos.netease.com/cloud-website-bucket/410d6012173c5531b1065909c9484d36.jpg)
 
-### 3.2 授权页配置 ()
+### 3.2 授权页配置
 
          NTESQuickLoginModel *model = [[NTESQuickLoginModel alloc] init];
          
@@ -427,6 +473,9 @@ SDK默认登录按钮会对屏幕大小进行适配，默认蓝色。
             
             /**开发者隐私条款协议url（第二个协议）*/
             model.appSPrivacyURL = @"";
+            
+            /**是否隐藏"《默认》" 两边的《》，默认不隐藏*/
+            model.shouldHiddenPrivacyMarks = YES;
              
             /**隐私条款名称颜色*/
             model.privacyColor = [UIColor whiteColor];
@@ -556,6 +605,7 @@ SDK默认登录按钮会对屏幕大小进行适配，默认蓝色。
 
 ### 4.4 业务鉴权
 使用易盾提供的businessID进行初始化业务，回调中返回初始化结果，如下：
+<font color=red>3.0版本之前</font>
 
     NTESQuickLoginManager.sharedInstance().register(withBusinessID: "", timeout: 3 * 10000) { (params, success) in
         if success {
@@ -564,6 +614,9 @@ SDK默认登录按钮会对屏幕大小进行适配，默认蓝色。
             // 初始化失败  
         }
     }
+ <font color=red>3.0版本之后</font>
+ 
+     NTESQuickLoginManager.sharedInstance().register(withBusinessID: ""）
 
 ### 4.5 预取号
 
@@ -609,6 +662,38 @@ SDK默认登录按钮会对屏幕大小进行适配，默认蓝色。
 - <font color=red>在预取号成功后调用</font>
 - <font color=red>已登录状态不要调用</font>
 
+### 4.5 授权页生命周期回调
+
+	/**
+	*  @说明        加载授权页。
+	*/
+	func authViewDidLoad()
+
+	/**
+	*  @说明        授权页将要出现。
+	*/
+	func authViewWillAppear()
+
+	/**
+	*  @说明        授权页已经出现。
+	*/
+	func authViewDidAppear()
+
+	/**
+	*  @说明        授权页将要消失。
+	*/
+	func authViewWillDisappear()
+
+	/**
+	*  @说明        授权页已经消失。
+	*/
+	func authViewDidDisappear()
+
+	/**
+	*  @说明        授权页销毁。
+	*/
+	func authViewDealloc()
+
 ## 5 授权页界面修改 (Swift)
 ### 5.1 设计规范概览
 **<font color=red>开发者不得通过任何技术手段，将授权页面的隐私栏、手机掩码号、供应商品牌内容隐藏、覆盖</font>**<br>
@@ -616,7 +701,7 @@ SDK默认登录按钮会对屏幕大小进行适配，默认蓝色。
 ![iOS设计规范](https://nos.netease.com/cloud-website-bucket/58fca2df814059b54171724b7702b06f.jpg)
 ![自定义展示图](https://nos.netease.com/cloud-website-bucket/410d6012173c5531b1065909c9484d36.jpg)
 
-### 5.2 授权页配置 ()
+### 5.2 授权页配置 
 
            let model = NTESQuickLoginModel()
          
@@ -1042,33 +1127,28 @@ SDK默认登录按钮会对屏幕大小进行适配，默认蓝色。
 -
 
 		/**
-		 *  @abstract   获取当前上网卡的运营商，1:电信 2.移动 3.联通
+		 *  @abstract   获取当前上网卡的运营商，NTESCarrierTypeTelecom:电信 NTESCarrierTypeMobile.移动 NTESCarrierTypeUnicom.联通
 		 */
-		- (NSInteger)getCarrier;
+		- (NTESCarrierType)getCarrier;
 -
 		
 		/**
 		 *  @abstract   配置参数
 		 *
 		 *  @param      businessID          易盾分配的业务方ID
-		 *  @param      timeout             初始化接口超时时间，单位ms，不传或传0默认3000ms，最大不超过10000ms
-		 *  @param      initHandler         返回初始化结果
 		 *
 		 */
-		- (void)registerWithBusinessID:(NSString *)businessID timeout:(NSTimeInterval)timeout completion:(NTESQLInitHandler)initHandler;
+		- (void)registerWithBusinessID:(NSString *)businessID;
 -
 		
 		/**
-		 *  @abstract   配置参数
-		 *
-		 *  @param      businessID          易盾分配的业务方ID
-		 *  @param      timeout             初始化接口超时时间，单位ms，不传或传0默认3000ms，最大不超过10000ms
-		 *  @param      configURL           preCheck接口的私有化url，若传nil或@""，默认使用@"https://ye.dun.163yun.com/v1/oneclick/preCheck"
-		 *  @param      extData             当设置configURL时，可以增加额外参数，接入方自行处理
-		 *  @param      initHandler         返回初始化结果
-		 *
-		 */
-		- (void)registerWithBusinessID:(NSString *)businessID timeout:(NSTimeInterval)timeout configURL:(NSString * _Nullable)configURL extData:(id _Nullable)extData completion:(NTESQLInitHandler)initHandler;
+ 		  *  @abstract   初始化配置参数
+ 		  * 
+ 		  *  @param      businessID      易盾分配的业务方ID
+           *  @param      configURL         preCheck接口的私有化url，若传nil或@""，默认使用@"https://ye.dun.163yun.com/v1/oneclick/preCheck"
+           *  @param      extData             当设置configURL时，可以增加额外参数，接入方自行处理
+           */
+		- (void)registerWithBusinessID:(NSString *)businessID configURL:(NSString * _Nullable)configURL extData:(NSString *  _Nullable)extData;
 -
 		
 		/**
@@ -1081,14 +1161,14 @@ SDK默认登录按钮会对屏幕大小进行适配，默认蓝色。
 
    	     /**
    	     *  @abstract
-      	      设置授权登录界面model，⚠️注意：必须调用，此方法需嵌套在getPhoneNumberCompletion的回调中使用，且在CUCMAuthorizeLoginCompletion:之前调用
+      	      设置授权登录界面model，⚠️注意：必须调用，此方法需嵌套在getPhoneNumberCompletion的回调中使用，CUCMCTAuthorizeLoginCompletion:之前调用
       	     *
    	     *  @param      model   登录界面model，必传
       	     */
-   	     - (void)setupModel:(NTESQuickLoginCustomModel *)model;
+   	- (void)setupModel:(NTESQuickLoginCustomModel *)model;
 -
 		/**
-		 *  @abstract   联通、移动 、电信 授权登录（取号接口），⚠️注意：此方法需嵌套在getPhoneNumberCompletion的回调中使用，且在setupCMModel:或setupCUModel:之后调用
+		 *  @abstract   联通、移动 、电信 授权登录（取号接口），⚠️注意：此方法需嵌套在getPhoneNumberCompletion的回调中使用，setupModel:setupModel:之后调用
 		 *
 		 *  @param      viewController      将拉起移动、联通运营商授权页面的上级VC
 		 *  @param      authorizeHandler    登录授权结果回调，包含认证成功和认证失败，认证失败情况包括取号失败、用户取消登录（点按返回按钮）和切换登录方式，可根据code码做后续自定义操作

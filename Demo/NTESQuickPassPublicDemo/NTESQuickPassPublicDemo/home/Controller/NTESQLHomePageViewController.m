@@ -68,7 +68,6 @@
 
     
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(didChangeScreenRotate:) name:UIApplicationDidChangeStatusBarFrameNotification object:nil];
-    
 }
 
 - (void)didChangeScreenRotate:(NSNotification *)notification {
@@ -117,30 +116,14 @@
 
 /// 使用易盾提供的businessID进行初始化业务，回调中返回初始化结果
 - (void)registerQuickLogin {
-    // 在使用一键登录之前，请先调用shouldQuickLogin方法，判断当前上网卡的网络环境和运营商是否可以一键登录
-    self.shouldQL = [[NTESQuickLoginManager sharedInstance] shouldQuickLogin];
     [NTESQuickLoginManager sharedInstance].delegate = self;
-    [[NTESQuickLoginManager sharedInstance] registerWithBusinessID:@"b55f3c7d4729455c9c3fb23872065401"];
-    
-//    if (self.shouldQL) {
-//        WeakSelf(self);
-//        [[NTESQuickLoginManager sharedInstance] registerWithBusinessID:@"" timeout:3*1000 configURL:nil extData:nil completion:^(NSDictionary * _Nullable params, BOOL success) {
-//            if (success) {
-//                weakSelf.token = [params objectForKey:@"token"];
-//                weakSelf.precheckSuccess = YES;
-//                [weakSelf getPhoneNumber];
-//            } else {
-//                NSLog(@"precheck失败");
-//                weakSelf.precheckSuccess = NO;
-//            }
-//        }];
-//    }
+    [[NTESQuickLoginManager sharedInstance] registerWithBusinessID:@"yourBusinessID"];
 }
-
 
 - (void)getPhoneNumberWithText:(NSString *)title {
     self.loginViewController = [[NTESQLLoginViewController alloc] init];
     self.loginViewController.themeTitle = title;
+    
 
     WeakSelf(self);
     [[NTESQuickLoginManager sharedInstance] getPhoneNumberCompletion:^(NSDictionary * _Nonnull resultDic) {
@@ -212,7 +195,7 @@
     }
     
     WeakSelf(self);
-    [NTESDemoHttpRequest startRequestWithURL:@"https://ye.dun.163yun.com/api/login/oneclick" httpMethod:@"POST" requestData:jsonData finishBlock:^(NSData *data, NSError *error, NSInteger statusCode) {
+    [NTESDemoHttpRequest startRequestWithURL:@"" httpMethod:@"POST" requestData:jsonData finishBlock:^(NSData *data, NSError *error, NSInteger statusCode) {
         weakSelf.data = data;
         weakSelf.statusCode = statusCode;
         dispatch_async(dispatch_get_main_queue(), ^{
