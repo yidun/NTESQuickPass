@@ -55,6 +55,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**当前VC,注意:要用一键登录这个值必传*/
 @property (nonatomic, weak) UIViewController *currentVC;
 
+/**当前应用的根控制器, 用作隐私协议的弹出，如果不传，则使用默认值*/
+@property (nonatomic, weak) UIViewController *rootViewController;
+
 /** 授权页面推出的动画效果*/
 @property (nonatomic, assign) NTESPresentDirection presentDirectionType;
 
@@ -115,6 +118,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** 网络视频的地址*/
 @property (nonatomic, copy) NSString *videoURL;
+
+/** 授权页背景的蒙层*/
+@property (nonatomic, strong) UIView *videoMarkView;
 
 #pragma mark --------------------------背景支持GIF
 

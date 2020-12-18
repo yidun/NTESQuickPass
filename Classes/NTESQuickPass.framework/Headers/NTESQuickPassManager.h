@@ -40,6 +40,13 @@ typedef void(^NTESQPCompletionHandler)(NSDictionary * _Nullable params, NTESQPSt
 /**
  *  @abstract   属性
  *
+ *  @说明 设置信息上报，默认为上报。allowUploadInfo = YES 允许上报，allowUploadInfo = NO 取消上报。
+ */
+@property (nonatomic, assign) BOOL allowUploadInfo;
+
+/**
+ *  @abstract   属性
+ *
  *  @说明        设置获取accessToken的超时时间，单位ms，不传或传0默认3000ms，最大不超过10000ms
  */
 @property (nonatomic, assign) NSTimeInterval timeOut;

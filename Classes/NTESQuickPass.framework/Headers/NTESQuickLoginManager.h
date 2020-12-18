@@ -90,6 +90,13 @@ typedef void(^NTESAuthorizeCompletionHandler)(void);
 @property (nonatomic, assign) NSTimeInterval timeoutInterval;
 
 /**
+ *  @abstract   属性
+ *
+ *  @说明 设置信息上报，默认为上报。allowUploadInfo = YES 允许上报，allowUploadInfo = NO 取消上报。
+ */
+@property (nonatomic, assign) BOOL allowUploadInfo;
+
+/**
 *  @abstract   属性
 *
 *  @说明  授权登录界面model
