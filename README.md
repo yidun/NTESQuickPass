@@ -31,7 +31,7 @@ it, simply add the following line to your Podfile:
 pod 'NTESQuickPass'
 
 # 集成指定SDK，具体版本号可先执行 pod search NTESQuickPass，根据返回的版本信息自行决定:
-pod 'NTESQuickPass', '~> 3.0.1'
+pod 'NTESQuickPass', '~> 3.0.3'
 ```
 ### 保存并执行pod install即可，若未执行pod repo update，请执行pod install --repo-update
 
@@ -61,4 +61,4 @@ luolihao123456, luolihao123456@163.com
 | 2.2.3 | 2020.9.25 |  1. 更新联通SDK，性能优化。
 | 3.0.1 | 2020.11.24 |  1. 更新三大运营商SDK至最新版本。<br> 2. 深度性能优化，提升预取号速度和成功率。<br> 3. 初始化接口功能优化。
 | 3.0.2 | 2020.12.21 |  1.授权页背景增加蒙层效果。
-   
+| 3.0.3 | 2020.12.30 |  1.增加SDK稳定性。
