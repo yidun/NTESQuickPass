@@ -6,19 +6,35 @@
 	<dict>
 		<key>Headers/NTESBaseComponent.h</key>
 		<data>
-		ctxfiqLJbMMLAsl+PE7nagXOpVU=
+		zNyPDhbsE4saBnxUFfuF5qyhCEE=
 		</data>
 		<key>Headers/NTESBaseCrashManager.h</key>
 		<data>
-		oU4PKt1whe3kubriNsovd2AlOxQ=
+		pJUDdRCLzDXMCJiEzA+D4PWC9X0=
+		</data>
+		<key>Headers/NTESBaseErrorSendCenter.h</key>
+		<data>
+		17K2yjxHLbx2S/YWCcrEnAfuYc0=
 		</data>
 		<key>Headers/NTESBaseHttpRequest.h</key>
 		<data>
 		Y/+yB0lbFwXk3Qs60UXgfGWtH8U=
 		</data>
+		<key>Headers/NTESBasePublicData.h</key>
+		<data>
+		sjBUVyJub6mLxQkuPPGGu40YsaA=
+		</data>
 		<key>Headers/NTESBaseWebViewController.h</key>
 		<data>
 		VTMR1Q6kXMhR/F+rAep+OxHXmP0=
+		</data>
+		<key>Headers/NTESLDCollectModel.h</key>
+		<data>
+		boJ1SvR5n1IJ0BO28bWIIiAE+KY=
+		</data>
+		<key>Headers/NTESQPCollectModel.h</key>
+		<data>
+		wRMX7IT9l362S0hxNsMsv7EoyOg=
 		</data>
 		<key>Info.plist</key>
 		<data>
@@ -35,22 +51,33 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			ctxfiqLJbMMLAsl+PE7nagXOpVU=
+			zNyPDhbsE4saBnxUFfuF5qyhCEE=
 			</data>
 			<key>hash2</key>
 			<data>
-			+SVyBZBXvxI1MNPpPLGeziGPN1McRgtqMkfEKcBqNn0=
+			NQXP9dmzK3fiIR1A1KesJtApnW2PqvLeddfoK4ynmkc=
 			</data>
 		</dict>
 		<key>Headers/NTESBaseCrashManager.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			oU4PKt1whe3kubriNsovd2AlOxQ=
+			pJUDdRCLzDXMCJiEzA+D4PWC9X0=
 			</data>
 			<key>hash2</key>
 			<data>
-			h8FqL0tUDQljasSGxiuy46r41FtFf6rrizwHhgMu7fE=
+			vQMTVJQ/4C3nUFSjIpxjXSVynsU9e+KE9IDYm6yElZo=
+			</data>
+		</dict>
+		<key>Headers/NTESBaseErrorSendCenter.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			17K2yjxHLbx2S/YWCcrEnAfuYc0=
+			</data>
+			<key>hash2</key>
+			<data>
+			ZL0wPLy5JJVngVbq4x9dGGnma+X7dDjuZE0HPj/HXLA=
 			</data>
 		</dict>
 		<key>Headers/NTESBaseHttpRequest.h</key>
@@ -64,6 +91,17 @@
 			dNdmloBxJEzgSwV/ekRqXSliyJBcBy5vx5aWPbUM2mM=
 			</data>
 		</dict>
+		<key>Headers/NTESBasePublicData.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			sjBUVyJub6mLxQkuPPGGu40YsaA=
+			</data>
+			<key>hash2</key>
+			<data>
+			XJOotdhksOrWwkgUR0iDTAM+YI+ApU2afH44glnckM4=
+			</data>
+		</dict>
 		<key>Headers/NTESBaseWebViewController.h</key>
 		<dict>
 			<key>hash</key>
@@ -73,6 +111,28 @@
 			<key>hash2</key>
 			<data>
 			B63GrdrC7tsvSUkDub2Gf2wQ60aJt4X0YcNCF9bFyeE=
+			</data>
+		</dict>
+		<key>Headers/NTESLDCollectModel.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			boJ1SvR5n1IJ0BO28bWIIiAE+KY=
+			</data>
+			<key>hash2</key>
+			<data>
+			VOvq8hajYneCqwI0EDPnw2BUIpglbOLX1sMQXvbUD7w=
+			</data>
+		</dict>
+		<key>Headers/NTESQPCollectModel.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			wRMX7IT9l362S0hxNsMsv7EoyOg=
+			</data>
+			<key>hash2</key>
+			<data>
+			Uq+bRpN7mmDfNFZKrq+OdzcCQzbG4/jbPjNQrY2Zv9w=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

@@ -34,6 +34,7 @@ NS_ASSUME_NONNULL_BEGIN
 取消收集崩溃日志
 */
 - (void)cancelCollectCrash;
+
 @end
 
 NS_ASSUME_NONNULL_END
