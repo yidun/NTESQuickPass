@@ -316,9 +316,6 @@ NS_ASSUME_NONNULL_BEGIN
 /**登录按钮的高度，默认44*/
 @property (nonatomic, assign) CGFloat logBtnHeight;
 
-/** 按钮的渐变色数组 CGColor*/
-@property(nonatomic, nullable, copy) NSArray *colors;
-
 #pragma mark -------------------------- 复选框
 
 /**复选框未选中时图片*/
@@ -335,6 +332,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**复选框是否隐藏  默认:NO */
 @property (nonatomic, assign) BOOL checkedHidden;
+
+/**设置复选框勾选状态，YES:勾选，NO:取消勾选状态 */
+@property (nonatomic, assign) BOOL checkedSelected;
 
 /**复选框可相对协议顶对齐、中对齐、下对齐 默认顶对齐*/
 @property (nonatomic, assign) NSCheckBoxAlignment checkBoxAlignment;

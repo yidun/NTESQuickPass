@@ -101,7 +101,7 @@ typedef void(^NTESAuthorizeCompletionHandler)(void);
 *
 *  @说明  授权登录界面model
 */
-@property (nonatomic, strong) NTESQuickLoginModel *model;
+@property (nonatomic, strong, readonly) NTESQuickLoginModel *model;
 
 /**
  *  @abstract   单例

@@ -34,4 +34,5 @@
 //获取SDK版本信息
 + (NSString *)getVersionInfo;
 
+
 @end
