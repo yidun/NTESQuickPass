@@ -442,6 +442,9 @@ SDK默认登录按钮会对屏幕大小进行适配，默认蓝色。
             /**check框距离隐私条款的边距 默认 8*/
             model.checkBoxMargin = 8;
             
+            /**设置复选框勾选状态，YES:勾选，NO:取消勾选状态 */
+			model.checkedSelected = YES;
+            
             /**隐私条款距离屏幕左边的距离 默认 60*/
             model.appPrivacyOriginLeftMargin = 60;
             
