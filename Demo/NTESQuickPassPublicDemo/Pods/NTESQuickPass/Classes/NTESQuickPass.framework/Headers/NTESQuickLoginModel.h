@@ -55,6 +55,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**当前VC,注意:要用一键登录这个值必传*/
 @property (nonatomic, weak) UIViewController *currentVC;
 
+/**当前应用的根控制器, 用作隐私协议的弹出，如果不传，则使用默认值*/
+@property (nonatomic, weak) UIViewController *rootViewController;
+
 /** 授权页面推出的动画效果*/
 @property (nonatomic, assign) NTESPresentDirection presentDirectionType;
 
@@ -115,6 +118,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** 网络视频的地址*/
 @property (nonatomic, copy) NSString *videoURL;
+
+/** 授权页背景的蒙层*/
+@property (nonatomic, strong) UIView *videoMarkView;
 
 #pragma mark --------------------------背景支持GIF
 
@@ -310,9 +316,6 @@ NS_ASSUME_NONNULL_BEGIN
 /**登录按钮的高度，默认44*/
 @property (nonatomic, assign) CGFloat logBtnHeight;
 
-/** 按钮的渐变色数组 CGColor*/
-@property(nonatomic, nullable, copy) NSArray *colors;
-
 #pragma mark -------------------------- 复选框
 
 /**复选框未选中时图片*/
@@ -329,6 +332,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**复选框是否隐藏  默认:NO */
 @property (nonatomic, assign) BOOL checkedHidden;
+
+/**设置复选框勾选状态，YES:勾选，NO:取消勾选状态 */
+@property (nonatomic, assign) BOOL checkedSelected;
 
 /**复选框可相对协议顶对齐、中对齐、下对齐 默认顶对齐*/
 @property (nonatomic, assign) NSCheckBoxAlignment checkBoxAlignment;
