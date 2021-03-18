@@ -31,7 +31,7 @@ it, simply add the following line to your Podfile:
 pod 'NTESQuickPass'
 
 # 集成指定SDK，具体版本号可先执行 pod search NTESQuickPass，根据返回的版本信息自行决定:
-pod 'NTESQuickPass', '~> 3.0.3'
+pod 'NTESQuickPass', '~> 3.0.5'
 ```
 ### 保存并执行pod install即可，若未执行pod repo update，请执行pod install --repo-update
 
@@ -63,4 +63,5 @@ luolihao123456, luolihao123456@163.com
 | 3.0.2 | 2020.12.21 |  1.授权页背景增加蒙层效果。
 | 3.0.3 | 2020.12.30 |  1.增加SDK稳定性。
 | 3.0.4 | 2021.2.1 |  1. 适配iPhone12全系机型。<br> 2. SDK架构优化
+| 3.0.5 | 2021.3.5 |  1. 支持自定义取号超时时间。<br> 2. 支持通过API方式勾选协议框 <br> 3. 支持联通5gsa制式
 

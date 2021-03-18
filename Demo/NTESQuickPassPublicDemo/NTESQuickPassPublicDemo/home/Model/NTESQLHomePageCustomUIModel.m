@@ -124,8 +124,8 @@
         model.protocolColor = [UIColor ntes_colorWithHexString:@"#999999"];
         model.logBtnOffsetTopY = 167;
 
-        model.scaleW = (295) / SCREEN_WIDTH;
-        model.scaleH = (315) / SCREEN_HEIGHT;
+        model.authWindowWidth = 295;
+        model.authWindowHeight = 315;
         model.popBackgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.5];
 
         model.uncheckedImg = [[UIImage imageNamed:@"checkBox"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];

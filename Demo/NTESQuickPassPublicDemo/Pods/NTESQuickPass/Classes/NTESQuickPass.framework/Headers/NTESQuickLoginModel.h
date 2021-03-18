@@ -19,8 +19,11 @@ typedef void(^AuthLoginActionBlock)(BOOL isChecked);
 typedef void(^AuthCheckActionBlock)(BOOL isChecked);
 typedef void(^AuthCloseActionBlock)(void);
 
-/// privacyType = 0 默认协议,  privacyType = 1 第一个协议 , privacyType = 2 第二个协议
+/// 协议点击事件。 privacyType = 0 默认协议,  privacyType = 1 第一个协议 , privacyType = 2 第二个协议
 typedef void(^AuthPrivacyActionBlock)(int privacyType);
+
+/// 隐私协议界面自定义。 privacyType = 0 点击了默认协议,  privacyType = 1 点击了第一个协议 , privacyType = 2 点击了第二个协议
+typedef void(^AuthPrivacyPageCustomBlock)(int privacyType);
 
 /// 复选框相对隐私条款的位置
 typedef NS_ENUM(NSInteger, NSCheckBoxAlignment) {
@@ -67,6 +70,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**背景图片*/
 @property (nonatomic,strong) UIImage *bgImage;
 
+/**背景图片显示模式*/
+@property (nonatomic,assign) UIViewContentMode contentMode;
+
 /**授权界面支持的方向,横屏;竖屏 ⚠️ 当xcode不支持横竖屏时，不要设置改值，以免造成方向不一致的导致的异常状况*/
 @property (nonatomic, assign) UIInterfaceOrientation faceOrientation;
 
@@ -97,8 +103,11 @@ NS_ASSUME_NONNULL_BEGIN
 /**复选框点击事件回调*/
 @property (nonatomic, copy) AuthCheckActionBlock checkActionBlock;
 
-/**协议点击事件回调*/
+/**协议点击事件回调，会跳转到默认的协议页面*/
 @property (nonatomic, copy) AuthPrivacyActionBlock privacyActionBlock;
+
+/**协议点击事件回调，不会跳转到默认的协议页面。开发者可以在回调里，自行跳转到自定义的协议页面*/
+@property (nonatomic, copy) AuthPrivacyPageCustomBlock pageCustomBlock;
 
 #pragma mark 自定义loading，toast；
 
@@ -409,11 +418,11 @@ NS_ASSUME_NONNULL_BEGIN
 /*窗口模式的背景颜色*/
 @property (nonatomic, strong) UIColor *popBackgroundColor;
 
-/**自定义窗口宽-缩放系数(屏幕宽乘以系数) 竖屏状态下默认是0.8，横屏状态下默认是0.5 */
-@property (nonatomic, assign) CGFloat scaleW;
+/**自定义窗口宽- 竖屏状态下默认是 300pt，横屏状态下默认是 335pt */
+@property (nonatomic, assign) CGFloat authWindowWidth;
 
-/**自定义窗口高-缩放系数(屏幕高乘以系数) 竖屏状态下默认是0.5， 横屏状态下默认是0.8  ⚠️底部半屏弹窗模式的高度可通过修改scaleH，调整高度 默认0.5*/
-@property (nonatomic, assign) CGFloat scaleH;
+/**自定义窗口高- 竖屏状态下默认是335pt， 横屏状态下默认是300pt  ⚠️底部半屏弹窗模式的高度可通过修改authWindowHeight，调整高度 默认335pt*/
+@property (nonatomic, assign) CGFloat authWindowHeight;
 
 /**居中弹窗 ,底部弹窗，当为居中弹窗模式时，⚠️(必传)， 视图的关闭按钮的图片*/
 @property (nonatomic, strong) UIImage *closePopImg;

@@ -28,7 +28,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  开始收集崩溃日志
  */
-- (void)startCollectCrash:(NTESSDKType)sdkType withEnviroment:(NTESSDKEnviroment)enviroment;
+- (void)startCollectCrash:(NTESSDKType)type withEnviroment:(NTESSDKEnviroment)enviroment;
 
 /**
 取消收集崩溃日志
