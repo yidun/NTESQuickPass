@@ -82,6 +82,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**授权界面自定义控件View的Block*/
 @property (nonatomic, copy) AuthCustomViewBlock customViewBlock;
 
+/**present 控制器的展示方式。 如果弹窗模式下。modalPresentationStyle为UIModalPresentationOverFullScreen */
+@property (nonatomic, assign) UIModalPresentationStyle modalPresentationStyle;
+
 /**授权页转场动画
  UIModalTransitionStyleCoverVertical, 下推
  UIModalTransitionStyleFlipHorizontal,翻转
