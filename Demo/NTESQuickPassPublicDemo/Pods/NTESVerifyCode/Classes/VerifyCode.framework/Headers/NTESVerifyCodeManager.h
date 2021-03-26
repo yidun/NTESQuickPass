@@ -79,6 +79,16 @@ typedef NS_ENUM(NSInteger, NTESVerifyCodeProtocol) {
     NTESVerifyCodeProtocolHttp,
 };
 
+/**
+* @abstract    验证码关闭的类型
+*/
+typedef NS_ENUM(NSInteger, NTESVerifyCodeClose) {
+    // 手动关闭
+    NTESVerifyCodeCloseManual = 1,
+    // 验证完毕后自动关闭
+    NTESVerifyCodeCloseAuto,
+};
+
 @protocol NTESVerifyCodeManagerDelegate<NSObject>
 @optional
 
@@ -106,15 +116,10 @@ typedef NS_ENUM(NSInteger, NTESVerifyCodeProtocol) {
 
 /**
  * 关闭验证码窗口后的回调
- */
-- (void)verifyCodeCloseWindow;
-
-/**
- * 网络错误
  *
- * @param error 网络错误信息
+ * @param close 关闭的类型
  */
-- (void)verifyCodeNetError:(NSError *)error;
+- (void)verifyCodeCloseWindow:(NTESVerifyCodeClose)close;
 
 @end
 
@@ -215,6 +220,30 @@ typedef NS_ENUM(NSInteger, NTESVerifyCodeProtocol) {
 @property(nonatomic) NSUInteger fallBackCount;
 
 /**
+ * @abstract   验证码ipv6配置。
+ *             默认为 no，传 yes 表示支持ipv6网络。
+ */
+@property(nonatomic) BOOL ipv6;
+
+/**
+ * @abstract   反作弊相关环境配置，业务方可根据需要配置wmConfigServer，不传默认使用易盾服务配置
+ *
+ */
+@property(nonatomic) NSString *wmConfigServer;
+
+/**
+ * @abstract   反作弊相关环境配置，业务方可根据需要配置wmApiServer，不传默认使用易盾服务配置
+ *
+ */
+@property(nonatomic) NSString *wmApiServer;
+
+/**
+ *  @abstract   反作弊相关环境配置，业务方可根据需要配置wmStaticServer，不传默认使用易盾服务配置
+ *
+*/
+@property(nonatomic) NSString *wmStaticServer;
+
+/**
 * @abstract    是否隐藏关闭按钮
 *              默认不隐藏，设置为YES隐藏，NO不隐藏
 */
@@ -244,6 +273,29 @@ typedef NS_ENUM(NSInteger, NTESVerifyCodeProtocol) {
                     timeout:(NSTimeInterval)timeoutInterval;
 
 /**
+ *  @abstract   自定义loading文案
+ *
+ *  @param      loadingText  加载中的文案
+ *
+ */
+- (void)configLoadingText:(NSString * _Nullable)loadingText;
+
+/**
+ *  @abstract  自定义loading图片， 支持gif、 png 、 jpg等格式。
+ *
+ *  @说明              自定义 loading图片的参数配置。
+ *            (1) 图片格式为 gif 只需要传gifData 即可， animationImage传空。
+ *            (2) 图片格式为 png、 jpg时，需要配置animationImage ,gitData传空。
+ *
+ *  @param      animationImage  单张图片 ，
+ *  @param      gifData 图片格式为gif的二进制数据
+
+
+ */
+- (void)configLoadingImage:(UIImage *_Nullable)animationImage
+                   gifData:(NSData *_Nullable)gifData;
+
+/**
  *  @abstract   展示验证码视图
  *
  *  @说明        展示位置:[[[UIApplication sharedApplication] delegate] window];全屏居中显示,宽度为屏幕宽度的4/5,高度:view宽度/2.0 + 65.
@@ -259,7 +311,7 @@ typedef NS_ENUM(NSInteger, NTESVerifyCodeProtocol) {
 
  *
  */
-- (void)openVerifyCodeView:(UIView *)topView;
+- (void)openVerifyCodeView:(UIView *  _Nullable)topView;
 
 ///**
 // *  @abstract   关闭验证码视图
