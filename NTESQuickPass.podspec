@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "NTESQuickPass"
-  spec.version      = "3.0.7"
+  spec.version      = "3.1.0.beta"
   spec.summary      = "NTESQuickPass."
 
   # This description is used to generate tags and improve search results.
@@ -124,7 +124,7 @@ Pod::Spec.new do |spec|
   # spec.library   = "iconv"
   # spec.libraries = "iconv", "xml2"
   
-  spec.vendored_frameworks = ["Classes/NTESBaseComponent.framework","Classes/NTESQuickPass.framework","Classes/WYEAccountApiSDK.framework","Classes/WYOAuth.framework","Classes/WYTYRZUISDK.framework"]
+  spec.vendored_frameworks = ["Classes/NTESQuickPass.framework","Classes/WYEAccountApiSDK.framework","Classes/WYOAuth.framework","Classes/WYTYRZUISDK.framework"]
   
   spec.libraries = "c++.1"
 
@@ -138,7 +138,7 @@ Pod::Spec.new do |spec|
   # spec.requires_arc = true
 
   # spec.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
-  # spec.dependency "JSONKit", "~> 1.4"
+  spec.dependency "NTESBaseComponent", "1.0"
 
 end
 
