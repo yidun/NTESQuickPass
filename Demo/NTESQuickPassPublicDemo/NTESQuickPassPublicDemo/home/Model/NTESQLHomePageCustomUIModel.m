@@ -71,6 +71,9 @@
     model.closePopImg = [UIImage imageNamed:@"ic_close"];
     model.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     
+    model.appPrivacyWordSpacing = 1;
+    model.appPrivacyLineSpacing = 5;
+    model.progressColor = [UIColor redColor];
     if (@available(iOS 13.0, *)) {
         model.statusBarStyle = UIStatusBarStyleDarkContent;
 //        model.statusBarStyle = UIStatusBarStyleDarkContent;
