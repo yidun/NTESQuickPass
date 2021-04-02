@@ -364,6 +364,12 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic, copy) NSString *appPrivacyText;
 
+/**隐私协议的行间距, 默认是1*/
+@property (nonatomic, assign) int appPrivacyLineSpacing;
+
+/**隐私协议的字间距, 默认是0*/
+@property (nonatomic, assign) int appPrivacyWordSpacing;
+
 /**是否隐藏"《默认》" 两边的《》，默认不隐藏*/
 @property (nonatomic, assign) BOOL shouldHiddenPrivacyMarks;
 
@@ -411,6 +417,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**用户协议界面，导航栏返回图标，默认用导航栏返回图标 */
 @property (nonatomic, strong) UIImage *privacyNavReturnImg;
+
+/**用户协议界面，进度条颜色 */
+@property (nonatomic, strong) UIColor *progressColor;
+
+
 
 #pragma mark ----------------------弹窗:(温馨提示:由于受屏幕影响，小屏幕（5S,5E,5）需要改动字体和另自适应和布局)--------------------
 #pragma mark --------------------------窗口模式（居中弹窗, 底部半屏弹窗）
