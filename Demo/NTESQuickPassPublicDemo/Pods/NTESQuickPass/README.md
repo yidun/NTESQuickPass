@@ -31,7 +31,7 @@ it, simply add the following line to your Podfile:
 pod 'NTESQuickPass'
 
 # 集成指定SDK，具体版本号可先执行 pod search NTESQuickPass，根据返回的版本信息自行决定:
-pod 'NTESQuickPass', '~> 3.0.7'
+pod 'NTESQuickPass', '~> 3.1.1'
 ```
 ### 保存并执行pod install即可，若未执行pod repo update，请执行pod install --repo-update
 
@@ -67,3 +67,4 @@ luolihao123456, luolihao123456@163.com
 | 3.0.6 | 2021.3.18 |  1.运营商协议页支持完全自定义。<br> 2.背景页支持设置拉伸方式。
 | 3.0.7 | 2021.3.24 |  1.增加modalPresentationStyle属性设置。
 | 3.1.0 | 2021.3.26 |  1.修复已知问题。
+| 3.1.1 | 2021.4.2 |  1. 协议页进度条颜色支持自定义。<br> 2. 协议页字间距和行间距支持自定义。

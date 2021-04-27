@@ -340,25 +340,6 @@ platform :ios, '8.0'
  		*/
 		@property(nonatomic) BOOL ipv6;
 
-    	/**
-    	 * @abstract   反作弊相关环境配置，业务方可根据需要配置wmConfigServer，不传默认使用易盾			服务配置
-    	 *
-     	*/
-    	@property(nonatomic) NSString *wmConfigServer;
-
-    	/**
-    	 * @abstract   反作弊相关环境配置，业务方可根据需要配置wmApiServer，不传默认使用易盾服务配置
-    	 *
-    	 */
-    	@property(nonatomic) NSString *wmApiServer;
-
-   		 /**
-     	  *  @abstract   反作弊相关环境配置，业务方可根据需要配置wmStaticServer，不传默认使用易盾服务配置
-    	  *
-    	  */
-    @property(nonatomic) NSString *wmStaticServer;
-
-
  - 
  
     	
