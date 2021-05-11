@@ -328,6 +328,18 @@ NS_ASSUME_NONNULL_BEGIN
 /**登录按钮的高度，默认44*/
 @property (nonatomic, assign) CGFloat logBtnHeight;
 
+/**设置渐变颜色方向，左上点为(0,0), 右下点为(1,1)*/
+@property (nonatomic, assign) CGPoint startPoint;
+
+/**设置渐变颜色方向，左上点为(0,0), 右下点为(1,1)*/
+@property (nonatomic, assign) CGPoint endPoint;
+
+/**设置颜色变化点，取值范围 0.0~1.0 */
+@property(nonatomic, nullable, copy) NSArray<NSNumber *> *locations;
+
+/**创建渐变色数组，需要转换为CGColor颜色  */
+@property(nonatomic, nullable, copy) NSArray *colors;
+
 #pragma mark -------------------------- 复选框
 
 /**复选框未选中时图片*/
