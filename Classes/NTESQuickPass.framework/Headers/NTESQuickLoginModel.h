@@ -12,6 +12,7 @@ typedef void(^AuthCustomViewBlock)(UIView * _Nullable customView);
 typedef void(^AuthCustomNavBlock)(UIView * _Nullable customNavView);
 typedef void(^AuthLoadingViewBlock)(UIView *_Nullable customLoadingView);
 typedef void(^AuthPrograssHUDBlock)(UIView *_Nullable prograssHUDBlock);
+typedef void(^AuthVideoViewBlock)(UIView *_Nullable videoView);
 
 /// 授权页面点击事件的回调
 typedef void(^AuthBackActionBlock)(void);
@@ -91,6 +92,9 @@ NS_ASSUME_NONNULL_BEGIN
  UIModalTransitionStyleCrossDissolve, 淡出
  */
 @property (nonatomic,assign) UIModalTransitionStyle modalTransitionStyle;
+
+/**授权界面自定义视频View的Block*/
+@property (nonatomic, copy) AuthVideoViewBlock videoViewBlock;
 
 #pragma mark --------------------------授权页面点击事件的回调
 
