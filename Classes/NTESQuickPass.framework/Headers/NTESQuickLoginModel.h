@@ -431,6 +431,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**隐私条款距离屏幕的距离 默认 40*/
 @property (nonatomic, assign) CGFloat appPrivacyOriginBottomMargin;
 
+/**隐私条款距离屏幕顶部的距离 默认 260 注：appPrivacyOriginTopMargin 和 appPrivacyOriginBottomMargin 不能同时使用*/
+@property (nonatomic, assign) CGFloat appPrivacyOriginTopMargin;
+
 /**用户协议界面，导航栏返回图标，默认用导航栏返回图标 */
 @property (nonatomic, strong) UIImage *privacyNavReturnImg;
 
