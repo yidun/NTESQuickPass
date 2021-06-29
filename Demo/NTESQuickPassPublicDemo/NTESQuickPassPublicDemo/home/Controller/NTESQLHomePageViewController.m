@@ -117,7 +117,7 @@
 /// 使用易盾提供的businessID进行初始化业务，回调中返回初始化结果
 - (void)registerQuickLogin {
     [NTESQuickLoginManager sharedInstance].delegate = self;
-    [[NTESQuickLoginManager sharedInstance] registerWithBusinessID:@"请输入易盾分配的业务ID"];
+    [[NTESQuickLoginManager sharedInstance] registerWithBusinessID:@"请输入易盾业务ID"];
 }
 
 - (void)getPhoneNumberWithText:(NSString *)title {
@@ -303,6 +303,9 @@
 - (void)setCustomUI {
     self.customModel = [[NTESQLHomePageCustomUIModel getInstance] configCustomUIModel:self.popType withType:self.portraitType faceOrientation:self.faceOrientation];
     self.customModel.currentVC = self;
+    self.customModel.prograssHUDBlock = ^(UIView * _Nullable prograssHUDBlock) {
+        [NTESToastView showNotice:@"请勾选复选框===="];
+    };
     [[NTESQuickLoginManager sharedInstance] setupModel:self.customModel];
 }
 
