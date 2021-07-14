@@ -58,37 +58,13 @@
 - (void)backButtonDidTipped:(UIButton *)sender {
     NTESAuthWindowPop authWindowPop = [NTESQuickLoginManager sharedInstance].model.authWindowPop;
        NTESPresentDirection presentDirectionType = [NTESQuickLoginManager sharedInstance].model.presentDirectionType;
-       
-//       if ([NTESQuickLoginManager sharedInstance].model.backActionBlock) {
-//           [NTESQuickLoginManager sharedInstance].model.backActionBlock();
-//       }
-       
-       UIViewController *currentController = [NTESQLFindCurrentVCEntity findVisibleViewController];
+    UIViewController *currentController = [NTESQuickLoginManager sharedInstance].model.currentVC;
        if (authWindowPop == NTESAuthWindowPopFullScreen && presentDirectionType == NTESPresentDirectionPush) {
-           if ([NTESQuickLoginManager sharedInstance].getCarrier == 3) {
-               if (currentController.presentingViewController) {
-                   [currentController dismissViewControllerAnimated:YES completion:nil];
-               } else {
-                   [currentController.navigationController popViewControllerAnimated:YES];
-               }
-           } else {
-               [self transitionPush];
-           }
+           [currentController.navigationController popViewControllerAnimated:YES];
        } else {
            [currentController dismissViewControllerAnimated:YES completion:nil];
        }
 }
 
-/// 以模态present的效果push页面
-- (void)transitionPush {
-    UIViewController *currentController = [NTESQLFindCurrentVCEntity findVisibleViewController];
-    CATransition *animation = [CATransition animation];
-    animation.duration = 0.3;
-    animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionDefault];;
-    animation.type = kCATransitionPush;
-    animation.subtype = kCATransitionFromLeft;
-    [self.window.layer addAnimation:animation forKey:nil];
-    [currentController dismissViewControllerAnimated:NO completion:nil];
-}
 
 @end

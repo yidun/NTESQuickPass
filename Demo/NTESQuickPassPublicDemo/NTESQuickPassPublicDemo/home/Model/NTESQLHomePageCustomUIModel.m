@@ -32,6 +32,7 @@
     model.navBarHidden = YES;
     model.authWindowPop = NTESAuthWindowPopFullScreen;
     model.popBackgroundColor = [UIColor redColor];
+    model.backgroundColor = [UIColor blackColor];
 
     /// logo
     model.logoImg = [UIImage imageNamed:@"login_logo-1"];
@@ -47,7 +48,7 @@
     ///  品牌
     model.brandFont = [UIFont fontWithName:@"PingFangSC-Regular" size:12];
     model.brandWidth = 200;
-    model.brandBackgroundColor = [UIColor clearColor];
+//    model.brandBackgroundColor = [UIColor clearColor];
     model.brandHeight = 20;
     model.brandOffsetX = 0;
 
