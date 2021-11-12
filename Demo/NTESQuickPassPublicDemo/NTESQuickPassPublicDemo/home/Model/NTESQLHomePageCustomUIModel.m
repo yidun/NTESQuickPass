@@ -207,6 +207,15 @@
         if (isChecked) {
             NSLog(@"loginAction====复选框已勾选");
         } else {
+            CABasicAnimation *shake = [CABasicAnimation animationWithKeyPath:@"transform.translation.x"];
+                shake.fromValue = [NSNumber numberWithFloat:-5];
+                shake.toValue = [NSNumber numberWithFloat:5];
+                shake.duration = 0.1;//执行时间
+                shake.autoreverses = YES;//是否重复
+                shake.repeatCount = 2;//次数
+            
+                [[NTESQuickLoginManager sharedInstance].model.privacyTextView.layer addAnimation:shake forKey:@"shakeAnimation"];
+            [[NTESQuickLoginManager sharedInstance].model.checkBox.layer addAnimation:shake forKey:@"shakeAnimation"];
             NSLog(@"loginAction====复选框未勾选");
         }
     };
