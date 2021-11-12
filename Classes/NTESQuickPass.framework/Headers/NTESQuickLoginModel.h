@@ -370,6 +370,10 @@ NS_ASSUME_NONNULL_BEGIN
 /**复选框距离隐私条款的边距 默认 8*/
 @property (nonatomic, assign) CGFloat checkBoxMargin;
 
+/**复选框控件 */
+@property (nonatomic, strong) UIButton *checkBox;
+
+
 #pragma mark -------------------------- 隐私条款
 
 /**隐私的内容模板：
@@ -440,7 +444,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**用户协议界面，进度条颜色 */
 @property (nonatomic, strong) UIColor *progressColor;
 
-
+/**隐私协议控件 */
+@property (nonatomic, strong) UITextView *privacyTextView;
 
 #pragma mark ----------------------弹窗:(温馨提示:由于受屏幕影响，小屏幕（5S,5E,5）需要改动字体和另自适应和布局)--------------------
 #pragma mark --------------------------窗口模式（居中弹窗, 底部半屏弹窗）
