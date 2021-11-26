@@ -235,7 +235,7 @@
                            [weakSelf registerQuickLogin];
                        };
                        vc.modalPresentationStyle = UIModalPresentationOverFullScreen;
-                       [weakSelf presentViewController:vc animated:YES completion:nil];
+                       [[UIApplication sharedApplication].delegate.window.rootViewController presentViewController:vc animated:YES completion:nil];
                    }
                } else {
                     weakSelf.loginViewController.modalPresentationStyle = UIModalPresentationOverFullScreen;
@@ -258,7 +258,7 @@
                  [weakSelf.navigationController pushViewController:weakSelf.loginViewController animated:YES];
                } else {
                    weakSelf.loginViewController.modalPresentationStyle = UIModalPresentationOverFullScreen;
-                   [weakSelf presentViewController:weakSelf.loginViewController animated:YES completion:nil];
+                   [[UIApplication sharedApplication].delegate.window.rootViewController presentViewController:weakSelf.loginViewController animated:YES completion:nil];
                    weakSelf.customModel.authWindowPop = NTESAuthWindowPopCenter;
                }
                weakSelf.loginViewController.model = weakSelf.customModel;
@@ -269,7 +269,7 @@
                  [weakSelf.navigationController pushViewController:weakSelf.loginViewController animated:YES];
                } else {
                    weakSelf.loginViewController.modalPresentationStyle = UIModalPresentationOverFullScreen;
-                   [weakSelf presentViewController:weakSelf.loginViewController animated:YES completion:nil];
+                   [[UIApplication sharedApplication].delegate.window.rootViewController presentViewController:weakSelf.loginViewController animated:YES completion:nil];
                    weakSelf.customModel.authWindowPop = NTESAuthWindowPopCenter;
                }
                weakSelf.loginViewController.model = weakSelf.customModel;
@@ -285,7 +285,7 @@
              [weakSelf.navigationController pushViewController:weakSelf.loginViewController animated:YES];
            } else {
                weakSelf.loginViewController.modalPresentationStyle = UIModalPresentationOverFullScreen;
-               [weakSelf presentViewController:weakSelf.loginViewController animated:YES completion:nil];
+               [[UIApplication sharedApplication].delegate.window.rootViewController presentViewController:weakSelf.loginViewController animated:YES completion:nil];
                weakSelf.customModel.authWindowPop = NTESAuthWindowPopCenter;
            }
            weakSelf.loginViewController.model = weakSelf.customModel;
