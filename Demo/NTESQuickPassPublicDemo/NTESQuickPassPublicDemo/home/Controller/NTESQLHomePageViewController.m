@@ -23,8 +23,9 @@
 #import "UIColor+NTESQuickPass.h"
 #import "NTESToastView.h"
 #import <VerifyCode/NTESVerifyCodeManager.h>
+#import "NTESCheckedToastView.h"
 
-@interface  NTESQLHomePageViewController() <UINavigationBarDelegate, NTESQLHomePagePortraitViewDelegate, NTESQLHomePageLandscapeViewDelegate, NTESQuickLoginManagerDelegate,NTESVerifyCodeManagerDelegate>
+@interface  NTESQLHomePageViewController() <UINavigationBarDelegate, NTESQLHomePagePortraitViewDelegate, NTESQLHomePageLandscapeViewDelegate, NTESQuickLoginManagerDelegate,NTESVerifyCodeManagerDelegate,NTESCheckedToastViewDelegate>
 
 @property (nonatomic, copy) NSString *token;
 @property (nonatomic, copy) NSString *accessToken;
@@ -51,6 +52,8 @@
 @property (nonatomic, strong) NTESVerifyCodeManager *manager;
 @property (nonatomic, strong) NSData *data;
 @property (nonatomic, assign) NSInteger statusCode;
+
+@property (nonatomic, strong) NTESCheckedToastView *checkedToastView;
 
 @end
 
@@ -306,7 +309,31 @@
     self.customModel.prograssHUDBlock = ^(UIView * _Nullable prograssHUDBlock) {
         [NTESToastView showNotice:@"请勾选复选框===="];
     };
+    
+    WeakSelf(self);
+    self.customModel.prograssHUDBlock = ^(UIView * _Nullable prograssHUDBlock) {
+        NTESCheckedToastView *checkedToastView = [[NTESCheckedToastView alloc] init];
+        weakSelf.checkedToastView = checkedToastView;
+        checkedToastView.delegate = weakSelf;
+        [prograssHUDBlock addSubview:checkedToastView];
+        [checkedToastView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.edges.equalTo(prograssHUDBlock);
+        }];
+    };
+    
+    
     [[NTESQuickLoginManager sharedInstance] setupModel:self.customModel];
+}
+
+#pragma - NTESCheckedToastViewDelegate
+
+- (void)submitButtonDidTipped {
+    self.customModel.checkedSelected = YES;
+    [self.checkedToastView removeFromSuperview];
+}
+
+- (void)cancelButtonDidTipped {
+    [self.checkedToastView removeFromSuperview];
 }
 
 #pragma - NTESQuickLoginManagerDelegate
