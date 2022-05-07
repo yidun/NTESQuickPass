@@ -61,8 +61,16 @@
     model.logBtnHeight = 44;
 
         /// 隐私协议
-    model.appPrivacyText = @"登录即同意《默认》并授权NTESQuickPass PublicDemo 获得本机号码";
-    model.shouldHiddenPrivacyMarks = YES;
+    /// 隐私协议
+    model.appPrivacyText = @"登录即同意《默认》并授权获得《用户政策》和《用户隐私协议》以及《用户行为准则》和《用户相关条令》";
+    model.appFPrivacyText = @"《用户政策》";
+    model.appFPrivacyURL = @"https://dun.163.com/?from=baiduP_PP_PP664&sdclkid=AL2N15fsbJDiALjpALAD";
+    model.appSPrivacyText = @"《用户隐私协议》";
+    model.appSPrivacyURL = @"https://dun.163.com/?from=baiduP_PP_PP664&sdclkid=AL2N15fsbJDiALjpALAD";
+    model.appTPrivacyText = @"《用户行为准则》";
+    model.appTPrivacyURL = @"https://dun.163.com/?from=baiduP_PP_PP664&sdclkid=AL2N15fsbJDiALjpALAD";
+    model.appFourPrivacyText = @"《用户相关条令》";
+    model.appFourPrivacyURL = @"https://dun.163.com/?from=baiduP_PP_PP664&sdclkid=AL2N15fsbJDiALjpALAD";
     model.uncheckedImg = [[UIImage imageNamed:@"login_kuang"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     model.checkedImg = [[UIImage imageNamed:@"login_kuang_gou"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     model.checkboxWH = 11;
