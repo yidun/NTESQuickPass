@@ -11,6 +11,13 @@
 #import "NTESQPDemoDefines.h"
 #import "NTESQLNavigationView.h"
 #import "NTESToastView.h"
+#import "NTESQPLoginViewController.h"
+
+@interface NTESQLHomePageCustomUIModel()
+
+@property (nonatomic, strong) UIViewController *viewController;
+
+@end
 
 @implementation NTESQLHomePageCustomUIModel
 
@@ -20,7 +27,9 @@
 
 - (NTESQuickLoginModel *)configCustomUIModel:(NSInteger)popType
                                     withType:(NSInteger)portraitType
-                             faceOrientation:(UIInterfaceOrientation)faceOrientation {
+                             faceOrientation:(UIInterfaceOrientation)faceOrientation
+                              viewController:(UIViewController *)viewController {
+    self.viewController = viewController;
     
     NTESQuickLoginModel *model = [[NTESQuickLoginModel alloc] init];
     model.presentDirectionType = NTESPresentDirectionPush;
@@ -167,7 +176,7 @@
     model.customViewBlock = ^(UIView * _Nullable customView) {
 //        customView.backgroundColor = [UIColor blackColor];
         UILabel *otherLabel = [[UILabel alloc] init];
-        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(labelTapped)];
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(otherLabelTapped:)];
         [otherLabel addGestureRecognizer:tap];
         otherLabel.userInteractionEnabled = YES;
         otherLabel.text = @"其他登录方式";
@@ -252,10 +261,9 @@
     return model;
 }
 
-- (void)labelTapped {
-    [[NTESQuickLoginManager sharedInstance] closeAuthController:^{
-    
-    }];;
+- (void)otherLabelTapped:(UITapGestureRecognizer *)tap {
+    NTESQPLoginViewController *loginController = [[NTESQPLoginViewController alloc] init];
+    [self.viewController.navigationController pushViewController:loginController animated:YES];
 }
 
 @end

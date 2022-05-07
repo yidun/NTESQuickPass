@@ -9,10 +9,6 @@
 #ifndef NTESQPDemoDefines_h
 #define NTESQPDemoDefines_h
 
-//#define TEST_MODE
-
-#define TEST_MODE_QA
-
 #define NUMBER_OF_NONCE              32
 #define VERSION                      @"v1"
 #define RANGE_TABLE                  @"kot8AB45jF6CDaUVWubcdKLZefgMpNOxyz01PQRnTvw23XYhiG7rsEqJHI9Slm"

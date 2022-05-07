@@ -21,7 +21,8 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param faceOrientation 横竖屏旋转方向
 - (NTESQuickLoginModel *)configCustomUIModel:(NSInteger)popType
                                     withType:(NSInteger)portraitType
-                             faceOrientation:(UIInterfaceOrientation)faceOrientation;
+                             faceOrientation:(UIInterfaceOrientation)faceOrientation
+                              viewController:(UIViewController *)viewController;
 
 @end
 

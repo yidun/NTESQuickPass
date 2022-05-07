@@ -142,10 +142,6 @@
             } else {
                 [weakSelf.navigationController pushViewController:weakSelf.loginViewController animated:YES];
                 [weakSelf.loginViewController updateView];
-
-                #ifdef TEST_MODE_QA
-                [weakSelf.loginViewController showToastWithMsg:[NSString stringWithFormat:@"code:%@\ndesc:%@",  [resultDic objectForKey:@"resultCode"], [resultDic objectForKey:@"desc"]]];
-                #endif
                }
           });
       }];
@@ -175,10 +171,6 @@
                 [weakSelf.navigationController pushViewController:weakSelf.loginViewController animated:YES];
                 [weakSelf.loginViewController updateView];
             }
-
-            #ifdef TEST_MODE_QA
-            [weakSelf.loginViewController showToastWithMsg:[NSString stringWithFormat:@"code:%@\ndesc:%@",  [resultDic objectForKey:@"resultCode"], [resultDic objectForKey:@"desc"]]];
-            #endif
         }
     }];
 }
@@ -250,10 +242,6 @@
                    }
                    weakSelf.loginViewController.model = weakSelf.customModel;
                    [weakSelf.loginViewController updateView];
-                   
-                   #ifdef TEST_MODE_QA
-                   [weakSelf.loginViewController showToastWithMsg:@"一键登录失败"];
-                   #endif
                }
            } else if ([code integerValue] == 1003){
                if (weakSelf.popType == 0 || weakSelf.popType == 2) {
@@ -277,10 +265,6 @@
                }
                weakSelf.loginViewController.model = weakSelf.customModel;
                [weakSelf.loginViewController updateView];
-               
-               #ifdef TEST_MODE_QA
-               [weakSelf.loginViewController showToastWithMsg:[NSString stringWithFormat:@"错误，code=%@", code]];
-               #endif
            }
        } else {
            if (weakSelf.popType == 0 || weakSelf.popType == 2) {
@@ -293,18 +277,13 @@
            }
            weakSelf.loginViewController.model = weakSelf.customModel;
            [weakSelf.loginViewController updateView];
-           
-           #ifdef TEST_MODE_QA
-           [weakSelf.loginViewController showToastWithMsg:[NSString stringWithFormat:@"服务器错误-%ld", (long)weakSelf.statusCode]];
-           #endif
        }
-       
    });
 }
 
 /// 授权页面自定义
 - (void)setCustomUI {
-    self.customModel = [[NTESQLHomePageCustomUIModel getInstance] configCustomUIModel:self.popType withType:self.portraitType faceOrientation:self.faceOrientation];
+    self.customModel = [[NTESQLHomePageCustomUIModel getInstance] configCustomUIModel:self.popType withType:self.portraitType faceOrientation:self.faceOrientation viewController:self];
     self.customModel.currentVC = self;
     self.customModel.prograssHUDBlock = ^(UIView * _Nullable prograssHUDBlock) {
         [NTESToastView showNotice:@"请勾选复选框===="];
