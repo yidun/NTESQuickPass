@@ -20,10 +20,23 @@ typedef void(^AuthLoginActionBlock)(BOOL isChecked);
 typedef void(^AuthCheckActionBlock)(BOOL isChecked);
 typedef void(^AuthCloseActionBlock)(void);
 
-/// 协议点击事件。 privacyType = 0 默认协议,  privacyType = 1 第一个协议 , privacyType = 2 第二个协议
+/** 协议点击事件。
+ *  privacyType = 0 默认协议,
+ *  privacyType = 1 第一个协议
+ *  privacyType = 2 第二个协议
+ *  privacyType = 3 第三个协议
+ *  privacyType = 4 第四个协议
+ */
 typedef void(^AuthPrivacyActionBlock)(int privacyType);
 
-/// 隐私协议界面自定义。 privacyType = 0 点击了默认协议,  privacyType = 1 点击了第一个协议 , privacyType = 2 点击了第二个协议
+/**
+ *  隐私协议点击事件回调。
+ *  privacyType = 0 点击了默认协议,
+ *  privacyType = 1 点击了第一个协议 ,
+ *  privacyType = 2 点击了第二个协议,
+ *  privacyType = 3 点击了第三个协议,
+ *  privacyType = 4 点击了第四个协议
+ */
 typedef void(^AuthPrivacyPageCustomBlock)(int privacyType);
 
 /// 复选框相对隐私条款的位置
@@ -399,11 +412,23 @@ NS_ASSUME_NONNULL_BEGIN
 /**开发者隐私条款协议名称（第二个协议）*/
 @property (nonatomic, copy) NSString *appSPrivacyText;
 
+/**开发者隐私条款协议名称（第三个协议）*/
+@property (nonatomic, copy) NSString *appTPrivacyText;
+
+/**开发者隐私条款协议名称（第四个协议）*/
+@property (nonatomic, copy) NSString *appFourPrivacyText;
+
 /**开发者隐私条款协议url（第一个协议）*/
 @property (nonatomic, copy) NSString *appFPrivacyURL;
  
 /**开发者隐私条款协议url（第二个协议）*/
 @property (nonatomic, copy) NSString *appSPrivacyURL;
+
+/**开发者隐私条款协议url（第三个协议）*/
+@property (nonatomic, copy) NSString *appTPrivacyURL;
+
+/**开发者隐私条款协议url（第四个协议）*/
+@property (nonatomic, copy) NSString *appFourPrivacyURL;
 
 /**开发者隐私条款《默认协议》的导航栏标题 ，默认为《默认协议》*/
 @property (nonatomic, copy) NSString *appPrivacyTitleText;
@@ -413,6 +438,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**开发者隐私条款《第二个协议》的导航栏标题，默认为《第二个协议》*/
 @property (nonatomic, copy) NSString *appSPrivacyTitleText;
+
+/**开发者隐私条款《第三个协议》的导航栏标题，默认为《第三个协议》*/
+@property (nonatomic, copy) NSString *appTPrivacyTitleText;
+
+/**开发者隐私条款《第四个协议》的导航栏标题，默认为《第四个协议》*/
+@property (nonatomic, copy) NSString *appFourPrivacyTitleText;
 
 /**隐私条款文字内容的方向:默认是居左*/
 @property (nonatomic, assign) NSTextAlignment appPrivacyAlignment;
