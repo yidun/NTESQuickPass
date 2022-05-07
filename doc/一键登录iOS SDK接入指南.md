@@ -42,8 +42,8 @@ pod 'NTESQuickPass', '3.2.3'
 
 * 1、添加易盾SDK,将压缩包中所有资源添加到工程中(请勾选Copy items if needed选项)
 * 2、添加依赖库，在项目设置target -> 选项卡Build Phase -> Linked Binary with Libraries添加如下依赖库，如果已存在如下的系统framework，则忽略： 
-	* `libz.1.2.8.tbd`
-	* `libc++.1.tbd`
+    * `libz.1.2.8.tbd`
+    * `libc++.1.tbd`
 
 
 ## 项目开发配置
@@ -165,7 +165,7 @@ pod 'NTESQuickPass', '3.2.3'
             // 点击自定义第1个协议;
         }
     };
-							
+                            
     /**协议点击事件回调，不会跳转到默认的协议页面。开发者可以在回调里，自行跳转到自定义的协议页面*/
     model.pageCustomBlock = ^{
         // 跳转到自定义的控制器
@@ -199,11 +199,11 @@ pod 'NTESQuickPass', '3.2.3'
     - (void)viewDidLoad {
         [super viewDidLoad];
 
-   	    // 初始化 SDK
-	    self.manager = [NTESQuickLoginManager sharedInstance];
-   	    [self.manager registerWithBusinessID:@"yourBusinessID"];
-   	}
-	
+           // 初始化 SDK
+        self.manager = [NTESQuickLoginManager sharedInstance];
+           [self.manager registerWithBusinessID:@"yourBusinessID"];
+       }
+    
 #### 参数说明：
 |类型|是否必填|默认值|描述|
 |----|--------|------|----|
@@ -211,18 +211,18 @@ pod 'NTESQuickPass', '3.2.3'
 
 ### 2 运营商判断
 在使用一键登录之前，请先调用shouldQuickLogin方法，判断当前上网卡的网络环境和运营商是否可以一键登录
-   	
-   	BOOL shouldQuickLogin = [self.manager shouldQuickLogin];
+       
+       BOOL shouldQuickLogin = [self.manager shouldQuickLogin];
    
 #### 返回值说明：
 
 |类型|描述|
 |----|----|
 |BOOL|若可以一键登录，继续执行下面的步骤；否则，建议后续直接走降级方案（例如短信）|
-	
+    
 ### 3 预取号超时时间设置
-   	
-   	[self.manager setTimeoutInterval:3000];
+       
+       [self.manager setTimeoutInterval:3000];
    
 #### 参数说明：
 
@@ -261,7 +261,7 @@ pod 'NTESQuickPass', '3.2.3'
 | resultCode|NSString|success 等于YES时，电信 resultCode = 0，移动 resultCode = 103000，联通 resultCode = 100<br> success 等于NO时，请参考[ 运营商错误码对照表](https://support.dun.163.com/documents/287305921855672320?docId=314946816851496960)|
 | token|NSString|易盾 token，有效期2分钟，不可重复使用|
 | desc|NSString|success 等于YES时, desc的值为预取号成功<br> success 等于NO时, desc的值为失败的描述信息，如：移动预取号返回类型错误|
-	
+    
 ### 5 设置授权登录界面
 
 设计规范概览
@@ -314,7 +314,7 @@ pod 'NTESQuickPass', '3.2.3'
 | 属性                                              | 说明                                                         |
 | :-------- | -------- |
 | statusBarStyle | 设置状态栏样式<br> iOS13之前 UIStatusBarStyleDefault表示文字黑色，UIStatusBarStyleLightContent表示文字白色<br> iOS13之后 UIStatusBarStyleDefault表示自动选择黑色或白色，UIStatusBarStyleDarkContent 表示文字黑色，UIStatusBarStyleLightContent 表示文字白色|
-					
+                    
 ##### 导航栏
 
 | 属性                                              | 说明                                                         |
@@ -421,6 +421,10 @@ pod 'NTESQuickPass', '3.2.3'
 | appFPrivacyURL| 设置开发者隐私条款协议url（第一个协议）|
 | appSPrivacyText| 设置开发者隐私条款协议名称（第二个协议）|
 | appSPrivacyURL| 设置开发者隐私条款协议url（第二个协议）|
+| appTPrivacyText| 设置开发者隐私条款协议名称（第三个协议）|
+| appTPrivacyURL| 设置开发者隐私条款协议url（第三个协议）|
+| appFourPrivacyText| 设置开发者隐私条款协议名称（第四个协议）|
+| appFourPrivacyURL| 设置开发者隐私条款协议url（第四个协议）|
 | shouldHiddenPrivacyMarks| 设置是否隐藏"《默认》" 两边的《》，默认不隐藏|
 | privacyColor| 设置隐私条款名称颜色|
 | privacyFont| 设置隐私条款字体的大小|
@@ -525,7 +529,7 @@ pod 'NTESQuickPass', '3.2.3'
 
 ### 8 获取当前上网卡的运营商
 
- 	NTESCarrierType carrierType = [self.manager getCarrier];
+     NTESCarrierType carrierType = [self.manager getCarrier];
    
 #### 返回值说明：
 
@@ -536,11 +540,11 @@ pod 'NTESQuickPass', '3.2.3'
 ### 9 关闭授权页
 手动关闭授权页
 
- 	[self.manager closeAuthController:nil];
-	
+     [self.manager closeAuthController:nil];
+    
 ### 10 获取当前SDK版本号
 
-	NSString *version = [self.manager getSDKVersion];
+    NSString *version = [self.manager getSDKVersion];
    
 ####  返回值说明：
 
@@ -550,14 +554,15 @@ pod 'NTESQuickPass', '3.2.3'
 
 ### 11  清除预取号缓存
 
-	[self.manager clearPreLoginCache];
+    [self.manager clearPreLoginCache];
    
 ####  返回值说明：
 
-		
+        
 __注__：因出于安全考虑，为了防止一键登录接口被恶意用户刷量造成经济损失，一键登录让接入者通过自己的服务端去调用易盾check接口，通知接入者一键登录是否通过。详细介绍请开发者参考[易盾一键登录服务端接口文档](http://support.dun.163.com/documents/287305921855672320?docId=289953034527756288&locale=zh-cn)
 
 
         
 
-	
+    
+
