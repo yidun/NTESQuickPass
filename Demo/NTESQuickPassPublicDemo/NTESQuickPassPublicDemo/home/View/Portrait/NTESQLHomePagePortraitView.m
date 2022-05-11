@@ -79,7 +79,7 @@
     [self addSubview:_loginTabButton];
     [_loginTabButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self).mas_offset(leftMargin);
-        make.bottom.equalTo(self).mas_offset(- 312);
+        make.bottom.equalTo(self).mas_offset(- 380);
         make.size.mas_equalTo(CGSizeMake(64, 22));
     }];
     
@@ -105,7 +105,7 @@
     [self addSubview:_checkTabButton];
     [_checkTabButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(self).mas_offset(-leftMargin);
-        make.bottom.equalTo(self).mas_offset(- 312);
+        make.bottom.equalTo(self).mas_offset(- 380);
         make.size.mas_equalTo(CGSizeMake(64, 22));
     }];
     
