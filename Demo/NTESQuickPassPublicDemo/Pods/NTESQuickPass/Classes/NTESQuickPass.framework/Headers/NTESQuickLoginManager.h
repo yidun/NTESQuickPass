@@ -190,6 +190,11 @@ typedef void(^NTESAuthorizeCompletionHandler)(void);
  */
 - (void)clearPreLoginCache;
 
+/**
+ 点击授权页登录按钮
+ */
+- (void)authLoginButtonClick;
+
 @end
 
 NS_ASSUME_NONNULL_END

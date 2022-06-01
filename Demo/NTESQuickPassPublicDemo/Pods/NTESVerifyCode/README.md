@@ -239,6 +239,20 @@ platform :ios, '8.0'
             NTESVerifyCodeLangPTBR,   // 巴西葡语
             NTESVerifyCodeLangESLA,   // 拉美西语
 		};
+  
+        /**
+         * @abstract    验证码适老
+         */
+        typedef NS_ENUM(NSInteger, NTESVerifyCodeFontSize) {
+            // 小号字体
+            NTESVerifyCodeFontSizeSmall = 1,
+            // 中号字体
+            NTESVerifyCodeFontSizeMedium,
+            // 大号字体
+            NTESVerifyCodeFontSizeLarge,
+            // 超大号字体
+            NTESVerifyCodeFontSizeXlarge
+        };      
 		
 		/**
  		* @abstract    设置验证码类型
@@ -287,8 +301,13 @@ platform :ios, '8.0'
 		@property(nonatomic) UIColor           *color;
 
 - 
-
-		
+        /**
+         * @abstract    验证码适老化
+         *
+         * @说明          验证码适老化枚举类型NTESVerifyCodeFontSize，可选范围见枚举定义。
+         *               不传默认中号字体。
+         */
+        @property(nonatomic) NTESVerifyCodeFontSize fontSize;		
         
         /**
  		 * @abstract    验证码语言选项
@@ -360,11 +379,7 @@ platform :ios, '8.0'
 		*/
 		@property(nonatomic) BOOL closeButtonHidden;
         
-
-
-- 
-        
-        
+-
       
         /**
  		* @abstract   验证码ipv6配置。
