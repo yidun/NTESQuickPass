@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import "NTESVerifyCodeStyleConfig.h"
 
 /**
  * @abstract    设置验证码语言类型
@@ -155,7 +156,7 @@ typedef NS_ENUM(NSInteger, NTESDeviceOrientation) {
  *
  * @param error 错误信息
  */
-- (void)verifyCodeInitFailed:(NSArray *)error;
+- (void)verifyCodeInitFailed:(NSArray *_Nullable)error;
 
 /**
  * 完成验证之后的回调
@@ -165,7 +166,7 @@ typedef NS_ENUM(NSInteger, NTESDeviceOrientation) {
  * @param message 结果描述信息
  *
  */
-- (void)verifyCodeValidateFinish:(BOOL)result validate:(NSString *)validate message:(NSString *)message;
+- (void)verifyCodeValidateFinish:(BOOL)result validate:(NSString *_Nullable)validate message:(NSString *)message;
 
 /**
  * 关闭验证码窗口后的回调
@@ -182,7 +183,7 @@ typedef NS_ENUM(NSInteger, NTESDeviceOrientation) {
 /**
  * @abstract    delegate,见NTESVerifyCodeManagerDelegate
  */
-@property(nonatomic, weak) id<NTESVerifyCodeManagerDelegate>delegate;
+@property(nonatomic, weak) id<NTESVerifyCodeManagerDelegate> _Nullable delegate;
 
 /**
  * @abstract    验证码图片显示的frame
@@ -342,6 +343,18 @@ typedef NS_ENUM(NSInteger, NTESDeviceOrientation) {
                     timeout:(NSTimeInterval)timeoutInterval;
 
 /**
+ *  @abstract   配置参数
+ *
+ *  @param      captcha_id      验证码id
+ *  @param      timeoutInterval 加载验证码的超时时间,最长12s。这个时间尽量设置长一些，比如7秒以上(7-12s)
+ *  @param      styleConfig 验证码验证码样式配置
+ *
+ */
+- (void)configureVerifyCode:(NSString *)captcha_id
+                    timeout:(NSTimeInterval)timeoutInterval
+                styleConfig:(NTESVerifyCodeStyleConfig *)styleConfig;
+
+/**
  *  @abstract   自定义loading文案
  *
  *  @param      loadingText  加载中的文案
@@ -426,6 +439,6 @@ typedef NS_ENUM(NSInteger, NTESDeviceOrientation) {
 /**
 * @abstract    验证码SDK版本号
 */
-- (NSString *)getSDKVersion;
+- (NSString *_Nullable)getSDKVersion;
 
 @end
