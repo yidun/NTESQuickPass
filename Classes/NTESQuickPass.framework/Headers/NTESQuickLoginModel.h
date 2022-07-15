@@ -14,8 +14,12 @@ typedef void(^AuthLoadingViewBlock)(UIView *_Nullable customLoadingView);
 typedef void(^AuthPrograssHUDBlock)(UIView *_Nullable prograssHUDBlock);
 typedef void(^AuthVideoViewBlock)(UIView *_Nullable videoView);
 
-/// 授权页面点击事件的回调
-typedef void(^AuthBackActionBlock)(void);
+/** 协议点击事件。授权页面点击事件的回调
+ *  backType = 1 从隐私协议界面返回
+ *  backType = 2 从授权界面返回
+ */
+typedef void(^AuthBackActionBlock)(int backType);
+
 typedef void(^AuthLoginActionBlock)(BOOL isChecked);
 typedef void(^AuthCheckActionBlock)(BOOL isChecked);
 typedef void(^AuthCloseActionBlock)(void);
