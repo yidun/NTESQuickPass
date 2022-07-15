@@ -285,10 +285,8 @@
 - (void)setCustomUI {
     self.customModel = [[NTESQLHomePageCustomUIModel getInstance] configCustomUIModel:self.popType withType:self.portraitType faceOrientation:self.faceOrientation viewController:self];
     self.customModel.currentVC = self;
-    self.customModel.prograssHUDBlock = ^(UIView * _Nullable prograssHUDBlock) {
-        [NTESToastView showNotice:@"请勾选复选框===="];
-    };
     
+    /// 协议未勾选时，自定义弹窗样式，不实现prograssHUDBlock方法，走内部默认弹窗
     WeakSelf(self);
     self.customModel.prograssHUDBlock = ^(UIView * _Nullable prograssHUDBlock) {
         NTESCheckedToastView *checkedToastView = [[NTESCheckedToastView alloc] init];
@@ -300,6 +298,10 @@
         }];
     };
     
+    // 自定义协议界面，在block里面跳转到自己的协议页面，不实现pageCustomBlock走默认跳转
+    self.customModel.pageCustomBlock = ^(int privacyType) {
+        [NTESToastView showNotice:@"请实现跳转协议逻辑"];
+    };
     
     [[NTESQuickLoginManager sharedInstance] setupModel:self.customModel];
 }
@@ -308,6 +310,7 @@
 
 - (void)submitButtonDidTipped {
     self.customModel.checkedSelected = YES;
+    [[NTESQuickLoginManager sharedInstance] authLoginButtonClick];
     [self.checkedToastView removeFromSuperview];
 }
 

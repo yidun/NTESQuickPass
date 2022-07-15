@@ -83,7 +83,7 @@
     model.uncheckedImg = [[UIImage imageNamed:@"login_kuang"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     model.checkedImg = [[UIImage imageNamed:@"login_kuang_gou"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     model.checkboxWH = 11;
-    model.privacyState = YES;
+    model.privacyState = NO;
     model.isOpenSwipeGesture = NO;
     model.privacyFont = [UIFont fontWithName:@"PingFangSC-Regular" size:11];
     model.closePopImg = [UIImage imageNamed:@"ic_close"];
@@ -214,10 +214,10 @@
             }];
         }
     };
-
-    model.backActionBlock = ^{
-        NSLog(@"backAction===返回按钮点击");
-    };
+//
+//    model.backActionBlock = ^{
+//        NSLog(@"backAction===返回按钮点击");
+//    };
 
     model.loginActionBlock = ^(BOOL isChecked) {
         NSLog(@"loginAction");
