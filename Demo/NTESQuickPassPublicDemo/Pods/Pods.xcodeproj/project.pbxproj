@@ -13,7 +13,7 @@
 			buildPhases = (
 			);
 			dependencies = (
-				D0CE4B730FFE9FBC2F7D0E79DAD99CDD /* PBXTargetDependency */,
+				E0BBC0509E670FAE1372987E8DDF90F1 /* PBXTargetDependency */,
 			);
 			name = NTESQuickPass;
 		};
@@ -68,35 +68,35 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		0E32BAD90B081DF27CEECC4BAA46E2A0 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 7F6F6C7839036FD656371F03D2E294BE;
-			remoteInfo = NTESBaseComponent;
-		};
-		318C3C3659221DD447F352F5D4708B29 /* PBXContainerItemProxy */ = {
+		A268317938580879F258C37816700050 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 55AF53E6C77A10ED4985E04D74A8878E;
 			remoteInfo = Masonry;
 		};
-		52BD1D856B7ED6CF6B4BC1286E23AB92 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 00BE7912FFFBB68A74818D0B508B4725;
-			remoteInfo = NTESQuickPass;
-		};
-		5EEC666E0306FFD508C2D3C3830FA736 /* PBXContainerItemProxy */ = {
+		AB76A9823D4EF272AF268C8F33538768 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 7F6F6C7839036FD656371F03D2E294BE;
 			remoteInfo = NTESBaseComponent;
 		};
-		FA48FD4A2F2E523409D3BE69114F7A17 /* PBXContainerItemProxy */ = {
+		C1839643D1C2E2F2E702A7DA5589C056 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 00BE7912FFFBB68A74818D0B508B4725;
+			remoteInfo = NTESQuickPass;
+		};
+		C388A3C43660C5BA1FA4EED0432E246C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7F6F6C7839036FD656371F03D2E294BE;
+			remoteInfo = NTESBaseComponent;
+		};
+		F91FC16505C1E5F8208C060B4DCFFE31 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
@@ -107,20 +107,15 @@
 
 /* Begin PBXFileReference section */
 		049FD123CA019A7C6500CAB02CDC5CB4 /* Pods-NTESQuickPassPublicDemo */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "Pods-NTESQuickPassPublicDemo"; path = "libPods-NTESQuickPassPublicDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		0604DB578AB1EA7686420244AC1E1869 /* NTESQuickPass.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = NTESQuickPass.release.xcconfig; sourceTree = "<group>"; };
 		07ECCEEFC0B428FC0943A180B7F96C62 /* MASCompositeConstraint.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASCompositeConstraint.m; path = Masonry/MASCompositeConstraint.m; sourceTree = "<group>"; };
 		0C83AD58797B6CE5CCD6461D8F43D86E /* NSArray+MASAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSArray+MASAdditions.h"; path = "Masonry/NSArray+MASAdditions.h"; sourceTree = "<group>"; };
 		0D614745EB041FF64A4DC733DC815B97 /* Pods-NTESQuickPassPublicDemo-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-NTESQuickPassPublicDemo-dummy.m"; sourceTree = "<group>"; };
-		105873913098CF221CC024F2F65411F9 /* WYEAccountApiSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WYEAccountApiSDK.framework; path = Classes/WYEAccountApiSDK.framework; sourceTree = "<group>"; };
 		10F1BA2E043F51750CEB243EA8619738 /* NTESVerifyCode.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = NTESVerifyCode.debug.xcconfig; sourceTree = "<group>"; };
 		143DB19D7AE6B3C3C7D3D114255785D7 /* MASUtilities.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASUtilities.h; path = Masonry/MASUtilities.h; sourceTree = "<group>"; };
-		19E2E4D9A0BF92AC8D6C9E7DE302573B /* NTESResource.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = NTESResource.bundle; path = Assets/NTESResource.bundle; sourceTree = "<group>"; };
-		1A131FEC126CA83FCFFDDE82AA524BC7 /* NTESQuickPass.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NTESQuickPass.framework; path = Classes/NTESQuickPass.framework; sourceTree = "<group>"; };
 		1BB12B40B4BEE53056A96848F3F7885B /* Masonry-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Masonry-prefix.pch"; sourceTree = "<group>"; };
 		1D3EA9099ACB02FC826AFE06CDEE807D /* NSArray+MASAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSArray+MASAdditions.m"; path = "Masonry/NSArray+MASAdditions.m"; sourceTree = "<group>"; };
-		1D609C2C3B181B205518974A5968B141 /* WYTYRZUISDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WYTYRZUISDK.framework; path = Classes/WYTYRZUISDK.framework; sourceTree = "<group>"; };
 		1FFED36A657123030ABB700256D73F15 /* Masonry */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = Masonry; path = libMasonry.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		25EF6F92B9C97089F709CD1FCF0C4CF7 /* NTESQuickPass.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = NTESQuickPass.debug.xcconfig; sourceTree = "<group>"; };
+		22AF9E8D467BE2E807B904D2EC8078E7 /* NTESResource.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = NTESResource.bundle; path = Assets/NTESResource.bundle; sourceTree = "<group>"; };
 		293D7A9DAD626EEB76DE283EDEA10895 /* View+MASShorthandAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "View+MASShorthandAdditions.h"; path = "Masonry/View+MASShorthandAdditions.h"; sourceTree = "<group>"; };
 		2F7F94B0929D0872C841C5C39AFD3EAA /* NTESBaseComponent.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = NTESBaseComponent.debug.xcconfig; sourceTree = "<group>"; };
 		2FEA888EC6E915752A0D41641AF4FA5A /* NTESVerifyCode.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = NTESVerifyCode.release.xcconfig; sourceTree = "<group>"; };
@@ -128,29 +123,33 @@
 		3FE4933C6D66F6C0EED8EF0D3EA37CED /* MASViewAttribute.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASViewAttribute.m; path = Masonry/MASViewAttribute.m; sourceTree = "<group>"; };
 		45060EBE5EB6131C94EB740FA398547A /* MASViewConstraint.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASViewConstraint.m; path = Masonry/MASViewConstraint.m; sourceTree = "<group>"; };
 		49FEF7C723BE72728D249BF1C72B57EA /* MASViewConstraint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASViewConstraint.h; path = Masonry/MASViewConstraint.h; sourceTree = "<group>"; };
+		4CC6F09EC33EEF919AD8C8E58838CEDD /* WYOAuth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WYOAuth.framework; path = Classes/WYOAuth.framework; sourceTree = "<group>"; };
+		4D38DBD4FCCE6DD5E5FC3CCD97640EF2 /* NTESQuickPass.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = NTESQuickPass.debug.xcconfig; sourceTree = "<group>"; };
 		52E796DFFB74C9B286CBE88453ACD216 /* Masonry.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Masonry.release.xcconfig; sourceTree = "<group>"; };
 		552A633C25190968EC46F1419875E894 /* ViewController+MASAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "ViewController+MASAdditions.h"; path = "Masonry/ViewController+MASAdditions.h"; sourceTree = "<group>"; };
+		557F956F14E00B452D4825155602834B /* NTESQuickPass.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NTESQuickPass.framework; path = Classes/NTESQuickPass.framework; sourceTree = "<group>"; };
 		5878F628EEF1CFD3CE8AD10041520377 /* MASConstraint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASConstraint.h; path = Masonry/MASConstraint.h; sourceTree = "<group>"; };
 		5CB6DE36F5ED43DF884E4AF619CC9687 /* VerifyCode.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VerifyCode.framework; path = Classes/VerifyCode.framework; sourceTree = "<group>"; };
 		5D262587102B1A7CDB6A2F4A7C627196 /* Masonry.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Masonry.debug.xcconfig; sourceTree = "<group>"; };
 		5DD7FE1F624769D32017D25EF956FBD6 /* MASConstraint+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "MASConstraint+Private.h"; path = "Masonry/MASConstraint+Private.h"; sourceTree = "<group>"; };
 		65626C7EBE698C087AE8D9CA275912D5 /* MASViewAttribute.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASViewAttribute.h; path = Masonry/MASViewAttribute.h; sourceTree = "<group>"; };
+		6AE4E8BABDE17145483EBF0CCF231400 /* NTESQuickPass.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = NTESQuickPass.release.xcconfig; sourceTree = "<group>"; };
 		6D1AEA0A4CFD9F3C3326C0EBDEF151DE /* NSLayoutConstraint+MASDebugAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSLayoutConstraint+MASDebugAdditions.h"; path = "Masonry/NSLayoutConstraint+MASDebugAdditions.h"; sourceTree = "<group>"; };
 		6E91AB41F817DB454077A54961E66CE6 /* Pods-NTESQuickPassPublicDemo-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-NTESQuickPassPublicDemo-acknowledgements.markdown"; sourceTree = "<group>"; };
 		715E66BD3AAEAB2C06D3A80C630DD167 /* Pods-NTESQuickPassPublicDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-NTESQuickPassPublicDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		7162B50B66C812980F439D561F44BEFC /* Masonry.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Masonry.h; path = Masonry/Masonry.h; sourceTree = "<group>"; };
 		87367E26AD0B40FC3586BF59167F64CD /* Masonry-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Masonry-dummy.m"; sourceTree = "<group>"; };
 		8A8A2377707879CF87D204F6D18318EA /* MASCompositeConstraint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASCompositeConstraint.h; path = Masonry/MASCompositeConstraint.h; sourceTree = "<group>"; };
+		9388D4F93CB528936BA496D3B4BD02CF /* WYEAccountApiSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WYEAccountApiSDK.framework; path = Classes/WYEAccountApiSDK.framework; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		A8A02221B6501A652B86DA094AB6B6ED /* NSLayoutConstraint+MASDebugAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSLayoutConstraint+MASDebugAdditions.m"; path = "Masonry/NSLayoutConstraint+MASDebugAdditions.m"; sourceTree = "<group>"; };
 		AE2D218973178AC058E687C3114E0701 /* ViewController+MASAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "ViewController+MASAdditions.m"; path = "Masonry/ViewController+MASAdditions.m"; sourceTree = "<group>"; };
-		B1C9443E9186020CEEA0E7F50F556851 /* WYOAuth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WYOAuth.framework; path = Classes/WYOAuth.framework; sourceTree = "<group>"; };
 		C2FB6801B28DD843A59EF419D82CC29C /* Pods-NTESQuickPassPublicDemo-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-NTESQuickPassPublicDemo-acknowledgements.plist"; sourceTree = "<group>"; };
 		C7D695F93E8A42D0DC65160001CEE962 /* Pods-NTESQuickPassPublicDemo-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-NTESQuickPassPublicDemo-resources.sh"; sourceTree = "<group>"; };
-		C9FED32D0392CBB606BDEEF37277C5EA /* NEZQFPSupport.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = NEZQFPSupport.bundle; path = Assets/NEZQFPSupport.bundle; sourceTree = "<group>"; };
 		D35C54A3F17E56BDDFC8D8D4E85B44C0 /* MASConstraint.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASConstraint.m; path = Masonry/MASConstraint.m; sourceTree = "<group>"; };
 		D3A2BFD39AFD206D2A48F09AE7DF732D /* NSArray+MASShorthandAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSArray+MASShorthandAdditions.h"; path = "Masonry/NSArray+MASShorthandAdditions.h"; sourceTree = "<group>"; };
 		D507CD88D7CB5A73BB0ED55B4E81F007 /* View+MASAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "View+MASAdditions.m"; path = "Masonry/View+MASAdditions.m"; sourceTree = "<group>"; };
+		D60653F8488366CC5653C96D7F7D2C49 /* WYTYRZUISDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WYTYRZUISDK.framework; path = Classes/WYTYRZUISDK.framework; sourceTree = "<group>"; };
 		D9F92F8F31096772738B8123ED852002 /* MASLayoutConstraint.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASLayoutConstraint.m; path = Masonry/MASLayoutConstraint.m; sourceTree = "<group>"; };
 		DA03E8FCA98C4A37712165B3169F5E5B /* NTESVerifyCodeResources.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = NTESVerifyCodeResources.bundle; path = Assets/NTESVerifyCodeResources.bundle; sourceTree = "<group>"; };
 		DA4E67B2F0470A67F104903ADABBFF8E /* View+MASAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "View+MASAdditions.h"; path = "Masonry/View+MASAdditions.h"; sourceTree = "<group>"; };
@@ -192,7 +191,7 @@
 			children = (
 				6505E7A23836601D189757312BB7593A /* Masonry */,
 				CED1ACF1BAA5BDD3E4B8C14F4508ABAD /* NTESBaseComponent */,
-				4670DC6DDBBC92D4D35522A53B974CCC /* NTESQuickPass */,
+				3596F8613101890CAA1D02FE1680F804 /* NTESQuickPass */,
 				1C61E72608AA1FBE1C2822A343EEE3E0 /* NTESVerifyCode */,
 			);
 			name = Pods;
@@ -218,22 +217,22 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		4670DC6DDBBC92D4D35522A53B974CCC /* NTESQuickPass */ = {
+		3596F8613101890CAA1D02FE1680F804 /* NTESQuickPass */ = {
 			isa = PBXGroup;
 			children = (
-				A1624E11ADA9D692A3D5EA27016CDC23 /* Frameworks */,
-				7EEB2CDC0D56BD3DE7C1EC733BB5A551 /* Resources */,
-				4BE7D6F4CFE17E96182982D483E1D425 /* Support Files */,
+				C9F9E3C9808D6DA700C2BEEF2F911E1B /* Frameworks */,
+				8F8E623BEC307285B609D0ED0BC1CC10 /* Resources */,
+				5F8CE44AD95666982C32331F768D1E99 /* Support Files */,
 			);
 			name = NTESQuickPass;
 			path = NTESQuickPass;
 			sourceTree = "<group>";
 		};
-		4BE7D6F4CFE17E96182982D483E1D425 /* Support Files */ = {
+		5F8CE44AD95666982C32331F768D1E99 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				25EF6F92B9C97089F709CD1FCF0C4CF7 /* NTESQuickPass.debug.xcconfig */,
-				0604DB578AB1EA7686420244AC1E1869 /* NTESQuickPass.release.xcconfig */,
+				4D38DBD4FCCE6DD5E5FC3CCD97640EF2 /* NTESQuickPass.debug.xcconfig */,
+				6AE4E8BABDE17145483EBF0CCF231400 /* NTESQuickPass.release.xcconfig */,
 			);
 			name = "Support Files";
 			path = "../Target Support Files/NTESQuickPass";
@@ -287,24 +286,12 @@
 			path = "Target Support Files/Pods-NTESQuickPassPublicDemo";
 			sourceTree = "<group>";
 		};
-		7EEB2CDC0D56BD3DE7C1EC733BB5A551 /* Resources */ = {
+		8F8E623BEC307285B609D0ED0BC1CC10 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				C9FED32D0392CBB606BDEEF37277C5EA /* NEZQFPSupport.bundle */,
-				19E2E4D9A0BF92AC8D6C9E7DE302573B /* NTESResource.bundle */,
+				22AF9E8D467BE2E807B904D2EC8078E7 /* NTESResource.bundle */,
 			);
 			name = Resources;
-			sourceTree = "<group>";
-		};
-		A1624E11ADA9D692A3D5EA27016CDC23 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				1A131FEC126CA83FCFFDDE82AA524BC7 /* NTESQuickPass.framework */,
-				105873913098CF221CC024F2F65411F9 /* WYEAccountApiSDK.framework */,
-				B1C9443E9186020CEEA0E7F50F556851 /* WYOAuth.framework */,
-				1D609C2C3B181B205518974A5968B141 /* WYTYRZUISDK.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		A5F98E635ADCA4FE2E149C8DD05E245B /* Support Files */ = {
@@ -349,6 +336,17 @@
 			);
 			name = "Support Files";
 			path = "../Target Support Files/NTESVerifyCode";
+			sourceTree = "<group>";
+		};
+		C9F9E3C9808D6DA700C2BEEF2F911E1B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				557F956F14E00B452D4825155602834B /* NTESQuickPass.framework */,
+				9388D4F93CB528936BA496D3B4BD02CF /* WYEAccountApiSDK.framework */,
+				4CC6F09EC33EEF919AD8C8E58838CEDD /* WYOAuth.framework */,
+				D60653F8488366CC5653C96D7F7D2C49 /* WYTYRZUISDK.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		CED1ACF1BAA5BDD3E4B8C14F4508ABAD /* NTESBaseComponent */ = {
@@ -454,10 +452,10 @@
 			buildRules = (
 			);
 			dependencies = (
-				7ED483A5E00F22B85CCBCF4356E83083 /* PBXTargetDependency */,
-				7DCFE930CC71363E5DAFECF873111F35 /* PBXTargetDependency */,
-				562FBD0AB09F043B484F867BE5A49C5D /* PBXTargetDependency */,
-				077F8FF0CB481DA920799825204A6E8F /* PBXTargetDependency */,
+				82F40C67AB774F90641D21DF28442475 /* PBXTargetDependency */,
+				E70DDEB7305CD6FE42786A88CA9FB6A6 /* PBXTargetDependency */,
+				D71C478984D6CF0C98F577D00AFD713F /* PBXTargetDependency */,
+				8D98184041EE1CF532187E89B8C0F7B8 /* PBXTargetDependency */,
 			);
 			name = "Pods-NTESQuickPassPublicDemo";
 			productName = "Pods-NTESQuickPassPublicDemo";
@@ -525,35 +523,35 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		077F8FF0CB481DA920799825204A6E8F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = NTESVerifyCode;
-			target = 54DEDA18141E6AC540247162DAC5AF2F /* NTESVerifyCode */;
-			targetProxy = FA48FD4A2F2E523409D3BE69114F7A17 /* PBXContainerItemProxy */;
-		};
-		562FBD0AB09F043B484F867BE5A49C5D /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = NTESQuickPass;
-			target = 00BE7912FFFBB68A74818D0B508B4725 /* NTESQuickPass */;
-			targetProxy = 52BD1D856B7ED6CF6B4BC1286E23AB92 /* PBXContainerItemProxy */;
-		};
-		7DCFE930CC71363E5DAFECF873111F35 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = NTESBaseComponent;
-			target = 7F6F6C7839036FD656371F03D2E294BE /* NTESBaseComponent */;
-			targetProxy = 0E32BAD90B081DF27CEECC4BAA46E2A0 /* PBXContainerItemProxy */;
-		};
-		7ED483A5E00F22B85CCBCF4356E83083 /* PBXTargetDependency */ = {
+		82F40C67AB774F90641D21DF28442475 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Masonry;
 			target = 55AF53E6C77A10ED4985E04D74A8878E /* Masonry */;
-			targetProxy = 318C3C3659221DD447F352F5D4708B29 /* PBXContainerItemProxy */;
+			targetProxy = A268317938580879F258C37816700050 /* PBXContainerItemProxy */;
 		};
-		D0CE4B730FFE9FBC2F7D0E79DAD99CDD /* PBXTargetDependency */ = {
+		8D98184041EE1CF532187E89B8C0F7B8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = NTESVerifyCode;
+			target = 54DEDA18141E6AC540247162DAC5AF2F /* NTESVerifyCode */;
+			targetProxy = F91FC16505C1E5F8208C060B4DCFFE31 /* PBXContainerItemProxy */;
+		};
+		D71C478984D6CF0C98F577D00AFD713F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = NTESQuickPass;
+			target = 00BE7912FFFBB68A74818D0B508B4725 /* NTESQuickPass */;
+			targetProxy = C1839643D1C2E2F2E702A7DA5589C056 /* PBXContainerItemProxy */;
+		};
+		E0BBC0509E670FAE1372987E8DDF90F1 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = NTESBaseComponent;
 			target = 7F6F6C7839036FD656371F03D2E294BE /* NTESBaseComponent */;
-			targetProxy = 5EEC666E0306FFD508C2D3C3830FA736 /* PBXContainerItemProxy */;
+			targetProxy = AB76A9823D4EF272AF268C8F33538768 /* PBXContainerItemProxy */;
+		};
+		E70DDEB7305CD6FE42786A88CA9FB6A6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = NTESBaseComponent;
+			target = 7F6F6C7839036FD656371F03D2E294BE /* NTESBaseComponent */;
+			targetProxy = C388A3C43660C5BA1FA4EED0432E246C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -664,7 +662,7 @@
 		};
 		3F2547649D858CB072386FF298300B65 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0604DB578AB1EA7686420244AC1E1869 /* NTESQuickPass.release.xcconfig */;
+			baseConfigurationReference = 6AE4E8BABDE17145483EBF0CCF231400 /* NTESQuickPass.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -747,7 +745,7 @@
 		};
 		890B1017FFFD7F2D13645B78E2AE21A7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 25EF6F92B9C97089F709CD1FCF0C4CF7 /* NTESQuickPass.debug.xcconfig */;
+			baseConfigurationReference = 4D38DBD4FCCE6DD5E5FC3CCD97640EF2 /* NTESQuickPass.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

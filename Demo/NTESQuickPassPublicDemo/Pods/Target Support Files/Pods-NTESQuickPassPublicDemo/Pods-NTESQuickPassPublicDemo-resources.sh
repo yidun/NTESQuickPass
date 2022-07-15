@@ -98,12 +98,10 @@ EOM
 }
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_resource "${PODS_ROOT}/NTESQuickPass/Assets/NTESResource.bundle"
-  install_resource "${PODS_ROOT}/NTESQuickPass/Assets/NEZQFPSupport.bundle"
   install_resource "${PODS_ROOT}/NTESVerifyCode/Assets/NTESVerifyCodeResources.bundle"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_resource "${PODS_ROOT}/NTESQuickPass/Assets/NTESResource.bundle"
-  install_resource "${PODS_ROOT}/NTESQuickPass/Assets/NEZQFPSupport.bundle"
   install_resource "${PODS_ROOT}/NTESVerifyCode/Assets/NTESVerifyCodeResources.bundle"
 fi
 

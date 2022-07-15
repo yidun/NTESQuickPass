@@ -96,15 +96,6 @@ typedef void(^NTESAuthorizeCompletionHandler)(void);
  */
 @property (nonatomic, assign) BOOL allowUploadInfo;
 
-
-/**
- *  @abstract   属性
- *
- *  @说明 是否开启安全风控。openSafetyRiskControl = YES 开启，openSafetyRiskControl = NO 关闭。默认开启
- *
- */
-@property (nonatomic, assign) BOOL openSafetyRiskControl;
-
 /**
 *  @abstract   属性
 *
