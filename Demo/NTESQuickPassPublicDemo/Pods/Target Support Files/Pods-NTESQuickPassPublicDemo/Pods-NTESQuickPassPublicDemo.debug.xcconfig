@@ -1,9 +1,9 @@
 CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO
-FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/NTESBaseComponent/Classes" "${PODS_ROOT}/NTESQuickPass/Classes" "${PODS_ROOT}/NTESVerifyCode/Classes"
+FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/NTESBaseComponent/Classes" "${PODS_ROOT}/NTESQuickPass/Classes"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
 HEADER_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/Masonry"
 LIBRARY_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/Masonry"
-OTHER_LDFLAGS = $(inherited) -ObjC -l"Masonry" -l"c++.1" -framework "CoreFoundation" -framework "CoreGraphics" -framework "Foundation" -framework "JavaScriptCore" -framework "NTESBaseComponent" -framework "NTESQuickPass" -framework "QuartzCore" -framework "Security" -framework "SystemConfiguration" -framework "UIKit" -framework "VerifyCode" -framework "WYEAccountApiSDK" -framework "WYOAuth" -framework "WYTYRZUISDK" -framework "WebKit"
+OTHER_LDFLAGS = $(inherited) -ObjC -l"Masonry" -l"c++.1" -framework "Foundation" -framework "NTESBaseComponent" -framework "NTESQuickPass" -framework "UIKit" -framework "WYEAccountApiSDK" -framework "WYOAuth" -framework "WYTYRZUISDK"
 PODS_BUILD_DIR = ${BUILD_DIR}
 PODS_CONFIGURATION_BUILD_DIR = ${PODS_BUILD_DIR}/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)
 PODS_PODFILE_DIR_PATH = ${SRCROOT}/.

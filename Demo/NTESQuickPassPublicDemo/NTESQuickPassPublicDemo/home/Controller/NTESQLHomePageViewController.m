@@ -22,10 +22,9 @@
 #import "NTESQLNavigationView.h"
 #import "UIColor+NTESQuickPass.h"
 #import "NTESToastView.h"
-#import <VerifyCode/NTESVerifyCodeManager.h>
 #import "NTESCheckedToastView.h"
 
-@interface  NTESQLHomePageViewController() <UINavigationBarDelegate, NTESQLHomePagePortraitViewDelegate, NTESQLHomePageLandscapeViewDelegate, NTESQuickLoginManagerDelegate,NTESVerifyCodeManagerDelegate,NTESCheckedToastViewDelegate>
+@interface  NTESQLHomePageViewController() <UINavigationBarDelegate, NTESQLHomePagePortraitViewDelegate, NTESQLHomePageLandscapeViewDelegate, NTESQuickLoginManagerDelegate,NTESCheckedToastViewDelegate>
 
 @property (nonatomic, copy) NSString *token;
 @property (nonatomic, copy) NSString *accessToken;
@@ -49,7 +48,6 @@
 @property (nonatomic, assign) BOOL shouldQL;
 @property (nonatomic, assign) BOOL precheckSuccess;
 
-@property (nonatomic, strong) NTESVerifyCodeManager *manager;
 @property (nonatomic, strong) NSData *data;
 @property (nonatomic, assign) NSInteger statusCode;
 
@@ -120,7 +118,7 @@
 /// 使用易盾提供的businessID进行初始化业务，回调中返回初始化结果
 - (void)registerQuickLogin {
     [NTESQuickLoginManager sharedInstance].delegate = self;
-    [[NTESQuickLoginManager sharedInstance] registerWithBusinessID:@"请输入易盾业务ID"];
+    [[NTESQuickLoginManager sharedInstance] registerWithBusinessID:@"085414a39bbb4754ba7e558c6400fab4"];
 }
 
 - (void)getPhoneNumberWithText:(NSString *)title {
@@ -195,7 +193,7 @@
         weakSelf.statusCode = statusCode;
         dispatch_async(dispatch_get_main_queue(), ^{
             if (weakSelf.popType == 2) {
-                [weakSelf verifycode];
+                
             } else {
                 [weakSelf loginSuccess];
             }
@@ -405,74 +403,6 @@
 
 - (UIStatusBarStyle)preferredStatusBarStyle {
     return UIStatusBarStyleLightContent;
-}
-
-- (void)verifycode {
-    if (!self.manager) {
-        self.manager = [NTESVerifyCodeManager getInstance];
-    }
-    _manager.delegate = self;
-    _manager.mode = NTESVerifyCodeNormal;
-    [_manager configureVerifyCode:@"请填写易盾的验证码id" timeout:7.0];
-                   // 设置语言
-    _manager.lang = NTESVerifyCodeLangCN;
-    // 设置透明度
-    _manager.alpha = 0.5;
-    // 设置颜色
-    _manager.color = [UIColor blackColor];
-                   // 设置frame
-        //           _manager.frame = CGRectNull;
-                   // 是否开启降级方案
-    _manager.openFallBack = NO;
-    _manager.fallBackCount = 10;
-                   // 是否隐藏关闭按钮
-    //               _manager.closeButtonHidden = YES;
-    //    _manager.shouldCloseByTouchBackground = YES;
-    [_manager enableLog:YES];
-    [_manager openVerifyCodeView:nil];
-}
-
-#pragma mark - NTESVerifyCodeManagerDelegate
-/**
- * 验证码组件初始化出错
- *
- * @param message 错误信息
- */
-- (void)verifyCodeInitFailed:(NSString *)message{
-    NSLog(@"收到初始化失败的回调:%@",message);
-   
-    
-}
-/**
- * 完成验证之后的回调
- *
- * @param result 验证结果 BOOL:YES/NO
- * @param validate 二次校验数据，如果验证结果为false，validate返回空
- * @param message 结果描述信息
- *
- */
-- (void)verifyCodeValidateFinish:(BOOL)result validate:(NSString *)validate message:(NSString *)message{
-    NSLog(@"收到验证结果的回调:(%d,%@,%@)", result, validate, message);
-    if (result) {
-        [self loginSuccess];
-    }
-}
-/**
- * 网络错误
- *
- * @param error 网络错误信息
- */
-- (void)verifyCodeNetError:(NSError *)error{
-    //用户关闭验证后执行的方法
-    NSLog(@"收到网络错误的回调:%@(%ld)", [error localizedDescription], (long)error.code);
-    
-}
-/**
- * 关闭验证码窗口后的回调
- */
-- (void)verifyCodeCloseWindow{
-    //用户关闭验证后执行的方法
-    NSLog(@"收到关闭验证码视图的回调");
 }
 
 @end
