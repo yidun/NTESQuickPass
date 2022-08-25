@@ -8,14 +8,26 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+typedef NS_ENUM(NSInteger, NTESInterfaceOrientation) {
+    NTESInterfaceOrientationPortrait = 0,   // 竖屏
+    NTESInterfaceOrientationLandscapeLeft,  // 左横屏
+    NTESInterfaceOrientationLandscapeRight, // 右横屏
+    NTESInterfaceOrientationLandscape,      // 左右横屏
+    NTESInterfaceOrientationAll,            // 屏幕全旋转
+}; 
+
 typedef void(^AuthCustomViewBlock)(UIView * _Nullable customView);
 typedef void(^AuthCustomNavBlock)(UIView * _Nullable customNavView);
 typedef void(^AuthLoadingViewBlock)(UIView *_Nullable customLoadingView);
 typedef void(^AuthPrograssHUDBlock)(UIView *_Nullable prograssHUDBlock);
 typedef void(^AuthVideoViewBlock)(UIView *_Nullable videoView);
 
-/// 授权页面点击事件的回调
-typedef void(^AuthBackActionBlock)(void);
+/** 协议点击事件。授权页面点击事件的回调
+ *  backType = 1 从隐私协议界面返回
+ *  backType = 2 从授权界面返回
+ */
+typedef void(^AuthBackActionBlock)(int backType);
+
 typedef void(^AuthLoginActionBlock)(BOOL isChecked);
 typedef void(^AuthCheckActionBlock)(BOOL isChecked);
 typedef void(^AuthCloseActionBlock)(void);
@@ -87,11 +99,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**背景图片显示模式*/
 @property (nonatomic,assign) UIViewContentMode contentMode;
 
-/**授权界面支持的方向,横屏;竖屏 ⚠️ 当xcode不支持横竖屏时，不要设置改值，以免造成方向不一致的导致的异常状况*/
-@property (nonatomic, assign) UIInterfaceOrientation faceOrientation;
-
-/**授权界面消失之后其他界面支持的方向,横屏;竖屏 ⚠️ 当xcode不支持横竖屏时，不要设置改值，以免造成方向不一致的导致的异常状况*/
-@property (nonatomic, assign) UIInterfaceOrientation loginDidDisapperfaceOrientation;
+/**授权界面支持的方向*/
+@property (nonatomic, assign) NTESInterfaceOrientation faceOrientation;
 
 /**授权界面自定义控件View的Block*/
 @property (nonatomic, copy) AuthCustomViewBlock customViewBlock;
@@ -108,6 +117,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**授权界面自定义视频View的Block*/
 @property (nonatomic, copy) AuthVideoViewBlock videoViewBlock;
+
+
+/**底部横条是否隐藏，默认不隐藏*/
+@property (nonatomic, assign) BOOL prefersHomeIndicatorHidden;
 
 #pragma mark --------------------------授权页面点击事件的回调
 

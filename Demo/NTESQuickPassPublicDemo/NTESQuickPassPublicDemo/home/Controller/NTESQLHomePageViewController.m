@@ -41,8 +41,6 @@
 @property (nonatomic, strong) NTESQLHomePagePortraitView *pageView;
 @property (nonatomic, strong) NTESQLHomePageLandscapeView *pageLandscapeView;
 
-@property (nonatomic, assign) UIInterfaceOrientation faceOrientation;
-
 @property (nonatomic, copy) NSDictionary *resultDic;
 
 @property (nonatomic, assign) BOOL shouldQL;
@@ -82,7 +80,8 @@
 
 /// 根据屏幕旋转的方向切换视图界面
 - (void)deviceOrientation {
-    if (IS_DEVICE_PORTRAIT) {
+    UIInterfaceOrientation deviceOrientation = [UIApplication sharedApplication].statusBarOrientation;
+    if (deviceOrientation == UIInterfaceOrientationPortrait || deviceOrientation == UIInterfaceOrientationPortraitUpsideDown) {
         /**横屏的界面视图*/
         if (self.pageView == nil) {
             NTESQLHomePagePortraitView *pageView = [[NTESQLHomePagePortraitView alloc] init];
@@ -94,14 +93,8 @@
             make.edges.equalTo(self.view);
         }];
         _portraitType = 0; /// 竖屏
-        self.faceOrientation = UIInterfaceOrientationPortrait;
     } else {
         _portraitType = 1; /// 横屏
-        if (IS_DEVICE_LEFT) {
-            self.faceOrientation = UIInterfaceOrientationLandscapeLeft;
-        } else {
-            self.faceOrientation = UIInterfaceOrientationLandscapeRight;
-        }
         /**竖屏的界面视图*/
         if (self.pageLandscapeView == nil) {
             NTESQLHomePageLandscapeView *pageLandscapeView = [[NTESQLHomePageLandscapeView alloc] init];
@@ -118,7 +111,7 @@
 /// 使用易盾提供的businessID进行初始化业务，回调中返回初始化结果
 - (void)registerQuickLogin {
     [NTESQuickLoginManager sharedInstance].delegate = self;
-    [[NTESQuickLoginManager sharedInstance] registerWithBusinessID:@"085414a39bbb4754ba7e558c6400fab4"];
+    [[NTESQuickLoginManager sharedInstance] registerWithBusinessID:@"请输入易盾业务ID"];
 }
 
 - (void)getPhoneNumberWithText:(NSString *)title {
@@ -143,6 +136,31 @@
                }
           });
       }];
+}
+
+/// 授权页面自定义
+- (void)setCustomUI {
+    self.customModel = [[NTESQLHomePageCustomUIModel getInstance] configCustomUIModel:self.popType withType:self.portraitType viewController:self];
+    self.customModel.currentVC = self;
+    
+    /// 协议未勾选时，自定义弹窗样式，不实现prograssHUDBlock方法，走内部默认弹窗
+    WeakSelf(self);
+    self.customModel.prograssHUDBlock = ^(UIView * _Nullable prograssHUDBlock) {
+        NTESCheckedToastView *checkedToastView = [[NTESCheckedToastView alloc] init];
+        weakSelf.checkedToastView = checkedToastView;
+        checkedToastView.delegate = weakSelf;
+        [prograssHUDBlock addSubview:checkedToastView];
+        [checkedToastView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.edges.equalTo(prograssHUDBlock);
+        }];
+    };
+    
+    // 自定义协议界面，在block里面跳转到自己的协议页面，不实现pageCustomBlock走默认跳转
+    self.customModel.pageCustomBlock = ^(int privacyType) {
+        [NTESToastView showNotice:@"请实现跳转协议逻辑"];
+    };
+    
+    [[NTESQuickLoginManager sharedInstance] setupModel:self.customModel];
 }
 
 /// 授权认证接口
@@ -279,31 +297,6 @@
    });
 }
 
-/// 授权页面自定义
-- (void)setCustomUI {
-    self.customModel = [[NTESQLHomePageCustomUIModel getInstance] configCustomUIModel:self.popType withType:self.portraitType faceOrientation:self.faceOrientation viewController:self];
-    self.customModel.currentVC = self;
-    
-    /// 协议未勾选时，自定义弹窗样式，不实现prograssHUDBlock方法，走内部默认弹窗
-    WeakSelf(self);
-    self.customModel.prograssHUDBlock = ^(UIView * _Nullable prograssHUDBlock) {
-        NTESCheckedToastView *checkedToastView = [[NTESCheckedToastView alloc] init];
-        weakSelf.checkedToastView = checkedToastView;
-        checkedToastView.delegate = weakSelf;
-        [prograssHUDBlock addSubview:checkedToastView];
-        [checkedToastView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.edges.equalTo(prograssHUDBlock);
-        }];
-    };
-    
-    // 自定义协议界面，在block里面跳转到自己的协议页面，不实现pageCustomBlock走默认跳转
-    self.customModel.pageCustomBlock = ^(int privacyType) {
-        [NTESToastView showNotice:@"请实现跳转协议逻辑"];
-    };
-    
-    [[NTESQuickLoginManager sharedInstance] setupModel:self.customModel];
-}
-
 #pragma - NTESCheckedToastViewDelegate
 
 - (void)submitButtonDidTipped {
@@ -349,7 +342,6 @@
     self.popType = 0;
     self.portraitType = 0;
     [self getPhoneNumberWithText:registerTitle];  /// 0-全屏
-//    self.customModel.faceOrientation = UIInterfaceOrientationPortrait;
 }
 
 /// 竖屏弹窗登录按钮点击

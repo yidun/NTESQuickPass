@@ -31,9 +31,6 @@
 #define DT_IS_IPHONEXR_XSMax   (SCREEN_HEIGHT == 896.f)  //是否是iPhoneXR、iPhoneX Max
 #define IS_IPHONEX_SET  (DT_IS_IPHONEX_XS||DT_IS_IPHONEXR_XSMax)  //是否是iPhoneX系列手机
 
-#define IS_DEVICE_PORTRAIT (([[UIDevice currentDevice] orientation] == UIInterfaceOrientationPortrait || [[UIDevice currentDevice] orientation] == UIInterfaceOrientationPortraitUpsideDown || [[UIDevice currentDevice] orientation] == UIDeviceOrientationUnknown) ? YES : NO)
-#define IS_DEVICE_LEFT (([[UIDevice currentDevice] orientation] == UIInterfaceOrientationLandscapeLeft) ? YES : NO)
-
 #define KWidthScale ((SCREEN_WIDTH) / 375.0)
 #define KHeightScale ((SCREEN_HEIGHT) / 667.0)
 

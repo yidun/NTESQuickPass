@@ -18,10 +18,8 @@ NS_ASSUME_NONNULL_BEGIN
 /// 配置登录界面数据模型
 /// @param popType 弹窗的样式
 /// @param portraitType 横竖屏Type
-/// @param faceOrientation 横竖屏旋转方向
 - (NTESQuickLoginModel *)configCustomUIModel:(NSInteger)popType
                                     withType:(NSInteger)portraitType
-                             faceOrientation:(UIInterfaceOrientation)faceOrientation
                               viewController:(UIViewController *)viewController;
 
 @end

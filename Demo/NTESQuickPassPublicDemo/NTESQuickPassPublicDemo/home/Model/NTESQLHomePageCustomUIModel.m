@@ -27,22 +27,20 @@
 
 - (NTESQuickLoginModel *)configCustomUIModel:(NSInteger)popType
                                     withType:(NSInteger)portraitType
-                             faceOrientation:(UIInterfaceOrientation)faceOrientation
                               viewController:(UIViewController *)viewController {
     self.viewController = viewController;
     
     NTESQuickLoginModel *model = [[NTESQuickLoginModel alloc] init];
     model.presentDirectionType = NTESPresentDirectionPush;
-//    model.backgroundColor = [UIColor whiteColor];
     model.navTextColor = [UIColor blueColor];
     model.navBgColor = [UIColor whiteColor];
     model.closePopImg = [UIImage imageNamed:@"checkedBox"];
-    model.faceOrientation = faceOrientation;
-    model.navBarHidden = YES;
+    model.faceOrientation = NTESInterfaceOrientationAll;
+    model.prefersHomeIndicatorHidden = YES;
     model.authWindowPop = NTESAuthWindowPopFullScreen;
     model.popBackgroundColor = [UIColor redColor];
     model.backgroundColor = [UIColor blackColor];
-
+    
     /// logo
     model.logoImg = [UIImage imageNamed:@"login_logo-1"];
     model.logoWidth = 52;
@@ -57,7 +55,6 @@
     ///  品牌
     model.brandFont = [UIFont fontWithName:@"PingFangSC-Regular" size:12];
     model.brandWidth = 200;
-//    model.brandBackgroundColor = [UIColor clearColor];
     model.brandHeight = 20;
     model.brandOffsetX = 0;
 
@@ -68,6 +65,9 @@
     model.logBtnText = @"确定登录";
     model.logBtnRadius = 8;
     model.logBtnHeight = 44;
+    model.startPoint = CGPointMake(0, 0.5);
+    model.endPoint = CGPointMake(1, 0.5);
+    model.colors = @[(__bridge id)[UIColor redColor].CGColor, (__bridge id)[UIColor yellowColor].CGColor];
 
         /// 隐私协议
     /// 隐私协议
@@ -93,17 +93,11 @@
     model.appPrivacyLineSpacing = 5;
     model.progressColor = [UIColor redColor];
     
-    /// 登录按钮渐变色
-    model.startPoint = CGPointMake(0, 0.5);
-    model.endPoint = CGPointMake(1, 0.5);
-    model.colors = @[(__bridge id)[UIColor redColor].CGColor, (__bridge id)[UIColor yellowColor].CGColor];
     
     if (@available(iOS 13.0, *)) {
         model.statusBarStyle = UIStatusBarStyleDarkContent;
-//        model.statusBarStyle = UIStatusBarStyleDarkContent;
     } else {
         model.statusBarStyle = UIStatusBarStyleDefault;
-//        model.statusBarStyle = UIStatusBarStyleLightContent;
     }
 
     if (popType == 0 || popType == 2) {/// 全屏模式
@@ -162,14 +156,12 @@
     CGFloat navHeight;
     if (portraitType == 0) {
         model.localVideoFileName = @"video_portrait.mp4";
-        model.faceOrientation = faceOrientation;
         navHeight = (IS_IPHONEX_SET ? 44.f : 20.f) + 44;
     } else {
         navHeight = 44;
         if (popType == 1) {
             model.logBtnOffsetTopY = 195;
         }
-        model.faceOrientation = faceOrientation;
         model.localVideoFileName = @"video_landscape.mp4";
     }
     model.isRepeatPlay = YES;
@@ -186,11 +178,7 @@
         [customView addSubview:otherLabel];
 
         if (popType == 0 || popType == 2) { /// 全屏模式
-            NTESQLNavigationView *navigationView = [[NTESQLNavigationView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, navHeight)];
-            navigationView.backgroundColor = [UIColor clearColor];
-            [customView addSubview:navigationView];
             otherLabel.textColor = [UIColor ntes_colorWithHexString:@"#FFFFFF"];
-
             if (portraitType == 0) { /// 全屏、竖屏模式
                 [otherLabel mas_makeConstraints:^(MASConstraintMaker *make) {
                     make.centerX.equalTo(customView);
@@ -214,10 +202,6 @@
             }];
         }
     };
-//
-//    model.backActionBlock = ^{
-//        NSLog(@"backAction===返回按钮点击");
-//    };
 
     model.loginActionBlock = ^(BOOL isChecked) {
         NSLog(@"loginAction");
@@ -257,7 +241,6 @@
         NSLog(@"privacyAction");
     };
     model.privacyColor = [UIColor redColor];
-//    model.statusBarHidden = YES;
     return model;
 }
 
