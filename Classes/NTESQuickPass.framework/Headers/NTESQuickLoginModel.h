@@ -9,11 +9,11 @@
 #import <UIKit/UIKit.h>
 
 typedef NS_ENUM(NSInteger, NTESInterfaceOrientation) {
-    NTESInterfaceOrientationPortrait = 0,
-    NTESInterfaceOrientationLandscapeLeft,
-    NTESInterfaceOrientationLandscapeRight,
-    NTESInterfaceOrientationLandscape,
-    NTESInterfaceOrientationAll,
+    NTESInterfaceOrientationPortrait = 0,   // 竖屏
+    NTESInterfaceOrientationLandscapeLeft,  // 左横屏
+    NTESInterfaceOrientationLandscapeRight, // 右横屏
+    NTESInterfaceOrientationLandscape,      // 左右横屏
+    NTESInterfaceOrientationAll,            // 屏幕全旋转
 }; 
 
 typedef void(^AuthCustomViewBlock)(UIView * _Nullable customView);
@@ -99,11 +99,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**背景图片显示模式*/
 @property (nonatomic,assign) UIViewContentMode contentMode;
 
-/**授权界面支持的方向,横屏;竖屏 ⚠️ 当xcode不支持横竖屏时，不要设置改值，以免造成方向不一致的导致的异常状况*/
+/**授权界面支持的方向*/
 @property (nonatomic, assign) NTESInterfaceOrientation faceOrientation;
-
-/**授权界面消失之后其他界面支持的方向,横屏;竖屏 ⚠️ 当xcode不支持横竖屏时，不要设置改值，以免造成方向不一致的导致的异常状况*/
-@property (nonatomic, assign) UIInterfaceOrientation loginDidDisapperfaceOrientation;
 
 /**授权界面自定义控件View的Block*/
 @property (nonatomic, copy) AuthCustomViewBlock customViewBlock;
