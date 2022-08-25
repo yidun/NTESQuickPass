@@ -8,6 +8,14 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+typedef NS_ENUM(NSInteger, NTESInterfaceOrientation) {
+    NTESInterfaceOrientationPortrait = 0,
+    NTESInterfaceOrientationLandscapeLeft,
+    NTESInterfaceOrientationLandscapeRight,
+    NTESInterfaceOrientationLandscape,
+    NTESInterfaceOrientationAll,
+}; 
+
 typedef void(^AuthCustomViewBlock)(UIView * _Nullable customView);
 typedef void(^AuthCustomNavBlock)(UIView * _Nullable customNavView);
 typedef void(^AuthLoadingViewBlock)(UIView *_Nullable customLoadingView);
@@ -92,7 +100,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,assign) UIViewContentMode contentMode;
 
 /**授权界面支持的方向,横屏;竖屏 ⚠️ 当xcode不支持横竖屏时，不要设置改值，以免造成方向不一致的导致的异常状况*/
-@property (nonatomic, assign) UIInterfaceOrientation faceOrientation;
+@property (nonatomic, assign) NTESInterfaceOrientation faceOrientation;
 
 /**授权界面消失之后其他界面支持的方向,横屏;竖屏 ⚠️ 当xcode不支持横竖屏时，不要设置改值，以免造成方向不一致的导致的异常状况*/
 @property (nonatomic, assign) UIInterfaceOrientation loginDidDisapperfaceOrientation;
@@ -112,6 +120,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**授权界面自定义视频View的Block*/
 @property (nonatomic, copy) AuthVideoViewBlock videoViewBlock;
+
+
+/**底部横条是否隐藏，默认不隐藏*/
+@property (nonatomic, assign) BOOL prefersHomeIndicatorHidden;
 
 #pragma mark --------------------------授权页面点击事件的回调
 
