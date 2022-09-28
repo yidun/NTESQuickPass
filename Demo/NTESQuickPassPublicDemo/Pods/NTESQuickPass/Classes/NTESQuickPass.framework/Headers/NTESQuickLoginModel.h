@@ -8,13 +8,14 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+
 typedef NS_ENUM(NSInteger, NTESInterfaceOrientation) {
     NTESInterfaceOrientationPortrait = 0,   // 竖屏
     NTESInterfaceOrientationLandscapeLeft,  // 左横屏
     NTESInterfaceOrientationLandscapeRight, // 右横屏
     NTESInterfaceOrientationLandscape,      // 左右横屏
     NTESInterfaceOrientationAll,            // 屏幕全旋转
-}; 
+};
 
 typedef void(^AuthCustomViewBlock)(UIView * _Nullable customView);
 typedef void(^AuthCustomNavBlock)(UIView * _Nullable customNavView);
@@ -23,32 +24,31 @@ typedef void(^AuthPrograssHUDBlock)(UIView *_Nullable prograssHUDBlock);
 typedef void(^AuthVideoViewBlock)(UIView *_Nullable videoView);
 
 /** 协议点击事件。授权页面点击事件的回调
- *  backType = 1 从隐私协议界面返回
- *  backType = 2 从授权界面返回
- */
+*  backType = 1 从隐私协议界面返回
+*  backType = 2 从授权界面返回
+*/
 typedef void(^AuthBackActionBlock)(int backType);
-
 typedef void(^AuthLoginActionBlock)(BOOL isChecked);
 typedef void(^AuthCheckActionBlock)(BOOL isChecked);
 typedef void(^AuthCloseActionBlock)(void);
 
 /** 协议点击事件。
- *  privacyType = 0 默认协议,
- *  privacyType = 1 第一个协议
- *  privacyType = 2 第二个协议
- *  privacyType = 3 第三个协议
- *  privacyType = 4 第四个协议
- */
+*  privacyType = 0 默认协议,
+*  privacyType = 1 第一个协议
+*  privacyType = 2 第二个协议
+*  privacyType = 3 第三个协议
+*  privacyType = 4 第四个协议
+*/
 typedef void(^AuthPrivacyActionBlock)(int privacyType);
 
 /**
- *  隐私协议点击事件回调。
- *  privacyType = 0 点击了默认协议,
- *  privacyType = 1 点击了第一个协议 ,
- *  privacyType = 2 点击了第二个协议,
- *  privacyType = 3 点击了第三个协议,
- *  privacyType = 4 点击了第四个协议
- */
+*  隐私协议点击事件回调。
+*  privacyType = 0 点击了默认协议,
+*  privacyType = 1 点击了第一个协议 ,
+*  privacyType = 2 点击了第二个协议,
+*  privacyType = 3 点击了第三个协议,
+*  privacyType = 4 点击了第四个协议
+*/
 typedef void(^AuthPrivacyPageCustomBlock)(int privacyType);
 
 /// 复选框相对隐私条款的位置
@@ -117,7 +117,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**授权界面自定义视频View的Block*/
 @property (nonatomic, copy) AuthVideoViewBlock videoViewBlock;
-
 
 /**底部横条是否隐藏，默认不隐藏*/
 @property (nonatomic, assign) BOOL prefersHomeIndicatorHidden;
@@ -337,6 +336,9 @@ NS_ASSUME_NONNULL_BEGIN
  /**登录按钮Y偏移量 ，logBtnOffsetTopY为距离屏幕顶部的距离 ，默认为200*/
  @property (nonatomic, assign) CGFloat logBtnOffsetTopY;
 
+/**登录按钮X偏移量 ，logBtnOffsetX为距离屏幕中间的距离 ，默认为居中显示，与logBtnWidth结合使用*/
+@property (nonatomic, assign) CGFloat logBtnOffsetX;
+
  /**登录按钮圆角，默认8*/
  @property (nonatomic, assign) CGFloat logBtnRadius;
 
@@ -357,6 +359,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**登录按钮的高度，默认44*/
 @property (nonatomic, assign) CGFloat logBtnHeight;
+
+/**登录按钮的高度，默认100 ，与logBtnOffsetX结合使用*/
+@property (nonatomic, assign) CGFloat logBtnWidth;
 
 /**设置渐变颜色方向，左上点为(0,0), 右下点为(1,1)*/
 @property (nonatomic, assign) CGPoint startPoint;
@@ -398,7 +403,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**复选框控件 */
 @property (nonatomic, strong) UIButton *checkBox;
-
 
 #pragma mark -------------------------- 隐私条款
 
@@ -457,6 +461,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**开发者隐私条款《第四个协议》的导航栏标题，默认为《第四个协议》*/
 @property (nonatomic, copy) NSString *appFourPrivacyTitleText;
+
 
 /**隐私条款文字内容的方向:默认是居左*/
 @property (nonatomic, assign) NSTextAlignment appPrivacyAlignment;
