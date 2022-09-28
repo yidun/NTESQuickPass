@@ -96,7 +96,6 @@ typedef void(^NTESAuthorizeCompletionHandler)(void);
  */
 @property (nonatomic, assign) BOOL allowUploadInfo;
 
-
 /**
  *  @abstract   属性
  *
@@ -164,14 +163,13 @@ typedef void(^NTESAuthorizeCompletionHandler)(void);
 - (void)setupModel:(NTESQuickLoginModel *)model;
 
 /**
- *  @abstract  授权登录（取号接口），⚠️注意：此方法需嵌套在getPhoneNumberCompletion的回调中使用，且在setupCMModel:或setupCUModel:之后调用
+ *  @abstract   联通、移动 - 授权登录（取号接口），⚠️注意：此方法需嵌套在getPhoneNumberCompletion的回调中使用，且在setupCMModel:或setupCUModel:之后调用
  *
  *  @param      authorizeHandler    登录授权结果回调，包含认证成功和认证失败，认证失败情况包括取号失败、用户取消登录（点按返回按钮）和切换登录方式，可根据code码做后续自定义操作
  *                                  取消登录:移动返回code码200020，联通返回10104
  *                                  切换登录方式:移动返回code码200060，联通返回10105
  */
 - (void)CUCMCTAuthorizeLoginCompletion:(NTESQLAuthorizeHandler)authorizeHandler;
-
 
 /**
  *  @abstract  授权登录（取号接口），⚠️注意：此方法需嵌套在getPhoneNumberCompletion的回调中使用，且在setupCMModel:或setupCUModel:之后调用
