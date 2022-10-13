@@ -1,12 +1,12 @@
 PODS:
   - Masonry (1.0.2)
   - NTESBaseComponent (1.8)
-  - NTESQuickPass (3.3.2):
+  - NTESQuickPass (3.3.4):
     - NTESBaseComponent
 
 DEPENDENCIES:
   - Masonry (~> 1.0.2)
-  - NTESQuickPass (= 3.3.2)
+  - NTESQuickPass (= 3.3.4)
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
@@ -17,8 +17,8 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
   NTESBaseComponent: 7b310e7e80bb6c27183176188b98356d200dbbc5
-  NTESQuickPass: a3c2f9871442c9b1c00a3bc6e67006de300c8cb7
+  NTESQuickPass: e11869b974b4983427c45612e40d267fae08d1c5
 
-PODFILE CHECKSUM: e3d39868228ac4e8a1e956c898e381fba5cbb733
+PODFILE CHECKSUM: 74cddff0d21856462e0879784353144f0e0aba68
 
 COCOAPODS: 1.11.3

@@ -96,13 +96,12 @@
 		1FFED36A657123030ABB700256D73F15 /* Masonry */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = Masonry; path = libMasonry.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		23603F059084D99B34E69BB4B06540FF /* View+MASAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "View+MASAdditions.h"; path = "Masonry/View+MASAdditions.h"; sourceTree = "<group>"; };
 		256D1175FBB184D98ED290F6BDE296CD /* NTESBaseComponent.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = NTESBaseComponent.release.xcconfig; sourceTree = "<group>"; };
+		29B695FD98FCC324B00BA9FBB4AD7FCB /* WYTYRZUISDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WYTYRZUISDK.framework; path = Classes/WYTYRZUISDK.framework; sourceTree = "<group>"; };
 		2E5E867B64AC3B13E6204B7761436FC3 /* NENCFPSupport.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = NENCFPSupport.bundle; path = Assets/NENCFPSupport.bundle; sourceTree = "<group>"; };
-		2E76918AEC9D6493609F905C2DD87D8F /* WYTYRZUISDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WYTYRZUISDK.framework; path = Classes/WYTYRZUISDK.framework; sourceTree = "<group>"; };
 		31D983BB41BE05EB091FF160A3888E59 /* MASCompositeConstraint.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASCompositeConstraint.m; path = Masonry/MASCompositeConstraint.m; sourceTree = "<group>"; };
 		32723A91DB2B632ABADCA98804680766 /* MASLayoutConstraint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASLayoutConstraint.h; path = Masonry/MASLayoutConstraint.h; sourceTree = "<group>"; };
 		388E244410E6B4C725ED1A6D192C05F7 /* MASCompositeConstraint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASCompositeConstraint.h; path = Masonry/MASCompositeConstraint.h; sourceTree = "<group>"; };
 		4A3311D1681D4623431CA766987B5AD7 /* NTESBaseComponent.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NTESBaseComponent.framework; path = Classes/NTESBaseComponent.framework; sourceTree = "<group>"; };
-		4BD7AA30874F70A28C8680B4C268E305 /* WYEAccountApiSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WYEAccountApiSDK.framework; path = Classes/WYEAccountApiSDK.framework; sourceTree = "<group>"; };
 		4ED7D5EAC6119DA227EEB2C2B5ECFC6B /* Masonry-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Masonry-prefix.pch"; sourceTree = "<group>"; };
 		52BDC5E430B7C085F76C65962E78F758 /* NSArray+MASAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSArray+MASAdditions.m"; path = "Masonry/NSArray+MASAdditions.m"; sourceTree = "<group>"; };
 		54555AFFCD17E45F128EE498E9620944 /* NTESBaseComponent.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = NTESBaseComponent.debug.xcconfig; sourceTree = "<group>"; };
@@ -116,8 +115,10 @@
 		77E929779B74342B86F8DB816378D99D /* View+MASShorthandAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "View+MASShorthandAdditions.h"; path = "Masonry/View+MASShorthandAdditions.h"; sourceTree = "<group>"; };
 		8394B4BEF0C9CDE0B416D992E7E42F22 /* Masonry.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Masonry.debug.xcconfig; sourceTree = "<group>"; };
 		86D7FB01A9EA8F32EC056F223B10085E /* View+MASAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "View+MASAdditions.m"; path = "Masonry/View+MASAdditions.m"; sourceTree = "<group>"; };
+		8DB37888D2E2918163CF79410DE58C5D /* NTESQuickPass.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NTESQuickPass.framework; path = Classes/NTESQuickPass.framework; sourceTree = "<group>"; };
 		8F724F9D264F2E0367B535C53AC47112 /* MASViewAttribute.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASViewAttribute.m; path = Masonry/MASViewAttribute.m; sourceTree = "<group>"; };
 		8FBFFFC1D2D616CBE0E10413ED20A457 /* NSArray+MASAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSArray+MASAdditions.h"; path = "Masonry/NSArray+MASAdditions.h"; sourceTree = "<group>"; };
+		93F127C25124D94595BFCC2B693315BB /* EAccountApiSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EAccountApiSDK.framework; path = Classes/EAccountApiSDK.framework; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9EEDF46ADF10E0C05CAB34D796E75C83 /* MASLayoutConstraint.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASLayoutConstraint.m; path = Masonry/MASLayoutConstraint.m; sourceTree = "<group>"; };
 		A55553A941F9FD6C4FF93062AA44649B /* Masonry-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Masonry-dummy.m"; sourceTree = "<group>"; };
@@ -125,19 +126,18 @@
 		A91D83D81D44A0CCBEE3E558B878D669 /* MASViewAttribute.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASViewAttribute.h; path = Masonry/MASViewAttribute.h; sourceTree = "<group>"; };
 		AC1F183FD5F6745FC93FB1989EE99DE2 /* MASViewConstraint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASViewConstraint.h; path = Masonry/MASViewConstraint.h; sourceTree = "<group>"; };
 		AE6F3707D1C5AE7ADDBFA8DFAB09CDFB /* MASViewConstraint.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASViewConstraint.m; path = Masonry/MASViewConstraint.m; sourceTree = "<group>"; };
-		B1C1C1E671D5E6C19FE14F964E351936 /* WYOAuth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WYOAuth.framework; path = Classes/WYOAuth.framework; sourceTree = "<group>"; };
 		B717AB616CBEDC522E6C0EAC34BAA92C /* MASUtilities.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASUtilities.h; path = Masonry/MASUtilities.h; sourceTree = "<group>"; };
 		B892392FBD94374B9FBC2A8732ADC411 /* MASConstraintMaker.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASConstraintMaker.h; path = Masonry/MASConstraintMaker.h; sourceTree = "<group>"; };
 		BB3C0572862AA87D9D26D9A6D7F2350D /* NSLayoutConstraint+MASDebugAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSLayoutConstraint+MASDebugAdditions.m"; path = "Masonry/NSLayoutConstraint+MASDebugAdditions.m"; sourceTree = "<group>"; };
 		C2FB6801B28DD843A59EF419D82CC29C /* Pods-NTESQuickPassPublicDemo-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-NTESQuickPassPublicDemo-acknowledgements.plist"; sourceTree = "<group>"; };
 		C4B8C3B612060346DC08AE7785256B94 /* ViewController+MASAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "ViewController+MASAdditions.m"; path = "Masonry/ViewController+MASAdditions.m"; sourceTree = "<group>"; };
+		C74313E2DBC7590A856C825C2F5993E9 /* WYOAuth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WYOAuth.framework; path = Classes/WYOAuth.framework; sourceTree = "<group>"; };
 		C7D695F93E8A42D0DC65160001CEE962 /* Pods-NTESQuickPassPublicDemo-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-NTESQuickPassPublicDemo-resources.sh"; sourceTree = "<group>"; };
 		CCD8BF5ABA06B228C67FDA279B59A7A4 /* NTESResource.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = NTESResource.bundle; path = Assets/NTESResource.bundle; sourceTree = "<group>"; };
 		D4E965B599F64700785BDF3383D3C986 /* Masonry.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Masonry.release.xcconfig; sourceTree = "<group>"; };
 		D7D498A0717FEE3D5CEBB82BCC6C1613 /* MASConstraint.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASConstraint.m; path = Masonry/MASConstraint.m; sourceTree = "<group>"; };
 		E348BD63F7AD1104F817BF546E0B5198 /* MASConstraint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASConstraint.h; path = Masonry/MASConstraint.h; sourceTree = "<group>"; };
 		EAB8E7E7E3D956B5963CF65C1956C667 /* Pods-NTESQuickPassPublicDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-NTESQuickPassPublicDemo.release.xcconfig"; sourceTree = "<group>"; };
-		ECEA0A824F82D6AA8BEF0CDA97557628 /* NTESQuickPass.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NTESQuickPass.framework; path = Classes/NTESQuickPass.framework; sourceTree = "<group>"; };
 		F6E345FF8BDC0B7B6A2FF252BFDF13FD /* MASConstraintMaker.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASConstraintMaker.m; path = Masonry/MASConstraintMaker.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -212,6 +212,17 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		2B22C164C0310461DB3F74EFBD736BD9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				93F127C25124D94595BFCC2B693315BB /* EAccountApiSDK.framework */,
+				8DB37888D2E2918163CF79410DE58C5D /* NTESQuickPass.framework */,
+				C74313E2DBC7590A856C825C2F5993E9 /* WYOAuth.framework */,
+				29B695FD98FCC324B00BA9FBB4AD7FCB /* WYTYRZUISDK.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		42AB4B8BF888C0F3B871D1A4E7C18739 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -239,7 +250,7 @@
 		78D70BB0022474D745F58E4C9AE145A6 /* NTESQuickPass */ = {
 			isa = PBXGroup;
 			children = (
-				D26062B4C918D7E8DD9063D8F1C6A126 /* Frameworks */,
+				2B22C164C0310461DB3F74EFBD736BD9 /* Frameworks */,
 				BBF6F77224B69A1648C8BF266EC0D85D /* Resources */,
 				D696A615A11FD979723A280717931FD7 /* Support Files */,
 			);
@@ -291,17 +302,6 @@
 				25EE6E8DC781E016D58230C8482DF22F /* Products */,
 				C76FBFDADF86E2C9E74947CD5591D02F /* Targets Support Files */,
 			);
-			sourceTree = "<group>";
-		};
-		D26062B4C918D7E8DD9063D8F1C6A126 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				ECEA0A824F82D6AA8BEF0CDA97557628 /* NTESQuickPass.framework */,
-				4BD7AA30874F70A28C8680B4C268E305 /* WYEAccountApiSDK.framework */,
-				B1C1C1E671D5E6C19FE14F964E351936 /* WYOAuth.framework */,
-				2E76918AEC9D6493609F905C2DD87D8F /* WYTYRZUISDK.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		D696A615A11FD979723A280717931FD7 /* Support Files */ = {

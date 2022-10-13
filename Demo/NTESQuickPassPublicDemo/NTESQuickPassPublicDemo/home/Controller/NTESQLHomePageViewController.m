@@ -156,10 +156,10 @@
     };
     
     // 自定义协议界面，在block里面跳转到自己的协议页面，不实现pageCustomBlock走默认跳转
-    self.customModel.pageCustomBlock = ^(int privacyType) {
-        [NTESToastView showNotice:@"请实现跳转协议逻辑"];
-    };
-    
+//    self.customModel.pageCustomBlock = ^(int privacyType) {
+//        [NTESToastView showNotice:@"请实现跳转协议逻辑"];
+//    };
+//
     [[NTESQuickLoginManager sharedInstance] setupModel:self.customModel];
 }
 
