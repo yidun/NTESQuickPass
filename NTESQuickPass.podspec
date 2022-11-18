@@ -108,7 +108,7 @@ Pod::Spec.new do |spec|
 
   # spec.preserve_paths = "FilesToSave", "MoreFilesToSave"
   
-  spec.resources = ["Assets/NTESResource.bundle"]
+  spec.resource = "Assets/NTESResource.bundle"
 
   
   spec.vendored_frameworks = ["Classes/NTESQuickPass.framework","Classes/EAccountApiSDK.framework","Classes/WYOAuth.framework","Classes/WYTYRZUISDK.framework"]
