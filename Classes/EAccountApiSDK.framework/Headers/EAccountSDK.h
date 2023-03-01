@@ -7,7 +7,8 @@
 //
 
 /**
- 定制版SDK v3.8.15 20220318
+ 定制版SDK v3.8.16 20230222
+ 解决网易因statusBar、statusBar.currentData.cellularEntry.string私有API被拒问题；
  */
 
 #import <Foundation/Foundation.h>

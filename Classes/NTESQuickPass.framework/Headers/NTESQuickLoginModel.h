@@ -90,9 +90,6 @@ NS_ASSUME_NONNULL_BEGIN
 /** 授权页面推出的动画效果*/
 @property (nonatomic, assign) NTESPresentDirection presentDirectionType;
 
-/**授权登录push 时是否隐藏底部导航栏*/
-@property (nonatomic, assign) BOOL hidesBottomBarWhenPushed;
-
 /**授权页背景颜色*/
 @property (nonatomic, strong) UIColor *backgroundColor;
 
