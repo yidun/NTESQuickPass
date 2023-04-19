@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "NTESQuickPass"
-  spec.version      = "3.4.0"
+  spec.version      = "3.4.1.beta"
   spec.summary      = "NTESQuickPass."
 
   # This description is used to generate tags and improve search results.
@@ -111,7 +111,7 @@ Pod::Spec.new do |spec|
   spec.resource = "Assets/NTESResource.bundle"
 
   
-  spec.vendored_frameworks = ["Classes/NTESQuickPass.framework","Classes/EAccountApiSDK.framework","Classes/WYOAuth.framework","Classes/WYTYRZUISDK.framework"]
+  spec.vendored_frameworks = ["Classes/NTESQuickPass.framework","Classes/EAccountApiSDK.framework","Classes/WYOAuth.framework","Classes/TYRZUISDK.framework"]
   
   spec.libraries = "c++.1"
 
