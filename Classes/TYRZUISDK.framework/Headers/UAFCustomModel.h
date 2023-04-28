@@ -62,14 +62,22 @@
 /**号码栏Y偏移量（基于底部）*/
 @property (nonatomic,strong) NSNumber * numberOffsetY_B;
 
-#pragma mark 隐私条款
-/**复选框未选中时图片*/
+#pragma mark 隐私条款勾选框
+/**勾选框未选中时图片*/
 @property (nonatomic,strong) UIImage *uncheckedImg;
-/**复选框选中时图片*/
+/**勾选框选中时图片*/
 @property (nonatomic,strong) UIImage *checkedImg;
-/**复选框大小（只能正方形）必须大于12*/
+/**勾选框大小（只能正方形）必须大于12*/
 @property (nonatomic,strong) NSNumber *checkboxWH;
-/**隐私条款（包括check框）的左右边距*/
+/**勾选框选X偏移量*/
+@property (nonatomic,strong) NSNumber *checkboxOffsetX;
+/**勾选框选Y偏移量，优先级高于checkboxOffsetY_B*/
+@property (nonatomic,strong) NSNumber *checkboxOffsetY;
+/**号勾选框选Y偏移量（基于底部）*/
+@property (nonatomic,strong) NSNumber *checkboxOffsetY_B;
+
+#pragma mark 隐私条款
+/**隐私条款的左右边距*/
 @property (nonatomic, strong) NSArray <NSNumber *> *appPrivacyOriginLR;
 /**隐私的内容模板：
  1、全句可自定义但必须保留"&&默认&&"字段表明SDK默认协议,否则设置不生效
