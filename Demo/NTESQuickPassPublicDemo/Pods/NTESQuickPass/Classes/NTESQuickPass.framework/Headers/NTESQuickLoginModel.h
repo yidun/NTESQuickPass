@@ -60,8 +60,9 @@ typedef NS_ENUM(NSInteger, NSCheckBoxAlignment) {
 
 /**定义页面present方向*/
 typedef NS_ENUM(NSUInteger, NTESPresentDirection){
-    NTESPresentDirectionPush = 0,       // 右边 导航栏效
-    NTESPresentDirectionPresent = 1,    // 底部 present默认效果
+    NTESPresentDirectionPush = 0,               // 右边 导航栏效
+    NTESPresentDirectionPresent = 1,            // 底部 present默认效果
+    NTESPresentDirectionPresentSupportPush = 2, // 底部 present默认效果并且支持push
 };
 
 /**授权页面弹出样式*/
@@ -81,7 +82,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark VC必传属性
 
-/**当前VC,注意:要用一键登录这个值必传*/
+/**当前VC ，用来弹出一键登录授权页控制器,注意:要用一键登录这个值必传*/
 @property (nonatomic, weak) UIViewController *currentVC;
 
 /**当前应用的根控制器, 用作隐私协议的弹出，如果不传，则使用默认值*/
