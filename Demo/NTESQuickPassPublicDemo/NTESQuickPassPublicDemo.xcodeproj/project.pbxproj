@@ -753,6 +753,7 @@
 				DEVELOPMENT_TEAM = XB333SWTAF;
 				ENABLE_BITCODE = NO;
 				EXCLUDED_ARCHS = "";
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"${PODS_ROOT}/NTESQuickPass/Classes\"",
 					"$(inherited)",
@@ -784,6 +785,7 @@
 				DEVELOPMENT_TEAM = XB333SWTAF;
 				ENABLE_BITCODE = NO;
 				EXCLUDED_ARCHS = "";
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"${PODS_ROOT}/NTESQuickPass/Classes\"",
 					"$(inherited)",

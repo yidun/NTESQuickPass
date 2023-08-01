@@ -31,7 +31,7 @@
     self.viewController = viewController;
     
     NTESQuickLoginModel *model = [[NTESQuickLoginModel alloc] init];
-    model.presentDirectionType = NTESPresentDirectionPush;
+    model.presentDirectionType = NTESPresentDirectionPresentSupportPush;
     model.navTextColor = [UIColor blueColor];
     model.navBgColor = [UIColor whiteColor];
     model.closePopImg = [UIImage imageNamed:@"checkedBox"];
@@ -246,7 +246,59 @@
 
 - (void)otherLabelTapped:(UITapGestureRecognizer *)tap {
     NTESQPLoginViewController *loginController = [[NTESQPLoginViewController alloc] init];
-    [self.viewController.navigationController pushViewController:loginController animated:YES];
+    UIViewController *vc = self.viewController.navigationController.topViewController; // 一键登录控制器
+    // push弹出授权页，通过 self.navigationController.topViewController 获取到一键登录控制器
+    if ([NTESQuickLoginManager sharedInstance].model.presentDirectionType == NTESPresentDirectionPush) {
+        if (vc.navigationController) {
+            [vc.navigationController pushViewController:loginController animated:YES];
+        } else {
+            UIViewController *vc =[self currentViewController];
+            [vc presentViewController:loginController animated:YES completion:nil];
+        }
+    } else {
+        UIViewController *vc =[self currentViewController]; // 一键登录控制器
+        [vc.navigationController pushViewController:loginController animated:YES];
+    }
+}
+
+//获取当前控制器
+- (UIViewController*)currentViewController {
+    return [self currentViewControllerWithRootViewController:[self getKeyWindow].rootViewController];
+}
+
+//获取KeyWindow
+- (UIWindow *)getKeyWindow {
+    if (@available(iOS 13.0, *)) {
+        for (UIWindowScene* windowScene in [UIApplication sharedApplication].connectedScenes) {
+            if (windowScene.activationState == UISceneActivationStateForegroundActive) {
+                for (UIWindow *window in windowScene.windows) {
+                    if (window.isKeyWindow) {
+                        return window;
+                        break;
+                    }
+                }
+            }
+        }
+    }
+    else {
+        return [UIApplication sharedApplication].keyWindow;
+    }
+    return nil;
+}
+
+- (UIViewController*)currentViewControllerWithRootViewController:(UIViewController*)rootViewController {
+    if (rootViewController.presentedViewController) {
+        UIViewController* presentedViewController = rootViewController.presentedViewController;
+        return [self currentViewControllerWithRootViewController:presentedViewController];
+    } else if ([rootViewController isKindOfClass:[UINavigationController class]]) {
+        UINavigationController* navigationController = (UINavigationController*)rootViewController;
+        return [self currentViewControllerWithRootViewController:navigationController.visibleViewController];
+    } else if ([rootViewController isKindOfClass:[UITabBarController class]]) {
+        UITabBarController *tabBarController = (UITabBarController *)rootViewController;
+        return [self currentViewControllerWithRootViewController:tabBarController.selectedViewController];
+    } else {
+        return rootViewController;
+    }
 }
 
 @end
