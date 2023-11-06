@@ -186,6 +186,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**导航栏隐藏*/
 @property (nonatomic, assign) BOOL navBarHidden;
 
+/**导航栏背景图片*/
+@property (nonatomic, strong) UIImage *navBgImage;
+
 /**导航栏背景颜色*/
 @property (nonatomic, strong) UIColor *navBgColor;
 
@@ -497,6 +500,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**隐私协议控件 */
 @property (nonatomic, strong) UITextView *privacyTextView;
 
+/**协议没有勾选时，提示信息内容 */
+@property (nonatomic, copy) NSString *noticeString;
+
 #pragma mark ----------------------弹窗:(温馨提示:由于受屏幕影响，小屏幕（5S,5E,5）需要改动字体和另自适应和布局)--------------------
 #pragma mark --------------------------窗口模式（居中弹窗, 底部半屏弹窗）
 
@@ -512,7 +518,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**自定义窗口高- 竖屏状态下默认是335pt， 横屏状态下默认是300pt  ⚠️底部半屏弹窗模式的高度可通过修改authWindowHeight，调整高度 默认335pt*/
 @property (nonatomic, assign) CGFloat authWindowHeight;
 
-/**居中弹窗 ,底部弹窗，当为居中弹窗模式时，⚠️(必传)， 视图的关闭按钮的图片*/
+/**居中弹窗 ,底部弹窗，当为居中弹窗模式时， 视图的关闭按钮的图片*/
 @property (nonatomic, strong) UIImage *closePopImg;
 
 /**居中弹窗 ,底部弹窗，视图的关闭按钮的图片的宽度 默认20*/
@@ -526,6 +532,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**居中弹窗,底部弹窗，可调整关闭按钮距离父视图右边的距离 默认距离为10 ， 距离 = 10 + closePopImgOriginX*/
 @property (nonatomic, assign) CGFloat closePopImgOriginX;
+
+/**开始弹窗模式下，后面的点击手势，默认关闭**/
+@property (nonatomic, assign) BOOL openBackTapGestureRecognizer;
 
 #pragma mark --------------------------窗口模式（居中弹窗）
 
