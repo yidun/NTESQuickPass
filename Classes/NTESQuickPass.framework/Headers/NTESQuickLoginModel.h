@@ -122,6 +122,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**底部横条是否隐藏，默认不隐藏*/
 @property (nonatomic, assign) BOOL prefersHomeIndicatorHidden;
 
+/**进入下一个页面前，将该属性设置为YES即可隐藏TabBar，默认不隐藏*/
+@property (nonatomic, assign) BOOL hidesBottomBarWhenPushed;
+
 #pragma mark --------------------------授权页面点击事件的回调
 
 /**返回按钮点击事件回调*/
