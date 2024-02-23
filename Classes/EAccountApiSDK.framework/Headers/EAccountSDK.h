@@ -7,8 +7,7 @@
 //
 
 /**
- 定制版SDK v3.8.16 20230222
- 解决网易因statusBar、statusBar.currentData.cellularEntry.string私有API被拒问题；
+ 定制版SDK v4.5.8 20230927
  */
 
 #import <Foundation/Foundation.h>
@@ -54,7 +53,7 @@ typedef   void (^failureHandler) (NSError * _Nonnull error);
 
 /**
 @description   获取当前流量卡运营商信息
-@return NSString    "CT"    中国电信 / "CM"     中国移动 / "CU"     中国联联通 / "UN"    未知
+@return NSString    "CT"    中国电信 / "CM"     中国移动 / "CU"     中国联通 / "UN"    未知
 */
 + (NSString *)getOperatorType;
 
