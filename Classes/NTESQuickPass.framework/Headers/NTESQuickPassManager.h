@@ -6,7 +6,6 @@
 //
 
 #import <Foundation/Foundation.h>
-
 /**
  *  @abstract    获取accessToken的状态
  *
