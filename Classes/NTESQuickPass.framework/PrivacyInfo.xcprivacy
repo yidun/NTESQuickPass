@@ -24,6 +24,14 @@
 		<dict>
 			<key>NSPrivacyAccessedAPITypeReasons</key>
 			<array>
+				<string>3EC4.1：app is a custom keyboard app</string>
+			</array>
+			<key>NSPrivacyAccessedAPIType</key>
+			<string>NSPrivacyAccessedAPICategoryActiveKeyboards</string>
+		</dict>
+		<dict>
+			<key>NSPrivacyAccessedAPITypeReasons</key>
+			<array>
 				<string>CA92.1: Read and write SDK cache information</string>
 			</array>
 			<key>NSPrivacyAccessedAPIType</key>
