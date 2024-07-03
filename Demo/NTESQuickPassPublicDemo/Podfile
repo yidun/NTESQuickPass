@@ -1,8 +1,8 @@
 #platform
-platform :ios, '9.0'
+platform :ios, '12.0'
 source 'https://github.com/CocoaPods/Specs.git'
 
 target 'NTESQuickPassPublicDemo' do
-pod 'Masonry', '~> 1.0.2'
-pod 'NTESQuickPass','3.4.5'
+  pod 'Masonry', '~> 1.0.2'
+  pod 'NTESQuickPass', :path => '../../NTESQuickPass.podspec'
 end
