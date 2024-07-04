@@ -241,6 +241,33 @@
         NSLog(@"privacyAction");
     };
     model.privacyColor = [UIColor redColor];
+    
+//    {
+//         showPrivacyDialog == 1
+//        UIViewController *rootController = [UIApplication sharedApplication].delegate.window.rootViewController;
+//        model.currentVC = rootController;
+//        model.rootViewController = rootController;
+//
+//        model.prograssHUDBlock = ^(UIView * _Nullable prograssHUDBlock) {
+//            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:@"隐私协议请仔细阅读" preferredStyle:UIAlertControllerStyleAlert];
+//            UIAlertAction *alertAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+//                [NTESQuickLoginManager sharedInstance].model.checkedSelected = YES;
+//                [[NTESQuickLoginManager sharedInstance] authLoginButtonClick];
+//            }];
+//             UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+//
+//            }];
+//            [alertController addAction:cancelAction];
+//            [alertController addAction:alertAction];
+//            
+//            if ([[NTESQuickLoginManager sharedInstance] getCarrier] == NTESCarrierTypeMobile) {
+//                [rootController.presentedViewController.presentedViewController presentViewController:alertController animated:YES completion:nil];
+//            }else {
+//                [rootController.presentedViewController presentViewController:alertController animated:YES completion:nil];
+//            }
+//        };
+//    }
+    
     return model;
 }
 
