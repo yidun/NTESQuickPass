@@ -83,7 +83,8 @@
     model.uncheckedImg = [[UIImage imageNamed:@"login_kuang"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     model.checkedImg = [[UIImage imageNamed:@"login_kuang_gou"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     model.checkboxWH = 11;
-    model.privacyState = NO;
+    model.privacyState = YES;
+//    model.checkedHidden = YES;
     model.isOpenSwipeGesture = NO;
     model.privacyFont = [UIFont fontWithName:@"PingFangSC-Regular" size:11];
     model.closePopImg = [UIImage imageNamed:@"ic_close"];
@@ -244,28 +245,28 @@
     
 //    {
 //         showPrivacyDialog == 1
-//        UIViewController *rootController = [UIApplication sharedApplication].delegate.window.rootViewController;
+        UIViewController *rootController = [UIApplication sharedApplication].delegate.window.rootViewController;
 //        model.currentVC = rootController;
 //        model.rootViewController = rootController;
-//
-//        model.prograssHUDBlock = ^(UIView * _Nullable prograssHUDBlock) {
-//            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:@"隐私协议请仔细阅读" preferredStyle:UIAlertControllerStyleAlert];
-//            UIAlertAction *alertAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
-//                [NTESQuickLoginManager sharedInstance].model.checkedSelected = YES;
-//                [[NTESQuickLoginManager sharedInstance] authLoginButtonClick];
-//            }];
-//             UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-//
-//            }];
-//            [alertController addAction:cancelAction];
-//            [alertController addAction:alertAction];
-//            
-//            if ([[NTESQuickLoginManager sharedInstance] getCarrier] == NTESCarrierTypeMobile) {
-//                [rootController.presentedViewController.presentedViewController presentViewController:alertController animated:YES completion:nil];
-//            }else {
-//                [rootController.presentedViewController presentViewController:alertController animated:YES completion:nil];
-//            }
-//        };
+
+        model.prograssHUDBlock = ^(UIView * _Nullable prograssHUDBlock) {
+            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:@"隐私协议请仔细阅读" preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *alertAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+                [NTESQuickLoginManager sharedInstance].model.checkedSelected = YES;
+                [[NTESQuickLoginManager sharedInstance] authLoginButtonClick];
+            }];
+             UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+
+            }];
+            [alertController addAction:cancelAction];
+            [alertController addAction:alertAction];
+            
+            if ([[NTESQuickLoginManager sharedInstance] getCarrier] == NTESCarrierTypeMobile) {
+                [rootController.presentedViewController.presentedViewController presentViewController:alertController animated:YES completion:nil];
+            }else {
+                [rootController.presentedViewController presentViewController:alertController animated:YES completion:nil];
+            }
+        };
 //    }
     
     return model;
