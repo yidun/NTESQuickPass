@@ -24,31 +24,31 @@ typedef void(^AuthPrograssHUDBlock)(UIView *_Nullable prograssHUDBlock);
 typedef void(^AuthVideoViewBlock)(UIView *_Nullable videoView);
 
 /** 协议点击事件。授权页面点击事件的回调
-*  backType = 1 从隐私协议界面返回
-*  backType = 2 从授权界面返回
-*/
+ *  backType = 1 从隐私协议界面返回
+ *  backType = 2 从授权界面返回
+ */
 typedef void(^AuthBackActionBlock)(int backType);
 typedef void(^AuthLoginActionBlock)(BOOL isChecked);
 typedef void(^AuthCheckActionBlock)(BOOL isChecked);
 typedef void(^AuthCloseActionBlock)(void);
 
 /** 协议点击事件。
-*  privacyType = 0 默认协议,
-*  privacyType = 1 第一个协议
-*  privacyType = 2 第二个协议
-*  privacyType = 3 第三个协议
-*  privacyType = 4 第四个协议
-*/
+ *  privacyType = 0 默认协议,
+ *  privacyType = 1 第一个协议
+ *  privacyType = 2 第二个协议
+ *  privacyType = 3 第三个协议
+ *  privacyType = 4 第四个协议
+ */
 typedef void(^AuthPrivacyActionBlock)(int privacyType);
 
 /**
-*  隐私协议点击事件回调。
-*  privacyType = 0 点击了默认协议,
-*  privacyType = 1 点击了第一个协议 ,
-*  privacyType = 2 点击了第二个协议,
-*  privacyType = 3 点击了第三个协议,
-*  privacyType = 4 点击了第四个协议
-*/
+ *  隐私协议点击事件回调。
+ *  privacyType = 0 点击了默认协议,
+ *  privacyType = 1 点击了第一个协议 ,
+ *  privacyType = 2 点击了第二个协议,
+ *  privacyType = 3 点击了第三个协议,
+ *  privacyType = 4 点击了第四个协议
+ */
 typedef void(^AuthPrivacyPageCustomBlock)(int privacyType);
 
 /// 复选框相对隐私条款的位置
@@ -73,8 +73,8 @@ typedef NS_ENUM(NSUInteger, NTESAuthWindowPop){
 };
 
 /**
-*  授权页面自定义
-*/
+ *  授权页面自定义
+ */
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -271,6 +271,12 @@ NS_ASSUME_NONNULL_BEGIN
 /**手机号码Y偏移量,  numberOffsetTopY为距离屏幕顶部的距离 ，默认为100*/
 @property (nonatomic, assign) CGFloat numberOffsetTopY;
 
+/**
+ * 登录按钮Y偏移量 ，numberOffsetBottomY为距离屏幕底部的距离，默认为 0
+ * 注意：无法与 numberOffsetTopY 同时使用，且numberOffsetTopY必须设置为 0 或不设置
+ */
+@property (nonatomic, assign) CGFloat numberOffsetBottomY;
+
 /**手机号码X偏移量， numberOffsetX = 0 居中显示*/
 @property (nonatomic, assign) CGFloat numberOffsetX;
 
@@ -329,28 +335,34 @@ NS_ASSUME_NONNULL_BEGIN
 /*认证服务品牌的高度， 默认为10**/
 @property (nonatomic, assign) CGFloat brandLogoHeight;
 
- #pragma mark -------------------------- 登录按钮设置
+#pragma mark -------------------------- 登录按钮设置
 
- /**登录按钮文本*/
- @property (nonatomic, copy) NSString *logBtnText;
+/**登录按钮文本*/
+@property (nonatomic, copy) NSString *logBtnText;
 
- /**登录按钮字体*/
- @property (nonatomic, strong) UIFont *logBtnTextFont;
+/**登录按钮字体*/
+@property (nonatomic, strong) UIFont *logBtnTextFont;
 
- /**登录按钮文本颜色*/
- @property (nonatomic, strong) UIColor *logBtnTextColor;
+/**登录按钮文本颜色*/
+@property (nonatomic, strong) UIColor *logBtnTextColor;
 
- /**登录按钮Y偏移量 ，logBtnOffsetTopY为距离屏幕顶部的距离 ，默认为200*/
- @property (nonatomic, assign) CGFloat logBtnOffsetTopY;
+/**登录按钮Y偏移量 ，logBtnOffsetTopY为距离屏幕顶部的距离 ，默认为200*/
+@property (nonatomic, assign) CGFloat logBtnOffsetTopY;
+
+/**
+ * 登录按钮Y偏移量 ，logBtnOffsetBottomY为距离屏幕底部的距离，默认为 0
+ * 注意：无法与 logBtnOffsetTopY 同时使用，且logBtnOffsetTopY必须设置为 0 或不设置
+ */
+@property (nonatomic, assign) CGFloat logBtnOffsetBottomY;
 
 /**登录按钮X偏移量 ，logBtnOffsetX为距离屏幕中间的距离 ，默认为居中显示，与logBtnWidth结合使用*/
 @property (nonatomic, assign) CGFloat logBtnOffsetX;
 
- /**登录按钮圆角，默认8*/
- @property (nonatomic, assign) CGFloat logBtnRadius;
+/**登录按钮圆角，默认8*/
+@property (nonatomic, assign) CGFloat logBtnRadius;
 
- /**登录按钮背景颜色*/
- @property (nonatomic, strong) UIColor *logBtnUsableBGColor;
+/**登录按钮背景颜色*/
+@property (nonatomic, strong) UIColor *logBtnUsableBGColor;
 
 /**登录按钮可用状态下的背景图片*/
 @property (nonatomic, strong) UIImage *logBtnEnableImg;
@@ -414,10 +426,10 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark -------------------------- 隐私条款
 
 /**隐私的内容模板：
-   全句可自定义但必须保留"《默认》"字段表明SDK默认协议,否则设置不生效
-   必设置项（参考SDK的demo）
-   appPrivacyText设置内容：登录并同意《默认》和易盾协议1、网易协议2登录并支持一键登录
-   展示：  登录并同意中国移动条款协议和易盾协议1、网易协议2登录并支持一键登录
+ 全句可自定义但必须保留"《默认》"字段表明SDK默认协议,否则设置不生效
+ 必设置项（参考SDK的demo）
+ appPrivacyText设置内容：登录并同意《默认》和易盾协议1、网易协议2登录并支持一键登录
+ 展示：  登录并同意中国移动条款协议和易盾协议1、网易协议2登录并支持一键登录
  */
 @property (nonatomic, copy) NSString *appPrivacyText;
 
@@ -444,7 +456,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**开发者隐私条款协议url（第一个协议）*/
 @property (nonatomic, copy) NSString *appFPrivacyURL;
- 
+
 /**开发者隐私条款协议url（第二个协议）*/
 @property (nonatomic, copy) NSString *appSPrivacyURL;
 
@@ -558,7 +570,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**底部弹窗，圆角的值，只可修改顶部左右二边的值 默认圆角是16*/
 @property (nonatomic, assign) int popBottomCornerRadius;
 
- /**底部弹窗，是否开启轻扫手势，向下轻扫关闭弹窗。默认关闭*/
+/**底部弹窗，是否开启轻扫手势，向下轻扫关闭弹窗。默认关闭*/
 @property (nonatomic, assign) BOOL isOpenSwipeGesture;
 
 @end
