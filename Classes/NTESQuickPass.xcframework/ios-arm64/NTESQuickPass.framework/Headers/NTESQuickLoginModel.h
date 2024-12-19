@@ -257,6 +257,12 @@ NS_ASSUME_NONNULL_BEGIN
 /**LOGO图片Y偏移量， logoOffsetTopY为距离屏幕顶部的距离 ，默认为20 */
 @property (nonatomic, assign) CGFloat logoOffsetTopY;
 
+/**
+ * LOGO图片Y偏移量，logoOffsetBottomY为距离屏幕底部的距离，默认为 0
+ * 注意：无法与 logoOffsetTopY 同时使用，且logoOffsetTopY必须设置为 0 或不设置
+ */
+@property (nonatomic, assign) CGFloat logoOffsetBottomY;
+
 /**LOGO图片左右偏移量 ，logoOffsetX = 0居中显示*/
 @property (nonatomic, assign) CGFloat logoOffsetX;
 
@@ -317,6 +323,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**认证服务品牌Y偏移量, brandOffsetTopY为距离屏幕顶部的距离 ，默认为150*/
 @property (nonatomic, assign) CGFloat brandOffsetTopY;
+
+/**
+ * 认证服务品牌Y偏移量 ，brandOffsetBottomY为距离屏幕底部的距离，默认为 0
+ * 注意：无法与 brandOffsetTopY 同时使用，且brandOffsetTopY必须设置为 0 或不设置
+ */
+@property (nonatomic, assign) CGFloat brandOffsetBottomY;
 
 /**认证服务品牌X偏移量 ，brandOffsetX = 0居中显示*/
 @property (nonatomic, assign) CGFloat brandOffsetX;
