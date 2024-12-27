@@ -533,7 +533,117 @@ NS_ASSUME_NONNULL_BEGIN
 /**协议没有勾选时，提示信息内容 */
 @property (nonatomic, copy) NSString *noticeString;
 
+#pragma mark --------------------------自定义弹窗样式
+/**自定义弹窗宽，默认 300*/
+@property (nonatomic, assign) CGFloat toastWidth;
+
+/**自定义弹窗高，默认 250*/
+@property (nonatomic, assign) CGFloat toastHeight;
+
+/**自定义弹窗背景颜色，默认白色*/
+@property (nonatomic, strong) UIColor *toastBackgroundColor;
+
+/**自定义弹窗圆角，默认 8*/
+@property (nonatomic, assign) NSUInteger toastCornerRadius;
+
+/** 自定义弹窗标题文本 */
+@property (nonatomic, copy) NSString *toastTitleText;
+
+/** 自定义弹窗标题文本字体颜色，默认黑色 */
+@property (nonatomic, strong) UIColor *toastTitleTextColor;
+
+/** 自定义弹窗标题文本字体大小 */
+@property (nonatomic, assign) NSUInteger toastTitleFontSize;
+
+/** 自定义弹窗标题文本字重 */
+@property (nonatomic, assign) UIFontWeight toastTitleFontWeight;
+
+/** 自定义弹窗内容前缀文本，前缀文本指在隐私条例之前的文案 */
+@property (nonatomic, copy) NSString *toastContentPrefixText;
+
+/** 自定义弹窗内容后缀文本，后缀文本指在隐私条例之后的文案 */
+@property (nonatomic, copy) NSString *toastContentSuffixText;
+
+/** 自定义弹窗内容文本字体颜色，默认黑色 */
+@property (nonatomic, strong) UIColor *toastContentTextColor;
+
+/** 自定义弹窗内容文本字体大小 */
+@property (nonatomic, assign) NSUInteger toastContentFontSize;
+
+/** 自定义弹窗内容文本字重 */
+@property (nonatomic, assign) UIFontWeight toastContentFontWeight;
+
+/** 自定义弹窗内容文本行间距， 默认 1 */
+@property (nonatomic, assign) UIFontWeight toastContentLineSpacing;
+
+/** 自定义弹窗内容文本字间距 ，默认 0*/
+@property (nonatomic, assign) UIFontWeight toastContentWordSpacing;
+
+/**自定义弹窗取消按钮宽，默认 120*/
+@property (nonatomic, assign) CGFloat toastCancelWidth;
+
+/**自定义弹窗取消按钮高，默认 40*/
+@property (nonatomic, assign) CGFloat toastCancelHeight;
+
+/** 自定义弹窗取消按钮 */
+@property (nonatomic, copy) NSString *toastCancelText;
+
+/** 自定义弹窗取消按钮字体颜色，默认黑色 */
+@property (nonatomic, strong) UIColor *toastCancelTextColor;
+
+/** 自定义弹窗取消按钮字体大小 */
+@property (nonatomic, assign) NSUInteger toastCancelFontSize;
+
+/** 自定义弹窗取消按钮字重 */
+@property (nonatomic, assign) UIFontWeight toastCancelFontWeight;
+
+/**自定义弹窗取消按钮圆角，默认 8*/
+@property (nonatomic, assign) NSUInteger toastCancelCornerRadius;
+
+/**自定义弹窗取消按钮背景颜色，默认白色*/
+@property (nonatomic, strong) UIColor *toastCancelBackgroundColor;
+
+/**自定义弹窗取消按钮边框颜色，默认白色*/
+@property (nonatomic, strong) UIColor *toastCancelBorderColor;
+
+/**自定义弹窗确定按钮宽，默认 120*/
+@property (nonatomic, assign) CGFloat toastConfirmWidth;
+
+/**自定义弹窗确定按钮高，默认 40*/
+@property (nonatomic, assign) CGFloat toastConfirmHeight;
+
+/** 自定义弹窗确定按钮 */
+@property (nonatomic, copy) NSString *toastConfirmText;
+
+/** 自定义弹窗确定按钮字体颜色，默认黑色 */
+@property (nonatomic, strong) UIColor *toastConfirmTextColor;
+
+/** 自定义弹窗确定按钮字体大小 */
+@property (nonatomic, assign) NSUInteger toastConfirmFontSize;
+
+/** 自定义弹窗确定按钮字重 */
+@property (nonatomic, assign) UIFontWeight toastConfirmFontWeight;
+
+/**自定义弹窗确定按钮圆角，默认 8*/
+@property (nonatomic, assign) NSUInteger toastConfirmCornerRadius;
+
+/**自定义弹窗确定按钮背景颜色，默认白色*/
+@property (nonatomic, strong) UIColor *toastConfirmBackgroundColor;
+
+/**自定义弹窗确定按钮边框颜色，默认白色*/
+@property (nonatomic, strong) UIColor *toastConfirmBorderColor;
+
+/** 标题与正文之间的间距 ，默认 20*/
+@property (nonatomic, assign) NSUInteger toastTitleToContentSpace;
+
+/** 正文与按钮之间的间距 ，默认 20 */
+@property (nonatomic, assign) NSUInteger toastContentToButtonSpace;
+
+/** 自定义弹窗边距 */
+@property (nonatomic, assign) UIEdgeInsets toastEdgeInsets;
+
 #pragma mark ----------------------弹窗:(温馨提示:由于受屏幕影响，小屏幕（5S,5E,5）需要改动字体和另自适应和布局)--------------------
+
 #pragma mark --------------------------窗口模式（居中弹窗, 底部半屏弹窗）
 
 /*窗口模式下，自动隐藏系统导航栏*/
