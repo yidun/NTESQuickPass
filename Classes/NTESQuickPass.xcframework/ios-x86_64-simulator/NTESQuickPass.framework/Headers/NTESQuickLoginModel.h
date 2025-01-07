@@ -286,8 +286,17 @@ NS_ASSUME_NONNULL_BEGIN
 /**手机号码X偏移量， numberOffsetX = 0 居中显示*/
 @property (nonatomic, assign) CGFloat numberOffsetX;
 
-/**手机号码， 默认18*/
+/**手机号码字体， 默认是系统字体，大小为 18*/
+/**无法与 numberFontSize、numberFontWeight 同时使用*/
 @property (nonatomic, strong) UIFont *numberFont;
+
+/**手机号码字体大小 */
+/**可与 numberFontWeight 同时使用，默认是系统字体，大小为 18*/
+@property (nonatomic, assign) NSUInteger numberFontSize;
+
+/**手机号码字重*/
+/**可与 numberFontSize 同时使用，默认是系统字体，大小为 UIFontWeightBold*/
+@property (nonatomic, assign) UIFontWidth numberFontWeight;
 
 /**手机号码框的高度 默认27*/
 @property (nonatomic, assign) CGFloat numberHeight;
@@ -318,8 +327,16 @@ NS_ASSUME_NONNULL_BEGIN
 /**认证服务品牌的高度， 默认16*/
 @property (nonatomic, assign) CGFloat brandHeight;
 
-/**认证服务品牌文字字体 默认12*/
+/**认证服务品牌文字字体 ， 默认是系统字体，大小为 12*/
 @property (nonatomic, strong) UIFont *brandFont;
+
+/**认证服务品牌文字字体大小 PingFangSC-Regular */
+/**可与 brandFontWeight 同时使用，默认是系统字体，大小为 12*/
+@property (nonatomic, assign) NSUInteger brandFontSize;
+
+/**认证服务品牌文字字重*/
+/**可与 brandFontSize 同时使用，默认是系统字体，大小为 UIFontWeightRegular*/
+@property (nonatomic, assign) UIFontWeight brandFontWeight;
 
 /**认证服务品牌Y偏移量, brandOffsetTopY为距离屏幕顶部的距离 ，默认为150*/
 @property (nonatomic, assign) CGFloat brandOffsetTopY;
@@ -352,8 +369,16 @@ NS_ASSUME_NONNULL_BEGIN
 /**登录按钮文本*/
 @property (nonatomic, copy) NSString *logBtnText;
 
-/**登录按钮字体*/
+/**登录按钮字体 ， 默认是系统字体，大小为 14*/
 @property (nonatomic, strong) UIFont *logBtnTextFont;
+
+/**登录按钮字体大小， 默认是系统字体，大小为 14 */
+/**可与 logBtnTextFontWeight 同时使用，默认是系统字体，大小为 14*/
+@property (nonatomic, assign) NSUInteger logBtnTextFontSize;
+
+/**登录按钮字体字重*/
+/**可与 logBtnTextFontSize 同时使用，默认是系统字体，大小为 UIFontWeightRegular*/
+@property (nonatomic, assign) UIFontWidth logBtnTextFontWeight;
 
 /**登录按钮文本颜色*/
 @property (nonatomic, strong) UIColor *logBtnTextColor;
@@ -500,8 +525,17 @@ NS_ASSUME_NONNULL_BEGIN
 /**开发者隐私条款的颜色*/
 @property (nonatomic, strong) UIColor *privacyColor;
 
-/**开发者隐私条款字体的大小 */
+/**开发者隐私条款字体， 默认是系统字体，大小为 11*/
+/**无法与 privacyFontSize、privacyFontWeight 同时使用*/
 @property (nonatomic, strong) UIFont *privacyFont;
+
+/**开发者隐私条款字体大小 */
+/**可与 privacyFontWeight 同时使用，默认是系统字体，大小为 11*/
+@property (nonatomic, assign) NSUInteger privacyFontSize;
+
+/**开发者隐私条款字体字重 */
+/**可与 privacyFontSize 同时使用，默认是系统字体，大小为 11*/
+@property (nonatomic, assign) UIFontWeight privacyFontWeight;
 
 /**开发者隐私条款中协议名称颜色*/
 @property (nonatomic, strong) UIColor *protocolColor;
