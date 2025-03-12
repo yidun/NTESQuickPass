@@ -433,6 +433,44 @@ pod 'NTESQuickPass', '3.2.3'
 | appPrivacyWordSpacing| 设置隐私协议的字间距, 默认是0|
 | progressColor| 设置用户协议界面，进度条颜色|
 | privacyTextView| 隐私协议控件|
+| toastWidth| 自定义弹窗宽，默认 300|
+| toastHeight| 自定义弹窗高，默认 250|
+| toastBackgroundColor| 自定义弹窗背景颜色，默认白色|
+| toastCornerRadius| 自定义弹窗圆角，默认 8|
+| toastTitleText| 自定义弹窗标题文本|
+| toastTitleTextColor| 自定义弹窗标题文本字体颜色，默认黑色|
+| toastTitleFontSize| 自定义弹窗标题文本字体大小|
+| toastTitleFontWeight| 自定义弹窗标题文本字重|
+| toastContentPrefixText| 自定义弹窗内容前缀文本，前缀文本指在隐私条例之前的文案|
+| toastContentSuffixText| 自定义弹窗内容后缀文本，后缀文本指在隐私条例之后的文案|
+| toastContentTextColor| 自定义弹窗内容文本字体颜色，默认黑色|
+| toastContentFontSize| 自定义弹窗内容文本字体大小|
+| toastContentFontWeight| 自定义弹窗内容文本字重|
+| toastContentLineSpacing| 自定义弹窗内容文本行间距， 默认 1|
+| toastContentWordSpacing| 自定义弹窗内容文本字间距 ，默认 0|
+| toastCancelWidth| 自定义弹窗取消按钮宽，默认 120|
+| toastCancelHeight| 自定义弹窗取消按钮高，默认 40|
+| toastCancelText| 自定义弹窗取消按钮|
+| toastCancelTextColor| 自定义弹窗取消按钮字体颜色，默认黑色|
+| toastCancelFontSize| 自定义弹窗取消按钮字体大小|
+| toastCancelFontWeight| 自定义弹窗取消按钮字重|
+| toastCancelCornerRadius| 自定义弹窗取消按钮圆角，默认 8|
+| toastCancelBackgroundColor| 自定义弹窗取消按钮背景颜色，默认白色|
+| toastCancelBorderColor| 自定义弹窗取消按钮边框颜色，默认白色|
+| toastConfirmWidth| 自定义弹窗确定按钮宽，默认 120|
+| toastConfirmHeight| 自定义弹窗确定按钮高，默认 40|
+| toastConfirmText| 自定义弹窗确定按钮|
+| toastConfirmTextColor| 自定义弹窗确定按钮字体颜色，默认黑色|
+| toastConfirmFontSize| 自定义弹窗确定按钮字体大小|
+| toastConfirmFontWeight| 自定义弹窗确定按钮字重|
+| toastConfirmCornerRadius| 自定义弹窗确定按钮圆角，默认 8|
+| toastConfirmBackgroundColor| 自定义弹窗确定按钮背景颜色，默认白色|
+| toastConfirmBorderColor| 自定义弹窗确定按钮边框颜色，默认白色|
+| toastTitleToContentSpace| 标题与正文之间的间距 ，默认 20|
+| toastContentToButtonSpace| 正文与按钮之间的间距 ，默认 20|
+| toastEdgeInsets| 自定义弹窗边距|
+
+
 ##### 弹窗模式
 
 | 属性                                              | 说明                                                         |

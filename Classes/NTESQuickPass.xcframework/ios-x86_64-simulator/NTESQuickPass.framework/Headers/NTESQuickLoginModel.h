@@ -601,6 +601,9 @@ NS_ASSUME_NONNULL_BEGIN
 /** 自定义弹窗内容文本字体颜色，默认黑色 */
 @property (nonatomic, strong) UIColor *toastContentTextColor;
 
+/** 自定义弹窗隐私文本字体颜色，默认黑色 */
+@property (nonatomic, strong) UIColor *toastProtocolTextColor;
+
 /** 自定义弹窗内容文本字体大小 */
 @property (nonatomic, assign) NSUInteger toastContentFontSize;
 
