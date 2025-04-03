@@ -147,6 +147,16 @@ typedef void(^NTESAuthorizeCompletionHandler)(void);
 - (void)getPhoneNumberCompletion:(NTESQLGetPhoneNumHandler)phoneNumberHandler;
 
 /**
+ *  @abstract   移动、联通、电信 - 预取号接口，请确保在初始化成功后再调用此方法
+ *
+ *  @param      totalInterval   预取号整体超时时间，单位ms，默认为 0
+ *  @param      phoneNumberHandler  返回预取号结果
+ *
+ */
+- (void)getPhoneNumberWithTotalInterval:(NSTimeInterval)totalInterval
+                             completion:(NTESQLGetPhoneNumHandler)phoneNumberHandler;
+
+/**
 *  @abstract
  设置授权登录界面model，⚠️注意：必须调用，此方法需嵌套在getPhoneNumberCompletion的回调中使用，且在CUCMAuthorizeLoginCompletion:之前调用
 *
