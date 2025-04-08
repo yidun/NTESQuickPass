@@ -251,7 +251,7 @@ pod 'NTESQuickPass', '3.2.3'
  /**
  *  @abstract   移动、联通、电信 - 预取号接口，请确保在初始化成功后再调用此方法
  *
- *  @param      totalInterval   预取号整体超时时间，单位ms，默认为 0
+ *  @param      totalInterval   预取号整体超时时间，单位ms，默认为 3000
  *  @param      phoneNumberHandler  返回预取号结果
  *
  */
