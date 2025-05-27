@@ -577,6 +577,18 @@ NS_ASSUME_NONNULL_BEGIN
 /**自定义弹窗背景颜色，默认白色*/
 @property (nonatomic, strong) UIColor *toastBackgroundColor;
 
+/**自定义弹窗背景渐变色数组，需要转换为CGColor颜色，默认不设置*/
+@property (nonatomic, strong) NSArray *toastBackgroundColors;
+
+/**设置渐变颜色方向，左上点为(0,0), 右下点为(1,1)*/
+@property (nonatomic, assign) CGPoint toastBackgroundStartPoint;
+
+/**设置渐变颜色方向，左上点为(0,0), 右下点为(1,1)*/
+@property (nonatomic, assign) CGPoint toastBackgroundEndPoint;
+
+/**设置颜色变化点，取值范围 0.0~1.0 */
+@property(nonatomic, nullable, copy) NSArray<NSNumber *> *toastBackgroundLocations;
+
 /**自定义弹窗圆角，默认 8*/
 @property (nonatomic, assign) NSUInteger toastCornerRadius;
 

@@ -49,7 +49,7 @@ pod 'NTESQuickPass', '3.2.3'
 ## 项目开发配置
 
 * 1、在Xcode中找到`TARGETS-->Build Setting-->Linking-->Other Linker Flags`在这个选项中需要添加 `-ObjC`
-* 2、如需支持iOS8.0系统，需添加`CoreFoundation.framework`，并将`CoreFoundation.framework`的status改为optional
+* 2、如需支持iOS8.0系统，需添加`CoreFoundation.framework、Security.framework、Network.framework`，并将`CoreFoundation.framework`的status改为optional
 ## 调用示例
 ```
 /// 初始化易盾 SDK
@@ -450,6 +450,10 @@ pod 'NTESQuickPass', '3.2.3'
 | toastWidth                   | 自定义弹窗宽，默认 300                                       |
 | toastHeight                  | 自定义弹窗高，默认 250                                       |
 | toastBackgroundColor         | 自定义弹窗背景颜色，默认白色                                 |
+| toastBackgroundColors         | 自定义弹窗背景渐变色数组，需要转换为CGColor颜色，默认不设置     |
+| toastBackgroundStartPoint         | 设置渐变颜色方向，左上点为(0,0), 右下点为(1,1)            |
+| toastBackgroundEndPoint         | 设置渐变颜色方向，左上点为(0,0), 右下点为(1,1)              |
+| toastBackgroundLocations         | 设置颜色变化点，取值范围 0.0~1.0                           |
 | toastCornerRadius            | 自定义弹窗圆角，默认 8                                       |
 | toastTitleText               | 自定义弹窗标题文本                                           |
 | toastTitleTextColor          | 自定义弹窗标题文本字体颜色，默认黑色                         |
