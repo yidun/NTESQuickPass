@@ -1,2 +1,5 @@
 ${PODS_ROOT}/Target Support Files/NTESQuickPass/NTESQuickPass-xcframeworks.sh
-${PODS_ROOT}/../../../Classes/NTESQuickPass.xcframework
+${PODS_ROOT}/NTESQuickPass/Classes/NTESQuickPass.xcframework
+${PODS_ROOT}/NTESQuickPass/Classes/EAccountApiSDK.xcframework
+${PODS_ROOT}/NTESQuickPass/Classes/OAuth.xcframework
+${PODS_ROOT}/NTESQuickPass/Classes/TYRZUISDK.xcframework

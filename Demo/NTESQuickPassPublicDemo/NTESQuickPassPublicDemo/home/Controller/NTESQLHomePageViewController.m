@@ -111,7 +111,7 @@
 /// 使用易盾提供的businessID进行初始化业务，回调中返回初始化结果
 - (void)registerQuickLogin {
     [NTESQuickLoginManager sharedInstance].delegate = self;
-    [[NTESQuickLoginManager sharedInstance] registerWithBusinessID:@"请输入易盾业务id"];
+    [[NTESQuickLoginManager sharedInstance] registerWithBusinessID:@"b55f3c7d4729455c9c3fb23872065401"];
 }
 
 - (void)getPhoneNumberWithText:(NSString *)title {
@@ -144,16 +144,16 @@
     self.customModel.currentVC = self;
     
     /// 协议未勾选时，自定义弹窗样式，不实现prograssHUDBlock方法，走内部默认弹窗
-    WeakSelf(self);
-    self.customModel.prograssHUDBlock = ^(UIView * _Nullable prograssHUDBlock) {
-        NTESCheckedToastView *checkedToastView = [[NTESCheckedToastView alloc] init];
-        weakSelf.checkedToastView = checkedToastView;
-        checkedToastView.delegate = weakSelf;
-        [prograssHUDBlock addSubview:checkedToastView];
-        [checkedToastView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.edges.equalTo(prograssHUDBlock);
-        }];
-    };
+//    WeakSelf(self);
+//    self.customModel.prograssHUDBlock = ^(UIView * _Nullable prograssHUDBlock) {
+//        NTESCheckedToastView *checkedToastView = [[NTESCheckedToastView alloc] init];
+//        weakSelf.checkedToastView = checkedToastView;
+//        checkedToastView.delegate = weakSelf;
+//        [prograssHUDBlock addSubview:checkedToastView];
+//        [checkedToastView mas_makeConstraints:^(MASConstraintMaker *make) {
+//            make.edges.equalTo(prograssHUDBlock);
+//        }];
+//    };
     
     // 自定义协议界面，在block里面跳转到自己的协议页面，不实现pageCustomBlock走默认跳转
 //    self.customModel.pageCustomBlock = ^(int privacyType) {

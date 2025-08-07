@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "NTESQuickPass"
-  spec.version      = '3.6.10'
+  spec.version      = '3.6.11'
   spec.summary      = "NTESQuickPass."
 
   # This description is used to generate tags and improve search results.
