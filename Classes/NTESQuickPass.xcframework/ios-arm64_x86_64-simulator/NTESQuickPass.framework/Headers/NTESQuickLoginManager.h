@@ -204,6 +204,7 @@ typedef void(^NTESAuthorizeCompletionHandler)(void);
  */
 - (void)authLoginButtonClick;
 
+- (void)presentCTCMAuthorizeLoginController:(NTESQuickLoginModel *)model;
 @end
 
 NS_ASSUME_NONNULL_END
