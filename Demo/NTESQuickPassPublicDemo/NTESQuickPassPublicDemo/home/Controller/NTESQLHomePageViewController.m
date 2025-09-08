@@ -111,7 +111,7 @@
 /// 使用易盾提供的businessID进行初始化业务，回调中返回初始化结果
 - (void)registerQuickLogin {
     [NTESQuickLoginManager sharedInstance].delegate = self;
-    [[NTESQuickLoginManager sharedInstance] registerWithBusinessID:@"b55f3c7d4729455c9c3fb23872065401"];
+    [[NTESQuickLoginManager sharedInstance] registerWithBusinessID:@"易盾业务id"];
 }
 
 - (void)getPhoneNumberWithText:(NSString *)title {
@@ -206,7 +206,7 @@
     }
     
     WeakSelf(self);
-    [NTESDemoHttpRequest startRequestWithURL:@"" httpMethod:@"POST" requestData:jsonData finishBlock:^(NSData *data, NSError *error, NSInteger statusCode) {
+    [NTESDemoHttpRequest startRequestWithURL:@"后端check" httpMethod:@"POST" requestData:jsonData finishBlock:^(NSData *data, NSError *error, NSInteger statusCode) {
         weakSelf.data = data;
         weakSelf.statusCode = statusCode;
         dispatch_async(dispatch_get_main_queue(), ^{
