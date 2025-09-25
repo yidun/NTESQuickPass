@@ -569,6 +569,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**协议没有勾选时，提示信息内容 */
 @property (nonatomic, copy) NSString *noticeString;
 
+/**协议未勾选弹窗点击确认是否自动登录，默认不开启*/
+@property (nonatomic, assign)  BOOL  isPrivacyToastAutoEnabled;
+
 #pragma mark --------------------------自定义弹窗样式
 /**自定义弹窗宽，默认 300*/
 @property (nonatomic, assign) CGFloat toastWidth;
@@ -578,6 +581,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**自定义弹窗背景颜色，默认白色*/
 @property (nonatomic, strong) UIColor *toastBackgroundColor;
+
+/**自定义弹窗蒙层背景颜色，默认黑色，透明度 0.3*/
+@property (nonatomic, strong) UIColor *toastMaskBackgroundColor;
 
 /**自定义弹窗背景渐变色数组，需要转换为CGColor颜色，默认不设置*/
 @property (nonatomic, strong) NSArray *toastBackgroundColors;
