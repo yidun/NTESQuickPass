@@ -6,7 +6,7 @@
 	<dict>
 		<key>Headers/NTESQuickLoginManager.h</key>
 		<data>
-		Y1z6T2HkXwtpA+KhEQS1JuRax5U=
+		exSIu2e6zMxByXxoAdrgfhBWSAI=
 		</data>
 		<key>Headers/NTESQuickLoginModel.h</key>
 		<data>
@@ -22,7 +22,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		nUF6L7xqZZPCo8m4L2OOaJEDRTY=
+		jkeYql+Ngoye0JOmuQbwo/2CbEk=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -30,7 +30,7 @@
 		</data>
 		<key>PrivacyInfo.xcprivacy</key>
 		<data>
-		OAf3JwsHPTHcfQrHZVvA9zqzIr4=
+		Gr+Dw/Ey+RXai5G7aoojY8YFG3c=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -39,11 +39,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Y1z6T2HkXwtpA+KhEQS1JuRax5U=
+			exSIu2e6zMxByXxoAdrgfhBWSAI=
 			</data>
 			<key>hash2</key>
 			<data>
-			I0LUDqJmcfUveLD4tMqlJqCffPoruO2HUvvbM+s6Zv8=
+			Cn+RUJwtgpT0Dqm98GWnRQF302UqDSrXiZs7CUwPEJE=
 			</data>
 		</dict>
 		<key>Headers/NTESQuickLoginModel.h</key>
@@ -94,11 +94,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			OAf3JwsHPTHcfQrHZVvA9zqzIr4=
+			Gr+Dw/Ey+RXai5G7aoojY8YFG3c=
 			</data>
 			<key>hash2</key>
 			<data>
-			8RGe8/btdp5rh4FdXcCkr2qlPuoFiOqEZ0PxrBXUNqA=
+			+3p3tDjXU8UQ+tZ1zKrUjPeFPhWmiuLbFnTyEINVOt8=
 			</data>
 		</dict>
 	</dict>
