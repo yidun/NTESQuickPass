@@ -456,6 +456,12 @@ NS_ASSUME_NONNULL_BEGIN
 /**复选框可相对协议顶对齐、中对齐、下对齐 默认顶对齐*/
 @property (nonatomic, assign) NSCheckBoxAlignment checkBoxAlignment;
 
+/**复选框Y偏移量 checkBoxOffsetTopY为距离屏幕顶部的距离 ，默认为2*/
+@property (nonatomic, assign) CGFloat checkBoxOffsetTopY;
+
+/**复选框Y偏移量 checkBoxOffsetBottomY为距离屏幕顶部的距离 ，默认为2*/
+@property (nonatomic, assign) CGFloat checkBoxOffsetBottomY;
+
 /**复选框距离隐私条款的边距 默认 8*/
 @property (nonatomic, assign) CGFloat checkBoxMargin;
 
