@@ -56,21 +56,23 @@
 /**手机号码富文本属性 */
 @property (nonatomic,strong) NSDictionary<NSAttributedStringKey,id> *numberTextAttributes;
 /**号码栏X偏移量*/
-@property (nonatomic,strong) NSNumber * numberOffsetX;
+@property (nonatomic,strong) NSNumber *numberOffsetX;
 /**号码栏Y偏移量 numberOffsetY优先级高于numberOffsetY_B*/
-@property (nonatomic,strong) NSNumber * numberOffsetY;
+@property (nonatomic,strong) NSNumber *numberOffsetY;
 /**号码栏Y偏移量（基于底部）*/
-@property (nonatomic,strong) NSNumber * numberOffsetY_B;
+@property (nonatomic,strong) NSNumber *numberOffsetY_B;
 
 #pragma mark - 品牌图标设置
-/**号码栏X偏移量*/
+/**品牌图标X偏移量*/
 @property (nonatomic,strong) NSNumber *brandImageOffsetX;
-/**号码栏Y偏移量*/
+/**品牌图标Y偏移量*/
 @property (nonatomic,strong) NSNumber *brandImageOffsetY;
 /**品牌图标的高度，默认：40，设置不能少于0，否则使用默认值*/
 @property (nonatomic,strong) NSNumber *brandImageHeight;
-/**品牌图标的宽度，默认：160，设置不能少于0，否则使用默认值*/
+/**品牌图标的宽度，默认：120，设置不能少于0，否则使用默认值*/
 @property (nonatomic,strong) NSNumber *brandImageWidth;
+/**是否隐藏品牌图标，接口有返回图片且接口未设置隐藏的情况下生效，仅用于setter*/
+@property (nonatomic,assign) BOOL brandImageHidden;
 
 #pragma mark 隐私条款勾选框
 /**勾选框未选中时图片*/
@@ -110,7 +112,7 @@
  */
 @property (nonatomic,strong) UIColor *privacyColor;
 /**隐私条款Y偏移量*/
-@property (nonatomic,strong) NSNumber * privacyOffsetY;
+@property (nonatomic,strong) NSNumber *privacyOffsetY;
 /**隐私条款check框状态 默认:NO */
 @property (nonatomic,assign) BOOL privacyState;
 /**忽略隐私条款check框状态，登陆按钮一直可点击 默认:NO(不忽略) */
@@ -119,6 +121,16 @@
 @property (nonatomic,strong) NSNumber *privacyOffsetY_B;
 /**隐私条款增加抖动效果 默认:NO */
 @property (nonatomic,assign) BOOL privacyUncheckAnimation;
+
+#pragma mark 隐私条款
+/**Slogan坐标值X */
+@property (nonatomic,strong) NSNumber *sloganX;
+/**Slogan坐标值Y */
+@property (nonatomic,strong) NSNumber *sloganY;
+/**Slogan富文本属性 */
+@property (nonatomic,strong) NSDictionary<NSAttributedStringKey,id> *sloganAttributes;
+/**Slogan文本*/
+@property (nonatomic,strong) NSString *sloganText;
 
 #pragma mark -----------------------------------协议页面-----------------------------------
 /**web协议界面导航返回图标(尺寸根据图片大小)*/
