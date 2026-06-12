@@ -433,6 +433,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**创建渐变色数组，需要转换为CGColor颜色  */
 @property(nonatomic, nullable, copy) NSArray *colors;
 
+/**登录按钮是否禁止多次点击  */
+@property (nonatomic, assign) BOOL logBtnDisabledMultipleClicks;
+
 #pragma mark -------------------------- 复选框
 
 /**复选框未选中时图片*/
