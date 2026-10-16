@@ -20,7 +20,7 @@ variant_for_slice()
   "NTESQuickPass.xcframework/ios-arm64")
     echo ""
     ;;
-  "NTESQuickPass.xcframework/ios-x86_64-simulator")
+  "NTESQuickPass.xcframework/ios-arm64_x86_64-simulator")
     echo "simulator"
     ;;
   "EAccountApiSDK.xcframework/ios-arm64")
@@ -32,7 +32,7 @@ variant_for_slice()
   "OAuth.xcframework/ios-arm64")
     echo ""
     ;;
-  "OAuth.xcframework/ios-x86_64-simulator")
+  "OAuth.xcframework/ios-arm64_x86_64-simulator")
     echo "simulator"
     ;;
   "TYRZUISDK.xcframework/ios-arm64_arm64e")
@@ -50,8 +50,8 @@ archs_for_slice()
   "NTESQuickPass.xcframework/ios-arm64")
     echo "arm64"
     ;;
-  "NTESQuickPass.xcframework/ios-x86_64-simulator")
-    echo "x86_64"
+  "NTESQuickPass.xcframework/ios-arm64_x86_64-simulator")
+    echo "arm64 x86_64"
     ;;
   "EAccountApiSDK.xcframework/ios-arm64")
     echo "arm64"
@@ -62,8 +62,8 @@ archs_for_slice()
   "OAuth.xcframework/ios-arm64")
     echo "arm64"
     ;;
-  "OAuth.xcframework/ios-x86_64-simulator")
-    echo "x86_64"
+  "OAuth.xcframework/ios-arm64_x86_64-simulator")
+    echo "arm64 x86_64"
     ;;
   "TYRZUISDK.xcframework/ios-arm64_arm64e")
     echo "arm64 arm64e"
@@ -153,8 +153,8 @@ install_xcframework() {
   echo "Copied $source to $destination"
 }
 
-install_xcframework "${PODS_ROOT}/NTESQuickPass/Classes/NTESQuickPass.xcframework" "NTESQuickPass" "framework" "ios-arm64" "ios-x86_64-simulator"
-install_xcframework "${PODS_ROOT}/NTESQuickPass/Classes/EAccountApiSDK.xcframework" "NTESQuickPass" "framework" "ios-arm64" "ios-arm64_x86_64-simulator"
-install_xcframework "${PODS_ROOT}/NTESQuickPass/Classes/OAuth.xcframework" "NTESQuickPass" "framework" "ios-arm64" "ios-x86_64-simulator"
-install_xcframework "${PODS_ROOT}/NTESQuickPass/Classes/TYRZUISDK.xcframework" "NTESQuickPass" "framework" "ios-arm64_arm64e" "ios-arm64_arm64e_x86_64-simulator"
+install_xcframework "${PODS_ROOT}/../../../Classes/NTESQuickPass.xcframework" "NTESQuickPass" "framework" "ios-arm64" "ios-arm64_x86_64-simulator"
+install_xcframework "${PODS_ROOT}/../../../Classes/EAccountApiSDK.xcframework" "NTESQuickPass" "framework" "ios-arm64" "ios-arm64_x86_64-simulator"
+install_xcframework "${PODS_ROOT}/../../../Classes/OAuth.xcframework" "NTESQuickPass" "framework" "ios-arm64" "ios-arm64_x86_64-simulator"
+install_xcframework "${PODS_ROOT}/../../../Classes/TYRZUISDK.xcframework" "NTESQuickPass" "framework" "ios-arm64_arm64e" "ios-arm64_arm64e_x86_64-simulator"
 

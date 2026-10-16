@@ -35,6 +35,7 @@
 		CAB5EF412757891F00A09097 /* NTESCheckedToastView.m in Sources */ = {isa = PBXBuildFile; fileRef = CAB5EF3F2757891F00A09097 /* NTESCheckedToastView.m */; };
 		DC8C849822C3184E006C8683 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC8C849722C3184D006C8683 /* CoreFoundation.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		DCEC422D2202EC5B00698D3B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DCEC422A2202EC5B00698D3B /* Assets.xcassets */; };
+		E6EA45AE30626F93009BDDF6 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E6EA45AD30626F93009BDDF6 /* SceneDelegate.m */; };
 		F2204C4852E46E6CCBC84386 /* libPods-NTESQuickPassPublicDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E692FEFA580DF8B22EB7DDF /* libPods-NTESQuickPassPublicDemo.a */; };
 /* End PBXBuildFile section */
 
@@ -95,6 +96,8 @@
 		CAB5EF402757891F00A09097 /* NTESCheckedToastView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTESCheckedToastView.h; sourceTree = "<group>"; };
 		DC8C849722C3184D006C8683 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		DCEC422A2202EC5B00698D3B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E6EA45AC30626F93009BDDF6 /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
+		E6EA45AD30626F93009BDDF6 /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +163,8 @@
 				BF7BEC8720D20FC700822DAA /* NTESQPDemoDefines.h */,
 				BF7BEC5120D204A400822DAA /* AppDelegate.h */,
 				BF7BEC5220D204A400822DAA /* AppDelegate.m */,
+				E6EA45AC30626F93009BDDF6 /* SceneDelegate.h */,
+				E6EA45AD30626F93009BDDF6 /* SceneDelegate.m */,
 				DCEC422A2202EC5B00698D3B /* Assets.xcassets */,
 				BF7BEC5720D204A400822DAA /* Main.storyboard */,
 				BF7BEC5C20D204A700822DAA /* LaunchScreen.storyboard */,
@@ -402,13 +407,9 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-NTESQuickPassPublicDemo/Pods-NTESQuickPassPublicDemo-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			inputPaths = (
-			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-NTESQuickPassPublicDemo/Pods-NTESQuickPassPublicDemo-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -451,6 +452,7 @@
 				CA55A6A424480CFE0015D630 /* NTESQLLoginViewController.m in Sources */,
 				CA55A69924480CFE0015D630 /* NTESQLFindCurrentVCEntity.m in Sources */,
 				CA55A6A124480CFE0015D630 /* NTESQLGuidePageController.m in Sources */,
+				E6EA45AE30626F93009BDDF6 /* SceneDelegate.m in Sources */,
 				CA55A6A624480CFE0015D630 /* NTESQPLoginSuccessViewController.m in Sources */,
 				CA55A69C24480CFE0015D630 /* NTESQLHomePageCustomUIModel.m in Sources */,
 				CA55A69B24480CFE0015D630 /* NTESQLHomePageViewController.m in Sources */,
@@ -613,7 +615,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = NTESQuickPassPublicDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -622,7 +624,7 @@
 					"$(inherited)",
 					"-fprofile-instr-generate",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.netease.NTESQuickPassPublicDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.netease.NTESQuickPassPublicDemo.demo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -645,7 +647,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = NTESQuickPassPublicDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -654,7 +656,7 @@
 					"$(inherited)",
 					"-fprofile-instr-generate",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.netease.NTESQuickPassPublicDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.netease.NTESQuickPassPublicDemo.demo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";

@@ -80,7 +80,18 @@
 
 /// 根据屏幕旋转的方向切换视图界面
 - (void)deviceOrientation {
-    UIInterfaceOrientation deviceOrientation = [UIApplication sharedApplication].statusBarOrientation;
+    UIWindowScene *windowScene = nil;
+    for (UIScene *scene in [UIApplication sharedApplication].connectedScenes) {
+        if ([scene isKindOfClass:[UIWindowScene class]]) {
+            windowScene = (UIWindowScene *)scene;
+            break;
+        }
+    }
+    UIInterfaceOrientation deviceOrientation = UIInterfaceOrientationUnknown;
+    if (windowScene) {
+        deviceOrientation = windowScene.interfaceOrientation;
+    }
+    
     if (deviceOrientation == UIInterfaceOrientationPortrait || deviceOrientation == UIInterfaceOrientationPortraitUpsideDown) {
         /**横屏的界面视图*/
         if (self.pageView == nil) {
@@ -111,7 +122,7 @@
 /// 使用易盾提供的businessID进行初始化业务，回调中返回初始化结果
 - (void)registerQuickLogin {
     [NTESQuickLoginManager sharedInstance].delegate = self;
-    [[NTESQuickLoginManager sharedInstance] registerWithBusinessID:@"易盾业务id"];
+    [[NTESQuickLoginManager sharedInstance] registerWithBusinessID:@"b55f3c7d4729455c9c3fb23872065401"];
 }
 
 - (void)getPhoneNumberWithText:(NSString *)title {
@@ -206,7 +217,7 @@
     }
     
     WeakSelf(self);
-    [NTESDemoHttpRequest startRequestWithURL:@"后端check" httpMethod:@"POST" requestData:jsonData finishBlock:^(NSData *data, NSError *error, NSInteger statusCode) {
+    [NTESDemoHttpRequest startRequestWithURL:@"https://ye.dun.163yun.com/api/login/oneclick" httpMethod:@"POST" requestData:jsonData finishBlock:^(NSData *data, NSError *error, NSInteger statusCode) {
         weakSelf.data = data;
         weakSelf.statusCode = statusCode;
         dispatch_async(dispatch_get_main_queue(), ^{

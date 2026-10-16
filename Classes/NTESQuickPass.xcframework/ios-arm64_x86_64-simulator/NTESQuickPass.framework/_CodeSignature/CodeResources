@@ -6,7 +6,7 @@
 	<dict>
 		<key>Headers/NTESQuickLoginManager.h</key>
 		<data>
-		exSIu2e6zMxByXxoAdrgfhBWSAI=
+		8g4UgicIiFXyYv1qKXurWpDIET0=
 		</data>
 		<key>Headers/NTESQuickLoginModel.h</key>
 		<data>
@@ -14,7 +14,7 @@
 		</data>
 		<key>Headers/NTESQuickPass.h</key>
 		<data>
-		MK6YHeaZvjHJCibAY3NonKz2+Js=
+		ByGSKpg41ZHbg0BFfR6EALoQ35I=
 		</data>
 		<key>Headers/NTESQuickPassManager.h</key>
 		<data>
@@ -22,7 +22,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		3y3IMl/bOohSnLF2iQ/5cDhU9xw=
+		eMB0G6fl0QtubR2EgnKQCSiHELQ=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -37,21 +37,13 @@
 	<dict>
 		<key>Headers/NTESQuickLoginManager.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			exSIu2e6zMxByXxoAdrgfhBWSAI=
-			</data>
 			<key>hash2</key>
 			<data>
-			Cn+RUJwtgpT0Dqm98GWnRQF302UqDSrXiZs7CUwPEJE=
+			qnISidXZE2sbElRXf/UelPKKyBHqNxMDi/+uzCjU8X0=
 			</data>
 		</dict>
 		<key>Headers/NTESQuickLoginModel.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			bQ5innZOAT8l7Jk5Id3OejJoIEg=
-			</data>
 			<key>hash2</key>
 			<data>
 			9az6w0YewI+oE/SJPZTuoZM9zANAnPEeppDL/J/eGuw=
@@ -59,21 +51,13 @@
 		</dict>
 		<key>Headers/NTESQuickPass.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			MK6YHeaZvjHJCibAY3NonKz2+Js=
-			</data>
 			<key>hash2</key>
 			<data>
-			YTq6WjyFNDk6QcGv3XpQ4tLYUf69Y+HxI8WWSvuj+Eg=
+			Pq6bw0bKjafqjVcxReCbCISWFFkSyCoDCwoHdiW8DXg=
 			</data>
 		</dict>
 		<key>Headers/NTESQuickPassManager.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			OCRw512mGsf0lT+9UN6UwQ66BwI=
-			</data>
 			<key>hash2</key>
 			<data>
 			Zr06Zq6IQd97i3H6VvrRsj6oQj/TPGhiX3zILt0q2PA=
@@ -81,10 +65,6 @@
 		</dict>
 		<key>Modules/module.modulemap</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			erSnUyE8v/Q3zXj6uJ452I4s/3E=
-			</data>
 			<key>hash2</key>
 			<data>
 			9Bpcmf7lcGMufTBH3l7Zs9e48iPsVYhRgdPnURLIklM=
@@ -92,10 +72,6 @@
 		</dict>
 		<key>PrivacyInfo.xcprivacy</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			Gr+Dw/Ey+RXai5G7aoojY8YFG3c=
-			</data>
 			<key>hash2</key>
 			<data>
 			+3p3tDjXU8UQ+tZ1zKrUjPeFPhWmiuLbFnTyEINVOt8=

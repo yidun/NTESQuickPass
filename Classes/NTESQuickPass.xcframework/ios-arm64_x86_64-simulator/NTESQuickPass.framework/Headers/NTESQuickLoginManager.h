@@ -6,7 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "NTESQuickLoginModel.h"
+#import <NTESQuickPass/NTESQuickLoginModel.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -203,6 +203,8 @@ typedef void(^NTESAuthorizeCompletionHandler)(void);
  点击授权页登录按钮
  */
 - (void)authLoginButtonClick;
+
+- (void)presentCTCMAuthorizeLoginController:(NTESQuickLoginModel *)model;
 
 @end
 

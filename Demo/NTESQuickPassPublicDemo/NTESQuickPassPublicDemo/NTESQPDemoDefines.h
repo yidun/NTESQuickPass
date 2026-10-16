@@ -25,7 +25,7 @@
 #define SCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
 #define SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
 
-#define IS_IPHONE_X (([[UIApplication sharedApplication] statusBarFrame].size.height == 44) ? YES : NO)
+#define IS_IPHONE_X ((GetCurrentStatusBarHeight() == 44) ? YES : NO)
 
 #define DT_IS_IPHONEX_XS   (SCREEN_HEIGHT == 812.f)  //是否是iPhoneX、iPhoneXS
 #define DT_IS_IPHONEXR_XSMax   (SCREEN_HEIGHT == 896.f)  //是否是iPhoneXR、iPhoneX Max
@@ -62,6 +62,27 @@
 #import <Masonry/Masonry.h>
 
 #define RGBA(r,g,b,a) [UIColor colorWithRed:r/255.0f green:g/255.0f blue:b/255.0f alpha:a]
+
+static inline CGFloat GetCurrentStatusBarHeight(void) {
+    // 默认先尝试用旧版 API 获取
+    CGRect statusBarFrame;
+    
+    if (@available(iOS 13.0, *)) {
+        NSSet<UIScene *> *scenes = [UIApplication sharedApplication].connectedScenes;
+        for (UIScene *scene in scenes) {
+            if (scene.activationState == UISceneActivationStateForegroundActive && [scene isKindOfClass:[UIWindowScene class]]) {
+                UIStatusBarManager *statusBarManager = ((UIWindowScene *)scene).statusBarManager;
+                statusBarFrame = statusBarManager.statusBarFrame;
+                break;
+            }
+        }
+    } else {
+        statusBarFrame = [UIApplication sharedApplication].statusBarFrame;
+    }
+    
+    return statusBarFrame.size.height;
+}
+
 
 #endif /* NTESQPDefines_h */
 

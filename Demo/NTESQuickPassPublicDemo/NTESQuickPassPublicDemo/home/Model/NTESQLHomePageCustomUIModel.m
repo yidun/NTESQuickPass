@@ -94,6 +94,8 @@
     model.appPrivacyLineSpacing = 5;
     model.progressColor = [UIColor redColor];
     
+    model.numberLeftContent = @"TESTL ";
+    model.numberRightContent = @" TESTR";
     
     if (@available(iOS 13.0, *)) {
         model.statusBarStyle = UIStatusBarStyleDarkContent;

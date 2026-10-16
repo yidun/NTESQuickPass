@@ -15,6 +15,6 @@ FOUNDATION_EXPORT const unsigned char NTESQuickPassVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <NTESQuickPass/PublicHeader.h>
 
-#import "NTESQuickPassManager.h"
-#import "NTESQuickLoginManager.h"
-#import "NTESQuickLoginModel.h"
+#import <NTESQuickPass/NTESQuickPassManager.h>
+#import <NTESQuickPass/NTESQuickLoginManager.h>
+#import <NTESQuickPass/NTESQuickLoginModel.h>
