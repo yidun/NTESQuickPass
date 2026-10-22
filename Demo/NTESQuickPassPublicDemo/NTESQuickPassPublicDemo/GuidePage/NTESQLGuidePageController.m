@@ -159,7 +159,28 @@
 - (void)enterButtonDidTipped:(UIButton *)sender {
     NTESQLHomePageViewController *vc = [[NTESQLHomePageViewController alloc] init];
     NTESNavigationController *nav = [[NTESNavigationController alloc] initWithRootViewController:vc];
-    [UIApplication sharedApplication].delegate.window.rootViewController = nav;
+    [self getKeyWindow].rootViewController = nav;
+}
+
+
+//获取KeyWindow
+- (UIWindow *)getKeyWindow {
+    if (@available(iOS 13.0, *)) {
+        for (UIWindowScene* windowScene in [UIApplication sharedApplication].connectedScenes) {
+            if (windowScene.activationState == UISceneActivationStateForegroundActive) {
+                for (UIWindow *window in windowScene.windows) {
+                    if (window.isKeyWindow) {
+                        return window;
+                        break;
+                    }
+                }
+            }
+        }
+    }
+    else {
+        return [UIApplication sharedApplication].keyWindow;
+    }
+    return nil;
 }
 
 - (BOOL)shouldAutorotate {

@@ -23,7 +23,7 @@
 @property (nonatomic, strong) UIView *checkTabLineView;  /// 本机校验切换按钮底部的线
 
 @property (nonatomic, strong) NTESQLHomePagePortraitBottomView *bottomView;  /// 横屏底部白色的控件
- 
+
 @end
 
 @implementation NTESQLHomePagePortraitView
@@ -34,6 +34,32 @@
         [self setupViews];
     }
     return self;
+}
+
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    [self updateBottomViewMask];
+}
+
+/// 根据 _bottomView 当前的 bounds 重建圆角 mask，保证随布局自适应
+- (void)updateBottomViewMask {
+    if (!_bottomView || CGRectIsEmpty(_bottomView.bounds)) {
+        return;
+    }
+
+    UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:_bottomView.bounds
+                                              byRoundingCorners:UIRectCornerTopLeft | UIRectCornerTopRight
+                                                    cornerRadii:CGSizeMake(16, 16)];
+
+    CAShapeLayer *maskLayer = nil;
+    if ([_bottomView.layer.mask isKindOfClass:[CAShapeLayer class]]) {
+        maskLayer = (CAShapeLayer *)_bottomView.layer.mask;
+    } else {
+        maskLayer = [CAShapeLayer layer];
+        _bottomView.layer.mask = maskLayer;
+    }
+    maskLayer.frame = _bottomView.bounds;
+    maskLayer.path = path.CGPath;
 }
 
 - (void)setupViews {
@@ -79,8 +105,8 @@
     [self addSubview:_loginTabButton];
     [_loginTabButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self).mas_offset(leftMargin);
-        make.bottom.equalTo(self).mas_offset(- 380);
-        make.size.mas_equalTo(CGSizeMake(64, 22));
+        make.bottom.equalTo(self).mas_offset(- 371 + (IS_IPHONEX_SET ? 0 : 40));
+        make.size.mas_equalTo(CGSizeMake(70, 22));
     }];
     
     UIView *loginTabLineView = [[UIView alloc] init];
@@ -92,7 +118,7 @@
     [loginTabLineView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.loginTabButton);
         make.top.equalTo(self.loginTabButton.mas_bottom).mas_offset(11);
-        make.size.mas_equalTo(CGSizeMake(64, 2.5));
+        make.size.mas_equalTo(CGSizeMake(70, 2.5));
     }];
     
     _checkTabButton = [[UIButton alloc] init];
@@ -105,8 +131,8 @@
     [self addSubview:_checkTabButton];
     [_checkTabButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(self).mas_offset(-leftMargin);
-        make.bottom.equalTo(self).mas_offset(- 380);
-        make.size.mas_equalTo(CGSizeMake(64, 22));
+        make.bottom.equalTo(self).mas_offset(- 371 + (IS_IPHONEX_SET ? 0 : 40));
+        make.size.mas_equalTo(CGSizeMake(70, 22));
     }];
     
     UIView *checkTabLineView = [[UIView alloc] init];
@@ -119,19 +145,21 @@
     [checkTabLineView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.checkTabButton);
         make.top.equalTo(self.checkTabButton.mas_bottom).mas_offset(11);
-        make.size.mas_equalTo(CGSizeMake(64, 2.5));
+        make.size.mas_equalTo(CGSizeMake(70, 2.5));
     }];
     
-    _bottomView = [[NTESQLHomePagePortraitBottomView alloc] initWithFrame:CGRectMake(0, SCREEN_HEIGHT - 351 +  (IS_IPHONEX_SET ? 0 : 70), SCREEN_WIDTH, 351 - (IS_IPHONEX_SET ? 0 : 70))];
+    
+    // CGRectMake(0, SCREEN_HEIGHT - 351 +  (IS_IPHONEX_SET ? 0 : 40), SCREEN_WIDTH, 351 - (IS_IPHONEX_SET ? 0 : 40))
+    _bottomView = [[NTESQLHomePagePortraitBottomView alloc] initWithFrame:CGRectZero];
     _bottomView.delegate = self;
     _bottomView.backgroundColor = [UIColor whiteColor];
     [self addSubview:_bottomView];
-
-    UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:_bottomView.bounds byRoundingCorners:UIRectCornerTopLeft | UIRectCornerTopRight cornerRadii:CGSizeMake(16,16)];
-    CAShapeLayer *layer = [[CAShapeLayer alloc] init];
-    layer.frame = _bottomView.bounds;
-    layer.path = path.CGPath;
-    _bottomView.layer.mask = layer;
+    [_bottomView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self);
+        make.trailing.equalTo(self);
+        make.top.equalTo(checkTabLineView.mas_bottom).offset(20);
+        make.bottom.equalTo(self);
+    }];
 }
 
 /// 一键登录按钮点击
@@ -177,4 +205,3 @@
 }
 
 @end
-

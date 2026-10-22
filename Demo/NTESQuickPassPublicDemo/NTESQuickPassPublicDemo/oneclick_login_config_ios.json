@@ -1,0 +1,72 @@
+{
+"navText": "",
+"faceOrientation": 4,
+"presentDirectionType":2,
+"navReturnImg" : "login_back",
+"backgroundColor" : "#ffffff",
+"logoHidden": true,
+"authWindowPop": 2,
+"isOpenSwipeGesture" : true,
+"closePopImgWidth" : 0,
+"closePopImgHeight" : 0,
+"popBackgroundColor" :"#000000",
+"alpha" :0.5,
+"numberColor": "#0B112E",
+"numberFont": 24,
+"numberOffsetTopY": 66,
+"brandColor": "#858897",
+"brandFont": 12,
+"brandOffsetTopY": 100,
+"logBtnText": "本机号码一键登录",
+"loginBtnTextSize": 16,
+"logBtnTextColor": "#ffffff",
+"logBtnOffsetTopY": 150,
+"logBtnRadius": 24,
+"logBtnUsableBGColor": "#3D5CFF",
+"logBtnOriginLeft": 22,
+"logBtnOriginRight": 22,
+"logBtnHeight": 48,
+"appPrivacyOriginBottomMargin" : 34,
+"unCheckedImageName" : "login_check_box_n",
+"checkedImageName" : "login_check_box_s",
+"checkBoxMargin": 5,
+"checkBoxAlignment" : 1,
+"privacyColor" : "#858897",
+"privacyFont" : 12,
+"protocolColor" : "#3D5CFF",
+"toastConfirmBackgroundColor" : "#3D5CFF",
+"toastProtocolTextColor" : "#3D5CFF",
+"toastCornerRadius" : 15,
+"widgets": [
+ 
+{
+ 
+ 
+  "type": "UILabel",
+ 
+ 
+  "textColor": "#858897",
+ 
+ 
+  "font": 12,
+ 
+ 
+  "action": "otherLogin",
+ 
+ 
+  "text": "其他号码登录",
+ 
+ 
+  "textAlignment": 1,
+ 
+ 
+  "backgroundColor": "#ffffff",
+ 
+ 
+  "frame": {"mainScreenLeftDistance":80,"mainScreenRightDistance":80,"mainScreenTopDistance":210,"height":40}
+ 
+ 
+}
+ 
+]
+}

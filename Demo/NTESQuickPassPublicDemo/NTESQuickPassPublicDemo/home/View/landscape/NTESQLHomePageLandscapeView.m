@@ -73,7 +73,7 @@
     [_loginTabButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self).mas_offset(leftMargin);
         make.top.equalTo(self.logoImageView.mas_bottom).mas_offset(40);
-        make.size.mas_equalTo(CGSizeMake(64, 22));
+        make.size.mas_equalTo(CGSizeMake(70, 22));
     }];
     
     UIView *loginTabLineView = [[UIView alloc] init];
@@ -85,7 +85,7 @@
     [loginTabLineView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.loginTabButton);
         make.top.equalTo(self.loginTabButton.mas_bottom).mas_offset(12);
-        make.size.mas_equalTo(CGSizeMake(64, 2.5));
+        make.size.mas_equalTo(CGSizeMake(70, 2.5));
     }];
     
     _checkTabButton = [[UIButton alloc] init];
@@ -97,7 +97,7 @@
     [_checkTabButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(self).mas_offset(-leftMargin);
         make.top.equalTo(self.logoImageView.mas_bottom).mas_offset(40);
-        make.size.mas_equalTo(CGSizeMake(64, 22));
+        make.size.mas_equalTo(CGSizeMake(70, 22));
     }];
     
     UIView *checkTabLineView = [[UIView alloc] init];
@@ -110,7 +110,7 @@
     [checkTabLineView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.checkTabButton);
         make.top.equalTo(self.checkTabButton.mas_bottom).mas_offset(12);
-        make.size.mas_equalTo(CGSizeMake(64, 2.5));
+        make.size.mas_equalTo(CGSizeMake(70, 2.5));
     }];
     
     _loginFullScreenButton = [[UIButton alloc] init];
@@ -234,4 +234,3 @@
     }
 }
 @end
-

@@ -17,6 +17,10 @@
 @property (nonatomic, strong) UIButton *loginSafeButton;
 @property (nonatomic, strong) UILabel *contentLabel;
 
+@property (nonatomic, strong) CAGradientLayer *loginFullScreenGradientLayer;
+@property (nonatomic, strong) CAGradientLayer *loginPopGradientLayer;
+@property (nonatomic, strong) CAGradientLayer *loginSafeGradientLayer;
+
 @end
 
 @implementation NTESQLHomePagePortraitBottomView
@@ -28,6 +32,14 @@
         self.backgroundColor = [UIColor clearColor];
     }
     return self;
+}
+
+/// 让三个渐变层的尺寸跟随各自按钮的真实 bounds，保证自适应
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    self.loginFullScreenGradientLayer.frame = _loginFullScreenButton.bounds;
+    self.loginPopGradientLayer.frame = _loginPopButton.bounds;
+    self.loginSafeGradientLayer.frame = _loginSafeButton.bounds;
 }
 
 - (void)setupViews {
@@ -47,11 +59,12 @@
     }];
     
     CAGradientLayer *gradientLayer = [CAGradientLayer layer];
-    gradientLayer.frame = CGRectMake(0, 0, SCREEN_WIDTH - 80, 44);
+    gradientLayer.frame = _loginFullScreenButton.bounds;
     gradientLayer.colors = @[(id)[UIColor ntes_colorWithHexString:@"#5F83FE"].CGColor, (id)[UIColor ntes_colorWithHexString:@"#324DFF"].CGColor];
     gradientLayer.startPoint = CGPointMake(0.0, 0.5);
     gradientLayer.endPoint = CGPointMake(1.0, 0.5);
     [_loginFullScreenButton.layer insertSublayer:gradientLayer atIndex:0];
+    self.loginFullScreenGradientLayer = gradientLayer;
     
     _loginPopButton = [[UIButton alloc] init];
     _loginPopButton.titleLabel.font = [UIFont fontWithName:@"PingFangSC-Regular" size:16];
@@ -68,11 +81,12 @@
         make.height.mas_equalTo(44);
     }];
     CAGradientLayer *gradientLayer1 = [CAGradientLayer layer];
-    gradientLayer1.frame = CGRectMake(0, 0, SCREEN_WIDTH - 80, 44);
+    gradientLayer1.frame = _loginPopButton.bounds;
     gradientLayer1.colors = @[(id)[UIColor ntes_colorWithHexString:@"#5F83FE"].CGColor, (id)[UIColor ntes_colorWithHexString:@"#324DFF"].CGColor];
     gradientLayer1.startPoint = CGPointMake(0.0, 0.5);
     gradientLayer1.endPoint = CGPointMake(1.0, 0.5);
     [_loginPopButton.layer insertSublayer:gradientLayer1 atIndex:0];
+    self.loginPopGradientLayer = gradientLayer1;
     
     _loginSafeButton = [[UIButton alloc] init];
     _loginSafeButton.titleLabel.font = [UIFont fontWithName:@"PingFangSC-Regular" size:16];
@@ -90,11 +104,12 @@
     }];
     
     CAGradientLayer *gradientLayer2 = [CAGradientLayer layer];
-    gradientLayer2.frame = CGRectMake(0, 0, SCREEN_WIDTH - 80, 44);
+    gradientLayer2.frame = _loginSafeButton.bounds;
     gradientLayer2.colors = @[(id)[UIColor ntes_colorWithHexString:@"#5F83FE"].CGColor, (id)[UIColor ntes_colorWithHexString:@"#324DFF"].CGColor];
     gradientLayer2.startPoint = CGPointMake(0.0, 0.5);
     gradientLayer2.endPoint = CGPointMake(1.0, 0.5);
     [_loginSafeButton.layer insertSublayer:gradientLayer2 atIndex:0];
+    self.loginSafeGradientLayer = gradientLayer2;
     
     _contentLabel = [[UILabel alloc] init];
     _contentLabel.text = @"翻转手机体验横屏";
@@ -172,4 +187,3 @@
 }
 
 @end
-

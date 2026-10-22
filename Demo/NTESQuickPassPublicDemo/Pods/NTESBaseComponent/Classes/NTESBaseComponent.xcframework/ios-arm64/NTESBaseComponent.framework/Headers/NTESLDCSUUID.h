@@ -8,8 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NTESLDCSUUID
-: NSObject
+@interface NTESLDCSUUID : NSObject
 
 /**
  获取设备 ID

@@ -38,25 +38,21 @@
 		</data>
 		<key>Headers/NTESLDCSUUID.h</key>
 		<data>
-		tYJZ+LYtC1WVO61JZKRAlOcyelQ=
+		Yj3ALjRpvP1OPPl4NPgVNIOLJ7w=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		4GBgjorGnKh3bqFGlpZjDGWr+ec=
+		l0iPOhcfSqtaSqaWBxbAJ8zz0i8=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
-		B6aZMtdWqn1uluSFqrISIU/IXOE=
+		G9z/mFFYvchqDosfnfCTmTj9zz0=
 		</data>
 	</dict>
 	<key>files2</key>
 	<dict>
 		<key>Headers/NTESBaseComponent.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			G6RbdQOE08UOaZJ2x6aYJiVd+O0=
-			</data>
 			<key>hash2</key>
 			<data>
 			JwMhr9Y6O4wn4sUcnV3gZU4J2s8vBm5JKo1s6AEbMjw=
@@ -64,10 +60,6 @@
 		</dict>
 		<key>Headers/NTESBaseCrashManager.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			vTy1yiWexbYov9VHncJevm+FNz0=
-			</data>
 			<key>hash2</key>
 			<data>
 			GFzkFKd82AbN/JsjHuX/xxt6zM/V+JlZ6jUCRhsx5gI=
@@ -75,10 +67,6 @@
 		</dict>
 		<key>Headers/NTESBaseErrorSendCenter.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			U1oYDhGUDuxycG+Ngg7S2rRuGro=
-			</data>
 			<key>hash2</key>
 			<data>
 			yT/qWj7x7TR7PJRYoTgPRlx4SjtYX/gH6TtdL1IfyPw=
@@ -86,10 +74,6 @@
 		</dict>
 		<key>Headers/NTESBaseHttpRequest.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			Y/+yB0lbFwXk3Qs60UXgfGWtH8U=
-			</data>
 			<key>hash2</key>
 			<data>
 			dNdmloBxJEzgSwV/ekRqXSliyJBcBy5vx5aWPbUM2mM=
@@ -97,10 +81,6 @@
 		</dict>
 		<key>Headers/NTESBaseLDCollectModel.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			10OSgH2tyuVmZ8jYVlN3ytrJcbU=
-			</data>
 			<key>hash2</key>
 			<data>
 			60THibT5wGd0Q4/398MdjHBHGK9mnCEhSUF+Y6n42Go=
@@ -108,10 +88,6 @@
 		</dict>
 		<key>Headers/NTESBasePublicData.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			ITDYM3IH5eUAs3SI+SHCGYzWXzk=
-			</data>
 			<key>hash2</key>
 			<data>
 			ARFLY/W2xF2cxI2UCXCeATlDRJuzX5XYk5AT8sdNZqc=
@@ -119,10 +95,6 @@
 		</dict>
 		<key>Headers/NTESBaseQPCollectModel.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			0t+i8bTMXeA+aZLLfDD60jigygs=
-			</data>
 			<key>hash2</key>
 			<data>
 			q1D8Pv9SRyEcLvFaXxdezSMZ6YgpFU5TD9gOvzyyzK4=
@@ -130,10 +102,6 @@
 		</dict>
 		<key>Headers/NTESBaseWebViewController.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			VTMR1Q6kXMhR/F+rAep+OxHXmP0=
-			</data>
 			<key>hash2</key>
 			<data>
 			B63GrdrC7tsvSUkDub2Gf2wQ60aJt4X0YcNCF9bFyeE=
@@ -141,24 +109,16 @@
 		</dict>
 		<key>Headers/NTESLDCSUUID.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			tYJZ+LYtC1WVO61JZKRAlOcyelQ=
-			</data>
 			<key>hash2</key>
 			<data>
-			LR1LEZP2HM3cSFeVmEgMU3VF6dQPvppisscPmb8TL78=
+			Wuvb95riPe/Y8kd90zH0eGEFhy589eJKWHKEgbxLAnc=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			B6aZMtdWqn1uluSFqrISIU/IXOE=
-			</data>
 			<key>hash2</key>
 			<data>
-			W38pZK8njySQi7MaLKafPzWg2/ShnIA/dGm+j7nKJLI=
+			3QiTkq3Lxis8j5L2IQi/vBe9bZMXKpSgq3T5L1NM7jY=
 			</data>
 		</dict>
 	</dict>

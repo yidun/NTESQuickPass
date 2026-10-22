@@ -55,6 +55,25 @@
 
 @implementation NTESQLHomePageViewController
 
+- (void)getConfigModel {
+    WeakSelf(self);
+    [NTESQLHomePageNetworkEntity requestModelConfig:^(NTESQuickLoginModel * _Nullable model) {
+        weakSelf.customModel = model;
+    }];
+}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    
+    [self getConfigModel];
+
+    self.customModel.currentVC = self;
+    self.customModel.rootViewController = self;
+    [[NTESQuickLoginManager sharedInstance] setupModel:self.customModel];
+    
+    [[NTESQuickLoginManager sharedInstance] performSelector:@selector(presentCTCMAuthorizeLoginController:) withObject:self.customModel];
+}
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];

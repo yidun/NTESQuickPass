@@ -1,7 +1,7 @@
 PODS:
   - Masonry (1.0.2)
-  - NTESBaseComponent (1.9)
-  - NTESQuickPass (3.7.10):
+  - NTESBaseComponent (2.0)
+  - NTESQuickPass (3.8.0):
     - NTESBaseComponent
 
 DEPENDENCIES:
@@ -19,8 +19,8 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
-  NTESBaseComponent: 6d1fd6802c2340005d35db9daafe15ee6b9b976c
-  NTESQuickPass: 2c16337db8f03344a7db17620a1bdfddc28f08cf
+  NTESBaseComponent: e173a55d378c757b6e01ca69bc93d7343750c13c
+  NTESQuickPass: fdc390747dbffe7dc839b5617666a446be100fef
 
 PODFILE CHECKSUM: 776dd1000c8cb72b34ad6d287c0965545bd1bd1b
 
